@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Page.IDHelpPage"
+             Shell.NavBarIsVisible="False"
+             Title="IDHelpPage">
+    <Grid RowDefinitions="1*,8*,1*">
+        <Frame Grid.Row="0">
+        </Frame>
+
+
+        <Frame ZIndex="1" BackgroundColor="{x:StaticResource DashboardBackground}" Grid.Row="1" VerticalOptions="CenterAndExpand" 
+               Margin="0,0,40,0">
+            <ScrollView >
+
+                <VerticalStackLayout Spacing="25">
+                    <Label Text="FIND ID" FontSize="28" FontAttributes="Bold"/>
+
+                    <Frame Padding="10" BorderColor="Transparent" CornerRadius="0">
+                        <Grid ColumnDefinitions="100,100,50,100,150" ColumnSpacing="10">
+                            <Label Text="Email" VerticalOptions="Center"/>
+                            <Entry VerticalOptions="Center" Placeholder="Email ID" Grid.Column="1"/>
+                            <Label Text="@" VerticalOptions="Center" Grid.Column="2"/>
+                            <Entry VerticalOptions="Center" Placeholder="Domain" Grid.Column="3"/>
+
+                            <Picker x:Name="DomainPicker" Grid.Column="4" VerticalOptions="Center">
+                                <Picker.ItemsSource>
+                                    <x:Array Type="{x:Type x:String}">
+                                        <x:String>naver.com</x:String>
+                                        <x:String>daum.net</x:String>
+                                        <x:String>gmail.com</x:String>
+                                        <x:String>kakao.com</x:String>
+                                    </x:Array>
+                                </Picker.ItemsSource>
+                            </Picker>
+
+                            
+
+                        </Grid>
+                    </Frame>
+                    <Button Text="Send" CornerRadius="0" HeightRequest="60" FontSize="20" FontAttributes="Bold" Released="OnButtonReleased"/>
+
+                    <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                        <Label Text="Already have a account?" FontAttributes="Bold" TextColor="Gray" VerticalTextAlignment="Center"/>
+                        <Label Text="SIGN IN" FontSize="18" FontAttributes="Bold" TextColor="{x:StaticResource Primary}" />
+                        <HorizontalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_For_SignIn"/>
+                        </HorizontalStackLayout.GestureRecognizers>
+                    </HorizontalStackLayout>
+                    
+                </VerticalStackLayout>
+            </ScrollView>
+
+        </Frame>
+
+
+        <Frame Grid.Row="2">
+        </Frame>
+
+    </Grid>
+</ContentPage>

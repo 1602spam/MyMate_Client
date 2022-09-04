@@ -14,7 +14,7 @@
             <ScrollView >
 
                 <VerticalStackLayout Spacing="25">
-                    <Label Text="FIND ID" FontSize="28" FontAttributes="Bold"/>
+                    <Label Text="FIND PW" FontSize="28" FontAttributes="Bold"/>
 
                     <Frame Padding="10" BorderColor="Transparent" CornerRadius="0">
                         <Grid ColumnDefinitions="100,*" ColumnSpacing="10">

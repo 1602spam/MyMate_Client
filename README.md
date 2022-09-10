@@ -4,7 +4,7 @@
 | 담당자 | 업무 | git| e_mail |
 | :--- | :---: | :---: | :---: |
 | 김예지 | Client | [ycs-202007052](https://github.com/ycs-202007052) | |
-| 김호경 | DataBase Manageing | [HO-0219](https://github.com/HO-0219) |  |
+| 김호경 | Database Management | [HO-0219](https://github.com/HO-0219) |  |
 | 이무현 | Network | [poro912](https://github.com/poro912) | angus99@naver.com |
 | 장 진  | Client | [ycs-202007064](https://github.com/ycs-202007064) | 1602spam@naver.com |
 | 최민호 | QA | [ycs-202007043](https://github.com/ycs-202007043) |  |

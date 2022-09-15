@@ -49,28 +49,28 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <MauiXaml Update="IDHelpPage.xaml">
+	  <MauiXaml Update="Views\IDHelpPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="IDHelpResultPage.xaml">
+	  <MauiXaml Update="Views\IDHelpResultPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PWHelpPage.xaml">
+	  <MauiXaml Update="Views\PWHelpPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PWHelpRedirectPageF.xaml">
+	  <MauiXaml Update="Views\PWHelpRedirectPageF.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PWHelpRedirectPageT.xaml">
+	  <MauiXaml Update="Views\PWHelpRedirectPageT.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PWHelpResultPage.xaml">
+	  <MauiXaml Update="Views\PWHelpResultPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="PWHelpVerificationPage.xaml">
+	  <MauiXaml Update="Views\PWHelpVerificationPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="SignInHelpPage.xaml">
+	  <MauiXaml Update="Views\SignInHelpPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
 	  <MauiXaml Update="SignInHelpPage\IDHelpPage.xaml">
@@ -79,12 +79,18 @@
 	  <MauiXaml Update="SignInHelpPage\PWHelpPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="SignInPage.xaml">
+	  <MauiXaml Update="Views\SignInPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
-	  <MauiXaml Update="SignUpPage.xaml">
+	  <MauiXaml Update="Views\SignUpPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Folder Include="Models\" />
+	  <Folder Include="Services\" />
+	  <Folder Include="ViewModels\" />
 	</ItemGroup>
 
 </Project>

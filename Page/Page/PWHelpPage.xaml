@@ -45,7 +45,7 @@
 
                         </Grid>
                     </Frame>
-                    <Button Text="Send" CornerRadius="0" HeightRequest="60" FontSize="20" FontAttributes="Bold" />
+                    <Button Text="Send" CornerRadius="0" HeightRequest="60" FontSize="20" FontAttributes="Bold" Released="OnButtonReleased_send" />
 
                     <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
                         <Label Text="Already have a account?" FontAttributes="Bold" TextColor="Gray" VerticalTextAlignment="Center"/>

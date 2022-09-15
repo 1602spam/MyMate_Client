@@ -42,6 +42,28 @@
         Route="IDHelpResult" />
 
 
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:PWHelpVerificationPage}"
+        Route="PWHelpVerification" />
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:PWHelpResultPage}"
+        Route="PWHelpResult" />
+
+
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:PWHelpRedirectPageT}"
+        Route="PWHelpRedirectT" />
+
+
+    <ShellContent
+        Title="Home"
+        ContentTemplate="{DataTemplate local:PWHelpRedirectPageF}"
+        Route="PWHelpRedirectF" />
 
 
 

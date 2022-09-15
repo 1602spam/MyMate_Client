@@ -10,4 +10,9 @@ public partial class PWHelpPage : ContentPage
     {
         await Shell.Current.GoToAsync("//SignIn");
     }
+
+    private async void OnButtonReleased_send(object sender, EventArgs args)
+    {
+        await Shell.Current.GoToAsync("//PWHelpVerification");
+    }
 }

@@ -49,6 +49,17 @@
 	</ItemGroup>
 
 	<ItemGroup>
+	  <Compile Remove="Models\Class1.cs" />
+	  <Compile Remove="Models\MdlSignIn.cs" />
+	  <Compile Remove="Models\MdlUserInfo.cs" />
+	  <Compile Remove="Models\text.cs" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Models\NewFile1.txt" />
+	</ItemGroup>
+
+	<ItemGroup>
 	  <MauiXaml Update="Views\IDHelpPage.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
@@ -88,9 +99,9 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Models\" />
 	  <Folder Include="Services\" />
-	  <Folder Include="ViewModels\" />
+	  <Folder Include="Services\" />
+	  <Folder Include="Views\MainPages\" />
 	</ItemGroup>
 
 </Project>

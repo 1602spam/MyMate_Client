@@ -3,8 +3,15 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Page.SignInPage"
              Shell.NavBarIsVisible="False"
-             Title="SignInPage">
-    <Grid RowDefinitions="1*,8*,1*">
+             Title="SignInPage"
+             xmlns:Models="clr-namespace:Page.Models"
+             xmlns:ViewModels="clr-namespace:Page.ViewModels">
+    
+    <ContentPage.BindingContext>
+        <ViewModels:VMSignIn/>
+    </ContentPage.BindingContext>
+
+<Grid RowDefinitions="1*,8*,1*">
         <Frame BackgroundColor="#cfd0d8" Grid.Row="0" HorizontalOptions="EndAndExpand"
                Padding="0" 
                Margin="0,-80,-80,0"
@@ -47,7 +54,7 @@
                     <Label Text="Forgot ID/PassWord?" FontAttributes="Bold" TextColor="Gray" HorizontalTextAlignment="Center"/>
                     <Label Text="FIND ID/PW" FontSize="18" FontAttributes="Bold" TextColor="{x:StaticResource Primary}" />
                     <HorizontalStackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_For_SignInHelp"/>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_For_SignInHelp" Command=""/>
                     </HorizontalStackLayout.GestureRecognizers>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">

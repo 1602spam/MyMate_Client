@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             Shell.NavBarIsVisible="False"
+             
+             MinimumHeightRequest="350"
+             MinimumWidthRequest="500"
+             x:Class="연습.MainPage"
+             >
+
+    <Grid RowDefinitions="50,*,50" ColumnDefinitions="50,*" BackgroundColor="{x:StaticResource MainPageSideBar}">
+        <!--<toolkit:AvatarView ImageSource="" Grid.Row="0" Grid.Column="0" ></toolkit:AvatarView>-->
+
+        <Grid ColumnDefinitions="*,50,50,50,50,*" Grid.Row="0" Grid.Column="1" BackgroundColor="{x:StaticResource MainPageBar}">
+            <Button Grid.Column="1" BackgroundColor="{x:StaticResource MainPageBackground1}"></Button>
+            <Button Grid.Column="2" Released="OnButtonReleased" BackgroundColor="{x:StaticResource MainPageBackground1}"></Button>
+            <Button Grid.Column="3" Released="OnButtonReleased3" BackgroundColor="{x:StaticResource MainPageBackground1}"></Button>
+            <Button Grid.Column="4" Released="OnButtonReleased4" BackgroundColor="{x:StaticResource MainPageBackground1}"></Button>
+        </Grid>
+
+        
+        
+        <Grid ColumnDefinitions="150,*" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" BackgroundColor="{x:StaticResource MainPageBackground1}">
+            <StackLayout Grid.Column="0" BackgroundColor="{x:StaticResource MainPageBackground2}">
+                <Button BackgroundColor="{x:StaticResource MainPageBackground1}"></Button>
+                <Button BackgroundColor="{x:StaticResource MainPageBackground3}"></Button>
+                <Button BackgroundColor="{x:StaticResource MainPageBackground3}" Text="+" TextColor="Black"></Button>
+                <!--채팅창 목록부분-->
+            </StackLayout>
+
+            <Grid Grid.Column="1" RowDefinitions="*,40">
+                <Frame Grid.Row="0" BackgroundColor="{x:StaticResource MainPageBackground1}">
+                    <!--채팅창 부분-->
+                </Frame>
+
+                <Grid ColumnDefinitions="50,*,60" Grid.Row="1">
+                    <Button Grid.Column="0" Text="+" BackgroundColor="{x:StaticResource MainPageBar}">
+                        <!--파일전송 버튼-->
+                    </Button>
+                    <Entry Grid.Column="1"  BackgroundColor="{x:StaticResource MainPageBackground2}"></Entry>
+                        <Button Grid.Column="2" Text="전송" BackgroundColor="{x:StaticResource MainPageBar}">
+                        <!--전송 버튼-->
+                    </Button>
+                </Grid>
+            </Grid>
+        </Grid>
+
+        
+        
+        <Border Grid.Row="0" Grid.Column="0" BackgroundColor="{x:StaticResource MainPageSideBar}">
+            <Button  BackgroundColor="{x:StaticResource MainPageBackground1}" CornerRadius ="50" Released="OnButtonReleased_pop" WidthRequest="35" HeightRequest="35"></Button>
+        </Border>
+
+        
+        
+        <Border Grid.Row="2" Grid.Column="0" BackgroundColor="{x:StaticResource MainPageSideBar}">
+            <Button  BackgroundColor="{x:StaticResource MainPageBackground1}" CornerRadius ="50" Released="OnButtonReleased_pop" WidthRequest="35" HeightRequest="35"></Button>
+        </Border>
+
+        
+        
+        
+            <StackLayout Grid.Column="0" Grid.Row="1" Spacing="10">
+                <Button BackgroundColor="{x:StaticResource MainPageBackground1}" CornerRadius ="50" WidthRequest="35" HeightRequest="35"></Button>
+                <Button BackgroundColor="{x:StaticResource MainPageBackground1}" CornerRadius ="50" WidthRequest="35" HeightRequest="35"></Button>
+            <Button BackgroundColor="{x:StaticResource MainPageBackground1}" CornerRadius ="50" WidthRequest="35" HeightRequest="35" Text="+" TextColor="Black"></Button>
+            </StackLayout>
+        
+    </Grid>
+    
+</ContentPage>

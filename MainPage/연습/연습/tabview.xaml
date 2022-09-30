@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:tabView="clr-namespace:Syncfusion.Maui.TabView;assembly=Syncfusion.Maui.TabView"
+             x:Class="연습.tabview"
+             Title="tabview">
+    <Grid RowDefinitions="50,*,50" ColumnDefinitions="50,*" BackgroundColor="{x:StaticResource MainPageSideBar}">
+        <Button Grid.Row="0" Grid.Column="0" BackgroundColor="{x:StaticResource MainPageBackground1}" CornerRadius ="50" WidthRequest="35" HeightRequest="35"></Button>
+
+
+
+        <Button  Grid.Row="2" Grid.Column="0" BackgroundColor="{x:StaticResource MainPageBackground1}" CornerRadius ="50"  WidthRequest="35" HeightRequest="35"></Button>
+
+
+
+        <StackLayout Grid.Row="1" Grid.Column="0" Spacing="10">
+            <Button WidthRequest="35" HeightRequest="35" CornerRadius="50" BackgroundColor="{x:StaticResource MainPageBackground1}"></Button>
+            <Button WidthRequest="35" HeightRequest="35" CornerRadius="50" BackgroundColor="{x:StaticResource MainPageBackground1}"></Button>
+            <Button WidthRequest="35" HeightRequest="35" CornerRadius="50" BackgroundColor="{x:StaticResource MainPageBackground1}"></Button>
+
+        </StackLayout>
+
+
+        <tabView:SfTabView Grid.Row="0" Grid.Column="1" BackgroundColor="{x:StaticResource MainPageBar}" Grid.RowSpan="2">
+            <tabView:SfTabView.Items>
+                <tabView:SfTabItem Header="Call">
+                    <tabView:SfTabItem.Content>
+                        <Grid BackgroundColor="Red" />
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+
+                <tabView:SfTabItem Header="Favorites">
+                    <tabView:SfTabItem.Content>
+                        <Grid BackgroundColor="Green"/>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+
+                <tabView:SfTabItem Header="Contacts">
+                    <tabView:SfTabItem.Content>
+                        <Grid BackgroundColor="Blue"/>
+                    </tabView:SfTabItem.Content>
+                </tabView:SfTabItem>
+            </tabView:SfTabView.Items>
+        </tabView:SfTabView>
+        
+
+
+
+
+    </Grid>
+</ContentPage>

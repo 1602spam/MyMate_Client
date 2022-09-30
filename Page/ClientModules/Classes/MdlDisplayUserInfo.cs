@@ -13,5 +13,14 @@ namespace Page.Models
 		public int Status { get; set; }
 		public string EmailAddress { get; set; }
 		public string PhoneNumber { get; set; }
+
+		public MdlDisplayUserInfo(int userCode, string username, int status, string emailAddress, string phoneNumber)
+		{
+			UserCode = userCode;
+			Username = username;
+			Status = status;
+			EmailAddress = emailAddress;
+			PhoneNumber = phoneNumber;
+		}
 	}
 }

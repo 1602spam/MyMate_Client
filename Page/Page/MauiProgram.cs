@@ -2,6 +2,7 @@
 
 public static class MauiProgram
 {
+	
 	public static MauiApp CreateMauiApp()
 	{
 		var builder = MauiApp.CreateBuilder();
@@ -15,4 +16,5 @@ public static class MauiProgram
 
 		return builder.Build();
 	}
+	
 }

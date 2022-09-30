@@ -54,7 +54,7 @@
                     <Label Text="Forgot ID/PassWord?" FontAttributes="Bold" TextColor="Gray" HorizontalTextAlignment="Center"/>
                     <Label Text="FIND ID/PW" FontSize="18" FontAttributes="Bold" TextColor="{x:StaticResource Primary}" />
                     <HorizontalStackLayout.GestureRecognizers>
-                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_For_SignInHelp" Command=""/>
+                        <TapGestureRecognizer Tapped="TapGestureRecognizer_Tapped_For_SignInHelp"/>
                     </HorizontalStackLayout.GestureRecognizers>
                 </HorizontalStackLayout>
                 <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">

@@ -1,5 +1,4 @@
-﻿using Microsoft.Azure.Amqp;
-using Page.Models;
+﻿using Page.Models;
 using System;
 using System.Collections.Concurrent;
 using System.Linq;
@@ -61,8 +60,9 @@ namespace ClientModules.Services
                         Console.WriteLine("successfully enqueued the value: displayuserinfo");
                         Console.WriteLine("ReceiveQueue Count:" + Instance.recieveQueue.Count);
                         Console.WriteLine("ColDisplayUseInfo Count:" + Instance.ColDisplayUserInfo.Count);
-                        
-                        Console.WriteLine("UserCode : " + obj.UserCode);
+
+                        // ~~~~~~~~~~~~~ Collection에서 검색해서 꺼내오는 것으로 교체
+                        Console.WriteLine("UserCode : " + ((MdlDisplayUserInfo)temp.Value).UserCode);
                         Console.WriteLine("Username : " + ((MdlDisplayUserInfo)temp.Value).Username);
                         Console.WriteLine("Status : " + ((MdlDisplayUserInfo)temp.Value).Status);
                         Console.WriteLine("PhoneNumber : " + ((MdlDisplayUserInfo)temp.Value).PhoneNumber);

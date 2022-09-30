@@ -1,3 +1,5 @@
+using ClientModules.Services;
+
 namespace Jin
 {
     internal static class Program
@@ -11,7 +13,9 @@ namespace Jin
             // To customize application configuration such as set high DPI settings or default font,
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
+            SvcThread.initializeThreads();
             Application.Run(new Form1());
+            Console.Write("test");
         }
     }
 }

@@ -6,5 +6,7 @@ namespace Yeji
         {
             InitializeComponent();
         }
+
+        
     }
 }

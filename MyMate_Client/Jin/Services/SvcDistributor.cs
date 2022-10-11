@@ -67,7 +67,6 @@ namespace ClientModules.Services
                         Console.WriteLine("Status : " + ((MdlDisplayUserInfo)temp.Value).Status);
                         Console.WriteLine("PhoneNumber : " + ((MdlDisplayUserInfo)temp.Value).PhoneNumber);
                         Console.WriteLine("EmailAddress : " + ((MdlDisplayUserInfo)temp.Value).EmailAddress);
-                        Console.WriteLine("IsMyself : " + ((MdlDisplayUserInfo)temp.Value).IsMyself);
                         Console.WriteLine("-----------------------------------------------------");
                     }
                     break;

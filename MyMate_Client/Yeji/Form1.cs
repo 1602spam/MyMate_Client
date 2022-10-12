@@ -1,3 +1,4 @@
+using Yeji.Chatting;
 using Yeji.MyControls;
 using Yeji.View.Controls;
 
@@ -6,6 +7,8 @@ namespace Yeji
 {
     public partial class Form1 : Form
     {
+        List<Chat> chatting = new();
+
         List<OtherChetting> otherchettings = new List<OtherChetting>();
         List<MyChetting> mychettings = new List<MyChetting>();
         public Form1()
@@ -20,6 +23,7 @@ namespace Yeji
 
         List<Button> MsgListBtns = new List<Button>();
 
+        // 채팅방 추가
         private void AddMsgListBtn_Click(object sender, EventArgs e)
         {
             FriendListPopup friendListPopup = new FriendListPopup();
@@ -39,19 +43,23 @@ namespace Yeji
             MsgListBtns.Add(AddMsgListBtn);
         }
 
+        // Send 버튼 클릭
         private void SendBtn_Click(object sender, EventArgs e)
         {
             Send();
         }
+
         void Send()
         {
             if (TxtMsg.Text.Trim().Length == 0)
                 return;
 
             AddOtherChetting(TxtMsg.Text);
-            TxtMsg.Text = String.Empty;
-            //보내지는 중
-            timer1.Start();
+
+			Chat chat = new(true, TxtMsg.Text, "goguma", "goguma", DateTime.Now);
+			this.chatting.Add(chat);
+
+			TxtMsg.Text = String.Empty;
         }
         int curTop = 10;
 
@@ -97,11 +105,15 @@ namespace Yeji
             }
         }
 
-        private void timer1_Tick(object sender, EventArgs e)
+        private void chattingLoad()
         {
-            timer1.Stop();
-            //상대방
-            //OtherChetting()
+            foreach(var chat in chatting)
+            {
+                if (chat.isMe)
+                    AddMyChetting(chat.context);
+                else
+                    AddOtherChetting(chat.context);
+			}
         }
 
         private void Chettingpanel1_SizeChanged(object sender, EventArgs e)
@@ -117,6 +129,11 @@ namespace Yeji
             {
                 i.AdjustHeight();
             }
+        }
+
+        private void MsgBtn_Click(object sender, EventArgs e)
+        {
+            chattingLoad();
         }
     }
 }

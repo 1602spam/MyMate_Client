@@ -13,28 +13,26 @@ namespace Page.Models
 		public int? Status { get; set; }
 		public string? EmailAddress { get; set; }
 		public string? PhoneNumber { get; set; }
-		public bool? IsMyself { get; set; }
 
 		public MdlDisplayUserInfo()
 		{
 		}
 
-		public MdlDisplayUserInfo(int userCode, string username, int status, string emailAddress, string phoneNumber, bool isMyself)
+		public MdlDisplayUserInfo(int userCode, string username, int status, string emailAddress, string phoneNumber)
 		{
 			UserCode = userCode;
 			Username = username;
 			Status = status; // == isOnline
 			EmailAddress = emailAddress;
 			PhoneNumber = phoneNumber;
-			IsMyself = isMyself;
 		}
 
-		public bool isValidate()
+		public bool nullCheck()
 		{
-			if (UserCode == null || Username == null || Status == null || EmailAddress == null || PhoneNumber == null || IsMyself == null)
-				return false;
-			else
+			if (UserCode == null || Username == null || Status == null || EmailAddress == null || PhoneNumber == null)
 				return true;
+			else
+				return false;
 		}
 	}
 }

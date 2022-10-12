@@ -1,4 +1,4 @@
-﻿using ClientModules.Services;
+﻿using JinConsole.Unused;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,6 +7,8 @@ using System.Threading.Tasks;
 
 namespace Page.Models
 {
+    //
+
     public class MdlSignInUserInfo
     {
         public string ?ID { get; set; }
@@ -20,33 +22,21 @@ namespace Page.Models
             this.PW = "";
         }
 
-        public MdlSignInUserInfo(string ID, string PW)
-        {
-            this.ID = ID;
-            this.PW = PW;
-        }
-
         public void enterSignInInfo()
         {
-            Console.WriteLine("------------------------");
-            Console.WriteLine("ID 입력...");
+            Console.WriteLine("ID를 입력하세요.");
             this.ID = Console.ReadLine();
-            Console.WriteLine("PW 입력...");
+            Console.WriteLine("PW를 입력하세요.");
             this.PW = Console.ReadLine();
-            Console.WriteLine("------------------------");
         }
 
         public void logoutCheck()
         {
-            while (true)
+            while (FlagSignOn)
             {
-                Console.WriteLine("로그아웃하시려면 '나가' 라고 입력...");
-                if (Console.ReadLine() == "나가")
-                {
-                    Console.WriteLine("로그아웃되었습니다.");
-                    SvcDistributor.Instance.clearAllCollection();
-                    break;
-                }
+                Console.WriteLine("로그아웃되었습니다.");
+                SvcDistributor.Instance.clearAllCollection();
+                FlagSignOn = false;
             }
         }
 
@@ -60,21 +50,20 @@ namespace Page.Models
 
         public void recvSignInResponse()
         {
-            // 서버로부터 받은 value(object)를 null check 해서 로그인 성공 여부를 표시!
+            // 서버로부터 받은 value(object)를 null check 해서 로그인 성공 여부를 표시
             if (Equals(this.ID, "admin") && Equals(this.PW, "1234"))
-                notifySignInSucceed();
+                onSignInSucceed();
             else
-                notifySignInFailed();
+                onSignInFailed();
         }
 
-        private void notifySignInSucceed()
+        private void onSignInSucceed()
         {
-            SvcExampleReceive.receiveObject();
             Console.WriteLine("로그인 성공");
             FlagSignOn = true;
         }
 
-        private void notifySignInFailed()
+        private void onSignInFailed()
         {
             Console.WriteLine("로그인 실패");
             FlagSignOn = false;

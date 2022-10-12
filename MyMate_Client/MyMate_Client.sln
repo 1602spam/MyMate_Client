@@ -3,11 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Main", "Main\Main.csproj", "{17963B82-F915-4477-9F92-265F13E520A1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Main", "Main\Main.csproj", "{17963B82-F915-4477-9F92-265F13E520A1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yeji", "Yeji\Yeji.csproj", "{F9899F88-8C67-4512-BCF5-2BDF0BFA2DEC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yeji", "Yeji\Yeji.csproj", "{F9899F88-8C67-4512-BCF5-2BDF0BFA2DEC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Jin", "Jin\Jin.csproj", "{8A34591D-3617-434F-AAD5-83F30E9B647A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JinConsole", "JinConsole\JinConsole.csproj", "{EEC822C4-FE57-4F23-822A-E96CCE33C266}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientNetwork", "..\MyMate_Network\MyMate_Network\ClientNetwork\ClientNetwork.csproj", "{F7DC96E0-804D-499E-807A-CA046D1CA15D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Protocol", "..\MyMate_Network\MyMate_Network\Protocal\Protocol.csproj", "{C4234080-C265-41B6-B899-914366307188}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +27,18 @@ Global
 		{F9899F88-8C67-4512-BCF5-2BDF0BFA2DEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9899F88-8C67-4512-BCF5-2BDF0BFA2DEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9899F88-8C67-4512-BCF5-2BDF0BFA2DEC}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8A34591D-3617-434F-AAD5-83F30E9B647A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8A34591D-3617-434F-AAD5-83F30E9B647A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8A34591D-3617-434F-AAD5-83F30E9B647A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8A34591D-3617-434F-AAD5-83F30E9B647A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEC822C4-FE57-4F23-822A-E96CCE33C266}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEC822C4-FE57-4F23-822A-E96CCE33C266}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEC822C4-FE57-4F23-822A-E96CCE33C266}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEC822C4-FE57-4F23-822A-E96CCE33C266}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F7DC96E0-804D-499E-807A-CA046D1CA15D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F7DC96E0-804D-499E-807A-CA046D1CA15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F7DC96E0-804D-499E-807A-CA046D1CA15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F7DC96E0-804D-499E-807A-CA046D1CA15D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C4234080-C265-41B6-B899-914366307188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C4234080-C265-41B6-B899-914366307188}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C4234080-C265-41B6-B899-914366307188}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C4234080-C265-41B6-B899-914366307188}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

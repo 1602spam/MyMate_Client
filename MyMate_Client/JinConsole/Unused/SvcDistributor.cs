@@ -1,12 +1,11 @@
-﻿using Microsoft.Azure.Amqp;
-using Page.Models;
+﻿using Page.Models;
 using System;
 using System.Collections.Concurrent;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClientModules.Services
+namespace JinConsole.Unused
 {
     public static class Keys
     {
@@ -22,7 +21,7 @@ namespace ClientModules.Services
 
         // 싱글턴 구현
         // Distributor.Instance.~~~로 접근
-        static private SvcDistributor ?instance;
+        static private SvcDistributor? instance;
         static public SvcDistributor Instance
         {
             get
@@ -54,23 +53,19 @@ namespace ClientModules.Services
         {
             switch (temp.Key)
             {
+                case Protocol.DataType.USER_INFO:
+
+                /*
                 case Keys.KeyDisplayUserInfo:
                     {
+                        if (((MdlDisplayUserInfo)temp.Value).nullCheck())
+                            return;
+
                         Instance.ColDisplayUserInfo.Add(temp.Value);
-                        Console.WriteLine("-----------------------------------------------------");
-                        Console.WriteLine("successfully enqueued the value: displayuserinfo");
-                        Console.WriteLine("ReceiveQueue Count:" + Instance.recieveQueue.Count);
-                        Console.WriteLine("ColDisplayUseInfo Count:" + Instance.ColDisplayUserInfo.Count);
-                        
-                        Console.WriteLine("UserCode : " + obj.UserCode);
-                        Console.WriteLine("Username : " + ((MdlDisplayUserInfo)temp.Value).Username);
-                        Console.WriteLine("Status : " + ((MdlDisplayUserInfo)temp.Value).Status);
-                        Console.WriteLine("PhoneNumber : " + ((MdlDisplayUserInfo)temp.Value).PhoneNumber);
-                        Console.WriteLine("EmailAddress : " + ((MdlDisplayUserInfo)temp.Value).EmailAddress);
-                        Console.WriteLine("IsMyself : " + ((MdlDisplayUserInfo)temp.Value).IsMyself);
-                        Console.WriteLine("-----------------------------------------------------");
                     }
                     break;
+                */
+
                 default:
                     Console.WriteLine("-----------------------------------------------------");
                     Console.WriteLine("failed to enqueue the value: undefined");

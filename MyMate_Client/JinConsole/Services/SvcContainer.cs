@@ -12,20 +12,20 @@ namespace JinConsole.Services
 {
     public class SvcContainer
     {
-        MdlDisplayUserInfo signInUserInfo = new();
-        ConcurrentBag<MdlDisplayUserInfo> mdlDisplayUserInfos = new();
+        public ConcurrentBag<MdlDisplayUserInfo> ColDisplayUserInfo = new();
 
-        static private SvcDistributor? instance;
-        static public SvcDistributor Instance
+        static private SvcContainer? instance;
+        static public SvcContainer Instance
         {
             get
             {
                 if (instance == null)
                 {
-                    instance = new SvcDistributor();
+                    instance = new SvcContainer();
                 }
                 return instance;
             }
         }
+
     }
 }

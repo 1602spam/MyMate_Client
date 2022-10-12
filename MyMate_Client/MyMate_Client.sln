@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Main", "Main\Main.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yeji", "Yeji\Yeji.csproj", "{F9899F88-8C67-4512-BCF5-2BDF0BFA2DEC}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JinConsole", "JinConsole\JinConsole.csproj", "{EEC822C4-FE57-4F23-822A-E96CCE33C266}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientModules", "JinConsole\ClientModules.csproj", "{EEC822C4-FE57-4F23-822A-E96CCE33C266}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientNetwork", "..\MyMate_Network\MyMate_Network\ClientNetwork\ClientNetwork.csproj", "{F7DC96E0-804D-499E-807A-CA046D1CA15D}"
 EndProject

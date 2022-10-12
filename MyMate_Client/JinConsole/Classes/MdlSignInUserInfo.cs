@@ -35,7 +35,6 @@ namespace Page.Models
             while (FlagSignOn)
             {
                 Console.WriteLine("로그아웃되었습니다.");
-                SvcDistributor.Instance.clearAllCollection();
                 FlagSignOn = false;
             }
         }

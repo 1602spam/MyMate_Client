@@ -12,4 +12,8 @@
     <ProjectReference Include="..\..\MyMate_Network\MyMate_Network\Protocal\Protocol.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Unused\" />
+  </ItemGroup>
+
 </Project>

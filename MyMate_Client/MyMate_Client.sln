@@ -9,9 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Yeji", "Yeji\Yeji.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientModules", "JinConsole\ClientModules.csproj", "{EEC822C4-FE57-4F23-822A-E96CCE33C266}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientNetwork", "..\MyMate_Network\MyMate_Network\ClientNetwork\ClientNetwork.csproj", "{F7DC96E0-804D-499E-807A-CA046D1CA15D}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Protocol", "..\MyMate_Network\MyMate_Network\Protocal\Protocol.csproj", "{C4234080-C265-41B6-B899-914366307188}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientNetwork", "..\MyMate_Network\MyMate_Network\ClientNetwork\ClientNetwork.csproj", "{BE049136-128F-4E9E-936B-A9DB5EB9543C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -31,14 +31,14 @@ Global
 		{EEC822C4-FE57-4F23-822A-E96CCE33C266}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EEC822C4-FE57-4F23-822A-E96CCE33C266}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EEC822C4-FE57-4F23-822A-E96CCE33C266}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F7DC96E0-804D-499E-807A-CA046D1CA15D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F7DC96E0-804D-499E-807A-CA046D1CA15D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F7DC96E0-804D-499E-807A-CA046D1CA15D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F7DC96E0-804D-499E-807A-CA046D1CA15D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C4234080-C265-41B6-B899-914366307188}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{C4234080-C265-41B6-B899-914366307188}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C4234080-C265-41B6-B899-914366307188}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C4234080-C265-41B6-B899-914366307188}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BE049136-128F-4E9E-936B-A9DB5EB9543C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BE049136-128F-4E9E-936B-A9DB5EB9543C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BE049136-128F-4E9E-936B-A9DB5EB9543C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BE049136-128F-4E9E-936B-A9DB5EB9543C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

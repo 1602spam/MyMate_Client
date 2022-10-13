@@ -1,4 +1,5 @@
 ﻿using ClientNetwork;
+using ClientNetwork.Moudle.sub;
 using Page.Models;
 using Protocol;
 using Protocol.Protocols;
@@ -21,7 +22,7 @@ namespace JinConsole.Unused
         private List<byte>? bytes;
         private RcdResult result;
 
-		private ConcurrentBag<MdlDisplayUserInfo> ColDisplayUserInfo = new();
+        private ConcurrentBag<MdlDisplayUserInfo> ColDisplayUserInfo = new();
         // 싱글턴 구현
         // Distributor.Instance.~~~로 접근
         static private SvcDistributor? instance;
@@ -32,6 +33,7 @@ namespace JinConsole.Unused
 				if (instance == null)
 				{
 					instance = new SvcDistributor();
+					Console.WriteLine("distributor 실행됨");
 				}
 				return instance;
 			}
@@ -42,15 +44,16 @@ namespace JinConsole.Unused
 		// 수신 큐에 KeyValuePair가 들어오면 읽어서 해당 오브젝트 큐로 전송
 		public static void taskDistributor()
 		{
-            while (!ServerInfo.Instance.receive.isEmpty())
+            while (!Server.Instance.receive.isEmpty())
             {
                 // 데이터를 읽어옴
-                ServerInfo.Instance.receive.Pop(out Instance.bytes);
+                Server.Instance.receive.Pop(out Instance.bytes);
                 Instance.result = Converter.Convert(Instance.bytes);
 
                 // 읽어온 데이터가 없다면 Continue
                 if (null != Instance.result.Value)
 					estimateObject(Instance.result);
+
             }
         }
 
@@ -82,11 +85,6 @@ namespace JinConsole.Unused
 					Console.WriteLine("failed to enqueue the value: undefined");
 					break;
 			}
-		}
-
-		public void clearAllCollection()
-		{
-			
 		}
 	}
 }

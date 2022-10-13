@@ -1,5 +1,6 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using ClientNetwork;
+using ClientNetwork.Moudle.sub;
 using JinConsole.Services;
 using JinConsole.Unused;
 using Page.Models;
@@ -9,9 +10,9 @@ using System.Security.Cryptography;
 
 MdlSignInUserInfo signinuserinfo = new();
 
-ServerInfo server=ServerInfo.Instance;
 List<byte> bytes;
-SvcInitializer.initialize();
+Server server = Server.Instance;
+SvcDistributor d = SvcDistributor.Instance;
 
 while (true)
 {

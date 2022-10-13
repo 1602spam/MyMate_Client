@@ -43,7 +43,7 @@ namespace JinConsole.Unused
 		// 수신 큐에 KeyValuePair가 들어오면 읽어서 해당 오브젝트 큐로 전송
 		public static void taskDistributor()
 		{
-            while (!Server.Instance.receive.isEmpty())
+			while (!Server.Instance.receive.isEmpty())
             {
                 // 데이터를 읽어옴
                 Server.Instance.receive.Pop(out Instance.bytes);
@@ -52,7 +52,6 @@ namespace JinConsole.Unused
                 // 읽어온 데이터가 없다면 Continue
                 if (null != Instance.result.Value)
 					estimateObject(Instance.result);
-
             }
         }
 

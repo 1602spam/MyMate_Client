@@ -4,16 +4,14 @@ using JinConsole.Unused;
 using Page.Models;
 using Protocol;
 using Protocol.Protocols;
+using System.IO;
+using System.Net.Sockets;
 using System.Security.Cryptography;
 
 MdlSignInUserInfo signinuserinfo = new();
 
 Server server = Server.Instance;
 SvcDistributor d = SvcDistributor.Instance;
-
-Thread t = new Thread(SvcDistributor.taskDistributor);
-t.IsBackground = true;
-t.Start();
 
 while (true)
 {

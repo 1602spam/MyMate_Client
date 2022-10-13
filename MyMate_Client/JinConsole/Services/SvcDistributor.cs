@@ -38,12 +38,14 @@ namespace JinConsole.Unused
 			}
 		}
 
-		private SvcDistributor() { }
+		private SvcDistributor() {
+			Server.Instance.receive.ReceiveEvent += taskDistributor;
+		}
 
 		// 수신 큐에 KeyValuePair가 들어오면 읽어서 해당 오브젝트 큐로 전송
 		public static void taskDistributor()
 		{
-			while (!Server.Instance.receive.isEmpty())
+			if (!Server.Instance.receive.isEmpty())
             {
                 // 데이터를 읽어옴
                 Server.Instance.receive.Pop(out Instance.bytes);

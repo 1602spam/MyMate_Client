@@ -1,4 +1,4 @@
-﻿using JinConsole.Unused;
+﻿using ClientModules.Services;
 using Protocol.Protocols;
 using Protocol;
 using System;
@@ -8,10 +8,8 @@ using System.Text;
 using System.Threading.Tasks;
 using ClientNetwork;
 
-namespace Page.Models
+namespace ClientModules.Classes
 {
-    //
-
     public class MdlSignInUserInfo
     {
         public string ?ID { get; set; }

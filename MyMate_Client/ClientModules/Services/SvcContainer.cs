@@ -1,6 +1,4 @@
-﻿using Jin.Classes;
-using JinConsole.Unused;
-using Page.Models;
+﻿using ClientModules.Classes;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -8,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace JinConsole.Services
+namespace ClientModules.Services
 {
     public class SvcContainer
     {

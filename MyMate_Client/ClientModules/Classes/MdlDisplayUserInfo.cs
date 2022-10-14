@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Protocol.Protocols;
 
-namespace Page.Models
+namespace ClientModules.Classes
 {
 	public class MdlDisplayUserInfo
 	{

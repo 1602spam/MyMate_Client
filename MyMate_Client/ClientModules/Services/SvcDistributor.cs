@@ -1,5 +1,5 @@
 ﻿using ClientNetwork;
-using Page.Models;
+using ClientModules.Classes;
 using Protocol;
 using Protocol.Protocols;
 using System;
@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using RcdResult = System.Collections.Generic.KeyValuePair<byte, object?>;
 
-namespace JinConsole.Unused
+namespace ClientModules.Services
 {
 	public static class Keys
 	{

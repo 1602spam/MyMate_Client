@@ -1,7 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using ClientModules.Classes;
+using ClientModules.Services;
 using ClientNetwork;
-using JinConsole.Unused;
-using Page.Models;
 using Protocol;
 using Protocol.Protocols;
 using System.IO;

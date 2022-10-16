@@ -1,14 +1,15 @@
 ﻿using ClientModules.Services;
+using Protocol.Protocols;
+using Protocol;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using ClientNetwork;
 
-namespace Page.Models
+namespace ClientModules.Classes
 {
-    //
-
     public class MdlSignInUserInfo
     {
         public string ?ID { get; set; }
@@ -22,10 +23,12 @@ namespace Page.Models
             this.PW = "";
         }
 
-        public void enterSignInInfo(string ID, string PW)
+        public void enterSignInInfo()
         {
-            this.ID = ID;
-            this.PW = PW;
+            Console.WriteLine("ID를 입력하세요.");
+            this.ID = Console.ReadLine();
+            Console.WriteLine("PW를 입력하세요.");
+            this.PW = Console.ReadLine();
         }
 
         public void logoutCheck()
@@ -33,7 +36,6 @@ namespace Page.Models
             while (FlagSignOn)
             {
                 Console.WriteLine("로그아웃되었습니다.");
-                SvcDistributor.Instance.clearAllCollection();
                 FlagSignOn = false;
             }
         }
@@ -42,8 +44,11 @@ namespace Page.Models
         {
             //리퀘스트 송신
             Console.WriteLine("로그인 정보 송신...");
-            Console.WriteLine("서버가 DB 데이터 대조 중...");
-            Console.WriteLine("DB: ID는 admin, PW는 1234, 대조 후 맞으면 1, 아니면 0 반환");
+            List<byte> bytes;
+            bytes = new();
+            LoginProtocol.Login l = new(this.ID, this.PW);
+            Generater.Generate(l, ref bytes);
+            Server.Instance.send.Data(bytes);
         }
 
         public void recvSignInResponse()
@@ -57,7 +62,6 @@ namespace Page.Models
 
         private void onSignInSucceed()
         {
-            SvcExampleReceive.receiveObject();
             Console.WriteLine("로그인 성공");
             FlagSignOn = true;
         }

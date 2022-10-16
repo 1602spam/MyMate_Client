@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jin.Classes
+namespace ClientModules.Classes
 {
     public class MdlServer
     {

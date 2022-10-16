@@ -4,11 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Jin.Classes
+namespace ClientModules.Classes
 {
-    public class MdlChatroom
+    public class MdlMessage
     {
-        public int? ChatroomCode { get; set; }
+        public int? UserCode { get; set; }
+        public int? ChannelCode { get; set; }
         public int? ServerCode { get; set; }
         public string? Message { get; set; }
         public string? Date { get; set; }

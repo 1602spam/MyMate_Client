@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 using System.Xml.Linq;
 using Protocol.Protocols;
 
-namespace ClientModules.Classes
+namespace ClientModules.Models
 {
-	public class MdlDisplayUserInfo
-	{
-		public int? UserCode { get; set; }
+    public class MdlDisplayUserInfo
+    {
+        public int? UserCode { get; set; }
         public string? ID { get; set; }
 
         public string? Name { get; set; }
@@ -20,12 +20,13 @@ namespace ClientModules.Classes
 
         //public string? Username { get; set; }
         //public int? Status { get; set; }
-		//public string? EmailAddress { get; set; }
-		public string? PhoneNumber { get; set; }
+        //public string? EmailAddress { get; set; }
 
-		public MdlDisplayUserInfo()
-		{
-		}
+        public string? PhoneNumber { get; set; }
+
+        public MdlDisplayUserInfo()
+        {
+        }
 
         public MdlDisplayUserInfo(UserInfoProtocol.User user)
         {
@@ -39,12 +40,13 @@ namespace ClientModules.Classes
         public MdlDisplayUserInfo(int userCode, string id, string name, string nick, string phoneNumber)
         {
             UserCode = userCode;
-			ID = id;
-			Name = name;
-			Nick = nick;
+            ID = id;
+            Name = name;
+            Nick = nick;
             PhoneNumber = phoneNumber;
         }
 
+        /*
         public bool nullCheck()
 		{
             if (UserCode == null || ID == null || Name == null || Nick == null || PhoneNumber == null)
@@ -53,7 +55,6 @@ namespace ClientModules.Classes
                 return false;
         }
 
-        /*
 		public MdlDisplayUserInfo(int userCode, string username, int status, string emailAddress, string phoneNumber)
 		{
 			UserCode = userCode;

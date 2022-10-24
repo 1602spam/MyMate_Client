@@ -8,12 +8,11 @@ namespace ClientModules.Classes
 {
     public class MdlServer
     {
-        public int? UserCode { get; set; }
-        public int? ChannelCode { get; set; }
-        public int? ServerCode { get; set; }
-        public string? Message { get; set; }
-        public string? Date { get; set; }
-        public int? MessageType { get; set; }
+        public int? Code { get; set; }
+        public bool IsCompact { get; set; }
+        public string Title { get; set; }
+        public int[] UserCodes { get; set; }
 
+        //권한 리스트, <권한 키,유저코드>로 된 유저 목록
     }
 }

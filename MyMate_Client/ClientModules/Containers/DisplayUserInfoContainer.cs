@@ -13,7 +13,6 @@ namespace ClientModules.Containers
     {
         public int Count { get; set; }
         public ConcurrentDictionary<int, MdlDisplayUserInfo> Dictionary { get; set; }
-
         public DisplayUserInfoContainer() {
             Count = 0;
             Dictionary = new();

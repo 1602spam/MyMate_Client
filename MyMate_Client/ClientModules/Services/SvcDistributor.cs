@@ -21,6 +21,7 @@ namespace ClientModules.Services
         //각 모델에 대한 ConcurrentDictionary와 Key카운터를 가진 멤버 클래스 목록
         public static DisplayUserInfoContainer DisplayUserInfos = new();
 
+
         // 싱글턴 구현
         // Distributor.Instance.~~~로 접근합니다.
         private static SvcDistributor? instance;

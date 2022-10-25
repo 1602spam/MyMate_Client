@@ -8,14 +8,15 @@ namespace ClientModules.Models.Calendar
 {
     public class MdlSchedule
     {
+        //캘린더 코드
         public int Code { get; set; }
+        //캘린더가 속한 서버 코드
         public int ServerCode { get; set; }
+        //캘린더를 생성한 유저의 코드
         public int OwnerCode { get; set; }
+        //캘린더 제목
         public string Title { get; set; }
-        public Dictionary<int, int> Users { get; set; }
-        //서버 내의 불특정 다수가 공유 메시지를 클릭해 공유받으면
-        //공유를 받은 유저 정보는 <유저 코드, 스케줄 코드>로 저장되어 해당 스케줄에 대한 리퀘스트를 요청하게 됨
-        //참여 정보를 따로 구성해 각 유저가 리퀘스트를 보내고, 그 때 Item과 객체를 보내는 식으로 재구성하기
-        //유저 딕셔너리의 경우 변경이 잦을 수 있음
+        //캘린더를 공유받은 사람 ??????? 이미 받았는데 공유받은 사람이 뭐가 중요한지 모르겠지만 쓸 데 있을 수도 있어서 일단 넣어 두기
+        public List<int> Users { get; set; }
     }
 }

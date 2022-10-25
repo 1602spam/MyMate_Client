@@ -16,12 +16,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MyMate_Network\MyMate_Network\ClientNetwork\ClientNetwork.csproj" />
-    <ProjectReference Include="..\..\MyMate_Network\MyMate_Network\Protocal\Protocol.csproj" />
+    <Compile Remove="Unused\**" />
+    <EmbeddedResource Remove="Unused\**" />
+    <None Remove="Unused\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Unused\" />
+    <ProjectReference Include="..\..\MyMate_Network\MyMate_Network\ClientNetwork\ClientNetwork.csproj" />
+    <ProjectReference Include="..\..\MyMate_Network\MyMate_Network\Protocal\Protocol.csproj" />
   </ItemGroup>
 
 </Project>

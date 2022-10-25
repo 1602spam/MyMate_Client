@@ -18,7 +18,7 @@ namespace ClientModules.Models.Chat
         //권한 코드 목록
         public List<int> PermissionCode { get; set; }
         //<권한 키, 유저코드>로 구성된 유저 목록
-        public Dictionary<int, int> UserCodes { get; set; }
+        public Dictionary<int, int> Users { get; set; }
         //생성자 코드
         public int OwnerCode { get; set; }
     }
@@ -31,7 +31,10 @@ namespace ClientModules.Models.Chat
 상위 객체가 하위 객체 코드 리스트를 가지고 있고,
 하위 객체는 알아서 잘 놀고 있고,
 
-상위 객체를 표시할 때 하위 객체까지 같이 불러옴
-하위 객체를 불러올 때 상위 객체의 리스트가 수정됨
-*/
+하위 객체를 불러올 때 상위 객체의 리스트를 참조하고
+하위 객체가 수정될 때 상위 객체의 리스트를 수정함
+
+퍼미션 코드에 따라 퍼미션 정보를 불러오고,
+유저 코드를 불러올 때
+ */
 }

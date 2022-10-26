@@ -7,13 +7,24 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;8604;8618;</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;8604;8618;</NoWarn>
+  </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\..\MyMate_Network\MyMate_Network\ClientNetwork\ClientNetwork.csproj" />
-    <ProjectReference Include="..\..\MyMate_Network\MyMate_Network\Protocal\Protocol.csproj" />
+    <Compile Remove="Unused\**" />
+    <EmbeddedResource Remove="Unused\**" />
+    <None Remove="Unused\**" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Unused\" />
+    <ProjectReference Include="..\..\MyMate_Network\MyMate_Network\ClientNetwork\ClientNetwork.csproj" />
+    <ProjectReference Include="..\..\MyMate_Network\MyMate_Network\Protocal\Protocol.csproj" />
   </ItemGroup>
 
 </Project>

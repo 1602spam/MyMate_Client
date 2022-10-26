@@ -1,4 +1,4 @@
-﻿using ClientNetwork;
+using ClientNetwork;
 using Protocol;
 using Protocol.Protocols;
 using System;
@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using RcdResult = System.Collections.Generic.KeyValuePair<byte, object?>;
+
 using ClientModules.Containers;
 using ClientModules.Extensions;
 using ClientModules.Models;
@@ -33,6 +34,7 @@ namespace ClientModules.Services
 				return instance;
 			}
 		}
+
 
 		private SvcDistributor()
 		{
@@ -65,6 +67,7 @@ namespace ClientModules.Services
 					{
 						UserInfoProtocol.User? userinfo;
 						userinfo = temp.Value as UserInfoProtocol.User;
+
 						MdlUser d = new(userinfo);
 
 						//유저코드/밸류 순으로 딕셔너리에 저장

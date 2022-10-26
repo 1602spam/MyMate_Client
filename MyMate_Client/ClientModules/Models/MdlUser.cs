@@ -24,7 +24,7 @@ namespace ClientModules.Models
 		//유저 연락처
 		public string PhoneNumber { get; set; }
 		//유저 자기소개
-		public string Introduce { get; set; }
+		public string Introduction { get; set; }
 
 		public MdlUser()
 		{
@@ -38,9 +38,10 @@ namespace ClientModules.Models
 			Status = status;
 			Email = email;
 			PhoneNumber = phonenumber;
-			Introduce = introduce;
+			Introduction = introduce;
         }
 
+		/*
         public MdlUser(UserInfoProtocol.User user)
 		{
 			Code = user.code;
@@ -51,7 +52,6 @@ namespace ClientModules.Models
 			PhoneNumber = user.phone;
 		}
 
-		/*
 		public bool nullCheck()
 		{
 			if (UserCode == null || Username == null || Status == null || EmailAddress == null || PhoneNumber == null)

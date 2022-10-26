@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientModules.Models.Friend
 {
-    public class MdlFriendList
+    public class MdlFriends
     {
         //대상 유저의 코드
         public int Code { get; set; }

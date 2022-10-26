@@ -1,5 +1,6 @@
 ﻿using ClientModules.Extensions;
 using ClientModules.Models;
+using ClientModules.Models.Calendar;
 using ClientModules.Models.Chat;
 using System;
 using System.Collections;
@@ -12,11 +13,11 @@ using System.Threading.Tasks;
 
 namespace ClientModules.Containers
 {
-    public static class UserContainer
+    public static class ScheduleItemContainer
     {
-        public static ConcurrentDictionary<int, MdlUser> Dict = new();
+        public static ConcurrentDictionary<int, MdlScheduleItem> Dict = new();
 
-        public static void AddOrUpdate(int k, MdlUser v)
+        public static void AddOrUpdate(int k, MdlScheduleItem v)
         {
             Dict.AddOrUpdate(k, v);
         }

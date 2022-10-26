@@ -12,11 +12,11 @@ using System.Threading.Tasks;
 
 namespace ClientModules.Containers
 {
-    public static class UserContainer
+    public static class MessageContainer
     {
-        public static ConcurrentDictionary<int, MdlUser> Dict = new();
+        public static ConcurrentDictionary<int, MdlMessage> Dict = new();
 
-        public static void AddOrUpdate(int k, MdlUser v)
+        public static void AddOrUpdate(int k, MdlMessage v)
         {
             Dict.AddOrUpdate(k, v);
         }

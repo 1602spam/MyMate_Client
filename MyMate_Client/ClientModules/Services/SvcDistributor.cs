@@ -14,6 +14,7 @@ using ClientModules.Models;
 
 namespace ClientModules.Services
 {
+
 	public sealed class SvcDistributor
 	{
 		private List<byte>? bytes;
@@ -21,6 +22,7 @@ namespace ClientModules.Services
 
 		// 싱글턴 구현
 		// Distributor.Instance.~~~로 접근합니다.
+		// 클래스 안에 static 멤버 속성은 프로그램 메모리 적재 시에 구성되고
 		private static SvcDistributor? instance;
 		public static SvcDistributor Instance
 		{
@@ -39,6 +41,13 @@ namespace ClientModules.Services
 		private SvcDistributor()
 		{
 			// 수신 큐에 KeyValuePair가 들어오면 읽어서 해당 오브젝트 큐로 전송하도록 taskDistributor 이벤트 등록
+
+			// 이벤트 정리
+			// 1. 대리자 선언
+			// 2. 대리자 형식 이벤트 속성 선언
+			// 3. 작업을 수행할 객체에서 대리자 형식 이벤트에 메서드 추가
+			// 4. 이벤트 호출하면 해당 메서드가 실행됨
+
 			Server.Instance.receive.ReceiveEvent += taskDistributor;
 		}
 

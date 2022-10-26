@@ -11,6 +11,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientModules", "ClientModu
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestDataSender", "..\MyMate_Network\MyMate_Network\TestDataSender\TestDataSender.csproj", "{60CD4DCD-2902-4416-B56A-D76F3DB5CE06}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinformTest", "WinformTest\WinformTest.csproj", "{6DC1EE8D-73D7-4BFD-8630-678F104AFAC1}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{60CD4DCD-2902-4416-B56A-D76F3DB5CE06}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{60CD4DCD-2902-4416-B56A-D76F3DB5CE06}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{60CD4DCD-2902-4416-B56A-D76F3DB5CE06}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6DC1EE8D-73D7-4BFD-8630-678F104AFAC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6DC1EE8D-73D7-4BFD-8630-678F104AFAC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6DC1EE8D-73D7-4BFD-8630-678F104AFAC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6DC1EE8D-73D7-4BFD-8630-678F104AFAC1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

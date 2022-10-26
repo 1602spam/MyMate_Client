@@ -10,7 +10,7 @@ namespace ClientModules.Models.Chat
     public class MdlServer
     {
         //서버 코드
-        public int? Code { get; set; }
+        public int Code { get; set; }
         //서버를 단일 채팅방으로 표시할지 여부
         public bool IsCompact { get; set; }
         //서버 제목

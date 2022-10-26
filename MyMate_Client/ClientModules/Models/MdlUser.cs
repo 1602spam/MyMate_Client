@@ -9,28 +9,39 @@ using Protocol.Protocols;
 
 namespace ClientModules.Models
 {
-	public class MdlDisplayUserInfo
+	public class MdlUser
 	{
 		//유저 코드
-		public int? Code { get; set; }
+		public int Code { get; set; }
 		//유저 실제 이름
-		public string? Name { get; set; }
+		public string Name { get; set; }
 		//유저 별명
-		public string? Username { get; set; }
+		public string Username { get; set; }
 		//유저 상태
-		public int? Status { get; set; }
+		public int Status { get; set; }
 		//유저 E-mail 주소
-		public string? Email { get; set; }
+		public string Email { get; set; }
 		//유저 연락처
-		public string? PhoneNumber { get; set; }
+		public string PhoneNumber { get; set; }
 		//유저 자기소개
-		public string? Introduce { get; set; }
+		public string Introduce { get; set; }
 
-		public MdlDisplayUserInfo()
+		public MdlUser()
 		{
 		}
 
-		public MdlDisplayUserInfo(UserInfoProtocol.User user)
+        public MdlUser(int code, string name, string username, int status, string email, string phonenumber, string introduce)
+        {
+			Code = code;
+			Name = name;
+			Username = username;
+			Status = status;
+			Email = email;
+			PhoneNumber = phonenumber;
+			Introduce = introduce;
+        }
+
+        public MdlUser(UserInfoProtocol.User user)
 		{
 			Code = user.code;
 			Name = user.name;

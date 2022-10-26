@@ -19,7 +19,7 @@ namespace ClientModules.Services
         private RcdResult result;
 
         //각 모델에 대한 ConcurrentDictionary와 Key카운터를 가진 멤버 클래스 목록
-        public static DisplayUserInfoContainer DisplayUserInfos = new();
+        public static UserContainer Users = new();
 
 
         // 싱글턴 구현
@@ -68,15 +68,16 @@ namespace ClientModules.Services
                     {
                         UserInfoProtocol.User? userinfo;
                         userinfo = temp.Value as UserInfoProtocol.User;
-                        MdlDisplayUserInfo d = new(userinfo);
+                        MdlUser d = new(userinfo);
 
-                        DisplayUserInfos.Dictionary.AddOrUpdate(DisplayUserInfos.Count++, d);
+                        //유저코드/밸류 순으로 딕셔너리에 저장
+                        Users.AddOrUpdate(d.Code, d);
 
                         //Enumerable.Where 사용법
-                        //IEnumerable<MdlDisplayUserInfo> query = DisplayUserInfos.Dictionary.Values.Where(MdlDisplayUserInfo => MdlDisplayUserInfo.UserCode == 0);
-                        IEnumerable<MdlDisplayUserInfo> query = DisplayUserInfos.Dictionary.Values;
+                        //IEnumerable<MdlUserInfo> query = DisplayUser.Dictionary.Values.Where(MdlUserInfo => MdlUserInfo.UserCode == 0);
+                        IEnumerable<MdlUser> query = Users.Dictionary.Values;
                         if (query != null)
-                            foreach (MdlDisplayUserInfo _temp in query)
+                            foreach (MdlUser _temp in query)
                             {
                                 Console.WriteLine("UserCode:" + _temp.UserCode);
                                 Console.WriteLine("Name:" + _temp.Name);

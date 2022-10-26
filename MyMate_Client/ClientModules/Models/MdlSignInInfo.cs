@@ -10,17 +10,17 @@ using ClientNetwork;
 
 namespace ClientModules.Classes
 {
-    public class MdlSignInUserInfo
+    public class MdlSignInInfo
     {
-        public string ?ID { get; set; }
-        public string ?PW { get; set; }
+        public string ID { get; set; }
+        public string PW { get; set; }
 
-        public MdlSignInUserInfo()
+        public MdlSignInInfo()
         {
             this.ID = "";
             this.PW = "";
         }
-        public MdlSignInUserInfo(string ID, string PW)
+        public MdlSignInInfo(string ID, string PW)
         {
             this.ID = ID;
             this.PW = PW;

@@ -9,13 +9,12 @@ using System.Threading.Tasks;
 
 namespace ClientModules.Containers
 {
-    public class DisplayUserInfoContainer
+    public class BaseContainer
     {
         public int Count { get; set; }
-        public ConcurrentDictionary<int, MdlDisplayUserInfo> Dictionary { get; set; }
-        public DisplayUserInfoContainer() {
-            Count = 0;
-            Dictionary = new();
+        public int GenerateKey()
+        {
+            return this.Count++;
         }
     }
 }

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -23,8 +23,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\MyMate_Network\MyMate_Network\ClientNetwork\ClientNetwork.csproj" />
-    <ProjectReference Include="..\..\MyMate_Network\MyMate_Network\Protocal\Protocol.csproj" />
+    <Reference Include="ClientToServer">
+      <HintPath>..\..\MyMate_Network\DLL\ClientToServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MyMate_Network_Library">
+      <HintPath>..\..\MyMate_Network\DLL\MyMate_Network_Library.dll</HintPath>
+    </Reference>
   </ItemGroup>
 
 </Project>

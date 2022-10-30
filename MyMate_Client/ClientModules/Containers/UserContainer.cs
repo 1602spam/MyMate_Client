@@ -1,9 +1,6 @@
 ﻿using ClientModules.Extensions;
 using ClientModules.Models;
-using ClientModules.Models.Chat;
 using ClientModules.Services;
-using System;
-using System.Collections;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,13 +10,23 @@ using System.Threading.Tasks;
 
 namespace ClientModules.Containers
 {
-    public class UserContainer : IContainer
-    {
-        public static ConcurrentDictionary<int, MdlUser> Dict = new();
-
-        public static void AddOrUpdate(int k, MdlUser v)
+        public delegate void distributed();
+	public class UserContainer
+	{
+        protected event distributed? dataDistributedEvent;
+        public event distributed DataDistributedEvent
         {
-            Dict.AddOrUpdate(k, v);
+            add => dataDistributedEvent += value;
+            remove => dataDistributedEvent -= value;
+        }
+
+        public ConcurrentDictionary<int, MdlUser> Dict = new();
+
+		public void AddOrUpdate(int k, MdlUser v)
+		{
+			this.Dict.AddOrUpdate(k, v);
+            if (dataDistributedEvent != null)
+                dataDistributedEvent();
         }
 
         private static UserContainer? instance;
@@ -30,7 +37,6 @@ namespace ClientModules.Containers
                 if (instance == null)
                 {
                     instance = new UserContainer();
-                    //Console.WriteLine("distributor 실행됨");
                 }
                 return instance;
             }

@@ -12,4 +12,13 @@
     <ProjectReference Include="..\ClientModules\ClientModules.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Reference Include="ClientToServer">
+      <HintPath>..\..\MyMate_Network\DLL\ClientToServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MyMate_Network_Library">
+      <HintPath>..\..\MyMate_Network\DLL\MyMate_Network_Library.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

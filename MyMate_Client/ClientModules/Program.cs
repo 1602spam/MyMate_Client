@@ -2,15 +2,14 @@
 using ClientModules.Classes;
 using ClientModules.Services;
 using ClientModules.Controllers;
-using ClientNetwork;
+using Client_to_Server;
 using Protocol;
-using Protocol.Protocols;
 using System.IO;
 using System.Net.Sockets;
 using System.Security.Cryptography;
 using ClientModules.Models;
 using System.Runtime.CompilerServices;
-using static Protocol.Protocols.UserInfoProtocol;
+using static Protocol.UserInfoProtocol;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
 using ClientModules.Containers;

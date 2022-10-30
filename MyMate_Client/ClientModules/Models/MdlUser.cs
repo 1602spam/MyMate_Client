@@ -5,7 +5,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Protocol.Protocols;
+using Protocol;
 
 namespace ClientModules.Models
 {

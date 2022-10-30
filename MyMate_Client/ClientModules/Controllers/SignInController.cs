@@ -1,5 +1,4 @@
-﻿using ClientNetwork;
-using Protocol.Protocols;
+﻿using Client_to_Server;
 using Protocol;
 using System;
 using System.Collections.Generic;
@@ -26,11 +25,8 @@ namespace ClientModules.Controllers
         {
             //리퀘스트 송신
             Console.WriteLine("로그인 정보 송신...");
-            List<byte> bytes;
-            bytes = new();
             LoginProtocol.Login l = new(u.ID, u.PW);
-            Generater.Generate(l, ref bytes);
-            Server.Instance.send.Data(bytes);
+            Server.Instance.Send(Generater.Generate(l));
         }
     }
 }

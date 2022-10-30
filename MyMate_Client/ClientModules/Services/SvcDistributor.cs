@@ -1,6 +1,5 @@
-using ClientNetwork;
+using Client_to_Server;
 using Protocol;
-using Protocol.Protocols;
 using System;
 using System.Collections.Concurrent;
 using System.Linq;
@@ -48,15 +47,15 @@ namespace ClientModules.Services
 			// 3. 작업을 수행할 객체에서 대리자 형식 이벤트에 메서드 추가
 			// 4. 이벤트 호출하면 해당 메서드가 실행됨
 
-			Server.Instance.receive.ReceiveEvent += taskDistributor;
+			Server.Instance.ReceiveEvent += taskDistributor;
 		}
 
 		private static void taskDistributor()
 		{
-			if (!Server.Instance.receive.isEmpty())
+			if (!Server.Instance.IsEmpty())
 			{
 				// 데이터를 읽어옴
-				Server.Instance.receive.Pop(out Instance.bytes);
+				Server.Instance.Receive(out Instance.bytes);
 				Instance.result = Converter.Convert(Instance.bytes);
 
 				// 읽어온 데이터가 없다면 Continue

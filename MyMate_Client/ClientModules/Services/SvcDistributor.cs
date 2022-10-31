@@ -47,6 +47,8 @@ namespace ClientModules.Services
 			// 3. 작업을 수행할 객체에서 대리자 형식 이벤트에 메서드 추가
 			// 4. 이벤트 호출하면 해당 메서드가 실행됨
 
+
+
 			Server.Instance.ReceiveEvent += taskDistributor;
 		}
 
@@ -68,39 +70,28 @@ namespace ClientModules.Services
 
 		private static void estimateObject(KeyValuePair<byte, object> temp)
 		{
-			/*
 			switch (temp.Key)
 			{
-				case Protocol.DataType.USER_INFO:
+				/*
+				case DataType.USER:
 					{
-						UserInfoProtocol.User? userinfo;
-						userinfo = temp.Value as UserInfoProtocol.User;
+						UserProtocol.USER? user;
+						user = temp.Value as UserProtocol.USER;
 
-						MdlUser d = new(userinfo);
-
-						//유저코드/밸류 순으로 딕셔너리에 저장
-						Users.AddOrUpdate(d.Code, d);
-
-						//Enumerable.Where 사용법
-						//IEnumerable<MdlUserInfo> query = DisplayUser.Dictionary.Values.Where(MdlUserInfo => MdlUserInfo.UserCode == 0);
-						IEnumerable<MdlUser> query = Users.Dictionary.Values;
-						if (query != null)
-							foreach (MdlUser _temp in query)
-							{
-								Console.WriteLine("UserCode:" + _temp.UserCode);
-								Console.WriteLine("Name:" + _temp.Name);
-								Console.WriteLine("ID:" + _temp.ID);
-								Console.WriteLine("Nickname:" + _temp.Nick);
-								Console.WriteLine("PhoneNumber:" + _temp.PhoneNumber);
-							}
+						MdlUser d = new(user);
+						//if(d.Code != null)
+						{
+							//유저코드/밸류 순으로 딕셔너리에 저장
+							UserContainer.Instance.AddOrUpdate(d.Code, d);
+						} else
+							UserContainer.Instance.
 					}
 					break;
-
+				*/
 				default:
 					Console.WriteLine("알 수 없는 데이터를 수신하고 딕셔너리에는 저장하지 않았습니다.");
 					break;
 			}
-			*/
 		}
 	}
 }

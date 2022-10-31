@@ -16,9 +16,9 @@ namespace ClientModules.Models.Calendar
         //스케줄 항목 제목
         public string Title { get; set; }
         //스케줄 시작 날짜
-        public string StartDate { get; set; }
+        public DateTime StartDate { get; set; }
         //스케줄 종료 날짜
-        public string EndDate { get; set; }
+        public DateTime EndDate { get; set; }
         //내용(내지 메모)
         public string Content { get; set; }
         //항목 공개 여부

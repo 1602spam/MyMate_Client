@@ -18,8 +18,9 @@ namespace ClientModules.Models.Chat
         public string Title { get; set; }
         //권한 코드 목록
         public PermissionContainer Permissions { get; set; }
+        public ChatroomContainer Chatrooms { get; set; }
         //<유저코드, 권한 키>로 구성된 유저 목록
-        public Dictionary<int, int> Users { get; set; }
+        public Dictionary<int, List<int>> Users { get; set; }
         //생성자 코드
         public int OwnerCode { get; set; }
     }

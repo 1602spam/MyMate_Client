@@ -17,8 +17,8 @@ namespace ClientModules.Containers
     {
         public ConcurrentDictionary<int, MdlScheduleItem> Dict = new();
 
-        public event distributed? dataDistributedEvent;
-        public event distributed DataDistributedEvent
+        public event distribute? dataDistributedEvent;
+        public event distribute DataDistributedEvent
         {
             add => dataDistributedEvent += value;
             remove => dataDistributedEvent -= value;

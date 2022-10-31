@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace ClientModules.Containers
 {
-    public delegate void distributed();
+    public delegate void distribute();
+    public delegate void error();
     public interface IContainer
     {
-        public event distributed? dataDistributedEvent;
-        public event distributed DataDistributedEvent
+        public event distribute? dataDistributedEvent;
+        public event distribute DataDistributedEvent
         {
             add => dataDistributedEvent += value;
             remove => dataDistributedEvent -= value;

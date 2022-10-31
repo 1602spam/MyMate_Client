@@ -9,17 +9,17 @@ using Client_to_Server;
 
 namespace ClientModules.Classes
 {
-    public class MdlSignInInfo
+    public class MdlLogIn
     {
         public string ID { get; set; }
         public string PW { get; set; }
 
-        public MdlSignInInfo()
+        public MdlLogIn()
         {
             this.ID = "";
             this.PW = "";
         }
-        public MdlSignInInfo(string ID, string PW)
+        public MdlLogIn(string ID, string PW)
         {
             this.ID = ID;
             this.PW = PW;

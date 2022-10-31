@@ -14,7 +14,7 @@ using System.Collections.Generic;
 using System.Reflection.Metadata;
 using ClientModules.Containers;
 
-MdlSignInInfo signininfo = new();
+MdlLogIn signininfo = new();
 
 Server server = Server.Instance;
 SvcDistributor d = SvcDistributor.Instance;

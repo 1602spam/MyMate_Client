@@ -13,13 +13,22 @@ using System.Threading.Tasks;
 
 namespace ClientModules.Containers
 {
-    public static class ProjectItemContainer
+    public class ProjectItemContainer
     {
-        public static ConcurrentDictionary<int, MdlProjectItem> Dict = new();
+        public ConcurrentDictionary<int, MdlProjectItem> Dict = new();
 
-        public static void AddOrUpdate(int k, MdlProjectItem v)
+        public event distributed? dataDistributedEvent;
+        public event distributed DataDistributedEvent
+        {
+            add => dataDistributedEvent += value;
+            remove => dataDistributedEvent -= value;
+        }
+
+        public void AddOrUpdate(int k, MdlProjectItem v)
         {
             Dict.AddOrUpdate(k, v);
+            if (this.dataDistributedEvent != null)
+                this.dataDistributedEvent();
         }
     }
 }

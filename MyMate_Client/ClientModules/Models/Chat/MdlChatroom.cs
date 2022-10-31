@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientModules.Containers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,6 @@ namespace ClientModules.Models.Chat
         public int ServerCode { get; set; }
         //채팅방 이름(개인 채팅방의 경우 필요 없음)
         public string Title { get; set; }
+        public MessageContainer Messages { get; set; }
     }
 }

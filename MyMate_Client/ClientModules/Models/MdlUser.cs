@@ -25,8 +25,8 @@ namespace ClientModules.Models
 		public string PhoneNumber { get; set; }
 		//유저 자기소개
 		public string Introduction { get; set; }
-
-		public MdlUser()
+        public List<int> Friends { get; set; }
+        public MdlUser()
 		{
 		}
 

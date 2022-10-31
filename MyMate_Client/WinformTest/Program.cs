@@ -17,8 +17,8 @@ namespace WinformTest
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
             
-            //Server server = Server.Instance;
-            //SvcDistributor d = SvcDistributor.Instance;
+            Server server = Server.Instance;
+            SvcDistributor d = SvcDistributor.Instance;
 
             MdlUser user = new(1, "asdf", "asdf", 1, "asdf", "01011010101", "гоюл");
             UserContainer.Instance.AddOrUpdate(user.Code, user);

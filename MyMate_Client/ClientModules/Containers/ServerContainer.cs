@@ -12,13 +12,34 @@ using System.Threading.Tasks;
 
 namespace ClientModules.Containers
 {
-    public static class ServerContainer
+    public class ServerContainer:IContainer
     {
-        public static ConcurrentDictionary<int, MdlServer> Dict = new();
+        public ConcurrentDictionary<int, MdlServer> Dict = new();
 
-        public static void AddOrUpdate(int k, MdlServer v)
+        public event distributed? dataDistributedEvent;
+        public event distributed DataDistributedEvent
+        {
+            add => dataDistributedEvent += value;
+            remove => dataDistributedEvent -= value;
+        }
+
+        private static ServerContainer? instance;
+        public static ServerContainer Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new ServerContainer();
+                }
+                return instance;
+            }
+        }
+        public void AddOrUpdate(int k, MdlServer v)
         {
             Dict.AddOrUpdate(k, v);
+            if (this.dataDistributedEvent != null)
+                this.dataDistributedEvent();
         }
     }
 }

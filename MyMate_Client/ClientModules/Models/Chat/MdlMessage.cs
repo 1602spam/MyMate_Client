@@ -19,7 +19,7 @@ namespace ClientModules.Models.Chat
         //메시지 내용
         public string Message { get; set; }
         //메시지 보낸 시간
-        public string Time { get; set; }
+        public DateTime Time { get; set; }
         //일정 공유 기능, 파일 전송의 경우 이 클래스를 상속해 만들도록 함
     }
 }

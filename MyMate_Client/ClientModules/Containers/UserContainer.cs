@@ -10,23 +10,16 @@ using System.Threading.Tasks;
 
 namespace ClientModules.Containers
 {
-        public delegate void distributed();
-	public class UserContainer
+	public class UserContainer:IContainer
 	{
-        protected event distributed? dataDistributedEvent;
+
+        public ConcurrentDictionary<int, MdlUser> Dict = new();
+
+        public event distributed? dataDistributedEvent;
         public event distributed DataDistributedEvent
         {
             add => dataDistributedEvent += value;
             remove => dataDistributedEvent -= value;
-        }
-
-        public ConcurrentDictionary<int, MdlUser> Dict = new();
-
-		public void AddOrUpdate(int k, MdlUser v)
-		{
-			this.Dict.AddOrUpdate(k, v);
-            if (dataDistributedEvent != null)
-                dataDistributedEvent();
         }
 
         private static UserContainer? instance;
@@ -40,6 +33,12 @@ namespace ClientModules.Containers
                 }
                 return instance;
             }
+        }
+        public void AddOrUpdate(int k, MdlUser v)
+		{
+			this.Dict.AddOrUpdate(k, v);
+            if (this.dataDistributedEvent != null)
+                this.dataDistributedEvent();
         }
     }
 }

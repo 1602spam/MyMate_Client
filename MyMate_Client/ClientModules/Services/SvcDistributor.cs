@@ -47,8 +47,6 @@ namespace ClientModules.Services
 			// 3. 작업을 수행할 객체에서 대리자 형식 이벤트에 메서드 추가
 			// 4. 이벤트 호출하면 해당 메서드가 실행됨
 
-
-
 			Server.Instance.ReceiveEvent += taskDistributor;
 		}
 
@@ -79,12 +77,8 @@ namespace ClientModules.Services
 						user = temp.Value as UserProtocol.USER;
 
 						MdlUser u = new(user);
-						if(u.Code != null)
-						{
-							//유저코드/유저
-							UserContainer.Instance.AddOrUpdate(u.Code, u);
-						} else
-							UserContainer.Instance.errorEvent();
+						//유저코드/유저
+						UserContainer.Instance.AddOrUpdate(u.Code, u);
 					}
 					break;
 					
@@ -94,11 +88,7 @@ namespace ClientModules.Services
 						schedule = temp.Value as ScheduleProtocol.SCHEDULE;
 						
 						MdlSchedule s = new(schedule);
-						if(s.Code != null)
-						{
-							ScheduleContainer.Instance.AddOrUpdate(s.Code, c);
-						} else
-							ScheduleContainer.Instance.errorEvent();
+						ScheduleContainer.Instance.AddOrUpdate(s.Code, c);
 					}
 					break;
 					

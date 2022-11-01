@@ -13,11 +13,20 @@ using static Protocol.UserInfoProtocol;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
 using ClientModules.Containers;
+using ClientModules.Models.Chat;
 
 MdlLogIn signininfo = new();
 
-Server server = Server.Instance;
+//Server server = Server.Instance;
 SvcDistributor d = SvcDistributor.Instance;
 
 while (true) {
+
+    if (Console.ReadLine() == "do")
+    {
+        SvcDistributor.Instance.putServer(new MdlServer());
+        SvcDistributor.Instance.putChatroom(new MdlChatroom());
+        SvcDistributor.Instance.putMessage(new MdlMessage());
+    }
+    Thread.Sleep(500);
 }

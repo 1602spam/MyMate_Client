@@ -90,11 +90,13 @@ namespace ClientModules.Services
 				}
 			}
 		}
-		private void putServer(MdlServer v)
+        public void putServer(MdlServer v)
+        //private void putServer(MdlServer v)
         {
 			ServerContainer.Instance.AddOrUpdate(v.Code, v);
         }
-        private void putChatroom(MdlChatroom v)
+        public void putChatroom(MdlChatroom v)
+        //private void putChatroom(MdlChatroom v)
 		{
 			MdlServer? s;
 
@@ -103,8 +105,10 @@ namespace ClientModules.Services
 				return;
 			s.Chatrooms.AddOrUpdate(v.Code,v);
         }
-		private void putMessage(MdlMessage v)
-		{
+
+        //private void putMessage(MdlMessage v)
+        public void putMessage(MdlMessage v)
+        {
 			MdlServer? s;
 			MdlChatroom? c;
 
@@ -122,7 +126,16 @@ namespace ClientModules.Services
 			//테스트
 			switch (temp.Key)
 			{
-				/*
+                case DataType.MESSAGE:
+                    {
+                        MessageProtocol.Message? message;
+                        message = temp.Value as MessageProtocol.Message;
+
+						//putMessage(new MdlMessage(message));
+						Console.WriteLine("메시지 받는 거 확인");
+                    }
+                    break;
+                /*
 				case DataType.USER:
 					{
 						UserProtocol.USER? user;
@@ -156,15 +169,6 @@ namespace ClientModules.Services
 						chatroom = temp.Value as ChatroomProtocol.CHATROOM;
 						
 						putChatroom(new MdlChatroom(chatroom));
-					}
-					break;
-					
-				case DataType.MESSAGE:
-					{
-						MessageProtocol.Message? message;
-						message = temp.Value as MessageProtocol.MESSAGE;
-						
-						putMessage(new MdlMessage(message));
 					}
 					break;
 				
@@ -208,7 +212,7 @@ namespace ClientModules.Services
 					}
 					break;
 				*/
-				default:
+                default:
 					Console.WriteLine("알 수 없는 데이터를 수신하고 딕셔너리에는 저장하지 않았습니다.");
 					break;
 			}

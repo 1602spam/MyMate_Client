@@ -16,5 +16,20 @@ namespace ClientModules.Models.Chat
         //채팅방 이름(개인 채팅방의 경우 필요 없음)
         public string Title { get; set; }
         public MessageContainer Messages { get; set; }
+        public bool nullCheck()
+        {
+            do
+            {
+                if (Code != 0)
+                    break;
+                if (ServerCode != 0)
+                    break;
+                if (Title != "")
+                    break;
+                return true;
+            } while (false);
+
+            return false;
+        }
     }
 }

@@ -10,8 +10,8 @@ using System.Threading.Tasks;
 
 namespace ClientModules.Containers
 {
-	public class UserContainer:IContainer
-	{
+    public class UserContainer : IContainer
+    {
 
         public ConcurrentDictionary<int, MdlUser> Dict = new();
 
@@ -42,14 +42,16 @@ namespace ClientModules.Containers
             }
         }
         public void AddOrUpdate(int k, MdlUser v)
-	{
-		if(v.nullCheck()==false){
-			this.Dict.AddOrUpdate(k, v);
-            if (this.dataDistributedEvent != null)
-                this.dataDistributedEvent();
-		} else
-			if(this.errorEvent != null)
-				this.errorEvent();
+        {
+            if (v.nullCheck() == false)
+            {
+                this.Dict.AddOrUpdate(k, v);
+                if (this.dataDistributedEvent != null)
+                    this.dataDistributedEvent();
+            }
+            else
+                if (this.errorEvent != null)
+                this.errorEvent();
         }
     }
 }

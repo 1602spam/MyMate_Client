@@ -25,5 +25,21 @@ namespace ClientModules.Models.Calendar
         public bool IsPrivate { get; set; }
         //완료 여부
         public bool IsDone { get; set; }
+
+        public bool nullCheck()
+        {
+            do
+            {
+                if (Code != 0)
+                    break;
+                if (ScheduleCode != 0)
+                    break;
+                if (Title != "")
+                    break;
+                return true;
+            } while (false);
+
+            return false;
+        }
     }
 }

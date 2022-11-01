@@ -10,6 +10,8 @@ using RcdResult = System.Collections.Generic.KeyValuePair<byte, object?>;
 using ClientModules.Containers;
 using ClientModules.Extensions;
 using ClientModules.Models;
+using ClientModules.Models.Calendar;
+using ClientModules.Models.Chat;
 
 namespace ClientModules.Services
 {
@@ -35,8 +37,6 @@ namespace ClientModules.Services
 				return instance;
 			}
 		}
-
-
 		private SvcDistributor()
 		{
 			// 수신 큐에 KeyValuePair가 들어오면 읽어서 해당 오브젝트 큐로 전송하도록 taskDistributor 이벤트 등록
@@ -65,30 +65,79 @@ namespace ClientModules.Services
 #pragma warning restore CS8620 // null check if문을 사용했으므로/정상적인 값이 전송되는 경우만 고려하므로 무시함
 			}
 		}
+		private void putUser(MdlUser v)
+		{
+            UserContainer.Instance.AddOrUpdate(v.Code, v);
+        }
+		private void putSchedule(MdlSchedule v)
+		{
+			ScheduleContainer.Instance.AddOrUpdate(v.Code, v);
+		}
+		private void putScheduleItem(MdlScheduleItem v)
+		{
+			/*
+			 * 스케줄 컨테이너 인스턴스에서
+			 * 인수로 받은 항목이 참조하는 스케줄 코드를 가진 스케줄을 찾아서
+			 * 그 안의 스케줄 항목 컨테이너에 스케줄 항목을 넣어줌
+			 */
+			IEnumerable<MdlSchedule> m = ScheduleContainer.Instance.Dict.Values.Where(MdlSchedule => MdlSchedule.Code == v.ScheduleCode);
+			if (m != null)
+			{
+				foreach (MdlSchedule var in m)
+				{
+					var.Items.AddOrUpdate(v.Code, v);
+					break;
+				}
+			}
+		}
+		private void putServer(MdlServer v)
+        {
+			ServerContainer.Instance.AddOrUpdate(v.Code, v);
+        }
+        private void putChatroom(MdlChatroom v)
+		{
+			MdlServer? s;
+
+			ServerContainer.Instance.Dict.TryGetValue(v.ServerCode, out s);
+			if (s == null)
+				return;
+			s.Chatrooms.AddOrUpdate(v.Code,v);
+        }
+		private void putMessage(MdlMessage v)
+		{
+			MdlServer? s;
+			MdlChatroom? c;
+
+			ServerContainer.Instance.Dict.TryGetValue(v.ServerCode, out s);
+			if (s == null)
+				return;
+			s.Chatrooms.Dict.TryGetValue(v.ChatroomCode, out c);
+			if (c == null)
+				return;
+			c.Messages.AddOrUpdate(v);
+        }
 
 		private static void estimateObject(KeyValuePair<byte, object> temp)
 		{
+			//테스트
 			switch (temp.Key)
 			{
-
 				/*
 				case DataType.USER:
 					{
 						UserProtocol.USER? user;
 						user = temp.Value as UserProtocol.USER;
 
-						MdlUser u = new(user);
-						UserContainer.Instance.AddOrUpdate(u.Code, u);
+						putUser(new MdlUser(user));
 					}
 					break;
-					
+
 				case DataType.SCHEDULE:
 					{
 						ScheduleProtocol.Schedule? schedule;
 						schedule = temp.Value as ScheduleProtocol.SCHEDULE;
 						
-						MdlSchedule s = new(schedule);
-						ScheduleContainer.Instance.AddOrUpdate(s.Code, c);
+						putSchedule(new MdlSchedule(schedule));
 					}
 					break;
 					
@@ -97,8 +146,7 @@ namespace ClientModules.Services
 						ScheduleItemProtocol.ScheduleItem? scheduleItem;
 						scheduleItem = temp.Value as ScheduleProtocol.SCHEDULEITEM;
 						
-						MdlScheduleItem s = new(scheduleItem);
-						ScheduleItemContainer.Instance.AddOrUpdate(s.Code, c);
+						putScheduleItem(new MdlScheduleItem(scheduleitem));
 					}
 					break;
 				
@@ -107,8 +155,7 @@ namespace ClientModules.Services
 						ChatroomProtocol.Chatroom? chatroom;
 						chatroom = temp.Value as ChatroomProtocol.CHATROOM;
 						
-						MdlChatroom s = new(chatroom);
-						ChatroomContainer.Instance.AddOrUpdate(s.Code, c);
+						putChatroom(new MdlChatroom(chatroom));
 					}
 					break;
 					
@@ -117,8 +164,7 @@ namespace ClientModules.Services
 						MessageProtocol.Message? message;
 						message = temp.Value as MessageProtocol.MESSAGE;
 						
-						MdlMessage s = new(message);
-						MessageContainer.Instance.AddOrUpdate(s.Code, c);
+						putMessage(new MdlMessage(message));
 					}
 					break;
 				

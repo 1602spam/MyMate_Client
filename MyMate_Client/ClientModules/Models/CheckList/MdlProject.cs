@@ -10,7 +10,7 @@ namespace ClientModules.Models.CheckList
     public class MdlProject
     {
         //프로젝트 코드
-        //public int Code { get; set; }
+        public int Code { get; set; }
         //서버 코드
         public int ServerCode { get; set; }
         //생성자 코드
@@ -32,15 +32,15 @@ namespace ClientModules.Models.CheckList
         public bool nullCheck() {
             do
             {
-                if(ServerCode != 0)
+                if (ServerCode != 0)
                     break;
-                if(OwnerCode != 0)
+                if (OwnerCode != 0)
                     break;
-                if(Title == "")
+                if (Title != "")
                     break;
-                if(StartDate == 0)
-                return true;
-            }while(false)
+                //if (StartDate == 0)
+                    return true;
+            } while (false);
 
             return false;
         }

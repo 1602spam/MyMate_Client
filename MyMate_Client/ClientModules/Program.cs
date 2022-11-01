@@ -18,3 +18,6 @@ MdlLogIn signininfo = new();
 
 Server server = Server.Instance;
 SvcDistributor d = SvcDistributor.Instance;
+
+while (true) {
+}

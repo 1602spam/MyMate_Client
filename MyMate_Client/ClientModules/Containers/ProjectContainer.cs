@@ -15,6 +15,7 @@ namespace ClientModules.Containers
 {
     public class ProjectContainer
     {
+        public int Count { get; set; }
         public ConcurrentDictionary<int, MdlProject> Dict = new();
 
         public event distribute? dataDistributedEvent;
@@ -43,6 +44,12 @@ namespace ClientModules.Containers
                 return instance;
             }
         }
+
+        private ProjectContainer()
+        {
+            Count = 0;
+        }
+
         public void AddOrUpdate(int k, MdlProject v)
 	    {
 		if(v.nullCheck()==false){

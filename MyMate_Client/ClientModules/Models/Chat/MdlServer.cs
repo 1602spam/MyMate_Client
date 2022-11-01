@@ -23,5 +23,20 @@ namespace ClientModules.Models.Chat
         public Dictionary<int, List<int>> Users { get; set; }
         //생성자 코드
         public int OwnerCode { get; set; }
+        public bool nullCheck()
+        {
+            do
+            {
+                if (Code != 0)
+                    break;
+                if (Title != "")
+                    break;
+                if (OwnerCode != 0)
+                    break;
+                return true;
+            } while (false);
+
+            return false;
+        }
     }
 }

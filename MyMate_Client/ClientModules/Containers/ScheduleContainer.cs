@@ -15,6 +15,8 @@ namespace ClientModules.Containers
 {
     public class ScheduleContainer
     {
+        public int Count { get; set; }
+
         public ConcurrentDictionary<int, MdlSchedule> Dict = new();
 
         public event distribute? dataDistributedEvent;
@@ -42,6 +44,11 @@ namespace ClientModules.Containers
                 }
                 return instance;
             }
+        }
+
+        private ScheduleContainer()
+        {
+            Count = 0;
         }
         public void AddOrUpdate(int k, MdlSchedule v)
 	    {

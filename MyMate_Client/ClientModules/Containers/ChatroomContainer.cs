@@ -14,6 +14,7 @@ namespace ClientModules.Containers
 {
     public class ChatroomContainer
     {
+        public int Count { get; set; }
         public ConcurrentDictionary<int, MdlChatroom> Dict = new();
 
         public event distribute? dataDistributedEvent;
@@ -28,6 +29,11 @@ namespace ClientModules.Containers
         {
             add => errorEvent += value;
             remove => errorEvent -= value;
+        }
+
+        private ChatroomContainer()
+        {
+            Count = 0;
         }
 
         public void AddOrUpdate(int k, MdlChatroom v)

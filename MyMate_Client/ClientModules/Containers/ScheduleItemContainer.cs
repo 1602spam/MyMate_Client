@@ -15,6 +15,8 @@ namespace ClientModules.Containers
 {
     public class ScheduleItemContainer:IContainer
     {
+        public int Count { get; set; }
+
         public ConcurrentDictionary<int, MdlScheduleItem> Dict = new();
 
         public event distribute? dataDistributedEvent;
@@ -29,6 +31,11 @@ namespace ClientModules.Containers
         {
             add => errorEvent += value;
             remove => errorEvent -= value;
+        }
+
+        private ScheduleItemContainer()
+        {
+            Count = 0;
         }
 
         public void AddOrUpdate(int k, MdlScheduleItem v)

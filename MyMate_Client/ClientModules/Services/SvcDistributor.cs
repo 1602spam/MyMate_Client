@@ -21,7 +21,7 @@ namespace ClientModules.Services
 
 		// 싱글턴 구현
 		// Distributor.Instance.~~~로 접근합니다.
-		// 클래스 안에 static 멤버 속성은 프로그램 메모리 적재 시에 구성되고
+		// 클래스 안에 static 멤버 속성은 프로그램 메모리 적재 시에 구성
 		private static SvcDistributor? instance;
 		public static SvcDistributor Instance
 		{
@@ -78,13 +78,62 @@ namespace ClientModules.Services
 						UserProtocol.USER? user;
 						user = temp.Value as UserProtocol.USER;
 
-						MdlUser d = new(user);
-						//if(d.Code != null)
+						MdlUser u = new(user);
+						if(u.Code != null)
 						{
-							//유저코드/밸류 순으로 딕셔너리에 저장
-							UserContainer.Instance.AddOrUpdate(d.Code, d);
+							//유저코드/유저
+							UserContainer.Instance.AddOrUpdate(u.Code, u);
 						} else
-							UserContainer.Instance.
+							UserContainer.Instance.errorEvent();
+					}
+					break;
+					
+				case DataType.SCHEDULE:
+					{
+						ScheduleProtocol.Schedule? schedule;
+						schedule = temp.Value as ScheduleProtocol.SCHEDULE;
+						
+						MdlSchedule s = new(schedule);
+						if(s.Code != null)
+						{
+							ScheduleContainer.Instance.AddOrUpdate(s.Code, c);
+						} else
+							ScheduleContainer.Instance.errorEvent();
+					}
+					break;
+					
+				case DataType.SCHEDULEITEM:
+					{
+					}
+					break;
+				
+				case DataType.CHATROOM:
+					{
+					}
+					break;
+					
+				case DataType.MESSAGE:
+					{
+					}
+					break;
+				
+				case DataType.PERMISSION:
+					{
+					}
+					break;
+					
+				case DataType.SERVER:
+					{
+					}
+					break;
+					
+				case DataType.PROJECT:
+					{
+					}
+					break;
+					
+				case DataType.PROJECTITEM:
+					{
 					}
 					break;
 				*/

@@ -45,11 +45,11 @@ namespace ClientModules.Containers
 
 			while (d < List.ElementAt(i).Time) //어제 날짜보다 최근일 때
 			{
-				//코드가 같다면
+				//동일한 코드를 가진 노드가 있다면
 				if (List.ElementAt(i).Code == v.Code)
 				{
-					List.AddAfter(new LinkedListNode<MdlMessage>(List.ElementAt(i)),v); //테스트
-					List.Remove(List.ElementAt(i)); //대체
+					List.AddAfter(new LinkedListNode<MdlMessage>(List.ElementAt(i)),v); //대체하고
+					List.Remove(List.ElementAt(i));
                     if (this.dataDistributedEvent != null)
                         this.dataDistributedEvent();
 					return;
@@ -61,11 +61,5 @@ namespace ClientModules.Containers
                 this.dataDistributedEvent();
 			return;
         }
-
-		//메시지가 오면
-		//메시지 안에 있는 코드를 뜯어 보고
-		//서버 컨테이너 안에 해당 코드를 가진 서버가 있는가?
-		//서버 안에 채팅방 컨테이너 안에 해당 코드를 가진 채팅방이 있는가?
-		//해당 채팅방 안에 있는 메시지 컨테이너에 넣는다
 	}
 }

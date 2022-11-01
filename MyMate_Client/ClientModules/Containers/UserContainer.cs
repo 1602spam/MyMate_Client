@@ -35,8 +35,12 @@ namespace ClientModules.Containers
             }
         }
         public void AddOrUpdate(int k, MdlUser v)
-		{
+	{
+		//if(v.nullCheck()){
 			this.Dict.AddOrUpdate(k, v);
+		} else
+			if(this.errorEvent != null)
+				this.errorEvent();
             if (this.dataDistributedEvent != null)
                 this.dataDistributedEvent();
         }

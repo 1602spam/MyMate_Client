@@ -2,7 +2,7 @@
 using ClientModules.Classes;
 using ClientModules.Services;
 using ClientModules.Controllers;
-using Client_to_Server;
+using ClientToServer;
 using Protocol;
 using System.IO;
 using System.Net.Sockets;

@@ -15,6 +15,7 @@ namespace ClientModules.Containers
 {
     public class ProjectItemContainer
     {
+        public int Count {get; set;}
         public ConcurrentDictionary<int, MdlProjectItem> Dict = new();
 
         public event distribute? dataDistributedEvent;
@@ -24,11 +25,27 @@ namespace ClientModules.Containers
             remove => dataDistributedEvent -= value;
         }
 
-        public void AddOrUpdate(int k, MdlProjectItem v)
+        public event error? errorEvent;
+        public event error ErrorEvent
         {
-            Dict.AddOrUpdate(k, v);
+            add => errorEvent += value;
+            remove => errorEvent -= value;
+        }
+
+        private ProjectItemContainer()
+        {
+            Count = 0;
+        }
+
+        public void AddOrUpdate(int k, MdlProjectItem v)
+	    {
+		if(v.nullCheck()==false){
+			this.Dict.AddOrUpdate(k, v);
             if (this.dataDistributedEvent != null)
                 this.dataDistributedEvent();
+		} else
+			if(this.errorEvent != null)
+				this.errorEvent();
         }
     }
 }

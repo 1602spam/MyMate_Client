@@ -22,6 +22,13 @@ namespace ClientModules.Containers
             remove => dataDistributedEvent -= value;
         }
 
+        public event error? errorEvent;
+        public event error ErrorEvent
+        {
+            add => errorEvent += value;
+            remove => errorEvent -= value;
+        }
+
         private static UserContainer? instance;
         public static UserContainer Instance
         {
@@ -36,13 +43,13 @@ namespace ClientModules.Containers
         }
         public void AddOrUpdate(int k, MdlUser v)
 	{
-		//if(v.nullCheck()){
+		if(v.nullCheck()==false){
 			this.Dict.AddOrUpdate(k, v);
+            if (this.dataDistributedEvent != null)
+                this.dataDistributedEvent();
 		} else
 			if(this.errorEvent != null)
 				this.errorEvent();
-            if (this.dataDistributedEvent != null)
-                this.dataDistributedEvent();
         }
     }
 }

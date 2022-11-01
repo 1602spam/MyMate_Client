@@ -23,11 +23,25 @@ namespace ClientModules.Containers
 			remove => dataDistributedEvent -= value;
 		}
 
+		public event error? errorEvent;
+        public event error ErrorEvent
+        {
+            add => errorEvent += value;
+            remove => errorEvent -= value;
+        }
+
 		public void AddOrUpdate(MdlMessage v)
 		{
 			TimeSpan t = new TimeSpan(1, 0, 0, 0);	//1일
 			DateTime d = DateTime.Now - t;			//오늘 날짜 - 1일 == 어제
 			int i = List.Count - 1;					//인덱스
+
+			if(v.nullCheck() == true)
+			    if (this.errorEvent != null)
+				{
+					this.errorEvent();
+					return;
+				}
 
 			while (d < List.ElementAt(i).Time) //어제 날짜보다 최근일 때
 			{

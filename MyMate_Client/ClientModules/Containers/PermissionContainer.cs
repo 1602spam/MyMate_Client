@@ -23,11 +23,22 @@ namespace ClientModules.Containers
             remove => dataDistributedEvent -= value;
         }
 
-        public void AddOrUpdate(int k, MdlPermission v)
+        public event error? errorEvent;
+        public event error ErrorEvent
         {
-            Dict.AddOrUpdate(k, v);
+            add => errorEvent += value;
+            remove => errorEvent -= value;
+        }
+
+        public void AddOrUpdate(int k, MdlPermission v)
+	    {
+		if(v.nullCheck()==false){
+			this.Dict.AddOrUpdate(k, v);
             if (this.dataDistributedEvent != null)
                 this.dataDistributedEvent();
+		} else
+			if(this.errorEvent != null)
+				this.errorEvent();
         }
     }
 }

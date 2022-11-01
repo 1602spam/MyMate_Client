@@ -26,7 +26,8 @@ namespace ClientModules.Models
 		//유저 자기소개
 		public string Introduction { get; set; }
         public List<int> Friends { get; set; }
-        public MdlUser()
+        
+		public MdlUser()
 		{
 		}
 
@@ -41,24 +42,14 @@ namespace ClientModules.Models
 			Introduction = introduce;
         }
 
-		/*
         public MdlUser(UserInfoProtocol.User user)
 		{
-			Code = user.code;
-			Name = user.name;
-			Username = user.username;
-			Status = user.status;
-			Email = user.email;
-			PhoneNumber = user.phone;
+			//attribute = user.attribute
 		}
 
 		public bool nullCheck()
 		{
-			if (UserCode == null || Username == null || Status == null || EmailAddress == null || PhoneNumber == null)
-				return true;
-			else
-				return false;
+			return Code == 0 ? true : false;
 		}
-		*/
 	}
 }

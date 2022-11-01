@@ -10,7 +10,7 @@ namespace ClientModules.Models.CheckList
     public class MdlProject
     {
         //프로젝트 코드
-        public int Code { get; set; }
+        //public int Code { get; set; }
         //서버 코드
         public int ServerCode { get; set; }
         //생성자 코드
@@ -28,5 +28,21 @@ namespace ClientModules.Models.CheckList
         //이 때 유저코드, 직함 딕셔너리가 생성됨
         public List<int> Users { get; set; }
         //public Dictionary<int, string> Users { get; set; }
+        
+        public bool nullCheck() {
+            do
+            {
+                if(ServerCode != 0)
+                    break;
+                if(OwnerCode != 0)
+                    break;
+                if(Title == "")
+                    break;
+                if(StartDate == 0)
+                return true;
+            }while(false)
+
+            return false;
+        }
     }
 }

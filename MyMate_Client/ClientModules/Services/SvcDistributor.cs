@@ -70,6 +70,7 @@ namespace ClientModules.Services
 		{
 			switch (temp.Key)
 			{
+
 				/*
 				case DataType.USER:
 					{
@@ -77,7 +78,6 @@ namespace ClientModules.Services
 						user = temp.Value as UserProtocol.USER;
 
 						MdlUser u = new(user);
-						//유저코드/유저
 						UserContainer.Instance.AddOrUpdate(u.Code, u);
 					}
 					break;
@@ -94,36 +94,71 @@ namespace ClientModules.Services
 					
 				case DataType.SCHEDULEITEM:
 					{
+						ScheduleItemProtocol.ScheduleItem? scheduleItem;
+						scheduleItem = temp.Value as ScheduleProtocol.SCHEDULEITEM;
+						
+						MdlScheduleItem s = new(scheduleItem);
+						ScheduleItemContainer.Instance.AddOrUpdate(s.Code, c);
 					}
 					break;
 				
 				case DataType.CHATROOM:
 					{
+						ChatroomProtocol.Chatroom? chatroom;
+						chatroom = temp.Value as ChatroomProtocol.CHATROOM;
+						
+						MdlChatroom s = new(chatroom);
+						ChatroomContainer.Instance.AddOrUpdate(s.Code, c);
 					}
 					break;
 					
 				case DataType.MESSAGE:
 					{
+						MessageProtocol.Message? message;
+						message = temp.Value as MessageProtocol.MESSAGE;
+						
+						MdlMessage s = new(message);
+						MessageContainer.Instance.AddOrUpdate(s.Code, c);
 					}
 					break;
 				
 				case DataType.PERMISSION:
 					{
+						PermissionProtocol.Permission? permission;
+						permission = temp.Value as PermissionProtocol.PERMISSION;
+						
+						MdlPermission s = new(permission);
+						PermissionContainer.Instance.AddOrUpdate(s.Code, c);
 					}
 					break;
 					
 				case DataType.SERVER:
 					{
+						ServerProtocol.Schedule? server;
+						server = temp.Value as ServerProtocol.SERVER;
+						
+						MdlServer s = new(server);
+						ServerContainer.Instance.AddOrUpdate(s.Code, c);
 					}
 					break;
 					
 				case DataType.PROJECT:
 					{
+						ProjectProtocol.Schedule? project;
+						project = temp.Value as ProjectProtocol.PROJECT;
+						
+						MdlProject s = new(project);
+						ProjectContainer.Instance.AddOrUpdate(s.Code, c);
 					}
 					break;
 					
 				case DataType.PROJECTITEM:
 					{
+						ProjectItemProtocol.PROJECTITEM? projectitem;
+						projectitem = temp.Value as ProjectItemProtocol.PROJECTITEM;
+						
+						MdlProjectItem s = new(projectitem);
+						ProjectItemContainer.Instance.AddOrUpdate(s.Code, c);
 					}
 					break;
 				*/

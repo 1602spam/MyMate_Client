@@ -14,6 +14,8 @@ namespace ClientModules.Containers
 {
     public class ServerContainer:IContainer
     {
+        public int Count {get; set;}
+
         public ConcurrentDictionary<int, MdlServer> Dict = new();
 
         public event distribute? dataDistributedEvent;
@@ -21,6 +23,13 @@ namespace ClientModules.Containers
         {
             add => dataDistributedEvent += value;
             remove => dataDistributedEvent -= value;
+        }
+
+        public event error? errorEvent;
+        public event error ErrorEvent
+        {
+            add => errorEvent += value;
+            remove => errorEvent -= value;
         }
 
         private static ServerContainer? instance;
@@ -35,11 +44,21 @@ namespace ClientModules.Containers
                 return instance;
             }
         }
-        public void AddOrUpdate(int k, MdlServer v)
+
+        private ServerContainer()
         {
-            Dict.AddOrUpdate(k, v);
+            Count = 0;
+        }
+
+        public void AddOrUpdate(int k, MdlServer v)
+	    {
+		if(v.nullCheck()==false){
+			this.Dict.AddOrUpdate(k, v);
             if (this.dataDistributedEvent != null)
                 this.dataDistributedEvent();
+		} else
+			if(this.errorEvent != null)
+				this.errorEvent();
         }
     }
 }

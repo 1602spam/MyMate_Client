@@ -16,5 +16,12 @@ namespace ClientModules.Containers
             add => dataDistributedEvent += value;
             remove => dataDistributedEvent -= value;
         }
+        
+        public event error? errorEvent;
+        public event error ErrorEvent
+        {
+            add => errorEvent += value;
+            remove => errorEvent -= value;
+        }
     }
 }

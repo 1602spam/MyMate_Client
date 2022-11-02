@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ClientModules.Classes;
+using ClientModules.Containers;
 
 namespace ClientModules.Models.Chat
 {
@@ -16,10 +17,38 @@ namespace ClientModules.Models.Chat
         //서버 제목
         public string Title { get; set; }
         //권한 코드 목록
-        public List<int> PermissionCode { get; set; }
-        //<권한 키, 유저코드>로 구성된 유저 목록
-        public Dictionary<int, int> Users { get; set; }
+        public PermissionContainer Permissions { get; set; }
+        public ChatroomContainer Chatrooms { get; set; }
+        //<유저코드, 권한 키>로 구성된 유저 목록
+        public Dictionary<int, List<int>> Users { get; set; }
         //생성자 코드
         public int OwnerCode { get; set; }
+
+        public MdlServer(int code, bool isCompact, string title, int ownerCode)
+        {
+            Code = code;
+            IsCompact = isCompact;
+            Title = title;
+            OwnerCode = ownerCode;
+            Permissions = new();
+            Chatrooms = new();
+            Users = new();
+        }
+
+        public bool nullCheck()
+        {
+            do
+            {
+                if (Code != 0)
+                    break;
+                if (Title != "")
+                    break;
+                if (OwnerCode != 0)
+                    break;
+                return true;
+            } while (false);
+
+            return false;
+        }
     }
 }

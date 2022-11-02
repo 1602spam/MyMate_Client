@@ -12,13 +12,73 @@ using System.Threading.Tasks;
 
 namespace ClientModules.Containers
 {
-    public static class ServerContainer
+    public class ServerContainer:IContainer
     {
-        public static ConcurrentDictionary<int, MdlServer> Dict = new();
+        public ConcurrentDictionary<int, MdlServer> Items = new();
 
-        public static void AddOrUpdate(int k, MdlServer v)
+        public event distribute? dataDistributedEvent;
+        public event distribute DataDistributedEvent
         {
-            Dict.AddOrUpdate(k, v);
+            add => dataDistributedEvent += value;
+            remove => dataDistributedEvent -= value;
+        }
+
+        public event error? errorEvent;
+        public event error ErrorEvent
+        {
+            add => errorEvent += value;
+            remove => errorEvent -= value;
+        }
+
+        private static ServerContainer? instance;
+        public static ServerContainer Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new ServerContainer();
+                }
+                return instance;
+            }
+        }
+
+        private ServerContainer()
+        {
+        }
+
+        public void AddOrUpdate(MdlServer v)
+	    {
+            if (v.nullCheck() == false)
+            {
+                this.Items.AddOrUpdate(Items.Count, v);
+#if DEBUG
+                Console.WriteLine("서버 추가됨: "+v.Title);
+#endif
+                if (this.dataDistributedEvent != null)
+                    this.dataDistributedEvent();
+            }
+            else
+            {
+                if (this.errorEvent != null)
+                    this.errorEvent();
+            }
+        }
+
+        public void GetMessages(int serverCode, int chatroomCode, int count)
+        {
+            MdlServer? server;
+            server = this.Items.Values.FirstOrDefault(MdlServer => MdlServer.Code == serverCode);
+
+            if (server == null)
+            {
+#if DEBUG
+                Console.WriteLine("해당하는 서버코드의 서버를 찾지 못함");
+#endif
+                return;
+            }
+
+            server.Chatrooms.GetMessages(chatroomCode, count);
         }
     }
 }

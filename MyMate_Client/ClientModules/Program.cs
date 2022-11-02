@@ -1,65 +1,74 @@
 // See https://aka.ms/new-console-template for more information
+#define DEBUG
+
 using ClientModules.Classes;
 using ClientModules.Services;
 using ClientModules.Controllers;
-using ClientNetwork;
+using ClientToServer;
 using Protocol;
-using Protocol.Protocols;
 using System.IO;
 using System.Net.Sockets;
 using System.Security.Cryptography;
 using ClientModules.Models;
 using System.Runtime.CompilerServices;
-using static Protocol.Protocols.UserInfoProtocol;
+using static Protocol.UserInfoProtocol;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
 using ClientModules.Containers;
+using ClientModules.Models.Chat;
 
-MdlSignInInfo signininfo = new();
+MdlLogIn signininfo = new();
 
-Server server = Server.Instance;
-SvcDistributor d = SvcDistributor.Instance;
+//Server server = Server.Instance;
+//SvcDistributor d = SvcDistributor.Instance;
 
 while (true)
 {
-    //ìœˆí¼ì— ì ìš©ë˜ëŠ” í˜•íƒœëŠ” íŠ¹ì • ì•¡íŠ¸ë¥¼ public method, ì„¸ë¶€ ë™ì‘ì„ privateìœ¼ë¡œ ëª¨ë“ˆí™”í•´ dictionaryì— ì§ì ‘ ì ‘ê·¼í•˜ì§€ ëª»í•˜ë„ë¡ í•  ê²ƒ
-    MdlUser user = new(1, "asdf", "asdf", 1, "asdf", "01011010101", "í•˜ì´");
-    UserContainer.AddOrUpdate(user.Code, user);
-    user = new(1, "asdf", "asdf", 1, "asdf", "01011010101", "ë‚œ ë³€ê²½ë˜ì—ˆìŠµë‹ˆë‹¤~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~");
-    UserContainer.AddOrUpdate(user.Code, user);
-    user = new(2, "asdf", "asdf", 1, "asdf", "01011010101", "í•˜ì´");
-    UserContainer.AddOrUpdate(user.Code, user);
-    user = new(3, "asdf", "asdf", 1, "asdf", "01011010101", "í•˜ì´");
-    UserContainer.AddOrUpdate(user.Code, user);
-
-    for (int i = 4; i <= 10; i++)
+    int i;
     {
-        user = new(i, "asdf", "asdf", 1, "asdf", "01011010101", $"ë‚˜ëŠ” {i}ë²ˆ");
-        UserContainer.AddOrUpdate(user.Code, user);
+        List<MdlServer> svs = new()
+        {
+            new(30,true,"¼­¹ö 1",1),
+            new(60,false,"¼­¹ö 2",1)
+        };
+        List<MdlChatroom> crs = new()
+        {
+            new(6,30,"¼­¹ö 1ÀÇ Ã¤ÆÃ¹æ 1"),
+            new(7,30,"¼­¹ö 1ÀÇ Ã¤ÆÃ¹æ 2"),
+            new(8,60,"¼­¹ö 2ÀÇ Ã¤ÆÃ¹æ 1"),
+            new(9,60,"¼­¹ö 2ÀÇ Ã¤ÆÃ¹æ 2"),
+            new(9,60,"¼­¹ö 2ÀÇ Ã¤ÆÃ¹æ 2 º¯°æº»"),
+        };
+        List<MdlMessage> msgs = new();
+        for (i = 0; i < 5; i++) {
+            msgs.Add(new(i, 30, 6, 1, "³ª´Â ¼­¹ö 1ÀÇ ¸Ş½ÃÁö " + i.ToString() + " " + DateTime.Now.ToString(), DateTime.Now));
+            msgs.Add(new(i, 60, 8, 1, "³ª´Â ¼­¹ö 2ÀÇ ¸Ş½ÃÁö " + i.ToString() + " " + DateTime.Now.ToString(), DateTime.Now));
+        }
+        msgs.Add(new(4, 30, 6, 1, "ÀÌ°É ¼öÁ¤ÇØ???????", DateTime.Now));
+        Console.WriteLine("µ¥ÀÌÅÍ »ı¼º ¿Ï·á");
+        Console.WriteLine("¼ö½Å Å×½ºÆ®");
+        for (i = 0; i < svs.Count; i++)
+        {
+            SvcDistributor.Instance.putServer(svs[i]);
+        }
+        for (i = 0; i < crs.Count; i++)
+        {
+            SvcDistributor.Instance.putChatroom(crs[i]);
+        }
+        for (i = 0; i < msgs.Count; i++)
+        {
+            SvcDistributor.Instance.putMessage(msgs[i]);
+        }
+        Console.WriteLine("Á¶È¸ Å×½ºÆ® 1: ¼­¹ö 1 Ã¤ÆÃ¹æ 1¿¡¼­ 3°³");
+        ServerContainer.Instance.GetMessages(30, 6, 3);
+        Console.WriteLine("Á¶È¸ Å×½ºÆ® 2: Á¸ÀçÇÏÁö ¾Ê´Â ¼­¹ö");
+        ServerContainer.Instance.GetMessages(1, 6, 3);
+        Console.WriteLine("Á¶È¸ Å×½ºÆ® 3: Á¸ÀçÇÏÁö ¾Ê´Â Ã¤ÆÃ¹æ");
+        ServerContainer.Instance.GetMessages(30, 66, 3);
+        Console.WriteLine("Á¶È¸ Å×½ºÆ® 4: °úÇÑ µ¥ÀÌÅÍ °³¼ö");
+        ServerContainer.Instance.GetMessages(30, 6, 45645);
+        Console.WriteLine("Á¶È¸ Å×½ºÆ® 5: µ¥ÀÌÅÍ °³¼ö°¡ À½¼ö");
+        ServerContainer.Instance.GetMessages(30, 6, -2);
     }
-
-    Console.WriteLine("ìœ ì € ë”•ì…”ë„ˆë¦¬ ë°ì´í„°ë¥¼ ë¶ˆëŸ¬ì˜µë‹ˆë‹¤.");
-    IEnumerable<MdlUser> tmp = UserContainer.Dict.Values;
-    if (tmp != null)
-        foreach (MdlUser _temp in tmp)
-        {
-            Console.WriteLine("ìœ ì €ì½”ë“œ:" + _temp.Code + "\tìê¸°ì†Œê°œ:" + _temp.Introduction);
-        }
-    Console.WriteLine("\n");
-
-    Console.WriteLine("ì»¨í…Œì´ë„ˆ ë‚´ì˜ ë”•ì…”ë„ˆë¦¬ ë‚´ì˜ ì˜¤ë¸Œì íŠ¸ ì†ì„±ì„ í†µí•œ ê²€ìƒ‰");
-    Console.WriteLine("ì†Œê°œê°€ í•˜ì´ë¼ê³  ë˜ì–´ìˆëŠ” ë”•ì…”ë„ˆë¦¬ ë°ì´í„°ë§Œì„ ë¶ˆëŸ¬ì˜µë‹ˆë‹¤.");
-    tmp = UserContainer.Dict.Values.Where(MdlUser => MdlUser.Introduction == "í•˜ì´");
-    if (tmp != null)
-        foreach (MdlUser _temp in tmp)
-        {
-            Console.WriteLine("ìœ ì €ì½”ë“œ:" + _temp.Code + "\tìê¸°ì†Œê°œ:" + _temp.Introduction);
-        }
-
-    Thread.Sleep(10000);
-    /*
-    SignInController.enterSignInInfo(ref signininfo);
-    SignInController.sendSignInRequest(signininfo);
-    Thread.Sleep(5000);
-    */
+    return;
 }

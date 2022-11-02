@@ -19,5 +19,32 @@ namespace ClientModules.Models.CheckList
         public string Title { get; set; }
         //완료 여부
         public bool IsDone { get; set; }
+
+        public MdlProjectItem(int code, int projectCode, int managerCode, string title, bool isDone)
+        {
+            Code = code;
+            ProjectCode = projectCode;
+            ManagerCode = managerCode;
+            Title = title;
+            IsDone = isDone;
+        }
+
+        public bool nullCheck()
+        {
+            do
+            {
+                if (Code != 0)
+                    break;
+                if (ProjectCode != 0)
+                    break;
+                if (ManagerCode != 0)
+                    break;
+                if (Title != "")
+                    break;
+                return true;
+            } while (false);
+
+            return false;
+        }
     }
 }

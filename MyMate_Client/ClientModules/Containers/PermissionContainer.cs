@@ -12,13 +12,37 @@ using System.Threading.Tasks;
 
 namespace ClientModules.Containers
 {
-    public static class PermissionContainer
+    public class PermissionContainer
     {
-        public static ConcurrentDictionary<int, MdlPermission> Dict = new();
+        public ConcurrentDictionary<int, MdlPermission> Items = new();
 
-        public static void AddOrUpdate(int k, MdlPermission v)
+        public event distribute? dataDistributedEvent;
+        public event distribute DataDistributedEvent
         {
-            Dict.AddOrUpdate(k, v);
+            add => dataDistributedEvent += value;
+            remove => dataDistributedEvent -= value;
+        }
+
+        public event error? errorEvent;
+        public event error ErrorEvent
+        {
+            add => errorEvent += value;
+            remove => errorEvent -= value;
+        }
+
+        public void AddOrUpdate(MdlPermission v)
+        {
+            if (v.nullCheck() == false)
+            {
+                this.Items.AddOrUpdate(Items.Count, v);
+                if (this.dataDistributedEvent != null)
+                    this.dataDistributedEvent();
+            }
+            else
+            {
+                if (this.errorEvent != null)
+                    this.errorEvent();
+            }
         }
     }
 }

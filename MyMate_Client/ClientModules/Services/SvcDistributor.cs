@@ -1,6 +1,5 @@
-using ClientNetwork;
+using ClientToServer;
 using Protocol;
-using Protocol.Protocols;
 using System;
 using System.Collections.Concurrent;
 using System.Linq;
@@ -11,9 +10,12 @@ using RcdResult = System.Collections.Generic.KeyValuePair<byte, object?>;
 using ClientModules.Containers;
 using ClientModules.Extensions;
 using ClientModules.Models;
+using ClientModules.Models.Calendar;
+using ClientModules.Models.Chat;
 
 namespace ClientModules.Services
 {
+
 	public sealed class SvcDistributor
 	{
 		private List<byte>? bytes;
@@ -21,6 +23,7 @@ namespace ClientModules.Services
 
 		// 싱글턴 구현
 		// Distributor.Instance.~~~로 접근합니다.
+		// 클래스 안에 static 멤버 속성은 프로그램 메모리 적재 시에 구성
 		private static SvcDistributor? instance;
 		public static SvcDistributor Instance
 		{
@@ -34,20 +37,25 @@ namespace ClientModules.Services
 				return instance;
 			}
 		}
-
-
 		private SvcDistributor()
 		{
 			// 수신 큐에 KeyValuePair가 들어오면 읽어서 해당 오브젝트 큐로 전송하도록 taskDistributor 이벤트 등록
-			Server.Instance.receive.ReceiveEvent += taskDistributor;
+
+			// 이벤트 정리
+			// 1. 대리자 선언
+			// 2. 대리자 형식 이벤트 속성 선언
+			// 3. 작업을 수행할 객체에서 대리자 형식 이벤트에 메서드 추가
+			// 4. 이벤트 호출하면 해당 메서드가 실행됨
+
+			Server.Instance.ReceiveEvent += taskDistributor;
 		}
 
 		private static void taskDistributor()
 		{
-			if (!Server.Instance.receive.isEmpty())
+			if (!Server.Instance.IsEmpty())
 			{
 				// 데이터를 읽어옴
-				Server.Instance.receive.Pop(out Instance.bytes);
+				Server.Instance.Receive(out Instance.bytes);
 				Instance.result = Converter.Convert(Instance.bytes);
 
 				// 읽어온 데이터가 없다면 Continue
@@ -57,42 +65,171 @@ namespace ClientModules.Services
 #pragma warning restore CS8620 // null check if문을 사용했으므로/정상적인 값이 전송되는 경우만 고려하므로 무시함
 			}
 		}
+		private void putUser(MdlUser v)
+		{
+            UserContainer.Instance.AddOrUpdate(v.Code, v);
+        }
+		private void putSchedule(MdlSchedule v)
+		{
+			ScheduleContainer.Instance.AddOrUpdate(v);
+		}
+		private void putScheduleItem(MdlScheduleItem v)
+		{
+            /*
+			 * 스케줄 컨테이너 인스턴스에서
+			 * 인수로 받은 항목이 참조하는 스케줄 코드를 가진 스케줄을 찾아서
+			 * 그 안의 스케줄 항목 컨테이너에 스케줄 항목을 넣어줌
+			 */
+            MdlSchedule? s;
+
+            ScheduleContainer.Instance.Items.TryGetValue(v.ScheduleCode, out s);
+            if (s == null)
+                return;
+			s.Items.AddOrUpdate(v);
+        }
+        public void putServer(MdlServer v)
+        //private void putServer(MdlServer v)
+        {
+			ServerContainer.Instance.AddOrUpdate(v);
+        }
+        public void putChatroom(MdlChatroom v)
+        //private void putChatroom(MdlChatroom v)
+		{
+			MdlServer? s;
+
+			s = ServerContainer.Instance.Items.Values.FirstOrDefault(MdlServer => MdlServer.Code == v.ServerCode);
+			if (s == null)
+			{
+#if DEBUG
+				Console.WriteLine("Chatroom의 ServerCode와 일치하는 Server를 찾지 못함");
+#endif
+				return;
+			}
+			s.Chatrooms.AddOrUpdate(v);
+        }
+
+        //private void putMessage(MdlMessage v)
+        public void putMessage(MdlMessage v)
+        {
+			MdlServer? s;
+			MdlChatroom? c;
+
+			s = ServerContainer.Instance.Items.Values.FirstOrDefault(MdlServer => MdlServer.Code == v.ServerCode);
+			if (s == null)
+            {
+#if DEBUG
+                Console.WriteLine("Chatroom의 ServerCode와 일치하는 Server를 찾지 못함");
+#endif
+				return;
+            }
+            c = s.Chatrooms.Items.FirstOrDefault(MdlChatroom => MdlChatroom.Code == v.ChatroomCode);
+			if (c == null)
+            {
+#if DEBUG
+                Console.WriteLine("Server 내에서 ChatroomCode와 일치하는 Chatroom을 찾지 못함");
+#endif
+				return;
+            }
+            c.Messages.AddOrUpdate(v);
+        }
 
 		private static void estimateObject(KeyValuePair<byte, object> temp)
 		{
-			/*
+			//테스트
 			switch (temp.Key)
 			{
-				case Protocol.DataType.USER_INFO:
+                case DataType.MESSAGE:
+                    {
+                        MessageProtocol.Message? message;
+                        message = temp.Value as MessageProtocol.Message;
+
+                        //putMessage(new MdlMessage(message));
+#if DEBUG
+                        Console.WriteLine("메시지 프로토콜을 수신하고 분배 시도");
+#endif
+                    }
+                    break;
+                /*
+				case DataType.USER:
 					{
-						UserInfoProtocol.User? userinfo;
-						userinfo = temp.Value as UserInfoProtocol.User;
+						UserProtocol.USER? user;
+						user = temp.Value as UserProtocol.USER;
 
-						MdlUser d = new(userinfo);
-
-						//유저코드/밸류 순으로 딕셔너리에 저장
-						Users.AddOrUpdate(d.Code, d);
-
-						//Enumerable.Where 사용법
-						//IEnumerable<MdlUserInfo> query = DisplayUser.Dictionary.Values.Where(MdlUserInfo => MdlUserInfo.UserCode == 0);
-						IEnumerable<MdlUser> query = Users.Dictionary.Values;
-						if (query != null)
-							foreach (MdlUser _temp in query)
-							{
-								Console.WriteLine("UserCode:" + _temp.UserCode);
-								Console.WriteLine("Name:" + _temp.Name);
-								Console.WriteLine("ID:" + _temp.ID);
-								Console.WriteLine("Nickname:" + _temp.Nick);
-								Console.WriteLine("PhoneNumber:" + _temp.PhoneNumber);
-							}
+						putUser(new MdlUser(user));
 					}
 					break;
 
-				default:
+				case DataType.SCHEDULE:
+					{
+						ScheduleProtocol.Schedule? schedule;
+						schedule = temp.Value as ScheduleProtocol.SCHEDULE;
+						
+						putSchedule(new MdlSchedule(schedule));
+					}
+					break;
+					
+				case DataType.SCHEDULEITEM:
+					{
+						ScheduleItemProtocol.ScheduleItem? scheduleItem;
+						scheduleItem = temp.Value as ScheduleProtocol.SCHEDULEITEM;
+						
+						putScheduleItem(new MdlScheduleItem(scheduleitem));
+					}
+					break;
+				
+				case DataType.CHATROOM:
+					{
+						ChatroomProtocol.Chatroom? chatroom;
+						chatroom = temp.Value as ChatroomProtocol.CHATROOM;
+						
+						putChatroom(new MdlChatroom(chatroom));
+					}
+					break;
+				
+				case DataType.PERMISSION:
+					{
+						PermissionProtocol.Permission? permission;
+						permission = temp.Value as PermissionProtocol.PERMISSION;
+						
+						MdlPermission s = new(permission);
+						PermissionContainer.Instance.AddOrUpdate(s.Code, c);
+					}
+					break;
+					
+				case DataType.SERVER:
+					{
+						ServerProtocol.Schedule? server;
+						server = temp.Value as ServerProtocol.SERVER;
+						
+						MdlServer s = new(server);
+						ServerContainer.Instance.AddOrUpdate(s.Code, c);
+					}
+					break;
+					
+				case DataType.PROJECT:
+					{
+						ProjectProtocol.Schedule? project;
+						project = temp.Value as ProjectProtocol.PROJECT;
+						
+						MdlProject s = new(project);
+						ProjectContainer.Instance.AddOrUpdate(s.Code, c);
+					}
+					break;
+					
+				case DataType.PROJECTITEM:
+					{
+						ProjectItemProtocol.PROJECTITEM? projectitem;
+						projectitem = temp.Value as ProjectItemProtocol.PROJECTITEM;
+						
+						MdlProjectItem s = new(projectitem);
+						ProjectItemContainer.Instance.AddOrUpdate(s.Code, c);
+					}
+					break;
+				*/
+                default:
 					Console.WriteLine("알 수 없는 데이터를 수신하고 딕셔너리에는 저장하지 않았습니다.");
 					break;
 			}
-			*/
 		}
 	}
 }

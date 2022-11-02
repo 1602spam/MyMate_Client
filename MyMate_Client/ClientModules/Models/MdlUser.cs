@@ -5,7 +5,7 @@ using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml.Linq;
-using Protocol.Protocols;
+using Protocol;
 
 namespace ClientModules.Models
 {
@@ -25,10 +25,7 @@ namespace ClientModules.Models
 		public string PhoneNumber { get; set; }
 		//유저 자기소개
 		public string Introduction { get; set; }
-
-		public MdlUser()
-		{
-		}
+        public List<int> Friends { get; set; }
 
         public MdlUser(int code, string name, string username, int status, string email, string phonenumber, string introduce)
         {
@@ -41,24 +38,14 @@ namespace ClientModules.Models
 			Introduction = introduce;
         }
 
-		/*
         public MdlUser(UserInfoProtocol.User user)
 		{
-			Code = user.code;
-			Name = user.name;
-			Username = user.username;
-			Status = user.status;
-			Email = user.email;
-			PhoneNumber = user.phone;
+			//attribute = user.attribute
 		}
 
 		public bool nullCheck()
 		{
-			if (UserCode == null || Username == null || Status == null || EmailAddress == null || PhoneNumber == null)
-				return true;
-			else
-				return false;
+			return Code == 0 ? true : false;
 		}
-		*/
 	}
 }

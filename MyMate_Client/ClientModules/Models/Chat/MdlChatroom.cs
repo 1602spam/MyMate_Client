@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientModules.Containers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,5 +15,29 @@ namespace ClientModules.Models.Chat
         public int ServerCode { get; set; }
         //채팅방 이름(개인 채팅방의 경우 필요 없음)
         public string Title { get; set; }
+        public MessageContainer Messages { get; set; }
+        public MdlChatroom(int code, int serverCode, string title)
+        {
+            Code = code;
+            ServerCode = serverCode;
+            Title = title;
+            Messages = new();
+        }
+
+        public bool nullCheck()
+        {
+            do
+            {
+                if (Code != 0)
+                    break;
+                if (ServerCode != 0)
+                    break;
+                if (Title != "")
+                    break;
+                return true;
+            } while (false);
+
+            return false;
+        }
     }
 }

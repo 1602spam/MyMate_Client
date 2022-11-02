@@ -16,14 +16,41 @@ namespace ClientModules.Models.Calendar
         //스케줄 항목 제목
         public string Title { get; set; }
         //스케줄 시작 날짜
-        public string StartDate { get; set; }
+        public DateTime StartDate { get; set; }
         //스케줄 종료 날짜
-        public string EndDate { get; set; }
+        public DateTime EndDate { get; set; }
         //내용(내지 메모)
         public string Content { get; set; }
         //항목 공개 여부
         public bool IsPrivate { get; set; }
         //완료 여부
         public bool IsDone { get; set; }
+
+        public MdlScheduleItem(int code, int scheduleCode, string title, DateTime startDate, DateTime endDate, string content, bool isPrivate, bool isDone)
+        {
+            Code = code;
+            ScheduleCode = scheduleCode;
+            Title = title;
+            StartDate = startDate;
+            EndDate = endDate;
+            Content = content;
+            IsPrivate = isPrivate;
+            IsDone = isDone;
+        }
+        public bool nullCheck()
+        {
+            do
+            {
+                if (Code != 0)
+                    break;
+                if (ScheduleCode != 0)
+                    break;
+                if (Title != "")
+                    break;
+                return true;
+            } while (false);
+
+            return false;
+        }
     }
 }

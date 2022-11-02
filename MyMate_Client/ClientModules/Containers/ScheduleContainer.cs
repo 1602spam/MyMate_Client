@@ -13,13 +13,53 @@ using System.Threading.Tasks;
 
 namespace ClientModules.Containers
 {
-    public static class ScheduleContainer
+    public class ScheduleContainer
     {
-        public static ConcurrentDictionary<int, MdlSchedule> Dict = new();
+        public ConcurrentDictionary<int, MdlSchedule> Items = new();
 
-        public static void AddOrUpdate(int k, MdlSchedule v)
+        public event distribute? dataDistributedEvent;
+        public event distribute DataDistributedEvent
         {
-            Dict.AddOrUpdate(k, v);
+            add => dataDistributedEvent += value;
+            remove => dataDistributedEvent -= value;
+        }
+
+        public event error? errorEvent;
+        public event error ErrorEvent
+        {
+            add => errorEvent += value;
+            remove => errorEvent -= value;
+        }
+
+        private static ScheduleContainer? instance;
+        public static ScheduleContainer Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new ScheduleContainer();
+                }
+                return instance;
+            }
+        }
+
+        private ScheduleContainer()
+        {
+        }
+        public void AddOrUpdate(MdlSchedule v)
+        {
+            if (v.nullCheck() == false)
+            {
+                this.Items.AddOrUpdate(Items.Count, v);
+                if (this.dataDistributedEvent != null)
+                    this.dataDistributedEvent();
+            }
+            else
+            {
+                if (this.errorEvent != null)
+                    this.errorEvent();
+            }
         }
     }
 }

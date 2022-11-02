@@ -26,6 +26,17 @@ namespace ClientModules.Models.Calendar
         //완료 여부
         public bool IsDone { get; set; }
 
+        public MdlScheduleItem(int code, int scheduleCode, string title, DateTime startDate, DateTime endDate, string content, bool isPrivate, bool isDone)
+        {
+            Code = code;
+            ScheduleCode = scheduleCode;
+            Title = title;
+            StartDate = startDate;
+            EndDate = endDate;
+            Content = content;
+            IsPrivate = isPrivate;
+            IsDone = isDone;
+        }
         public bool nullCheck()
         {
             do

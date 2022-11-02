@@ -12,7 +12,7 @@ namespace ClientModules.Containers
 {
     public class UserContainer : IContainer
     {
-
+        public int MyUserCode { get; set; }
         public ConcurrentDictionary<int, MdlUser> Dict = new();
 
         public event distribute? dataDistributedEvent;
@@ -50,8 +50,10 @@ namespace ClientModules.Containers
                     this.dataDistributedEvent();
             }
             else
+            {
                 if (this.errorEvent != null)
-                this.errorEvent();
+                    this.errorEvent();
+            }
         }
     }
 }

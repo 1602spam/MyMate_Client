@@ -14,7 +14,6 @@ namespace ClientModules.Containers
 {
     public class PermissionContainer
     {
-        public int Count { get; set; }
         public ConcurrentDictionary<int, MdlPermission> Dict = new();
 
         public event distribute? dataDistributedEvent;
@@ -31,20 +30,19 @@ namespace ClientModules.Containers
             remove => errorEvent -= value;
         }
 
-        private PermissionContainer()
+        public void AddOrUpdate(MdlPermission v)
         {
-            Count = 0;
-        }
-
-        public void AddOrUpdate(int k, MdlPermission v)
-	    {
-		if(v.nullCheck()==false){
-			this.Dict.AddOrUpdate(k, v);
-            if (this.dataDistributedEvent != null)
-                this.dataDistributedEvent();
-		} else
-			if(this.errorEvent != null)
-				this.errorEvent();
+            if (v.nullCheck() == false)
+            {
+                this.Dict.AddOrUpdate(Dict.Count, v);
+                if (this.dataDistributedEvent != null)
+                    this.dataDistributedEvent();
+            }
+            else
+            {
+                if (this.errorEvent != null)
+                    this.errorEvent();
+            }
         }
     }
 }

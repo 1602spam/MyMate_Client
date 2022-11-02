@@ -28,7 +28,17 @@ namespace ClientModules.Models.CheckList
         //이 때 유저코드, 직함 딕셔너리가 생성됨
         public List<int> Users { get; set; }
         //public Dictionary<int, string> Users { get; set; }
-        
+
+        public MdlProject(string title, DateTime startDate, DateTime endDate, List<int> targetPermission, List<int> users)
+        {
+            Title = title;
+            StartDate = startDate;
+            EndDate = endDate;
+            TargetPermission = targetPermission;
+            Users = users;
+            Items = new ProjectItemContainer();
+        }
+
         public bool nullCheck() {
             do
             {

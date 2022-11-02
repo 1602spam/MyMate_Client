@@ -17,10 +17,21 @@ namespace ClientModules.Models.Chat
         //메시지 보낸 유저 코드
         public int SenderCode { get; set; }
         //메시지 내용
-        public string Message { get; set; }
+        public string Context { get; set; }
         //메시지 보낸 시간
         public DateTime Time { get; set; }
-        //일정 공유 기능, 파일 전송의 경우 이 클래스를 상속해 만들도록 함
+
+        public MdlMessage() { }
+        public MdlMessage(int code, int serverCode, int chatroomCode, int senderCode, string context, DateTime time)
+        {
+            Code = code;
+            ServerCode = serverCode;
+            ChatroomCode = chatroomCode;
+            SenderCode = senderCode;
+            Context = context;
+            Time = time;
+        }
+
         public bool nullCheck()
         {
             do
@@ -33,7 +44,7 @@ namespace ClientModules.Models.Chat
                     break;
                 if (SenderCode != 0)
                     break;
-                if (Message != "")
+                if (Context != "")
                 return true;
             } while (false);
 

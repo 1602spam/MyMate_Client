@@ -13,11 +13,9 @@ using System.Threading.Tasks;
 
 namespace ClientModules.Containers
 {
-    public class ScheduleItemContainer:IContainer
+    public class ScheduleItemContainer : IContainer
     {
-        public int Count { get; set; }
-
-        public ConcurrentDictionary<int, MdlScheduleItem> Dict = new();
+        public List<MdlScheduleItem> Items = new();
 
         public event distribute? dataDistributedEvent;
         public event distribute DataDistributedEvent
@@ -33,20 +31,36 @@ namespace ClientModules.Containers
             remove => errorEvent -= value;
         }
 
-        private ScheduleItemContainer()
+        public ScheduleItemContainer()
         {
-            Count = 0;
         }
 
-        public void AddOrUpdate(int k, MdlScheduleItem v)
-	    {
-		if(v.nullCheck()==false){
-			this.Dict.AddOrUpdate(k, v);
-            if (this.dataDistributedEvent != null)
-                this.dataDistributedEvent();
-		} else
-			if(this.errorEvent != null)
-				this.errorEvent();
+        public void AddOrUpdate(MdlScheduleItem v)
+        {
+            if (v.nullCheck() == true)
+            {
+                if (this.errorEvent != null)
+                    this.errorEvent();
+                return;
+            }
+
+            if (Items.Count == 0)
+            {
+                Items.Add(v);
+                if (this.dataDistributedEvent != null)
+                    this.dataDistributedEvent();
+                return;
+            }
+
+            int i = Items.FindIndex(MdlScheduleItem => MdlScheduleItem.Code == v.Code);
+
+            if (i != -1)
+            {
+                Items.Insert(i, v);
+                Items.RemoveAt(i + 1);
+                if (this.dataDistributedEvent != null)
+                    this.dataDistributedEvent();
+            }
         }
     }
 }

@@ -13,6 +13,13 @@ namespace ClientModules.Models.Chat
         //권한 이름
         public string Name { get; set; }
         //작은 단위의 클래스가 상위 단위의 코드를 가지고 알아서 붙게 함
+        public MdlPermission() { }
+        public MdlPermission(int code, string name)
+        {
+            Code = code;
+            Name = name;
+        }
+
         public bool nullCheck()
         {
             do

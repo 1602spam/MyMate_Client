@@ -26,10 +26,6 @@ namespace ClientModules.Models
 		//유저 자기소개
 		public string Introduction { get; set; }
         public List<int> Friends { get; set; }
-        
-		public MdlUser()
-		{
-		}
 
         public MdlUser(int code, string name, string username, int status, string email, string phonenumber, string introduce)
         {

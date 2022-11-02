@@ -16,6 +16,14 @@ namespace ClientModules.Models.Chat
         //채팅방 이름(개인 채팅방의 경우 필요 없음)
         public string Title { get; set; }
         public MessageContainer Messages { get; set; }
+        public MdlChatroom(int code, int serverCode, string title)
+        {
+            Code = code;
+            ServerCode = serverCode;
+            Title = title;
+            Messages = new();
+        }
+
         public bool nullCheck()
         {
             do

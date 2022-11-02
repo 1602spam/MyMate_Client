@@ -71,29 +71,26 @@ namespace ClientModules.Services
         }
 		private void putSchedule(MdlSchedule v)
 		{
-			ScheduleContainer.Instance.AddOrUpdate(v.Code, v);
+			ScheduleContainer.Instance.AddOrUpdate(v);
 		}
 		private void putScheduleItem(MdlScheduleItem v)
 		{
-			/*
+            /*
 			 * 스케줄 컨테이너 인스턴스에서
 			 * 인수로 받은 항목이 참조하는 스케줄 코드를 가진 스케줄을 찾아서
 			 * 그 안의 스케줄 항목 컨테이너에 스케줄 항목을 넣어줌
 			 */
-			IEnumerable<MdlSchedule> m = ScheduleContainer.Instance.Dict.Values.Where(MdlSchedule => MdlSchedule.Code == v.ScheduleCode);
-			if (m != null)
-			{
-				foreach (MdlSchedule var in m)
-				{
-					var.Items.AddOrUpdate(v.Code, v);
-					break;
-				}
-			}
-		}
+            MdlSchedule? s;
+
+            ScheduleContainer.Instance.Dict.TryGetValue(v.ScheduleCode, out s);
+            if (s == null)
+                return;
+			s.Items.AddOrUpdate(v);
+        }
         public void putServer(MdlServer v)
         //private void putServer(MdlServer v)
         {
-			ServerContainer.Instance.AddOrUpdate(v.Code, v);
+			ServerContainer.Instance.AddOrUpdate(v);
         }
         public void putChatroom(MdlChatroom v)
         //private void putChatroom(MdlChatroom v)
@@ -103,7 +100,7 @@ namespace ClientModules.Services
 			ServerContainer.Instance.Dict.TryGetValue(v.ServerCode, out s);
 			if (s == null)
 				return;
-			s.Chatrooms.AddOrUpdate(v.Code,v);
+			s.Chatrooms.AddOrUpdate(v);
         }
 
         //private void putMessage(MdlMessage v)
@@ -112,10 +109,10 @@ namespace ClientModules.Services
 			MdlServer? s;
 			MdlChatroom? c;
 
-			ServerContainer.Instance.Dict.TryGetValue(v.ServerCode, out s);
+			s = ServerContainer.Instance.Dict.Values.FirstOrDefault(MdlServer => MdlServer.Code == v.ServerCode);
 			if (s == null)
 				return;
-			s.Chatrooms.Dict.TryGetValue(v.ChatroomCode, out c);
+			c = s.Chatrooms.Items.Find(MdlChatroom => MdlChatroom.Code == v.ChatroomCode);
 			if (c == null)
 				return;
 			c.Messages.AddOrUpdate(v);

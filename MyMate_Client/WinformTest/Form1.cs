@@ -40,7 +40,7 @@ namespace WinformTest
         private void updateListView()
         {
             this.lvUsers.Items.Clear();
-            IEnumerable<MdlUser> users = UserContainer.Instance.Dict.Values;
+            IEnumerable<MdlUser> users = UserContainer.Instance.Items.Values;
             foreach (MdlUser u in users)
             {
                 this.lvUsers.Items.Add(new ListViewItem(new String[] { u.Code.ToString(), u.Username, u.Introduction }));

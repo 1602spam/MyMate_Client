@@ -82,7 +82,7 @@ namespace ClientModules.Services
 			 */
             MdlSchedule? s;
 
-            ScheduleContainer.Instance.Dict.TryGetValue(v.ScheduleCode, out s);
+            ScheduleContainer.Instance.Items.TryGetValue(v.ScheduleCode, out s);
             if (s == null)
                 return;
 			s.Items.AddOrUpdate(v);
@@ -97,9 +97,14 @@ namespace ClientModules.Services
 		{
 			MdlServer? s;
 
-			ServerContainer.Instance.Dict.TryGetValue(v.ServerCode, out s);
+			s = ServerContainer.Instance.Items.Values.FirstOrDefault(MdlServer => MdlServer.Code == v.ServerCode);
 			if (s == null)
+			{
+#if DEBUG
+				Console.WriteLine("Chatroom의 ServerCode와 일치하는 Server를 찾지 못함");
+#endif
 				return;
+			}
 			s.Chatrooms.AddOrUpdate(v);
         }
 
@@ -109,13 +114,23 @@ namespace ClientModules.Services
 			MdlServer? s;
 			MdlChatroom? c;
 
-			s = ServerContainer.Instance.Dict.Values.FirstOrDefault(MdlServer => MdlServer.Code == v.ServerCode);
+			s = ServerContainer.Instance.Items.Values.FirstOrDefault(MdlServer => MdlServer.Code == v.ServerCode);
 			if (s == null)
+            {
+#if DEBUG
+                Console.WriteLine("Chatroom의 ServerCode와 일치하는 Server를 찾지 못함");
+#endif
 				return;
-			c = s.Chatrooms.Items.Find(MdlChatroom => MdlChatroom.Code == v.ChatroomCode);
+            }
+            c = s.Chatrooms.Items.FirstOrDefault(MdlChatroom => MdlChatroom.Code == v.ChatroomCode);
 			if (c == null)
+            {
+#if DEBUG
+                Console.WriteLine("Server 내에서 ChatroomCode와 일치하는 Chatroom을 찾지 못함");
+#endif
 				return;
-			c.Messages.AddOrUpdate(v);
+            }
+            c.Messages.AddOrUpdate(v);
         }
 
 		private static void estimateObject(KeyValuePair<byte, object> temp)
@@ -128,8 +143,10 @@ namespace ClientModules.Services
                         MessageProtocol.Message? message;
                         message = temp.Value as MessageProtocol.Message;
 
-						//putMessage(new MdlMessage(message));
-						Console.WriteLine("메시지 받는 거 확인");
+                        //putMessage(new MdlMessage(message));
+#if DEBUG
+                        Console.WriteLine("메시지 프로토콜을 수신하고 분배 시도");
+#endif
                     }
                     break;
                 /*

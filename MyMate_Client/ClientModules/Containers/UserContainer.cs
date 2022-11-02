@@ -13,7 +13,7 @@ namespace ClientModules.Containers
     public class UserContainer : IContainer
     {
         public int MyUserCode { get; set; }
-        public ConcurrentDictionary<int, MdlUser> Dict = new();
+        public ConcurrentDictionary<int, MdlUser> Items = new();
 
         public event distribute? dataDistributedEvent;
         public event distribute DataDistributedEvent
@@ -43,12 +43,16 @@ namespace ClientModules.Containers
         }
         public void AddOrUpdate(int k, MdlUser v)
         {
+            //널체크 통과 시
             if (v.nullCheck() == false)
             {
-                this.Dict.AddOrUpdate(k, v);
+                //추가하고 분배 이벤트 처리 후 리턴
+                this.Items.AddOrUpdate(k, v);
                 if (this.dataDistributedEvent != null)
                     this.dataDistributedEvent();
+                return;
             }
+            //통과하지 못했을 시 오류 이벤트 처리 후 리턴
             else
             {
                 if (this.errorEvent != null)

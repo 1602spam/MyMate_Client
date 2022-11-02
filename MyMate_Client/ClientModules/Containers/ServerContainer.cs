@@ -14,7 +14,7 @@ namespace ClientModules.Containers
 {
     public class ServerContainer:IContainer
     {
-        public ConcurrentDictionary<int, MdlServer> Dict = new();
+        public ConcurrentDictionary<int, MdlServer> Items = new();
 
         public event distribute? dataDistributedEvent;
         public event distribute DataDistributedEvent
@@ -51,7 +51,10 @@ namespace ClientModules.Containers
 	    {
             if (v.nullCheck() == false)
             {
-                this.Dict.AddOrUpdate(Dict.Count, v);
+                this.Items.AddOrUpdate(Items.Count, v);
+#if DEBUG
+                Console.WriteLine("서버 추가됨: "+v.Title);
+#endif
                 if (this.dataDistributedEvent != null)
                     this.dataDistributedEvent();
             }
@@ -60,6 +63,22 @@ namespace ClientModules.Containers
                 if (this.errorEvent != null)
                     this.errorEvent();
             }
+        }
+
+        public void GetMessages(int serverCode, int chatroomCode, int count)
+        {
+            MdlServer? server;
+            server = this.Items.Values.FirstOrDefault(MdlServer => MdlServer.Code == serverCode);
+
+            if (server == null)
+            {
+#if DEBUG
+                Console.WriteLine("해당하는 서버코드의 서버를 찾지 못함");
+#endif
+                return;
+            }
+
+            server.Chatrooms.GetMessages(chatroomCode, count);
         }
     }
 }

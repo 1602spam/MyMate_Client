@@ -126,6 +126,7 @@
             this.sendBtn.TextColor = System.Drawing.Color.White;
             this.sendBtn.UseVisualStyleBackColor = false;
             this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
+            
             // 
             // chatTxt
             // 

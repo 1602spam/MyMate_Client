@@ -28,89 +28,136 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.profileBtn = new MainForm.Controls.RoundButton();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.serverBtn = new MainForm.Controls.RoundButton();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.roundButton1 = new MainForm.Controls.RoundButton();
+            this.roundButton2 = new MainForm.Controls.RoundButton();
+            this.roundButton3 = new MainForm.Controls.RoundButton();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // profileBtn
-            // 
-            this.profileBtn.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.profileBtn.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.profileBtn.BorderColor = System.Drawing.Color.Red;
-            this.profileBtn.BorderRadius = 20;
-            this.profileBtn.BorderSize = 0;
-            this.profileBtn.FlatAppearance.BorderSize = 0;
-            this.profileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.profileBtn.ForeColor = System.Drawing.Color.White;
-            this.profileBtn.Location = new System.Drawing.Point(5, 5);
-            this.profileBtn.Margin = new System.Windows.Forms.Padding(5);
-            this.profileBtn.Name = "profileBtn";
-            this.profileBtn.Size = new System.Drawing.Size(40, 40);
-            this.profileBtn.TabIndex = 1;
-            this.profileBtn.TextColor = System.Drawing.Color.White;
-            this.profileBtn.UseVisualStyleBackColor = false;
-            
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.profileBtn);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Controls.Add(this.panel4);
+            this.panel1.Controls.Add(this.panel3);
+            this.panel1.Controls.Add(this.panel2);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(50, 50);
-            this.panel1.TabIndex = 2;
+            this.panel1.Size = new System.Drawing.Size(50, 500);
+            this.panel1.TabIndex = 0;
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.serverBtn);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 50);
+            this.panel2.Controls.Add(this.roundButton1);
+            this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(50, 450);
-            this.panel2.TabIndex = 3;
-            
+            this.panel2.Size = new System.Drawing.Size(50, 50);
+            this.panel2.TabIndex = 0;
             // 
-            // serverBtn
+            // panel3
             // 
-            this.serverBtn.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.serverBtn.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.serverBtn.BorderColor = System.Drawing.Color.Red;
-            this.serverBtn.BorderRadius = 20;
-            this.serverBtn.BorderSize = 0;
-            this.serverBtn.FlatAppearance.BorderSize = 0;
-            this.serverBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.serverBtn.Font = new System.Drawing.Font("맑은 고딕", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.serverBtn.ForeColor = System.Drawing.Color.White;
-            this.serverBtn.Location = new System.Drawing.Point(5, 5);
-            this.serverBtn.Name = "serverBtn";
-            this.serverBtn.Size = new System.Drawing.Size(40, 40);
-            this.serverBtn.TabIndex = 1;
-            this.serverBtn.TextColor = System.Drawing.Color.White;
-            this.serverBtn.UseVisualStyleBackColor = false;
+            this.panel3.Controls.Add(this.roundButton2);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel3.Location = new System.Drawing.Point(0, 450);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(50, 50);
+            this.panel3.TabIndex = 1;
+            // 
+            // panel4
+            // 
+            this.panel4.AutoScroll = true;
+            this.panel4.Controls.Add(this.roundButton3);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(0, 50);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(50, 400);
+            this.panel4.TabIndex = 2;
+            // 
+            // roundButton1
+            // 
+            this.roundButton1.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundButton1.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundButton1.BorderColor = System.Drawing.Color.Red;
+            this.roundButton1.BorderRadius = 20;
+            this.roundButton1.BorderSize = 0;
+            this.roundButton1.FlatAppearance.BorderSize = 0;
+            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundButton1.ForeColor = System.Drawing.Color.White;
+            this.roundButton1.Location = new System.Drawing.Point(5, 5);
+            this.roundButton1.Name = "roundButton1";
+            this.roundButton1.Size = new System.Drawing.Size(40, 40);
+            this.roundButton1.TabIndex = 0;
+            this.roundButton1.Text = "roundButton1";
+            this.roundButton1.TextColor = System.Drawing.Color.White;
+            this.roundButton1.UseVisualStyleBackColor = false;
+            // 
+            // roundButton2
+            // 
+            this.roundButton2.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundButton2.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundButton2.BorderColor = System.Drawing.Color.Red;
+            this.roundButton2.BorderRadius = 20;
+            this.roundButton2.BorderSize = 0;
+            this.roundButton2.FlatAppearance.BorderSize = 0;
+            this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundButton2.ForeColor = System.Drawing.Color.White;
+            this.roundButton2.Location = new System.Drawing.Point(5, 5);
+            this.roundButton2.Name = "roundButton2";
+            this.roundButton2.Size = new System.Drawing.Size(40, 40);
+            this.roundButton2.TabIndex = 1;
+            this.roundButton2.Text = "roundButton2";
+            this.roundButton2.TextColor = System.Drawing.Color.White;
+            this.roundButton2.UseVisualStyleBackColor = false;
+            // 
+            // roundButton3
+            // 
+            this.roundButton3.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundButton3.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundButton3.BorderColor = System.Drawing.Color.Red;
+            this.roundButton3.BorderRadius = 20;
+            this.roundButton3.BorderSize = 0;
+            this.roundButton3.FlatAppearance.BorderSize = 0;
+            this.roundButton3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundButton3.ForeColor = System.Drawing.Color.White;
+            this.roundButton3.Location = new System.Drawing.Point(5, 5);
+            this.roundButton3.Name = "roundButton3";
+            this.roundButton3.Size = new System.Drawing.Size(40, 40);
+            this.roundButton3.TabIndex = 2;
+            this.roundButton3.Text = "roundButton3";
+            this.roundButton3.TextColor = System.Drawing.Color.White;
+            this.roundButton3.UseVisualStyleBackColor = false;
             // 
             // ServerBar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Margin = new System.Windows.Forms.Padding(5);
             this.Name = "ServerBar";
             this.Size = new System.Drawing.Size(50, 500);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-        private RoundButton profileBtn;
+
         private Panel panel1;
+        private Panel panel4;
+        private RoundButton roundButton3;
+        private Panel panel3;
+        private RoundButton roundButton2;
         private Panel panel2;
-        private RoundButton serverBtn;
+        private RoundButton roundButton1;
     }
 }

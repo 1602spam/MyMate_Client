@@ -10,23 +10,26 @@ using System.Windows.Forms;
 
 namespace MainForm.Controls
 {
-    public partial class MainBar : UserControl
+    public partial class FriendList : Form
     {
-        public MainBar()
+        public FriendList()
         {
             InitializeComponent();
-            this.Dock = DockStyle.Top;
         }
 
-        private void MsgBtn_Click(object sender, EventArgs e)
+        private void closeBtn_Click(object sender, EventArgs e)
         {
-            
+            this.Close();
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            var calendarPage = new CalendarPage();
-            
+
+        }
+
+        private void FriendList_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

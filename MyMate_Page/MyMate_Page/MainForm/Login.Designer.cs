@@ -1,6 +1,6 @@
 ﻿namespace MainForm
 {
-    partial class Login
+    partial class LoginForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.leftPanel = new System.Windows.Forms.Panel();
-            this.logoLabel = new System.Windows.Forms.Label();
             this.rightPanel = new System.Windows.Forms.Panel();
             this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.Label1 = new System.Windows.Forms.Label();
@@ -44,31 +42,13 @@
             this.IDTxt = new System.Windows.Forms.TextBox();
             this.IDLabel = new System.Windows.Forms.Label();
             this.loginLabel = new System.Windows.Forms.Label();
-            this.leftPanel.SuspendLayout();
+            this.logoLabel = new System.Windows.Forms.Label();
+            this.leftPanel = new System.Windows.Forms.Panel();
             this.rightPanel.SuspendLayout();
             this.PWPanel.SuspendLayout();
             this.IDPanel.SuspendLayout();
+            this.leftPanel.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // leftPanel
-            // 
-            this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
-            this.leftPanel.Controls.Add(this.logoLabel);
-            this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.leftPanel.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.leftPanel.Location = new System.Drawing.Point(0, 0);
-            this.leftPanel.Name = "leftPanel";
-            this.leftPanel.Size = new System.Drawing.Size(300, 400);
-            this.leftPanel.TabIndex = 0;
-            // 
-            // logoLabel
-            // 
-            this.logoLabel.Font = new System.Drawing.Font("Microsoft JhengHei UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
-            this.logoLabel.Location = new System.Drawing.Point(24, 37);
-            this.logoLabel.Name = "logoLabel";
-            this.logoLabel.Size = new System.Drawing.Size(144, 39);
-            this.logoLabel.TabIndex = 0;
-            this.logoLabel.Text = "MyMate";
             // 
             // rightPanel
             // 
@@ -90,9 +70,12 @@
             this.rightPanel.Name = "rightPanel";
             this.rightPanel.Size = new System.Drawing.Size(300, 400);
             this.rightPanel.TabIndex = 1;
+            this.rightPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.rightPanel_MouseDown);
+            this.rightPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.rightPanel_MouseMove);
             // 
             // linkLabel2
             // 
+            this.linkLabel2.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.linkLabel2.AutoSize = true;
             this.linkLabel2.Font = new System.Drawing.Font("맑은 고딕", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.linkLabel2.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -116,6 +99,7 @@
             // 
             // linkLabel1
             // 
+            this.linkLabel1.ActiveLinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
             this.linkLabel1.AutoSize = true;
             this.linkLabel1.Font = new System.Drawing.Font("맑은 고딕", 8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.linkLabel1.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(128)))), ((int)(((byte)(128)))), ((int)(((byte)(255)))));
@@ -168,6 +152,7 @@
             this.loginBtn.TabIndex = 5;
             this.loginBtn.Text = "Login";
             this.loginBtn.UseVisualStyleBackColor = false;
+            this.loginBtn.Click += new System.EventHandler(this.loginBtn_Click);
             // 
             // PWPanel
             // 
@@ -227,7 +212,7 @@
             this.IDTxt.PlaceholderText = "You ID";
             this.IDTxt.Size = new System.Drawing.Size(218, 16);
             this.IDTxt.TabIndex = 0;
-            this.IDTxt.TextChanged += new System.EventHandler(this.IDTxt_TextChanged);
+            
             // 
             // IDLabel
             // 
@@ -249,7 +234,29 @@
             this.loginLabel.TabIndex = 1;
             this.loginLabel.Text = "Login";
             // 
-            // Login
+            // logoLabel
+            // 
+            this.logoLabel.Font = new System.Drawing.Font("Microsoft JhengHei UI", 30F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.World);
+            this.logoLabel.Location = new System.Drawing.Point(24, 37);
+            this.logoLabel.Name = "logoLabel";
+            this.logoLabel.Size = new System.Drawing.Size(144, 39);
+            this.logoLabel.TabIndex = 0;
+            this.logoLabel.Text = "MyMate";
+            // 
+            // leftPanel
+            // 
+            this.leftPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
+            this.leftPanel.Controls.Add(this.logoLabel);
+            this.leftPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.leftPanel.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.leftPanel.Location = new System.Drawing.Point(0, 0);
+            this.leftPanel.Name = "leftPanel";
+            this.leftPanel.Size = new System.Drawing.Size(300, 400);
+            this.leftPanel.TabIndex = 0;
+            this.leftPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.leftPanel_MouseDown);
+            this.leftPanel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.leftPanel_MouseMove);
+            // 
+            // LoginForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.ClientSize = new System.Drawing.Size(600, 400);
@@ -259,22 +266,21 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
-            this.Name = "Login";
-            this.leftPanel.ResumeLayout(false);
+            this.Name = "LoginForm";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.LoginForm_MouseMove);
             this.rightPanel.ResumeLayout(false);
             this.rightPanel.PerformLayout();
             this.PWPanel.ResumeLayout(false);
             this.PWPanel.PerformLayout();
             this.IDPanel.ResumeLayout(false);
             this.IDPanel.PerformLayout();
+            this.leftPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private Panel leftPanel;
-        private Label logoLabel;
         private Panel rightPanel;
         private Panel IDPanel;
         private Label IDLabel;
@@ -289,5 +295,7 @@
         private CheckBox checkBox1;
         private TextBox PWTxt;
         private TextBox IDTxt;
+        private Label logoLabel;
+        private Panel leftPanel;
     }
 }

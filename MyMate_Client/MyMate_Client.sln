@@ -5,7 +5,7 @@ VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ClientModules", "ClientModules\ClientModules.csproj", "{3A2F0545-7226-4962-832A-AC7E848CA428}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WinformTest", "WinformTest\WinformTest.csproj", "{6DC1EE8D-73D7-4BFD-8630-678F104AFAC1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MainForm", "MyMate_Page\MainForm\MainForm.csproj", "{5310AF21-2538-4F68-91B6-6C1531A7C237}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{3A2F0545-7226-4962-832A-AC7E848CA428}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A2F0545-7226-4962-832A-AC7E848CA428}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A2F0545-7226-4962-832A-AC7E848CA428}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6DC1EE8D-73D7-4BFD-8630-678F104AFAC1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6DC1EE8D-73D7-4BFD-8630-678F104AFAC1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6DC1EE8D-73D7-4BFD-8630-678F104AFAC1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6DC1EE8D-73D7-4BFD-8630-678F104AFAC1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5310AF21-2538-4F68-91B6-6C1531A7C237}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5310AF21-2538-4F68-91B6-6C1531A7C237}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5310AF21-2538-4F68-91B6-6C1531A7C237}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5310AF21-2538-4F68-91B6-6C1531A7C237}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -19,11 +19,10 @@ using ClientModules.Models.Chat;
 
 MdlLogIn signininfo = new();
 
-//Server server = Server.Instance;
-//SvcDistributor d = SvcDistributor.Instance;
+SvcDistributor d = SvcDistributor.Instance;
 
 while (true)
-{
+{/*
     int i;
     {
         List<MdlServer> svs = new()
@@ -71,4 +70,5 @@ while (true)
         ServerContainer.Instance.GetMessages(30, 6, -2);
     }
     return;
+    */
 }

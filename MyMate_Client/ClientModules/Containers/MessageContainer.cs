@@ -52,7 +52,7 @@ namespace ClientModules.Containers
 #endif
                 Items.AddLast(v);
                 if (this.dataDistributedEvent != null)
-                    this.dataDistributedEvent();
+                    this.dataDistributedEvent(v);
                 return;
             }
 
@@ -72,7 +72,7 @@ namespace ClientModules.Containers
                 Items.AddAfter(Node, v);
                 Items.Remove(Node);
                 if (this.dataDistributedEvent != null)
-                    this.dataDistributedEvent();
+                    this.dataDistributedEvent(v);
                 return;
             }
 #if DEBUG
@@ -81,7 +81,7 @@ namespace ClientModules.Containers
             //다 뒤졌는데 없다면 마지막에 넣음
             Items.AddLast(v);
             if (this.dataDistributedEvent != null)
-                this.dataDistributedEvent();
+                this.dataDistributedEvent(v);
             return;
         }
 	}

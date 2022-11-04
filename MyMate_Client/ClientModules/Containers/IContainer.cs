@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ClientModules.Containers
 {
-    public delegate void distribute();
+    public delegate void distribute(object v);
     public delegate void error();
     public interface IContainer
     {

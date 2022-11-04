@@ -1,4 +1,6 @@
+using ClientModules.Models;
 using ClientModules.Services;
+using System.Security.Cryptography;
 
 namespace MainForm
 {
@@ -15,7 +17,7 @@ namespace MainForm
             ApplicationConfiguration.Initialize();
 
             SvcDistributor d = SvcDistributor.Instance;
-
+            MdlMyself.Instance.SetProperty(1, "이름", "닉", "이메일", "폰번", "자기소개");
             Application.Run(new LoginForm());
         }
     }

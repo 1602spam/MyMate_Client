@@ -54,7 +54,7 @@ namespace ClientModules.Containers
             {
                 this.Items.AddOrUpdate(Items.Count, v);
                 if (this.dataDistributedEvent != null)
-                    this.dataDistributedEvent();
+                    this.dataDistributedEvent(v);
             }
             else
             {

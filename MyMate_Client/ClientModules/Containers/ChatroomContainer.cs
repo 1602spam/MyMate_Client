@@ -50,7 +50,7 @@ namespace ClientModules.Containers
 #endif
                 Items.Add(v);
                 if (this.dataDistributedEvent != null)
-                    this.dataDistributedEvent();
+                    this.dataDistributedEvent(v);
                 return;
             }
 
@@ -64,7 +64,7 @@ namespace ClientModules.Containers
                 Items.Insert(i, v);
                 Items.RemoveAt(i + 1);
                 if (this.dataDistributedEvent != null)
-                    this.dataDistributedEvent();
+                    this.dataDistributedEvent(v);
                 return;
             }
 
@@ -73,23 +73,23 @@ namespace ClientModules.Containers
             Console.WriteLine("채팅방 추가됨: " + v.Title);
 #endif
             if (this.dataDistributedEvent != null)
-                this.dataDistributedEvent();
+                this.dataDistributedEvent(v);
             return;
         }
 
-        public void GetMessages(int chatroomCode, int count)
+        public List<MdlMessage>? GetMessages(int chatroomCode, int count)
         {
-            int i = 0;
             int j = 0;
             MdlChatroom? c;
             c = Items.FirstOrDefault(MdlChatroom => MdlChatroom.Code == chatroomCode);
+            List<MdlMessage> mdlMessages = new();
 
             if (c == null)
             {
 #if DEBUG
                 Console.WriteLine("해당하는 채팅방코드의 채팅방을 찾지 못함");
 #endif
-                return;
+                return null;
             }
             else
             {
@@ -103,14 +103,17 @@ namespace ClientModules.Containers
                     {
                         count--;
                         Console.WriteLine(item.Context);
+                        mdlMessages.Add(item);
                         if (count == 0) { break; }
                     }
+                    return mdlMessages;
                 }
                 else
                 {
 #if DEBUG
                     Console.WriteLine("유효하지 않은 데이터 개수");
 #endif
+                    return null;
                 }
             }
         }

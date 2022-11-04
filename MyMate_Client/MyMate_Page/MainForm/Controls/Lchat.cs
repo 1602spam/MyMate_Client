@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientModules.Models.Chat;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -52,6 +53,13 @@ namespace MainForm.Controls
             Message = message;
         }
 
+        public Lchat(int chatPanelSize, MdlMessage message)
+        {
+            InitializeComponent();
+            ChatPanelSize = chatPanelSize;
+            Message = message.Context;
+        }
+
         private void ChatLocation()
         {
             chatLabel.MaximumSize = new Size(ChatPanelSize / 3 * 2, 0);
@@ -66,11 +74,5 @@ namespace MainForm.Controls
             
             nameLabel.Location = new Point(chatBtn.Location.X + chatBtn.Width - nameLabel.Width, dateLabel.Location.Y);
         }
-
-
-
-
-
-
     }
 }

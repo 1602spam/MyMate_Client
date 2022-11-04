@@ -56,7 +56,7 @@ namespace ClientModules.Containers
                 Console.WriteLine("서버 추가됨: "+v.Title);
 #endif
                 if (this.dataDistributedEvent != null)
-                    this.dataDistributedEvent();
+                    this.dataDistributedEvent(v);
             }
             else
             {
@@ -65,20 +65,37 @@ namespace ClientModules.Containers
             }
         }
 
-        public void GetMessages(int serverCode, int chatroomCode, int count)
+        public List<MdlMessage>? GetMessages(int serverCode, int chatroomCode, int count)
         {
-            MdlServer? server;
-            server = this.Items.Values.FirstOrDefault(MdlServer => MdlServer.Code == serverCode);
-
+            MdlServer? server = GetServer(serverCode);
             if (server == null)
             {
 #if DEBUG
                 Console.WriteLine("해당하는 서버코드의 서버를 찾지 못함");
 #endif
-                return;
+                return null;
             }
 
-            server.Chatrooms.GetMessages(chatroomCode, count);
+            return server.Chatrooms.GetMessages(chatroomCode, count);
+        }
+
+        public MdlChatroom? GetChatroom(int serverCode, int chatroomCode)
+        {
+            MdlServer? server = GetServer(serverCode);
+            if (server == null)
+            {
+#if DEBUG
+                Console.WriteLine("해당하는 서버코드의 서버를 찾지 못함");
+#endif
+                return null;
+            }
+
+            return server.Chatrooms.Items.FirstOrDefault(MdlChatroom => MdlChatroom.Code == chatroomCode);
+        }
+
+        public MdlServer? GetServer(int serverCode)
+        {
+            return this.Items.Values.FirstOrDefault(MdlServer => MdlServer.Code == serverCode);
         }
     }
 }

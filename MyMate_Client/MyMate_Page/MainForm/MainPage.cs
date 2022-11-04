@@ -16,7 +16,7 @@ namespace MainForm
 
         MsgPage msgPage = new MsgPage();
         CalendarPage calendarPage = new CalendarPage();
-
+        
         public MainPage()
         {
             InitializeComponent();

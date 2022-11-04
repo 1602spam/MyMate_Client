@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientModules.Models.Chat;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -50,6 +51,12 @@ namespace MainForm.Controls
             InitializeComponent();
             ChatPanelSize = chatPanelSize;
             Message = message;
+        }
+        public Rchat(int chatPanelSize, MdlMessage message)
+        {
+            InitializeComponent();
+            ChatPanelSize = chatPanelSize;
+            Message = message.Context;
         }
 
         private void ChatLocation()

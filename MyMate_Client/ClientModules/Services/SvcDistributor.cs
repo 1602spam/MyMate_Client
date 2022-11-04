@@ -47,10 +47,10 @@ namespace ClientModules.Services
 			// 3. 작업을 수행할 객체에서 대리자 형식 이벤트에 메서드 추가
 			// 4. 이벤트 호출하면 해당 메서드가 실행됨
 
-			Server.Instance.ReceiveEvent += taskDistributor;
+			Server.Instance.ReceiveEvent += TaskDistributor;
 		}
 
-		private static void taskDistributor()
+		private static void TaskDistributor()
 		{
 			if (!Server.Instance.IsEmpty())
 			{
@@ -61,19 +61,19 @@ namespace ClientModules.Services
 				// 읽어온 데이터가 없다면 Continue
 				if (null != Instance.result.Value)
 #pragma warning disable CS8620 // 참조 형식의 null 허용 여부 차이로 인해 매개 변수에 대해 인수를 사용할 수 없습니다.
-					estimateObject(Instance.result);
+					EstimateObject(Instance.result);
 #pragma warning restore CS8620 // null check if문을 사용했으므로/정상적인 값이 전송되는 경우만 고려하므로 무시함
 			}
 		}
-		private void putUser(MdlUser v)
+		private void PutUser(MdlUser v)
 		{
             UserContainer.Instance.AddOrUpdate(v.Code, v);
         }
-		private void putSchedule(MdlSchedule v)
+		private void PutSchedule(MdlSchedule v)
 		{
 			ScheduleContainer.Instance.AddOrUpdate(v);
 		}
-		private void putScheduleItem(MdlScheduleItem v)
+		private void PutScheduleItem(MdlScheduleItem v)
 		{
             /*
 			 * 스케줄 컨테이너 인스턴스에서
@@ -87,12 +87,12 @@ namespace ClientModules.Services
                 return;
 			s.Items.AddOrUpdate(v);
         }
-        public void putServer(MdlServer v)
+        public void PutServer(MdlServer v)
         //private void putServer(MdlServer v)
         {
 			ServerContainer.Instance.AddOrUpdate(v);
         }
-        public void putChatroom(MdlChatroom v)
+        public void PutChatroom(MdlChatroom v)
         //private void putChatroom(MdlChatroom v)
 		{
 			MdlServer? s;
@@ -109,7 +109,7 @@ namespace ClientModules.Services
         }
 
         //private void putMessage(MdlMessage v)
-        public void putMessage(MdlMessage v)
+        public void PutMessage(MdlMessage v)
         {
 			MdlServer? s;
 			MdlChatroom? c;
@@ -133,7 +133,7 @@ namespace ClientModules.Services
             c.Messages.AddOrUpdate(v);
         }
 
-		private static void estimateObject(KeyValuePair<byte, object> temp)
+		private static void EstimateObject(KeyValuePair<byte, object> temp)
 		{
 			//테스트
 			switch (temp.Key)

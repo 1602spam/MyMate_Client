@@ -1,4 +1,5 @@
-﻿using ClientModules.Models.Chat;
+﻿using ClientModules.Containers;
+using ClientModules.Models.Chat;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,9 +16,9 @@ namespace MainForm.Controls
     {
         public int ChatPanelSize { get; set; }
 
-        public MdlMessage mdlMessage { get; set; }
+        public MdlMessage? mdlMessage { get; set; }
 
-        public string Message
+        public string? Message
         {
             get
             {
@@ -48,12 +49,21 @@ namespace MainForm.Controls
             }
         }
 
-        public Lchat(int chatPanelSize, MdlMessage message)
+        public Lchat(int chatPanelSize, MdlMessage? m)
         {
             InitializeComponent();
             ChatPanelSize = chatPanelSize;
-            mdlMessage = message;
-            Message = mdlMessage.Context;
+            this.Initialize(m);
+        }
+
+        public void Initialize(MdlMessage? m)
+        {
+            this.mdlMessage = m;
+            if (mdlMessage == null)
+                return;
+            this.Message = mdlMessage.Context;
+            this.dateLabel.Text = mdlMessage.Time.ToString("yyyy-MM-dd");
+            this.nameLabel.Text = UserContainer.Instance.Items.Values.First(MdlUser => MdlUser.Code == mdlMessage.SenderCode).Name;
         }
 
         private void ChatLocation()

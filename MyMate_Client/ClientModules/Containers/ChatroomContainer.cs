@@ -94,7 +94,7 @@ namespace ClientModules.Containers
             else
             {
                 j = c.Messages.Items.Count;
-                if (j != 0 && 0 < count && count < j)
+                if (j != 0 && 0 < count && count <= j)
                 {
 #if DEBUG
                     Console.WriteLine("메시지 불러오기 실행");

@@ -15,6 +15,8 @@ namespace MainForm.Controls
     {
         public int ChatPanelSize { get; set; }
 
+        public MdlMessage mdlMessage { get; set; }
+
         public string Message
         {
             get
@@ -46,18 +48,12 @@ namespace MainForm.Controls
             }
         }
 
-        public Lchat(int chatPanelSize, string message)
-        {
-            InitializeComponent();
-            ChatPanelSize = chatPanelSize;
-            Message = message;
-        }
-
         public Lchat(int chatPanelSize, MdlMessage message)
         {
             InitializeComponent();
             ChatPanelSize = chatPanelSize;
-            Message = message.Context;
+            mdlMessage = message;
+            Message = mdlMessage.Context;
         }
 
         private void ChatLocation()

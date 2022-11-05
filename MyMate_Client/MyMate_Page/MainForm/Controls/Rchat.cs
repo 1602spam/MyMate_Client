@@ -27,6 +27,7 @@ namespace MainForm.Controls
                 ChatLocation();
             }
         }
+        public MdlMessage mdlMessage { get; set; }
 
         public static int GetTextHeight(Label lbl)
         {
@@ -46,17 +47,12 @@ namespace MainForm.Controls
             }
         }
 
-        public Rchat(int chatPanelSize, string message)
-        {
-            InitializeComponent();
-            ChatPanelSize = chatPanelSize;
-            Message = message;
-        }
         public Rchat(int chatPanelSize, MdlMessage message)
         {
             InitializeComponent();
             ChatPanelSize = chatPanelSize;
-            Message = message.Context;
+            mdlMessage = message;
+            Message = mdlMessage.Context;
         }
 
         private void ChatLocation()

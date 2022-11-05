@@ -10,13 +10,11 @@ using System.Windows.Forms;
 
 namespace MainForm.Controls
 {
-    public partial class FriendPage : UserControl
+    public partial class ServerChatList : UserControl
     {
-        public FriendPage()
+        public ServerChatList()
         {
             InitializeComponent();
         }
-
-        
     }
 }

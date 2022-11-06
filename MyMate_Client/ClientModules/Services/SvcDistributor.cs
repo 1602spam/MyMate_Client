@@ -12,6 +12,7 @@ using ClientModules.Extensions;
 using ClientModules.Models;
 using ClientModules.Models.Calendar;
 using ClientModules.Models.Chat;
+using ClientModules.Models.CheckList;
 
 namespace ClientModules.Services
 {
@@ -24,7 +25,7 @@ namespace ClientModules.Services
 		// 싱글턴 구현
 		// Distributor.Instance.~~~로 접근합니다.
 		// 클래스 안에 static 멤버 속성은 프로그램 메모리 적재 시에 구성
-		private static SvcDistributor? instance;
+		private static SvcDistributor instance;
 		public static SvcDistributor Instance
 		{
 			get
@@ -65,15 +66,16 @@ namespace ClientModules.Services
 #pragma warning restore CS8620 // null check if문을 사용했으므로/정상적인 값이 전송되는 경우만 고려하므로 무시함
 			}
 		}
-		private void PutUser(MdlUser v)
+
+        public void PutUser(MdlUser v)
 		{
             UserContainer.Instance.AddOrUpdate(v.Code, v);
         }
-		private void PutSchedule(MdlSchedule v)
+        public void PutSchedule(MdlSchedule v)
 		{
 			ScheduleContainer.Instance.AddOrUpdate(v);
 		}
-		private void PutScheduleItem(MdlScheduleItem v)
+		public void PutScheduleItem(MdlScheduleItem v)
 		{
             /*
 			 * 스케줄 컨테이너 인스턴스에서
@@ -82,18 +84,40 @@ namespace ClientModules.Services
 			 */
             MdlSchedule? s;
 
-            ScheduleContainer.Instance.Items.TryGetValue(v.ScheduleCode, out s);
+            s = ScheduleContainer.Instance.Items.Values.FirstOrDefault(MdlSchedule => MdlSchedule.Code == v.Code);
             if (s == null)
+            {
+#if DEBUG
+                Console.WriteLine("ScheduleItem의 ScheduleCode와 일치하는 Schedule을 찾지 못함");
+#endif
                 return;
-			s.Items.AddOrUpdate(v);
+            }
+            s.Items.AddOrUpdate(v);
         }
+		public void PutProject(MdlProject v)
+		{
+			ProjectContainer.Instance.AddOrUpdate(v);
+		}
+		public void PutProjectItem(MdlProjectItem v)
+		{
+			MdlProject? p;
+
+			p = ProjectContainer.Instance.Items.Values.FirstOrDefault(MdlProject => MdlProject.Code == v.Code);
+			if (p == null)
+            {
+#if DEBUG
+                Console.WriteLine("ProjectItem의 ProjectCode와 일치하는 Project를 찾지 못함");
+#endif
+                return;
+            }
+            p.Items.AddOrUpdate(v);
+		}
         public void PutServer(MdlServer v)
-        //private void putServer(MdlServer v)
         {
 			ServerContainer.Instance.AddOrUpdate(v);
         }
+
         public void PutChatroom(MdlChatroom v)
-        //private void putChatroom(MdlChatroom v)
 		{
 			MdlServer? s;
 
@@ -143,7 +167,7 @@ namespace ClientModules.Services
                         MessageProtocol.Message? message;
                         message = temp.Value as MessageProtocol.Message;
 
-                        //putMessage(new MdlMessage(message));
+                        SvcDistributor.instance.PutMessage(new MdlMessage(message));
 #if DEBUG
                         Console.WriteLine("메시지 프로토콜을 수신하고 분배 시도");
 #endif

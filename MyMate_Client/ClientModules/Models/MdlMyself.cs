@@ -10,25 +10,8 @@ using Protocol;
 
 namespace ClientModules.Models
 {
-	public class MdlMyself
+	public class MdlMyself:MdlUser
 	{
-		//유저 코드
-		public int Code { get; set; }
-		//유저 실제 이름
-		public string Name { get; set; }
-		//유저 별명
-		public string Username { get; set; }
-		//유저 상태
-		//public int Status { get; set; }
-		//유저 E-mail 주소
-		public string Email { get; set; }
-		//유저 연락처
-		public string PhoneNumber { get; set; }
-		//유저 자기소개
-		public string Introduction { get; set; }
-        public List<int> Friends { get; set; }
-		public List<int> BlockedUsers { get; set; }
-
         private MdlMyself()
 		{
 		}
@@ -40,8 +23,6 @@ namespace ClientModules.Models
 			this.Email = email;
 			this.PhoneNumber = phonenumber;
 			this.Introduction = introduction;
-			this.BlockedUsers = new List<int>();
-			this.Friends = new List<int>();
 		}
 
         private static MdlMyself? instance;

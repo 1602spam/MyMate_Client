@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Protocol;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -30,6 +31,15 @@ namespace ClientModules.Models.Chat
             SenderCode = senderCode;
             Context = context;
             Time = time;
+        }
+        public MdlMessage(MessageProtocol.Message message)
+        {
+            this.Code = message.messageCode;
+            this.ServerCode = message.servercode;
+            this.ChatroomCode = message.channelCode;
+            this.SenderCode = message.creater;
+            this.Context = message.content;
+            this.Time = message.startTime;
         }
 
         public bool nullCheck()

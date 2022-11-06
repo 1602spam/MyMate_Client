@@ -36,7 +36,6 @@ namespace ClientModules.Models.Chat
                     break;
                 return true;
             } while (false);
-
             return false;
         }
     }

@@ -39,6 +39,7 @@ namespace ClientModules.Models
 			Introduction = introduce;
         }
 
+		public MdlUser() { }
         public MdlUser(UserInfoProtocol.User user)
 		{
 			//attribute = user.attribute

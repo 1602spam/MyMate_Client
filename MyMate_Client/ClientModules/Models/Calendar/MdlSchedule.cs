@@ -17,7 +17,7 @@ namespace ClientModules.Models.Calendar
         public int OwnerCode { get; set; }
         //캘린더 제목
         public string Title { get; set; }
-        //캘린더를 공유받은 사람 ??????? 이미 받았는데 공유받은 사람이 뭐가 중요한지 모르겠지만 쓸 데 있을 수도 있어서 일단 넣어 두기
+        public List<int> Users { get; set; }
         public ScheduleItemContainer Items { get; set; }
         public MdlSchedule() {}
         public MdlSchedule(int code, int serverCode, int ownerCode, string title, ScheduleItemContainer items)

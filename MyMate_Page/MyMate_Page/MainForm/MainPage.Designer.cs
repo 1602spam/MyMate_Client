@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainPage));
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.closeBtn = new System.Windows.Forms.Button();
@@ -166,10 +167,10 @@
             this.tableLayoutPanel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.tableLayoutPanel3.ColumnCount = 6;
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel3.Controls.Add(this.button1, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.button2, 3, 0);
@@ -186,61 +187,78 @@
             // 
             // button1
             // 
-            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.button1.Location = new System.Drawing.Point(175, 0);
+            this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button1.Location = new System.Drawing.Point(235, 0);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 50);
+            this.button1.Size = new System.Drawing.Size(70, 50);
             this.button1.TabIndex = 0;
+            this.button1.TabStop = false;
             this.button1.Text = "MSG";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
-            this.button2.BackColor = System.Drawing.Color.White;
+            this.button2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button2.FlatAppearance.BorderSize = 0;
             this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.button2.Location = new System.Drawing.Point(375, 0);
             this.button2.Margin = new System.Windows.Forms.Padding(0);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(100, 50);
+            this.button2.Size = new System.Drawing.Size(70, 50);
             this.button2.TabIndex = 0;
             this.button2.Text = "LIST";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button2.UseVisualStyleBackColor = false;
             // 
             // button3
             // 
-            this.button3.BackColor = System.Drawing.Color.White;
+            this.button3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(275, 0);
+            this.button3.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
+            this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button3.Location = new System.Drawing.Point(305, 0);
             this.button3.Margin = new System.Windows.Forms.Padding(0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(100, 50);
+            this.button3.Size = new System.Drawing.Size(70, 50);
             this.button3.TabIndex = 0;
             this.button3.Text = "CALENDAR";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button3.UseVisualStyleBackColor = false;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
-            this.button4.BackColor = System.Drawing.Color.White;
+            this.button4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
             this.button4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button4.FlatAppearance.BorderSize = 0;
             this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Location = new System.Drawing.Point(475, 0);
+            this.button4.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
+            this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.button4.Location = new System.Drawing.Point(445, 0);
             this.button4.Margin = new System.Windows.Forms.Padding(0);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(100, 50);
+            this.button4.Size = new System.Drawing.Size(70, 50);
             this.button4.TabIndex = 0;
             this.button4.Text = "FRIENDS";
+            this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = false;
             // 
             // panel3
@@ -281,9 +299,10 @@
             this.serverBtn.Name = "serverBtn";
             this.serverBtn.Size = new System.Drawing.Size(40, 40);
             this.serverBtn.TabIndex = 2;
-            this.serverBtn.Text = "+";
+            this.serverBtn.Text = "S1";
             this.serverBtn.TextColor = System.Drawing.Color.Black;
             this.serverBtn.UseVisualStyleBackColor = false;
+            this.serverBtn.Click += new System.EventHandler(this.serverBtn_Click);
             // 
             // panel5
             // 
@@ -297,14 +316,16 @@
             // 
             // settingBtn
             // 
-            this.settingBtn.BackColor = System.Drawing.Color.White;
-            this.settingBtn.BackgroundColor = System.Drawing.Color.White;
+            this.settingBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.settingBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
+            this.settingBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
             this.settingBtn.BorderColor = System.Drawing.Color.Red;
             this.settingBtn.BorderRadius = 20;
             this.settingBtn.BorderSize = 0;
             this.settingBtn.FlatAppearance.BorderSize = 0;
             this.settingBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.settingBtn.ForeColor = System.Drawing.Color.White;
+            this.settingBtn.Image = ((System.Drawing.Image)(resources.GetObject("settingBtn.Image")));
             this.settingBtn.Location = new System.Drawing.Point(5, 5);
             this.settingBtn.Name = "settingBtn";
             this.settingBtn.Size = new System.Drawing.Size(40, 40);
@@ -324,14 +345,17 @@
             // 
             // profileBtn
             // 
+            this.profileBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.profileBtn.BackColor = System.Drawing.Color.White;
             this.profileBtn.BackgroundColor = System.Drawing.Color.White;
+            this.profileBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.profileBtn.BorderColor = System.Drawing.Color.Red;
             this.profileBtn.BorderRadius = 20;
             this.profileBtn.BorderSize = 0;
             this.profileBtn.FlatAppearance.BorderSize = 0;
             this.profileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.profileBtn.ForeColor = System.Drawing.Color.White;
+            this.profileBtn.Image = ((System.Drawing.Image)(resources.GetObject("profileBtn.Image")));
             this.profileBtn.Location = new System.Drawing.Point(5, 5);
             this.profileBtn.Name = "profileBtn";
             this.profileBtn.Size = new System.Drawing.Size(40, 40);

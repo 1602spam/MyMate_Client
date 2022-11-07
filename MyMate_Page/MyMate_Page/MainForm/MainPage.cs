@@ -13,7 +13,7 @@ namespace MainForm
 {
     public partial class MainPage : Form
     {
-
+        ServerPage serverPage = new ServerPage();
         MsgPage msgPage = new MsgPage();
         CalendarPage calendarPage = new CalendarPage();
 
@@ -22,6 +22,7 @@ namespace MainForm
             InitializeComponent();
             panel8.Controls.Add(calendarPage);
             panel8.Controls.Add(msgPage);
+            panel8.Controls.Add(serverPage);
             msgPage.Visible = true;
         }
 
@@ -82,6 +83,12 @@ namespace MainForm
         private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void serverBtn_Click(object sender, EventArgs e)
+        {
+            serverPage.Visible = true;
+            msgPage.Visible = false;
         }
     }
 }

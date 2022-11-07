@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel2 = new System.Windows.Forms.Panel();
+            this.chatPanel = new System.Windows.Forms.Panel();
             this.panel3 = new System.Windows.Forms.Panel();
             this.chatSendPanel = new System.Windows.Forms.TableLayoutPanel();
             this.sendBtn = new MainForm.Controls.RoundButton();
             this.chatTxt = new System.Windows.Forms.RichTextBox();
             this.plusBtn = new MainForm.Controls.RoundButton();
-            this.chatPanel = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.chatSendPanel.SuspendLayout();
@@ -49,6 +49,15 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(678, 481);
             this.panel2.TabIndex = 1;
+            // 
+            // chatPanel
+            // 
+            this.chatPanel.BackColor = System.Drawing.Color.White;
+            this.chatPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chatPanel.Location = new System.Drawing.Point(0, 0);
+            this.chatPanel.Name = "chatPanel";
+            this.chatPanel.Size = new System.Drawing.Size(678, 451);
+            this.chatPanel.TabIndex = 1;
             // 
             // panel3
             // 
@@ -101,7 +110,7 @@
             // 
             // chatTxt
             // 
-            this.chatTxt.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.chatTxt.BackColor = System.Drawing.Color.Gainsboro;
             this.chatTxt.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.chatTxt.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chatTxt.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
@@ -132,14 +141,6 @@
             this.plusBtn.Text = "+";
             this.plusBtn.TextColor = System.Drawing.Color.White;
             this.plusBtn.UseVisualStyleBackColor = false;
-            // 
-            // chatPanel
-            // 
-            this.chatPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.chatPanel.Location = new System.Drawing.Point(0, 0);
-            this.chatPanel.Name = "chatPanel";
-            this.chatPanel.Size = new System.Drawing.Size(678, 451);
-            this.chatPanel.TabIndex = 1;
             // 
             // ServerChat
             // 

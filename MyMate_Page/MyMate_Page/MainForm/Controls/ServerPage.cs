@@ -15,6 +15,18 @@ namespace MainForm.Controls
         public ServerPage()
         {
             InitializeComponent();
+            var SChatList = new ServerChatList("Server1~~");
+            var SChat = new ServerChat();
+            var SFriends = new ServerFriends();
+            SChatList.Dock = DockStyle.Fill;
+            SChat.Dock = DockStyle.Fill;
+            SFriends.Dock = DockStyle.Fill;
+            SChatListPanel.Controls.Add(SChatList);
+            SChatPanel.Controls.Add(SChat);
+            SFriendsPanel.Controls.Add(SFriends);
+
+            this.Visible = false;
+            this.Dock = DockStyle.Fill;
         }
     }
 }

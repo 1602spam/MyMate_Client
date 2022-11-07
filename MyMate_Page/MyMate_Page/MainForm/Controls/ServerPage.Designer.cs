@@ -28,42 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.SChatListPanel = new System.Windows.Forms.Panel();
+            this.SFriendsPanel = new System.Windows.Forms.Panel();
+            this.SChatPanel = new System.Windows.Forms.Panel();
             this.SuspendLayout();
             // 
-            // panel1
+            // SChatListPanel
             // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(150, 427);
-            this.panel1.TabIndex = 0;
+            this.SChatListPanel.Dock = System.Windows.Forms.DockStyle.Left;
+            this.SChatListPanel.Location = new System.Drawing.Point(0, 0);
+            this.SChatListPanel.Name = "SChatListPanel";
+            this.SChatListPanel.Size = new System.Drawing.Size(160, 427);
+            this.SChatListPanel.TabIndex = 0;
             // 
-            // panel2
+            // SFriendsPanel
             // 
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Right;
-            this.panel2.Location = new System.Drawing.Point(520, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(150, 427);
-            this.panel2.TabIndex = 1;
+            this.SFriendsPanel.Dock = System.Windows.Forms.DockStyle.Right;
+            this.SFriendsPanel.Location = new System.Drawing.Point(520, 0);
+            this.SFriendsPanel.Name = "SFriendsPanel";
+            this.SFriendsPanel.Size = new System.Drawing.Size(150, 427);
+            this.SFriendsPanel.TabIndex = 1;
             // 
-            // panel3
+            // SChatPanel
             // 
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(150, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(370, 427);
-            this.panel3.TabIndex = 2;
+            this.SChatPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SChatPanel.Location = new System.Drawing.Point(160, 0);
+            this.SChatPanel.Name = "SChatPanel";
+            this.SChatPanel.Size = new System.Drawing.Size(360, 427);
+            this.SChatPanel.TabIndex = 2;
             // 
             // ServerPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel2);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.SChatPanel);
+            this.Controls.Add(this.SFriendsPanel);
+            this.Controls.Add(this.SChatListPanel);
             this.Name = "ServerPage";
             this.Size = new System.Drawing.Size(670, 427);
             this.ResumeLayout(false);
@@ -72,8 +72,8 @@
 
         #endregion
 
-        private Panel panel1;
-        private Panel panel2;
-        private Panel panel3;
+        private Panel SChatListPanel;
+        private Panel SFriendsPanel;
+        private Panel SChatPanel;
     }
 }

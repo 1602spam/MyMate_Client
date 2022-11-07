@@ -23,6 +23,13 @@ namespace ClientModules.Models.Chat
             Title = title;
             Messages = new();
         }
+        public MdlChatroom(ChannelProtocol.CHNNEL chatroom)
+        {
+            this.Code = chatroom.channelCode;
+            this.ServerCode = chatroom.serverCode;
+            this.Title = chatroom.title;
+            this.Messages = new();
+        }
 
         public bool nullCheck()
         {

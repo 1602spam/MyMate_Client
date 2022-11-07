@@ -25,11 +25,14 @@ namespace ClientModules.Models.CheckList
         public List<int> Users { get; set; }
         //public Dictionary<int, string> Users { get; set; }
 
-        public MdlProject(string title, List<int> users)
+        public MdlProject(ChannelProtocol.CHNNEL channel)
         {
-            Title = title;
-            Users = users;
-            Items = new ProjectItemContainer();
+            this.Code = channel.channelCode;
+            this.ServerCode = channel.serverCode;
+            this.OwnerCode = channel.creator;
+            this.Title = channel.title;
+            this.Items = new ProjectItemContainer();
+            this.Users = channel.users;
         }
 
         public bool nullCheck() {

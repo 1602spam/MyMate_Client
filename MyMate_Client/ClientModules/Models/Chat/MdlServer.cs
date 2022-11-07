@@ -25,12 +25,22 @@ namespace ClientModules.Models.Chat
 
         public MdlServer(int code, bool isCompact, string title, int ownerCode)
         {
-            Code = code;
-            IsCompact = isCompact;
-            Title = title;
-            OwnerCode = ownerCode;
-            Chatrooms = new();
-            Users = new();
+            this.Code = code;
+            this.IsCompact = isCompact;
+            this.Title = title;
+            this.OwnerCode = ownerCode;
+            this.Chatrooms = new();
+            this.Users = new();
+        }
+
+        public MdlServer(ServerProtocol.Server server)
+        {
+            this.Code = server.serverCode;
+            this.IsCompact = server.isCompact;
+            this.Title = server.title;
+            this.OwnerCode = server.adminCode;
+            this.Chatrooms = new();
+            this.Users = server.users;
         }
 
         public bool nullCheck()

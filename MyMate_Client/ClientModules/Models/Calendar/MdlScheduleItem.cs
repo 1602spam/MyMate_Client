@@ -23,12 +23,13 @@ namespace ClientModules.Models.Calendar
         public DateTime EndDate { get; set; }
         //내용(내지 메모)
         public string Context { get; set; }
+        public int Creator { get; set; }
         //항목 공개 여부
         public bool IsPrivate { get; set; }
         //완료 여부, Client-side
         public bool IsDone { get; set; }
 
-        public MdlScheduleItem(int code, int scheduleCode, string title, DateTime startDate, DateTime endDate, string context, bool isPrivate, bool isDone)
+        public MdlScheduleItem(int code, int scheduleCode, string title, DateTime startDate, DateTime endDate, string context, int creator, bool isPrivate, bool isDone)
         {
             Code = code;
             ScheduleCode = scheduleCode;
@@ -36,6 +37,7 @@ namespace ClientModules.Models.Calendar
             StartDate = startDate;
             EndDate = endDate;
             Context = context;
+            Creator = creator;
             IsPrivate = isPrivate;
             IsDone = isDone;
         }
@@ -45,6 +47,7 @@ namespace ClientModules.Models.Calendar
             ScheduleCode = cal.channelCode;
             Code = cal.calendarCode;
             Context = cal.content;
+            Creator = cal.creater;
             StartDate = cal.startTime;
             EndDate = cal.endTime;
             IsPrivate = cal.isPrivate;

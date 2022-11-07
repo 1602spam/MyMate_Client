@@ -132,7 +132,6 @@ namespace ClientModules.Services
 			s.Chatrooms.AddOrUpdate(v);
         }
 
-        //private void putMessage(MdlMessage v)
         public void PutMessage(MdlMessage v)
         {
 			MdlServer? s;
@@ -173,22 +172,28 @@ namespace ClientModules.Services
 #endif
                     }
                     break;
-                /*
+                
 				case DataType.USER:
 					{
 						UserProtocol.USER? user;
 						user = temp.Value as UserProtocol.USER;
 
-						putUser(new MdlUser(user));
+						SvcDistributor.Instance.PutUser(new MdlUser(user));
 					}
 					break;
 
-				case DataType.SCHEDULE:
+				case DataType.CHNNEL:
 					{
+						ChannelProtocol.CHNNEL? channel;
+						channel = temp.Value as ChannelProtocol.CHNNEL;
+
+						/*
+						if(channel.state==)
 						ScheduleProtocol.Schedule? schedule;
 						schedule = temp.Value as ScheduleProtocol.SCHEDULE;
 						
 						putSchedule(new MdlSchedule(schedule));
+						*/
 					}
 					break;
 					
@@ -209,16 +214,6 @@ namespace ClientModules.Services
 						putChatroom(new MdlChatroom(chatroom));
 					}
 					break;
-				
-				case DataType.PERMISSION:
-					{
-						PermissionProtocol.Permission? permission;
-						permission = temp.Value as PermissionProtocol.PERMISSION;
-						
-						MdlPermission s = new(permission);
-						PermissionContainer.Instance.AddOrUpdate(s.Code, c);
-					}
-					break;
 					
 				case DataType.SERVER:
 					{
@@ -227,16 +222,6 @@ namespace ClientModules.Services
 						
 						MdlServer s = new(server);
 						ServerContainer.Instance.AddOrUpdate(s.Code, c);
-					}
-					break;
-					
-				case DataType.PROJECT:
-					{
-						ProjectProtocol.Schedule? project;
-						project = temp.Value as ProjectProtocol.PROJECT;
-						
-						MdlProject s = new(project);
-						ProjectContainer.Instance.AddOrUpdate(s.Code, c);
 					}
 					break;
 					
@@ -249,7 +234,7 @@ namespace ClientModules.Services
 						ProjectItemContainer.Instance.AddOrUpdate(s.Code, c);
 					}
 					break;
-				*/
+				
                 default:
 					Console.WriteLine("알 수 없는 데이터를 수신하고 딕셔너리에는 저장하지 않았습니다.");
 					break;

@@ -95,7 +95,7 @@ namespace MainForm.Controls
 			if (m == null)
 				return;
 			//자기 자신이 보낸 메시지라면 Rchat에 대해 처리
-			if (m.SenderCode == MdlMyself.Instance.Code)
+			if (m.Creator == MdlMyself.Instance.Code)
 			{
 				//이미 있는 메시지인지 확인해서 없다면 추가, 있다면 갱신
                 MdlMessage? message = Chatroom.Messages.Items.LastOrDefault(MdlMessage => MdlMessage.Code == m.Code);

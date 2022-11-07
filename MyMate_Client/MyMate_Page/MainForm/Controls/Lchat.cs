@@ -63,7 +63,7 @@ namespace MainForm.Controls
                 return;
             this.Message = mdlMessage.Context;
             this.dateLabel.Text = mdlMessage.Time.ToString("yyyy-MM-dd");
-            this.nameLabel.Text = UserContainer.Instance.Items.Values.First(MdlUser => MdlUser.Code == mdlMessage.SenderCode).Name;
+            this.nameLabel.Text = UserContainer.Instance.Items.Values.First(MdlUser => MdlUser.Code == mdlMessage.Creator).Name;
         }
 
         private void ChatLocation()

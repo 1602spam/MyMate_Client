@@ -16,7 +16,7 @@ namespace ClientModules.Models.Chat
         //채팅방 코드
         public int ChatroomCode { get; set; }
         //메시지 보낸 유저 코드
-        public int SenderCode { get; set; }
+        public int Creator { get; set; }
         //메시지 내용
         public string Context { get; set; }
         //메시지 보낸 시간
@@ -28,7 +28,7 @@ namespace ClientModules.Models.Chat
             Code = code;
             ServerCode = serverCode;
             ChatroomCode = chatroomCode;
-            SenderCode = senderCode;
+            Creator = senderCode;
             Context = context;
             Time = time;
         }
@@ -37,7 +37,7 @@ namespace ClientModules.Models.Chat
             this.Code = message.messageCode;
             this.ServerCode = message.servercode;
             this.ChatroomCode = message.channelCode;
-            this.SenderCode = message.creater;
+            this.Creator = message.creater;
             this.Context = message.content;
             this.Time = message.startTime;
         }
@@ -52,7 +52,7 @@ namespace ClientModules.Models.Chat
                     break;
                 if (ChatroomCode != 0)
                     break;
-                if (SenderCode != 0)
+                if (Creator != 0)
                     break;
                 if (Context != "")
                 return true;

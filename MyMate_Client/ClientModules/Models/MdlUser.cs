@@ -25,27 +25,35 @@ namespace ClientModules.Models
 		public string PhoneNumber { get; set; }
 		//유저 자기소개
 		public string Introduction { get; set; }
+
+		public DateTime RecentTime { get; set; }
 		//유저 연관관계는 자기 것만 가지고 있음
         //public List<int> Friends { get; set; }
 		//public List<int> Blocks { get; set; }
 
         public MdlUser(int code, string name, string username, string email, string phonenumber, string introduce)
         {
-			Code = code;
-			Name = name;
-			Username = username;
-			Email = email;
-			PhoneNumber = phonenumber;
-			Introduction = introduce;
+			this.Code = code;
+			this.Name = name;
+			this.Username = username;
+			this.Email = email;
+			this.PhoneNumber = phonenumber;
+			this.Introduction = introduce;
         }
 
 		public MdlUser() { }
         public MdlUser(UserInfoProtocol.User user)
 		{
-			//attribute = user.attribute
-		}
+            this.Code = user.code;
+            this.Name = user.name;
+            this.Username = user.username;
+            this.Email = user.email;
+            this.PhoneNumber = user.phonenumber;
+            this.Introduction = user.introduce;
 
-		public bool nullCheck()
+        }
+
+        public bool nullCheck()
 		{
 			return Code == 0 ? true : false;
 		}

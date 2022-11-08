@@ -12,7 +12,7 @@ namespace MainForm.Controls
 {
 	public partial class ServerBtn : UserControl
 	{		
-		MainPage mainPage;
+		//MainPage mainPage;
 		public ServerBtn(string SName) //, MainPage mainPage
         {
 			InitializeComponent();

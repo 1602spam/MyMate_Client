@@ -1,9 +1,12 @@
-﻿using System;
+﻿using ClientModules.Containers;
+using ClientModules.Models.Chat;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +17,9 @@ namespace MainForm.Controls
     {
         public int ChatPanelSize { get; set; }
 
-        public string Message
+        public MdlMessage? mdlMessage { get; set; }
+
+        public string? Message
         {
             get
             {
@@ -45,11 +50,21 @@ namespace MainForm.Controls
             }
         }
 
-        public Lchat(int chatPanelSize, string message)
+        public Lchat(int chatPanelSize, MdlMessage? m)
         {
             InitializeComponent();
             ChatPanelSize = chatPanelSize;
-            Message = message;
+            this.Initialize(m);
+        }
+
+        public void Initialize(MdlMessage? m)
+        {
+            this.mdlMessage = m;
+            if (mdlMessage == null)
+                return;
+            this.Message = mdlMessage.Context;
+            this.dateLabel.Text = mdlMessage.Time.ToString("yyyy-MM-dd");
+            this.nameLabel.Text = UserContainer.Instance.Items.Values.First(MdlUser => MdlUser.Code == mdlMessage.Creator).Name;
         }
 
         private void ChatLocation()
@@ -63,14 +78,8 @@ namespace MainForm.Controls
             chatBtn.Width = chatLabel.Width + 17;
 
             this.Height = chatBtn.Bottom + 10;
-            
+
             nameLabel.Location = new Point(chatBtn.Location.X + chatBtn.Width - nameLabel.Width, dateLabel.Location.Y);
         }
-
-
-
-
-
-
     }
 }

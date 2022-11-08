@@ -1,9 +1,13 @@
-﻿using System;
+﻿using ClientModules.Containers;
+using ClientModules.Models;
+using ClientModules.Models.Chat;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -14,7 +18,7 @@ namespace MainForm.Controls
     {
         public int ChatPanelSize { get; set; }
 
-        public string Message
+        public string? Message
         {
             get
             {
@@ -26,6 +30,7 @@ namespace MainForm.Controls
                 ChatLocation();
             }
         }
+        public MdlMessage? mdlMessage { get; set; }
 
         public static int GetTextHeight(Label lbl)
         {
@@ -45,11 +50,21 @@ namespace MainForm.Controls
             }
         }
 
-        public Rchat(int chatPanelSize, string message)
+        public Rchat(int chatPanelSize, MdlMessage? m)
         {
             InitializeComponent();
             ChatPanelSize = chatPanelSize;
-            Message = message;
+            this.Initialize(m);
+        }
+
+        public void Initialize(MdlMessage? m)
+        {
+            this.mdlMessage = m;
+#pragma warning disable CS8602 // null 가능 참조에 대한 역참조입니다.
+            this.Message = mdlMessage.Context;
+#pragma warning restore CS8602 // null 가능 참조에 대한 역참조입니다.
+            this.dateLabel.Text = mdlMessage.Time.ToString("yyyy-MM-dd");
+            this.nameLabel.Text = MdlMyself.Instance.Name;
         }
 
         private void ChatLocation()
@@ -61,7 +76,7 @@ namespace MainForm.Controls
 
             chatBtn.Height = chatLabel.Height + 17;
             chatBtn.Width = chatLabel.Width + 17;
-            
+
             this.Height = chatBtn.Bottom + 10;
             chatBtn.Location = new Point(ChatPanelSize - chatBtn.Width - 17, chatBtn.Location.Y);
             chatLabel.Location = new Point(ChatPanelSize - chatLabel.Width - 25, chatLabel.Location.Y);

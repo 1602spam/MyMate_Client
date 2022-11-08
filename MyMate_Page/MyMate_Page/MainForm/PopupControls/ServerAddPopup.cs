@@ -36,11 +36,26 @@ namespace MainForm.PopupControls
         private void OKBtn_Click(object sender, EventArgs e)
         {
             ServerName = serverNameTxt.Text;
-            for (int i = 0; i < userList.Items.Count; i++)
+            if (ServerName == "")
             {
-                chatMember.Add(userList.Items[i].ToString());
+                MessageBox.Show("서버이름을 입력하세요!", "안내");
             }
-            this.Close();
+            else if(userList.CheckedItems.Count == 0)
+            {
+                MessageBox.Show("멤버를 선택하세요!", "안내");
+            }
+            else
+            {
+                for (int i = 0; i < userList.Items.Count; i++)
+                {
+
+                    chatMember.Add(userList.Items[i].ToString());
+                }
+                MainPage.mainPage.AddServerBtn(ServerName);
+                this.Close();
+            }
+            
+            
         }
     }
 }

@@ -18,39 +18,11 @@ namespace MainForm
         public MsgPage msgPage = new MsgPage();
         public CalendarPage calendarPage = new CalendarPage();
         public List<ServerBtn> serverBtns = new List<ServerBtn>();
-        public List<ServerPage> serverPages = new List<ServerPage>();      
+        public List<ServerPage> serverPages = new List<ServerPage>();
+        //string serverName = "";
 
         private Point mousePoint;
 
-        //ServerPage serverPage = new ServerPage("server1");
-        //private static int serverPageIndex;
-        /*
-        public static int ServerPageIndex
-        {
-            get
-            {
-                return serverPageIndex;
-            }
-            set
-            {
-                serverPageIndex = value;              
-            }
-        }
-        
-        public Panel Panel8
-        {
-            get
-            {
-                return this.panel8;
-            }
-
-            set
-            {
-                this.panel8.Controls.Add(value);
-            }
-            
-        }
-        */
         public MainPage()
         {
             mainPage = this;
@@ -115,27 +87,39 @@ namespace MainForm
             profile.ShowDialog();
         }
 
-        
-
         private void serverAddBtn_Click(object sender, EventArgs e)
         {
             
             var serverAddPopup = new ServerAddPopup();
-            serverAddPopup.ShowDialog();
-            //string SName;
-            
-            var serverBtn = new ServerBtn(serverAddPopup.ServerName);
+            serverAddPopup.ShowDialog();          
+        }
+
+        public void AddServerBtn(string serverName)
+        {
+            var serverBtn = new ServerBtn(serverName);
             serverBtns.Add(serverBtn);
-            var serverPage = new ServerPage(serverAddPopup.ServerName);
+            var serverPage = new ServerPage(serverName);
             serverPages.Add(serverPage);
-            panel11.Controls.Add(serverBtn);
-            serverBtns[0].SendToBack();
-            serverBtns[0].Dock = DockStyle.Top;
+
+            for(int i = 0;serverBtns.Count > i; i++)
+            {
+                if (serverName == serverBtns[i].Name)
+                {
+                    panel11.Controls.Add(serverBtns[i]);
+                    serverBtns[i].SendToBack();
+                    serverBtns[i].Dock = DockStyle.Top;
+                    panel8.Controls.Add(serverPages[i]);
+                    serverPages[i].Visible = true;
+                }
+                else
+                {
+                    serverPages[i].Visible = false;
+                }                
+                msgPage.Visible = false;
+                calendarPage.Visible = false;
+                
+            }
             
-            panel8.Controls.Add(serverPages[0]);
-            msgPage.Visible = false;
-            calendarPage.Visible = false;
-            serverPages[0].Visible = true;
         }
 
         public void ServerPageChange(string SBtn)
@@ -144,8 +128,13 @@ namespace MainForm
             {
                 if (SBtn == serverPages[i].Name)
                 {
-                    panel8.Controls.Add(serverPages[i]);
-                    break;
+                    serverPages[i].Visible = true;
+                    msgPage.Visible = false;
+                    
+                }
+                else
+                {
+                    
                 }
             }
         }

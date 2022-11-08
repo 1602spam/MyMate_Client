@@ -1,4 +1,5 @@
 ﻿using MainForm.Controls;
+using MainForm.PopupControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,16 +14,33 @@ namespace MainForm
 {
     public partial class MainPage : Form
     {
-        ServerPage serverPage = new ServerPage();
+        //ServerPage serverPage = new ServerPage("server1");
         MsgPage msgPage = new MsgPage();
         CalendarPage calendarPage = new CalendarPage();
+        List<ServerBtn> Serverlist = new List<ServerBtn>();
+        public static List<ServerPage> serverPages = new List<ServerPage>();
+
+
+        /*public int loginStatus
+        {
+            get
+            {
+                return loginStatus;
+            }
+            set
+            {
+                loginStatus = value;
+                
+            }
+        }
+        */
 
         public MainPage()
         {
             InitializeComponent();
             panel8.Controls.Add(calendarPage);
             panel8.Controls.Add(msgPage);
-            panel8.Controls.Add(serverPage);
+            //panel8.Controls.Add(serverPage);
             msgPage.Visible = true;
         }
 
@@ -32,6 +50,19 @@ namespace MainForm
 
         private void MainPage_Load(object sender, EventArgs e)
         {
+            this.Visible = false;
+            var loginPage = new LoginForm();
+            loginPage.ShowDialog();
+            //this.loginStatus = loginPage.loginStatus;
+            if(loginPage.LoginStatus == 0)
+            {
+                this.Close();
+            }
+            else
+            {
+                this.Visible = true;
+            }
+                
             
         }
 
@@ -87,8 +118,27 @@ namespace MainForm
 
         private void serverBtn_Click(object sender, EventArgs e)
         {
-            serverPage.Visible = true;
+            //serverPage.Visible = true;
             msgPage.Visible = false;
         }
+
+        private void serverAddBtn_Click(object sender, EventArgs e)
+        {
+            msgPage.Visible = false;
+            var serverAddBtn = new ServerAddPopup();
+            serverAddBtn.ShowDialog();
+            string SName;
+            
+            var serverBtn = new ServerBtn(serverAddBtn.ServerName);
+            Serverlist.Add(serverBtn);
+            panel11.Controls.Add(serverBtn);
+            serverBtn.SendToBack();
+            serverBtn.Dock = DockStyle.Top;
+
+            
+            panel8.Controls.Add(serverPages[0]);
+        }
+
+        
     }
 }

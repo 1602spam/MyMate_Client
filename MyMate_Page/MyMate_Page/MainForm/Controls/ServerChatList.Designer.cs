@@ -59,14 +59,16 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 129);
+            this.panel3.Location = new System.Drawing.Point(0, 147);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(166, 344);
+            this.panel3.Size = new System.Drawing.Size(166, 326);
             this.panel3.TabIndex = 1;
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.panel2.Controls.Add(this.panel4);
             this.panel2.Controls.Add(this.SListBtn);
             this.panel2.Controls.Add(this.SCalendarBtn);
@@ -74,15 +76,14 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(166, 129);
+            this.panel2.Size = new System.Drawing.Size(166, 147);
             this.panel2.TabIndex = 0;
             // 
             // panel4
             // 
             this.panel4.Controls.Add(this.panel6);
             this.panel4.Controls.Add(this.panel5);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 101);
+            this.panel4.Location = new System.Drawing.Point(0, 115);
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(166, 28);
             this.panel4.TabIndex = 3;
@@ -91,9 +92,9 @@
             // 
             this.panel6.Controls.Add(this.addChatBtn);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(139, 0);
+            this.panel6.Location = new System.Drawing.Point(133, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(27, 28);
+            this.panel6.Size = new System.Drawing.Size(33, 28);
             this.panel6.TabIndex = 1;
             // 
             // addChatBtn
@@ -106,7 +107,7 @@
             this.addChatBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addChatBtn.Location = new System.Drawing.Point(0, 0);
             this.addChatBtn.Name = "addChatBtn";
-            this.addChatBtn.Size = new System.Drawing.Size(27, 27);
+            this.addChatBtn.Size = new System.Drawing.Size(33, 27);
             this.addChatBtn.TabIndex = 4;
             this.addChatBtn.UseVisualStyleBackColor = true;
             // 
@@ -116,29 +117,28 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(139, 28);
+            this.panel5.Size = new System.Drawing.Size(133, 28);
             this.panel5.TabIndex = 0;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 21);
+            this.label1.Size = new System.Drawing.Size(88, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "- Chattings";
             // 
             // SListBtn
             // 
-            this.SListBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.SListBtn.FlatAppearance.BorderSize = 0;
             this.SListBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SListBtn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.SListBtn.Image = ((System.Drawing.Image)(resources.GetObject("SListBtn.Image")));
             this.SListBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SListBtn.Location = new System.Drawing.Point(0, 61);
+            this.SListBtn.Location = new System.Drawing.Point(0, 69);
             this.SListBtn.Name = "SListBtn";
             this.SListBtn.Size = new System.Drawing.Size(166, 40);
             this.SListBtn.TabIndex = 2;
@@ -149,13 +149,12 @@
             // SCalendarBtn
             // 
             this.SCalendarBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.SCalendarBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.SCalendarBtn.FlatAppearance.BorderSize = 0;
             this.SCalendarBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.SCalendarBtn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.SCalendarBtn.Image = ((System.Drawing.Image)(resources.GetObject("SCalendarBtn.Image")));
             this.SCalendarBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.SCalendarBtn.Location = new System.Drawing.Point(0, 21);
+            this.SCalendarBtn.Location = new System.Drawing.Point(0, 23);
             this.SCalendarBtn.Name = "SCalendarBtn";
             this.SCalendarBtn.Size = new System.Drawing.Size(166, 40);
             this.SCalendarBtn.TabIndex = 1;
@@ -166,11 +165,10 @@
             // serverNameLabel
             // 
             this.serverNameLabel.AutoSize = true;
-            this.serverNameLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.serverNameLabel.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.serverNameLabel.Location = new System.Drawing.Point(0, 0);
+            this.serverNameLabel.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.serverNameLabel.Location = new System.Drawing.Point(3, 0);
             this.serverNameLabel.Name = "serverNameLabel";
-            this.serverNameLabel.Size = new System.Drawing.Size(80, 21);
+            this.serverNameLabel.Size = new System.Drawing.Size(73, 20);
             this.serverNameLabel.TabIndex = 0;
             this.serverNameLabel.Text = "- Server1";
             // 

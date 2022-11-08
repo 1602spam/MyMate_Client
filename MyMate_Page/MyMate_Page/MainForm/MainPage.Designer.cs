@@ -42,7 +42,11 @@
             this.button4 = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.panel11 = new System.Windows.Forms.Panel();
+            this.serverAddBtn = new MainForm.Controls.RoundButton();
             this.serverBtn = new MainForm.Controls.RoundButton();
+            this.panel10 = new System.Windows.Forms.Panel();
+            this.panel9 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
             this.settingBtn = new MainForm.Controls.RoundButton();
             this.panel6 = new System.Windows.Forms.Panel();
@@ -74,6 +78,7 @@
             this.tableLayoutPanel3.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            this.panel11.SuspendLayout();
             this.panel5.SuspendLayout();
             this.panel6.SuspendLayout();
             this.TabPanel.SuspendLayout();
@@ -96,7 +101,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(800, 18);
+            this.panel1.Size = new System.Drawing.Size(1000, 18);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
@@ -123,7 +128,7 @@
             this.closeBtn.Font = new System.Drawing.Font("맑은 고딕", 6F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.closeBtn.ForeColor = System.Drawing.Color.White;
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.closeBtn.Location = new System.Drawing.Point(775, 0);
+            this.closeBtn.Location = new System.Drawing.Point(975, 0);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(25, 18);
@@ -141,7 +146,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 18);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(800, 482);
+            this.panel2.Size = new System.Drawing.Size(1000, 682);
             this.panel2.TabIndex = 1;
             // 
             // panel8
@@ -150,7 +155,7 @@
             this.panel8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel8.Location = new System.Drawing.Point(50, 50);
             this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(750, 432);
+            this.panel8.Size = new System.Drawing.Size(950, 632);
             this.panel8.TabIndex = 2;
             // 
             // panel7
@@ -159,7 +164,7 @@
             this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel7.Location = new System.Drawing.Point(50, 0);
             this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(750, 50);
+            this.panel7.Size = new System.Drawing.Size(950, 50);
             this.panel7.TabIndex = 1;
             // 
             // tableLayoutPanel3
@@ -181,7 +186,7 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(750, 50);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(950, 50);
             this.tableLayoutPanel3.TabIndex = 2;
             this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
             // 
@@ -195,7 +200,7 @@
             this.button1.ForeColor = System.Drawing.SystemColors.ControlText;
             this.button1.Image = ((System.Drawing.Image)(resources.GetObject("button1.Image")));
             this.button1.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button1.Location = new System.Drawing.Point(235, 0);
+            this.button1.Location = new System.Drawing.Point(335, 0);
             this.button1.Margin = new System.Windows.Forms.Padding(0);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(70, 50);
@@ -215,7 +220,7 @@
             this.button2.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button2.Image = ((System.Drawing.Image)(resources.GetObject("button2.Image")));
             this.button2.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button2.Location = new System.Drawing.Point(375, 0);
+            this.button2.Location = new System.Drawing.Point(475, 0);
             this.button2.Margin = new System.Windows.Forms.Padding(0);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(70, 50);
@@ -233,7 +238,7 @@
             this.button3.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button3.Image = ((System.Drawing.Image)(resources.GetObject("button3.Image")));
             this.button3.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button3.Location = new System.Drawing.Point(305, 0);
+            this.button3.Location = new System.Drawing.Point(405, 0);
             this.button3.Margin = new System.Windows.Forms.Padding(0);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(70, 50);
@@ -252,7 +257,7 @@
             this.button4.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.button4.Image = ((System.Drawing.Image)(resources.GetObject("button4.Image")));
             this.button4.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.button4.Location = new System.Drawing.Point(445, 0);
+            this.button4.Location = new System.Drawing.Point(545, 0);
             this.button4.Margin = new System.Windows.Forms.Padding(0);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(70, 50);
@@ -270,46 +275,97 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel3.Location = new System.Drawing.Point(0, 0);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(50, 482);
+            this.panel3.Size = new System.Drawing.Size(50, 682);
             this.panel3.TabIndex = 0;
             // 
             // panel4
             // 
             this.panel4.AutoScroll = true;
             this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
-            this.panel4.Controls.Add(this.serverBtn);
+            this.panel4.Controls.Add(this.panel11);
+            this.panel4.Controls.Add(this.panel10);
+            this.panel4.Controls.Add(this.panel9);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(0, 50);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(50, 382);
+            this.panel4.Size = new System.Drawing.Size(50, 582);
             this.panel4.TabIndex = 5;
+            // 
+            // panel11
+            // 
+            this.panel11.AutoScroll = true;
+            this.panel11.Controls.Add(this.serverAddBtn);
+            this.panel11.Controls.Add(this.serverBtn);
+            this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel11.Location = new System.Drawing.Point(5, 0);
+            this.panel11.Name = "panel11";
+            this.panel11.Size = new System.Drawing.Size(40, 582);
+            this.panel11.TabIndex = 6;
+            // 
+            // serverAddBtn
+            // 
+            this.serverAddBtn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.serverAddBtn.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.serverAddBtn.BorderColor = System.Drawing.Color.Red;
+            this.serverAddBtn.BorderRadius = 20;
+            this.serverAddBtn.BorderSize = 0;
+            this.serverAddBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.serverAddBtn.FlatAppearance.BorderSize = 0;
+            this.serverAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.serverAddBtn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.serverAddBtn.ForeColor = System.Drawing.Color.Black;
+            this.serverAddBtn.Location = new System.Drawing.Point(0, 40);
+            this.serverAddBtn.Name = "serverAddBtn";
+            this.serverAddBtn.Size = new System.Drawing.Size(40, 40);
+            this.serverAddBtn.TabIndex = 5;
+            this.serverAddBtn.Text = "+";
+            this.serverAddBtn.TextColor = System.Drawing.Color.Black;
+            this.serverAddBtn.UseVisualStyleBackColor = false;
+            this.serverAddBtn.Click += new System.EventHandler(this.serverAddBtn_Click);
             // 
             // serverBtn
             // 
-            this.serverBtn.BackColor = System.Drawing.Color.White;
-            this.serverBtn.BackgroundColor = System.Drawing.Color.White;
+            this.serverBtn.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.serverBtn.BackgroundColor = System.Drawing.Color.WhiteSmoke;
             this.serverBtn.BorderColor = System.Drawing.Color.Red;
             this.serverBtn.BorderRadius = 20;
             this.serverBtn.BorderSize = 0;
+            this.serverBtn.Dock = System.Windows.Forms.DockStyle.Top;
             this.serverBtn.FlatAppearance.BorderSize = 0;
             this.serverBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.serverBtn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.serverBtn.ForeColor = System.Drawing.Color.Black;
-            this.serverBtn.Location = new System.Drawing.Point(5, 5);
+            this.serverBtn.Location = new System.Drawing.Point(0, 0);
             this.serverBtn.Name = "serverBtn";
             this.serverBtn.Size = new System.Drawing.Size(40, 40);
-            this.serverBtn.TabIndex = 2;
+            this.serverBtn.TabIndex = 4;
             this.serverBtn.Text = "S1";
             this.serverBtn.TextColor = System.Drawing.Color.Black;
             this.serverBtn.UseVisualStyleBackColor = false;
             this.serverBtn.Click += new System.EventHandler(this.serverBtn_Click);
+            // 
+            // panel10
+            // 
+            this.panel10.Dock = System.Windows.Forms.DockStyle.Right;
+            this.panel10.Location = new System.Drawing.Point(45, 0);
+            this.panel10.Name = "panel10";
+            this.panel10.Size = new System.Drawing.Size(5, 582);
+            this.panel10.TabIndex = 5;
+            // 
+            // panel9
+            // 
+            this.panel9.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel9.Location = new System.Drawing.Point(0, 0);
+            this.panel9.Name = "panel9";
+            this.panel9.Size = new System.Drawing.Size(5, 582);
+            this.panel9.TabIndex = 4;
             // 
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
             this.panel5.Controls.Add(this.settingBtn);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panel5.Location = new System.Drawing.Point(0, 432);
+            this.panel5.Location = new System.Drawing.Point(0, 632);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(50, 50);
             this.panel5.TabIndex = 4;
@@ -641,7 +697,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 500);
+            this.ClientSize = new System.Drawing.Size(1000, 700);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -655,6 +711,7 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
+            this.panel11.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.TabPanel.ResumeLayout(false);
@@ -696,7 +753,6 @@
         private Button CalendarBtn;
         private Panel panel3;
         private Panel panel4;
-        private Controls.RoundButton serverBtn;
         private Panel panel5;
         private Controls.RoundButton settingBtn;
         private Panel panel6;
@@ -712,5 +768,10 @@
         private Button MsgBtn;
         private Button ListBtn;
         private Label label1;
+        private Panel panel11;
+        private Controls.RoundButton serverAddBtn;
+        private Controls.RoundButton serverBtn;
+        private Panel panel10;
+        private Panel panel9;
     }
 }

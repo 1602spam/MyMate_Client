@@ -30,22 +30,22 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MsgPage));
             this.chatListPanel = new System.Windows.Forms.Panel();
-            this.chatSendPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.sendBtn = new MainForm.Controls.RoundButton();
-            this.chatTxt = new System.Windows.Forms.RichTextBox();
-            this.plusBtn = new MainForm.Controls.RoundButton();
-            this.chatPanel = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel6 = new System.Windows.Forms.Panel();
             this.addChatBtn = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.chatSendPanel = new System.Windows.Forms.TableLayoutPanel();
+            this.sendBtn = new MainForm.Controls.RoundButton();
+            this.chatTxt = new System.Windows.Forms.RichTextBox();
+            this.plusBtn = new MainForm.Controls.RoundButton();
+            this.chatPanel = new System.Windows.Forms.Panel();
             this.chatListPanel.SuspendLayout();
-            this.chatSendPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.chatSendPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // chatListPanel
@@ -59,6 +59,67 @@
             this.chatListPanel.Name = "chatListPanel";
             this.chatListPanel.Size = new System.Drawing.Size(150, 454);
             this.chatListPanel.TabIndex = 3;
+            // 
+            // panel1
+            // 
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(0, 28);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(150, 426);
+            this.panel1.TabIndex = 5;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.panel6);
+            this.panel4.Controls.Add(this.panel5);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel4.Location = new System.Drawing.Point(0, 0);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(150, 28);
+            this.panel4.TabIndex = 4;
+            // 
+            // panel6
+            // 
+            this.panel6.Controls.Add(this.addChatBtn);
+            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel6.Location = new System.Drawing.Point(112, 0);
+            this.panel6.Name = "panel6";
+            this.panel6.Size = new System.Drawing.Size(38, 28);
+            this.panel6.TabIndex = 1;
+            // 
+            // addChatBtn
+            // 
+            this.addChatBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.addChatBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addChatBtn.BackgroundImage")));
+            this.addChatBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.addChatBtn.Dock = System.Windows.Forms.DockStyle.Top;
+            this.addChatBtn.FlatAppearance.BorderSize = 0;
+            this.addChatBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.addChatBtn.Location = new System.Drawing.Point(0, 0);
+            this.addChatBtn.Name = "addChatBtn";
+            this.addChatBtn.Size = new System.Drawing.Size(38, 27);
+            this.addChatBtn.TabIndex = 4;
+            this.addChatBtn.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            this.panel5.Controls.Add(this.label1);
+            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
+            this.panel5.Location = new System.Drawing.Point(0, 0);
+            this.panel5.Name = "panel5";
+            this.panel5.Size = new System.Drawing.Size(112, 28);
+            this.panel5.TabIndex = 0;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(88, 20);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "- Chattings";
             // 
             // chatSendPanel
             // 
@@ -146,67 +207,6 @@
             this.chatPanel.Size = new System.Drawing.Size(505, 424);
             this.chatPanel.TabIndex = 4;
             // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.panel6);
-            this.panel4.Controls.Add(this.panel5);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel4.Location = new System.Drawing.Point(0, 0);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(150, 28);
-            this.panel4.TabIndex = 4;
-            // 
-            // panel6
-            // 
-            this.panel6.Controls.Add(this.addChatBtn);
-            this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(118, 0);
-            this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(32, 28);
-            this.panel6.TabIndex = 1;
-            // 
-            // addChatBtn
-            // 
-            this.addChatBtn.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.addChatBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("addChatBtn.BackgroundImage")));
-            this.addChatBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.addChatBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.addChatBtn.FlatAppearance.BorderSize = 0;
-            this.addChatBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.addChatBtn.Location = new System.Drawing.Point(0, 0);
-            this.addChatBtn.Name = "addChatBtn";
-            this.addChatBtn.Size = new System.Drawing.Size(32, 27);
-            this.addChatBtn.TabIndex = 4;
-            this.addChatBtn.UseVisualStyleBackColor = true;
-            // 
-            // panel5
-            // 
-            this.panel5.Controls.Add(this.label1);
-            this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
-            this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(118, 28);
-            this.panel5.TabIndex = 0;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 21);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "- Chattings";
-            // 
-            // panel1
-            // 
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 28);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(150, 426);
-            this.panel1.TabIndex = 5;
-            // 
             // MsgPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -218,11 +218,11 @@
             this.Size = new System.Drawing.Size(655, 454);
             this.Load += new System.EventHandler(this.MsgPage_Load);
             this.chatListPanel.ResumeLayout(false);
-            this.chatSendPanel.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            this.chatSendPanel.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 

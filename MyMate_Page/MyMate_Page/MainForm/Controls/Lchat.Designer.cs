@@ -37,8 +37,8 @@
             // 
             // chatBtn
             // 
-            this.chatBtn.BackColor = System.Drawing.Color.Gainsboro;
-            this.chatBtn.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.chatBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(198)))), ((int)(((byte)(250)))));
+            this.chatBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(198)))), ((int)(((byte)(250)))));
             this.chatBtn.BorderColor = System.Drawing.Color.Red;
             this.chatBtn.BorderRadius = 5;
             this.chatBtn.BorderSize = 0;
@@ -55,8 +55,8 @@
             // 
             // roundButton2
             // 
-            this.roundButton2.BackColor = System.Drawing.Color.Gainsboro;
-            this.roundButton2.BackgroundColor = System.Drawing.Color.Gainsboro;
+            this.roundButton2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(138)))), ((int)(((byte)(247)))));
+            this.roundButton2.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(61)))), ((int)(((byte)(138)))), ((int)(((byte)(247)))));
             this.roundButton2.BorderColor = System.Drawing.Color.Red;
             this.roundButton2.BorderRadius = 18;
             this.roundButton2.BorderSize = 0;
@@ -93,7 +93,7 @@
             // chatLabel
             // 
             this.chatLabel.AutoSize = true;
-            this.chatLabel.BackColor = System.Drawing.Color.Gainsboro;
+            this.chatLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(168)))), ((int)(((byte)(198)))), ((int)(((byte)(250)))));
             this.chatLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chatLabel.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.chatLabel.Location = new System.Drawing.Point(56, 30);

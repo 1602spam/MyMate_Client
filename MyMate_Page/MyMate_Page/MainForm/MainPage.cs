@@ -110,13 +110,14 @@ namespace MainForm
                     serverBtns[i].Dock = DockStyle.Top;
                     panel8.Controls.Add(serverPages[i]);
                     serverPages[i].Visible = true;
+                    msgPage.Visible = false;
+                    calendarPage.Visible = false;
                 }
                 else
                 {
                     serverPages[i].Visible = false;
                 }                
-                msgPage.Visible = false;
-                calendarPage.Visible = false;
+                
                 
             }
             
@@ -130,14 +131,18 @@ namespace MainForm
                 {
                     serverPages[i].Visible = true;
                     msgPage.Visible = false;
-                    
+                    calendarPage.Visible=false;
                 }
                 else
                 {
-                    
+                    serverPages[i].Visible = false;
                 }
             }
         }
 
+        private void panel11_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

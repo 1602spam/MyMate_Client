@@ -30,6 +30,7 @@ namespace MainForm.Controls
                 ChatLocation();
             }
         }
+
         public MdlMessage? mdlMessage { get; set; }
 
         public static int GetTextHeight(Label lbl)
@@ -52,9 +53,10 @@ namespace MainForm.Controls
 
         public Rchat(int chatPanelSize, MdlMessage? m)
         {
-            InitializeComponent();
             ChatPanelSize = chatPanelSize;
+            InitializeComponent();
             this.Initialize(m);
+            
         }
 
         public void Initialize(MdlMessage? m)
@@ -80,8 +82,8 @@ namespace MainForm.Controls
             this.Height = chatBtn.Bottom + 10;
             chatBtn.Location = new Point(ChatPanelSize - chatBtn.Width - 17, chatBtn.Location.Y);
             chatLabel.Location = new Point(ChatPanelSize - chatLabel.Width - 25, chatLabel.Location.Y);
-            dateLabel.Location = new Point(chatBtn.Location.X, dateLabel.Location.Y);
-            nameLabel.Location = new Point(chatBtn.Location.X + chatBtn.Width - nameLabel.Width, dateLabel.Location.Y);
+            dateLabel.Location = new Point(chatBtn.Location.X - GetTextWidth(dateLabel), chatBtn.Location.Y + chatBtn.Height - GetTextHeight(dateLabel));
+            nameLabel.Location = new Point(ChatPanelSize - GetTextWidth(nameLabel) - 17, nameLabel.Location.Y);
         }
     }
 }

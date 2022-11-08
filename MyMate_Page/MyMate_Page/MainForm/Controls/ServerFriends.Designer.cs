@@ -76,9 +76,9 @@
             // 
             this.panel6.Controls.Add(this.button3);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(101, 0);
+            this.panel6.Location = new System.Drawing.Point(116, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(60, 30);
+            this.panel6.Size = new System.Drawing.Size(45, 30);
             this.panel6.TabIndex = 1;
             // 
             // button3
@@ -86,12 +86,12 @@
             this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button3.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("button3.BackgroundImage")));
             this.button3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.button3.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.button3.FlatAppearance.BorderSize = 0;
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button3.Location = new System.Drawing.Point(33, 0);
+            this.button3.Location = new System.Drawing.Point(0, 0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(27, 30);
+            this.button3.Size = new System.Drawing.Size(45, 30);
             this.button3.TabIndex = 4;
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -101,8 +101,9 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(101, 30);
+            this.panel5.Size = new System.Drawing.Size(116, 30);
             this.panel5.TabIndex = 0;
+            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
             // label1
             // 

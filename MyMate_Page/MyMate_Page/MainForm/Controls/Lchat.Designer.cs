@@ -74,7 +74,7 @@
             // 
             this.dateLabel.AutoSize = true;
             this.dateLabel.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateLabel.Location = new System.Drawing.Point(56, 5);
+            this.dateLabel.Location = new System.Drawing.Point(366, 40);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(59, 13);
             this.dateLabel.TabIndex = 2;
@@ -84,11 +84,12 @@
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.nameLabel.Location = new System.Drawing.Point(307, 5);
+            this.nameLabel.Location = new System.Drawing.Point(50, 5);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(51, 13);
             this.nameLabel.TabIndex = 3;
             this.nameLabel.Text = "Goguma";
+            this.nameLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // chatLabel
             // 
@@ -114,7 +115,7 @@
             this.Controls.Add(this.roundButton2);
             this.Controls.Add(this.chatBtn);
             this.Name = "Lchat";
-            this.Size = new System.Drawing.Size(373, 63);
+            this.Size = new System.Drawing.Size(448, 63);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -298,11 +298,14 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(40, 582);
             this.panel11.TabIndex = 6;
+            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
             // serverAddBtn
             // 
-            this.serverAddBtn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.serverAddBtn.BackgroundColor = System.Drawing.Color.WhiteSmoke;
+            this.serverAddBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
+            this.serverAddBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
+            this.serverAddBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("serverAddBtn.BackgroundImage")));
+            this.serverAddBtn.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.serverAddBtn.BorderColor = System.Drawing.Color.Red;
             this.serverAddBtn.BorderRadius = 20;
             this.serverAddBtn.BorderSize = 0;
@@ -315,7 +318,6 @@
             this.serverAddBtn.Name = "serverAddBtn";
             this.serverAddBtn.Size = new System.Drawing.Size(40, 40);
             this.serverAddBtn.TabIndex = 5;
-            this.serverAddBtn.Text = "+";
             this.serverAddBtn.TextColor = System.Drawing.Color.Black;
             this.serverAddBtn.UseVisualStyleBackColor = false;
             this.serverAddBtn.Click += new System.EventHandler(this.serverAddBtn_Click);

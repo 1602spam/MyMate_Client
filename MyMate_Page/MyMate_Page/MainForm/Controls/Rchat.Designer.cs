@@ -37,10 +37,10 @@
             // chatLabel
             // 
             this.chatLabel.AutoSize = true;
-            this.chatLabel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.chatLabel.BackColor = System.Drawing.Color.Gainsboro;
             this.chatLabel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chatLabel.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.chatLabel.Location = new System.Drawing.Point(15, 30);
+            this.chatLabel.Location = new System.Drawing.Point(79, 30);
             this.chatLabel.Margin = new System.Windows.Forms.Padding(0);
             this.chatLabel.MinimumSize = new System.Drawing.Size(200, 0);
             this.chatLabel.Name = "chatLabel";
@@ -52,7 +52,7 @@
             // 
             this.nameLabel.AutoSize = true;
             this.nameLabel.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.nameLabel.Location = new System.Drawing.Point(271, 5);
+            this.nameLabel.Location = new System.Drawing.Point(335, 5);
             this.nameLabel.Name = "nameLabel";
             this.nameLabel.Size = new System.Drawing.Size(51, 13);
             this.nameLabel.TabIndex = 7;
@@ -62,7 +62,7 @@
             // 
             this.dateLabel.AutoSize = true;
             this.dateLabel.Font = new System.Drawing.Font("맑은 고딕", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.dateLabel.Location = new System.Drawing.Point(14, 5);
+            this.dateLabel.Location = new System.Drawing.Point(9, 39);
             this.dateLabel.Name = "dateLabel";
             this.dateLabel.Size = new System.Drawing.Size(59, 13);
             this.dateLabel.TabIndex = 6;
@@ -79,7 +79,7 @@
             this.chatBtn.FlatAppearance.BorderSize = 0;
             this.chatBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.chatBtn.ForeColor = System.Drawing.Color.White;
-            this.chatBtn.Location = new System.Drawing.Point(6, 21);
+            this.chatBtn.Location = new System.Drawing.Point(70, 21);
             this.chatBtn.Name = "chatBtn";
             this.chatBtn.Size = new System.Drawing.Size(316, 32);
             this.chatBtn.TabIndex = 5;
@@ -95,7 +95,7 @@
             this.Controls.Add(this.dateLabel);
             this.Controls.Add(this.chatBtn);
             this.Name = "Rchat";
-            this.Size = new System.Drawing.Size(329, 59);
+            this.Size = new System.Drawing.Size(396, 59);
             this.ResumeLayout(false);
             this.PerformLayout();
 

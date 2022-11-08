@@ -6,80 +6,107 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Net.Mail;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MainForm.Controls
 {
-    public partial class Lchat : UserControl
-    {
-        public int ChatPanelSize { get; set; }
+	public partial class Lchat : UserControl
+	{
+		public int ChatPanelSize { get; set; }
 
-        public MdlMessage? mdlMessage { get; set; }
+		public MdlMessage? mdlMessage { get; set; }
 
-        public string? Message
-        {
-            get
-            {
-                return chatLabel.Text;
-            }
-            set
-            {
-                chatLabel.Text = value;
-                ChatLocation();
-            }
-        }
+		public string? Message
+		{
+			get
+			{
+				return chatLabel.Text;
+			}
+			set
+			{
+				chatLabel.Text = value;
+				SetChatLocation();
+			}
+		}
 
-        public static int GetTextHeight(Label lbl)
-        {
-            using (Graphics g = lbl.CreateGraphics())
-            {
-                SizeF size = g.MeasureString(lbl.Text, lbl.Font);
-                return (int)Math.Ceiling(size.Height);
-            }
-        }
+		public Lchat(int chatPanelSize, MdlMessage? m)
+		{
+			ChatPanelSize = chatPanelSize;
+			InitializeComponent();
+			this.Initialize(m);
+		}
 
-        public static int GetTextWidth(Label lbl)
-        {
-            using (Graphics g = lbl.CreateGraphics())
-            {
-                SizeF size = g.MeasureString(lbl.Text, lbl.Font);
-                return (int)Math.Ceiling(size.Width);
-            }
-        }
-
-        public Lchat(int chatPanelSize, MdlMessage? m)
-        {
-            InitializeComponent();
-            ChatPanelSize = chatPanelSize;
-            this.Initialize(m);
-        }
-
+		// 값을 넣어주는 메소드
         public void Initialize(MdlMessage? m)
         {
             this.mdlMessage = m;
             if (mdlMessage == null)
                 return;
-            this.Message = mdlMessage.Context;
-            this.dateLabel.Text = mdlMessage.Time.ToString("yyyy-MM-dd");
+			DateTime d = DateTime.Now;
+
+			/*
+			if ()
+			{
+				if (mdlMessage.Time.Hour > 12) { this.dateLabel.Text = mdlMessage.Time.ToString("오늘 오후 h:mm"); }
+				else { this.dateLabel.Text = mdlMessage.Time.ToString("오늘 오전 h:mm"); }
+			}
+			else if (d.Day == mdlMessage.Time.Day - 1 && d.Month == mdlMessage.Time.Month && d.Year == mdlMessage.Time.Year)
+            {
+                if (mdlMessage.Time.Hour > 12) { this.dateLabel.Text = mdlMessage.Time.ToString("어제 오후 h:mm"); }
+                else { this.dateLabel.Text = mdlMessage.Time.ToString("어제 오전 h:mm"); }
+            }
+			else*/
+			{
+				this.dateLabel.Text = mdlMessage.Time.ToString("yyyy-MM-dd");
+			}
             this.nameLabel.Text = UserContainer.Instance.Items.Values.First(MdlUser => MdlUser.Code == mdlMessage.Creator).Name;
+            this.Message = mdlMessage.Context;
+            
+            //ChatLocation();
         }
 
-        private void ChatLocation()
-        {
-            chatLabel.MaximumSize = new Size(ChatPanelSize / 3 * 2, 0);
+        public static int GetTextHeight(Label lbl)
+		{
+			using (Graphics g = lbl.CreateGraphics())
+			{
+				SizeF size = g.MeasureString(lbl.Text, lbl.Font);
+				return (int)Math.Ceiling(size.Height);
+			}
+		}
 
-            chatLabel.Height = GetTextHeight(chatLabel);
-            chatLabel.Width = GetTextWidth(chatLabel);
+		public static int GetTextWidth(Label lbl)
+		{
+			using (Graphics g = lbl.CreateGraphics())
+			{
+				SizeF size = g.MeasureString(lbl.Text, lbl.Font);
+				return (int)Math.Ceiling(size.Width);
+			}
+		}
 
-            chatBtn.Height = chatLabel.Height + 17;
-            chatBtn.Width = chatLabel.Width + 17;
+		
 
-            this.Height = chatBtn.Bottom + 10;
+		private void SetChatLocation()
+		{
+			// 패널의 최대크기
+			chatLabel.MaximumSize = new Size(ChatPanelSize / 3 * 2, 0);
 
-            nameLabel.Location = new Point(chatBtn.Location.X + chatBtn.Width - nameLabel.Width, dateLabel.Location.Y);
+			// 텍스트의 높이, 넓이 지정
+			chatLabel.Height = GetTextHeight(chatLabel);
+			chatLabel.Width = GetTextWidth(chatLabel);
+
+			// 패널의 높이, 넓이 지정
+			chatBtn.Height = chatLabel.Height + 17;
+			chatBtn.Width = chatLabel.Width + 17;
+
+			// 배경패널의 높이 지정
+			//this.Height = chatBtn.Bottom + 10;
+
+			// 이름의 위치 지정
+			dateLabel.Location = new Point(chatBtn.Location.X + chatBtn.Width, chatBtn.Location.Y + chatBtn.Height- GetTextHeight(dateLabel) + 2);
+            this.Height = dateLabel.Bottom + 10;
+
         }
-    }
+	}
 }

@@ -91,6 +91,17 @@
         wqoAAAAASUVORK5CYII=
 </value>
   </data>
+  <data name="serverAddBtn.BackgroundImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+    <value>
+        iVBORw0KGgoAAAANSUhEUgAAAB4AAAAeCAYAAAA7MK6iAAAABGdBTUEAALGPC/xhBQAAAVVJREFUSEvt
+        1ktKBDEUheHahAOfuA7RBQgqbsP3WpwpigOHPfexE5VeRaszle7/gAG5nKRSXb4GfeCDpkISkr6VVDPL
+        f8wKjnCPR7x+0m89O8Qyvi2LOMc7xi0+MMAqemUXL3CTlDxjB1PlBFqBG7iG+h6jU7TSPpMmGqN65Uuo
+        2d41rIdnjrZ9Aa25ghsgSnFt0QWK0StTU72S4toijamdzEbF4Do6Ka7NOUA2d3CdnBTX5twgmyFcJyfF
+        tTk64bJRBcYOqt6ucdWusbNxE2uQrtlAHKc48RNih5wU1+Y8IJs/Ky5dba6Tk+LanD1ko/v0Jw6QNxQP
+        EOUSrnOU4tqiM7RGF7+r7kjV7qo3GmEeVdlE7ZaX6FrcRqfo3O77IaBvtKmiS7xm2yNt7xZ6ZQ6nUGW6
+        Sb7SKq9R/Z/WRK+DrrZb6BTSV4rotw6HfbS+MrP8cppmAp8Cjhd2K5YpAAAAAElFTkSuQmCC
+</value>
+  </data>
   <data name="settingBtn.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAABGdBTUEAALGPC/xhBQAAARhJREFUSEvl

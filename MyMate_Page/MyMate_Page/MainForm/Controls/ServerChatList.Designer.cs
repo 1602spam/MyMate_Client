@@ -92,9 +92,9 @@
             // 
             this.panel6.Controls.Add(this.addChatBtn);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(133, 0);
+            this.panel6.Location = new System.Drawing.Point(121, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(33, 28);
+            this.panel6.Size = new System.Drawing.Size(45, 28);
             this.panel6.TabIndex = 1;
             // 
             // addChatBtn
@@ -107,7 +107,7 @@
             this.addChatBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addChatBtn.Location = new System.Drawing.Point(0, 0);
             this.addChatBtn.Name = "addChatBtn";
-            this.addChatBtn.Size = new System.Drawing.Size(33, 27);
+            this.addChatBtn.Size = new System.Drawing.Size(45, 27);
             this.addChatBtn.TabIndex = 4;
             this.addChatBtn.UseVisualStyleBackColor = true;
             // 
@@ -117,7 +117,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(133, 28);
+            this.panel5.Size = new System.Drawing.Size(121, 28);
             this.panel5.TabIndex = 0;
             // 
             // label1

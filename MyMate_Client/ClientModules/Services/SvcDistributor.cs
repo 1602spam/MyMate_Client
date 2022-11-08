@@ -194,28 +194,29 @@ namespace ClientModules.Services
 						ChannelProtocol.CHNNEL? channel;
 						channel = temp.Value as ChannelProtocol.CHNNEL;
 
-                        /*
-						switch(channel.state)
+						if (channel == null)
+							break;
+                        switch(channel.state)
 						{
-							case Schedule:
-								{
+							case ChannelType.Calender:
+
+                                {									
 									SvcDistributor.instance.PutSchedule(new MdlSchedule(channel));
 								}
 								break;
-							case CHATROOM:
+							case ChannelType.Message:
 								{
 									SvcDistributor.instance.PutChatroom(new MdlChatroom(channel));
 								}
 								break;
-							case CHECKLIST:
+							case ChannelType.Project:
 								{
-									SvcDistributor.instance.PutSchedule(new MdlSchedule(channel));
+									SvcDistributor.instance.PutProject(new MdlProject(channel));
 								}
 								break;
 							default:
 								break;
 						}
-						*/
                     }
                     break;
 					

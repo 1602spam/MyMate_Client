@@ -1,4 +1,5 @@
 ﻿using ClientModules.Containers;
+using Protocol;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,6 +20,7 @@ namespace ClientModules.Models.Calendar
         public string Title { get; set; }
         public List<int> Users { get; set; }
         public ScheduleItemContainer Items { get; set; }
+
         public MdlSchedule() {}
         public MdlSchedule(int code, int serverCode, int ownerCode, string title, ScheduleItemContainer items)
         {
@@ -27,6 +29,15 @@ namespace ClientModules.Models.Calendar
             OwnerCode = ownerCode;
             Title = title;
             Items = new();
+        }
+
+        public MdlSchedule(ChannelProtocol.CHNNEL c)
+        {
+            Code = c.channelCode;
+            ServerCode = c.serverCode;
+            //OwnerCode = c.creator;
+            Title = c.title;
+            //Items = c.users;
         }
 
         public bool nullCheck()

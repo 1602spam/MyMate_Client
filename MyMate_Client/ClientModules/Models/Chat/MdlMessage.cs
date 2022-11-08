@@ -21,7 +21,6 @@ namespace ClientModules.Models.Chat
         public string Context { get; set; }
         //메시지 보낸 시간
         public DateTime Time { get; set; }
-
         public MdlMessage() { }
         public MdlMessage(int code, int serverCode, int chatroomCode, int senderCode, string context, DateTime time)
         {
@@ -55,6 +54,7 @@ namespace ClientModules.Models.Chat
                 if (Creator != 0)
                     break;
                 if (Context != "")
+                    break;
                 return true;
             } while (false);
 

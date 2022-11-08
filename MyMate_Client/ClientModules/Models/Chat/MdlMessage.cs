@@ -32,10 +32,10 @@ namespace ClientModules.Models.Chat
             Context = context;
             Time = time;
         }
-        public MdlMessage(MessageProtocol.Message message)
+        public MdlMessage(MessageProtocol.MESSAGE message)
         {
             this.Code = message.messageCode;
-            this.ServerCode = message.servercode;
+            this.ServerCode = message.serverCode;
             this.ChatroomCode = message.channelCode;
             this.Creator = message.creater;
             this.Context = message.content;

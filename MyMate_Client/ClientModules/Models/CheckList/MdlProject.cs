@@ -1,4 +1,5 @@
 ﻿using ClientModules.Containers;
+using Protocol;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,10 +30,13 @@ namespace ClientModules.Models.CheckList
         {
             this.Code = channel.channelCode;
             this.ServerCode = channel.serverCode;
-            this.OwnerCode = channel.creator;
+            //테스트
+            this.OwnerCode = MdlMyself.Instance.Code;
+            //this.OwnerCode = channel.creator;
             this.Title = channel.title;
             this.Items = new ProjectItemContainer();
-            this.Users = channel.users;
+            this.Users = new();
+            //this.Users = channel.users;
         }
 
         public bool nullCheck() {

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Protocol;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -47,8 +48,6 @@ namespace ClientModules.Models.CheckList
                 if (Code != 0)
                     break;
                 if (ProjectCode != 0)
-                    break;
-                if (ManagerCode != 0)
                     break;
                 if (Content != "")
                     break;

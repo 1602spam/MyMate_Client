@@ -117,6 +117,11 @@ namespace ClientModules.Services
 			ServerContainer.Instance.AddOrUpdate(v);
         }
 
+        public void PutFriend(MdlFriend v)
+        {
+            FriendContainer.Instance.AddOrUpdate(v);
+        }
+
         public void PutChatroom(MdlChatroom v)
 		{
 			MdlServer? s;
@@ -156,6 +161,8 @@ namespace ClientModules.Services
             c.Messages.AddOrUpdate(v);
         }
 
+		
+
 		private static void EstimateObject(KeyValuePair<byte, object> temp)
 		{
 			//테스트
@@ -163,8 +170,8 @@ namespace ClientModules.Services
 			{
                 case DataType.MESSAGE:
                     {
-                        MessageProtocol.Message? message;
-                        message = temp.Value as MessageProtocol.Message;
+                        MessageProtocol.MESSAGE? message;
+                        message = temp.Value as MessageProtocol.MESSAGE;
 
                         SvcDistributor.instance.PutMessage(new MdlMessage(message));
 #if DEBUG
@@ -175,8 +182,8 @@ namespace ClientModules.Services
                 
 				case DataType.USER:
 					{
-						UserProtocol.USER? user;
-						user = temp.Value as UserProtocol.USER;
+						UserInfoProtocol.USER? user;
+						user = temp.Value as UserInfoProtocol.USER;
 
 						SvcDistributor.Instance.PutUser(new MdlUser(user));
 					}
@@ -187,51 +194,68 @@ namespace ClientModules.Services
 						ChannelProtocol.CHNNEL? channel;
 						channel = temp.Value as ChannelProtocol.CHNNEL;
 
-						/*
-						if(channel.state==)
-						ScheduleProtocol.Schedule? schedule;
-						schedule = temp.Value as ScheduleProtocol.SCHEDULE;
-						
-						putSchedule(new MdlSchedule(schedule));
+                        /*
+						switch(channel.state)
+						{
+							case Schedule:
+								{
+									SvcDistributor.instance.PutSchedule(new MdlSchedule(channel));
+								}
+								break;
+							case CHATROOM:
+								{
+									SvcDistributor.instance.PutChatroom(new MdlChatroom(channel));
+								}
+								break;
+							case CHECKLIST:
+								{
+									SvcDistributor.instance.PutSchedule(new MdlSchedule(channel));
+								}
+								break;
+							default:
+								break;
+						}
 						*/
-					}
-					break;
+                    }
+                    break;
 					
-				case DataType.SCHEDULEITEM:
+				case DataType.CALENDER:
 					{
-						ScheduleItemProtocol.ScheduleItem? scheduleItem;
-						scheduleItem = temp.Value as ScheduleProtocol.SCHEDULEITEM;
+						CalenderProtocol.CALENDER? scheduleItem;
+						scheduleItem = temp.Value as CalenderProtocol.CALENDER;
 						
-						putScheduleItem(new MdlScheduleItem(scheduleitem));
+						SvcDistributor.instance.PutScheduleItem(new MdlScheduleItem(scheduleItem));
 					}
 					break;
 				
-				case DataType.CHATROOM:
-					{
-						ChatroomProtocol.Chatroom? chatroom;
-						chatroom = temp.Value as ChatroomProtocol.CHATROOM;
-						
-						putChatroom(new MdlChatroom(chatroom));
-					}
-					break;
 					
 				case DataType.SERVER:
 					{
-						ServerProtocol.Schedule? server;
-						server = temp.Value as ServerProtocol.SERVER;
+						ServerProtocol.Server? server;
+						server = temp.Value as ServerProtocol.Server;
 						
 						MdlServer s = new(server);
-						ServerContainer.Instance.AddOrUpdate(s.Code, c);
+						SvcDistributor.instance.PutServer(s);
 					}
 					break;
 					
-				case DataType.PROJECTITEM:
+				case DataType.CHECKLIST:
 					{
-						ProjectItemProtocol.PROJECTITEM? projectitem;
-						projectitem = temp.Value as ProjectItemProtocol.PROJECTITEM;
+						CheckListProtocol.CHECKLIST? projectitem;
+						projectitem = temp.Value as CheckListProtocol.CHECKLIST;
 						
 						MdlProjectItem s = new(projectitem);
-						ProjectItemContainer.Instance.AddOrUpdate(s.Code, c);
+						SvcDistributor.instance.PutProjectItem(s);
+					}
+					break;
+
+				case DataType.FRIEND:
+					{
+						FriendProtocol.FRIEND? friend;
+						friend = temp.Value as FriendProtocol.FRIEND;
+
+						MdlFriend f = new(friend);
+						SvcDistributor.instance.PutFriend(f);
 					}
 					break;
 				

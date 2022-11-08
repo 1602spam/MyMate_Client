@@ -50,7 +50,7 @@ namespace ClientModules.Containers
             if (Items.Count == 0)
             {
 #if DEBUG
-                Console.WriteLine("프로젝트 아이템 추가됨: " + v.Title);
+                Console.WriteLine("프로젝트 아이템 추가됨: " + v.Content);
 #endif
                 Items.Add(v);
                 if (this.dataDistributedEvent != null)
@@ -63,7 +63,7 @@ namespace ClientModules.Containers
             if (i != -1)
             {
 #if DEBUG
-                Console.WriteLine("프로젝트 아이템 갱신: " + Items[i].Title + "->" + v.Title);
+                Console.WriteLine("프로젝트 아이템 갱신: " + Items[i].Content + "->" + v.Content);
 #endif
                 Items.Insert(i, v);
                 Items.RemoveAt(i + 1);
@@ -74,7 +74,7 @@ namespace ClientModules.Containers
 
             Items.Add(v);
 #if DEBUG
-            Console.WriteLine("프로젝트 아이템 추가됨: " + v.Title);
+            Console.WriteLine("프로젝트 아이템 추가됨: " + v.Content);
 #endif
             if (this.dataDistributedEvent != null)
                 this.dataDistributedEvent(v);

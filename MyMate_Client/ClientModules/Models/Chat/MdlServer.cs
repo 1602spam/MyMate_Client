@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ClientModules.Classes;
 using ClientModules.Containers;
+using Protocol;
 
 namespace ClientModules.Models.Chat
 {
@@ -36,11 +37,12 @@ namespace ClientModules.Models.Chat
         public MdlServer(ServerProtocol.Server server)
         {
             this.Code = server.serverCode;
-            this.IsCompact = server.isCompact;
+            //this.IsCompact = server.isCompact;
             this.Title = server.title;
             this.OwnerCode = server.adminCode;
             this.Chatrooms = new();
-            this.Users = server.users;
+            this.Users = new();
+            //this.Users = server.users;
         }
 
         public bool nullCheck()

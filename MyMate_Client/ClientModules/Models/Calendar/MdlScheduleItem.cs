@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Protocol;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -41,11 +42,11 @@ namespace ClientModules.Models.Calendar
             IsPrivate = isPrivate;
             IsDone = isDone;
         }
-        public MdlScheduleItem(CalendarProtocol.CALENDAR cal)
+        public MdlScheduleItem(CalenderProtocol.CALENDER cal)
         {
             ServerCode = cal.serverCode;
             ScheduleCode = cal.channelCode;
-            Code = cal.calendarCode;
+            Code = cal.calenderCode;
             Context = cal.content;
             Creator = cal.creater;
             StartDate = cal.startTime;

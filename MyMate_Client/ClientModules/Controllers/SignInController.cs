@@ -25,7 +25,7 @@ namespace ClientModules.Controllers
         {
             //리퀘스트 송신
             Console.WriteLine("로그인 정보 송신...");
-            LoginProtocol.Login l = new(u.ID, u.PW);
+            LoginProtocol.LOGIN l = new(u.ID, u.PW);
             Server.Instance.Send(Generater.Generate(l));
         }
     }

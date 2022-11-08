@@ -26,7 +26,7 @@ namespace ClientModules.Models
 		//유저 자기소개
 		public string Introduction { get; set; }
 
-		public DateTime RecentTime { get; set; }
+		//public DateTime RecentTime { get; set; }
 		//유저 연관관계는 자기 것만 가지고 있음
         //public List<int> Friends { get; set; }
 		//public List<int> Blocks { get; set; }
@@ -42,15 +42,15 @@ namespace ClientModules.Models
         }
 
 		public MdlUser() { }
-        public MdlUser(UserInfoProtocol.User user)
+        public MdlUser(UserInfoProtocol.USER user)
 		{
-            this.Code = user.code;
+            this.Code = user.userCode;
             this.Name = user.name;
-            this.Username = user.username;
+            this.Username = user.nickname;
             this.Email = user.email;
-            this.PhoneNumber = user.phonenumber;
-            this.Introduction = user.introduce;
-
+            this.PhoneNumber = user.phone;
+            this.Introduction = user.content;
+			//this.RecentTime = user.recentTime;
         }
 
         public bool nullCheck()

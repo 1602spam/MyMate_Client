@@ -64,7 +64,7 @@ namespace ClientModules.Containers
             }
         }
 
-        public void GetItems(int projectCode)
+        public void GetListItems(int projectCode)
         {
             MdlProject? pj;
             pj = this.Items.Values.FirstOrDefault(MdlProject => MdlProject.Code == projectCode);
@@ -78,7 +78,7 @@ namespace ClientModules.Containers
             }
             foreach (var v in pj.Items.Items)
             {
-                Console.WriteLine(v.Title);
+                Console.WriteLine(v.Content);
             }
         }
     }

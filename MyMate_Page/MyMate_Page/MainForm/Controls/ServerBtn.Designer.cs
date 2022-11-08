@@ -40,12 +40,13 @@
             this.SBtn.BorderSize = 0;
             this.SBtn.FlatAppearance.BorderSize = 0;
             this.SBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.SBtn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.SBtn.ForeColor = System.Drawing.Color.Black;
             this.SBtn.Location = new System.Drawing.Point(0, 0);
             this.SBtn.Name = "SBtn";
             this.SBtn.Size = new System.Drawing.Size(40, 40);
             this.SBtn.TabIndex = 0;
-            this.SBtn.Text = "S2";
+            this.SBtn.Text = "S";
             this.SBtn.TextColor = System.Drawing.Color.Black;
             this.SBtn.UseVisualStyleBackColor = false;
             // 

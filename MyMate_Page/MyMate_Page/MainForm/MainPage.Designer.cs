@@ -44,7 +44,6 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.serverAddBtn = new MainForm.Controls.RoundButton();
-            this.serverBtn = new MainForm.Controls.RoundButton();
             this.panel10 = new System.Windows.Forms.Panel();
             this.panel9 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -188,7 +187,6 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(950, 50);
             this.tableLayoutPanel3.TabIndex = 2;
-            this.tableLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel3_Paint);
             // 
             // button1
             // 
@@ -295,7 +293,6 @@
             // 
             this.panel11.AutoScroll = true;
             this.panel11.Controls.Add(this.serverAddBtn);
-            this.panel11.Controls.Add(this.serverBtn);
             this.panel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel11.Location = new System.Drawing.Point(5, 0);
             this.panel11.Name = "panel11";
@@ -314,7 +311,7 @@
             this.serverAddBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.serverAddBtn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.serverAddBtn.ForeColor = System.Drawing.Color.Black;
-            this.serverAddBtn.Location = new System.Drawing.Point(0, 40);
+            this.serverAddBtn.Location = new System.Drawing.Point(0, 0);
             this.serverAddBtn.Name = "serverAddBtn";
             this.serverAddBtn.Size = new System.Drawing.Size(40, 40);
             this.serverAddBtn.TabIndex = 5;
@@ -322,27 +319,6 @@
             this.serverAddBtn.TextColor = System.Drawing.Color.Black;
             this.serverAddBtn.UseVisualStyleBackColor = false;
             this.serverAddBtn.Click += new System.EventHandler(this.serverAddBtn_Click);
-            // 
-            // serverBtn
-            // 
-            this.serverBtn.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.serverBtn.BackgroundColor = System.Drawing.Color.WhiteSmoke;
-            this.serverBtn.BorderColor = System.Drawing.Color.Red;
-            this.serverBtn.BorderRadius = 20;
-            this.serverBtn.BorderSize = 0;
-            this.serverBtn.Dock = System.Windows.Forms.DockStyle.Top;
-            this.serverBtn.FlatAppearance.BorderSize = 0;
-            this.serverBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.serverBtn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.serverBtn.ForeColor = System.Drawing.Color.Black;
-            this.serverBtn.Location = new System.Drawing.Point(0, 0);
-            this.serverBtn.Name = "serverBtn";
-            this.serverBtn.Size = new System.Drawing.Size(40, 40);
-            this.serverBtn.TabIndex = 4;
-            this.serverBtn.Text = "S1";
-            this.serverBtn.TextColor = System.Drawing.Color.Black;
-            this.serverBtn.UseVisualStyleBackColor = false;
-            this.serverBtn.Click += new System.EventHandler(this.serverBtn_Click);
             // 
             // panel10
             // 
@@ -770,7 +746,6 @@
         private Label label1;
         private Panel panel11;
         private Controls.RoundButton serverAddBtn;
-        private Controls.RoundButton serverBtn;
         private Panel panel10;
         private Panel panel9;
     }

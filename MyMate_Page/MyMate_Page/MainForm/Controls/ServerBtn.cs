@@ -11,36 +11,49 @@ using System.Windows.Forms;
 namespace MainForm.Controls
 {
 	public partial class ServerBtn : UserControl
-	{
-		
-		
-		string sName;
-
-		public ServerBtn(string SName)
-		{
+	{		
+		MainPage mainPage;
+		public ServerBtn(string SName) //, MainPage mainPage
+        {
 			InitializeComponent();
-			sName = SName;
+			this.Name = SName;
+
 			string name;
-			if(SName.Length>4)
+			if (Name.Length > 2)
 			{
-				name = SName.Substring(0, 4);
+				name = Name.Substring(0, 2);
 			}
 			else
 			{
-				name = SName;
+				name = Name;
 			}
-			
-			SBtn.Text = name;
-            ServerPage SPage = new ServerPage(sName);
-            MainPage.serverPages.Add(SPage);
 
-            SBtn.Click += new EventHandler(SBtn_Click);
+			SBtn.Text = name;
+			//ServerPage SPage = new ServerPage(SName);
+			//MainPage.serverPages.Add(SPage);
+
+
+			SBtn.Click += new EventHandler(SBtn_Click);
+			
+			//this.mainPage = mainPage;
 		}
 
 		void SBtn_Click(object sender, EventArgs e)
 		{
-			
-
+			if(MainPage.mainPage != null)
+				MainPage.mainPage.ServerPageChange(this.Name);
+			/*
+            for (int i= 0; i < MainPage.serverPages.Count; i++)
+			{
+                if (this.Name == MainPage.serverPages[i].Name)
+                {
+					MainPage.ServerPageIndex = i;
+					
+					//MainPage.ControlCollection.ReferenceEquals
+					
+                }
+            }
+			*/
 		}
 	}
 }

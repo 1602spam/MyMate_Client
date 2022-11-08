@@ -49,7 +49,7 @@ namespace ClientModules.Containers
                 //추가하고 분배 이벤트 처리 후 리턴
                 this.Items.AddOrUpdate(k, v);
                 if (this.dataDistributedEvent != null)
-                    this.dataDistributedEvent();
+                    this.dataDistributedEvent(v);
                 return;
             }
             //통과하지 못했을 시 오류 이벤트 처리 후 리턴

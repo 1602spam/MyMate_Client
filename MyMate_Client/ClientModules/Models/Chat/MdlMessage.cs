@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Protocol;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,21 +16,29 @@ namespace ClientModules.Models.Chat
         //채팅방 코드
         public int ChatroomCode { get; set; }
         //메시지 보낸 유저 코드
-        public int SenderCode { get; set; }
+        public int Creator { get; set; }
         //메시지 내용
         public string Context { get; set; }
         //메시지 보낸 시간
         public DateTime Time { get; set; }
-
         public MdlMessage() { }
         public MdlMessage(int code, int serverCode, int chatroomCode, int senderCode, string context, DateTime time)
         {
             Code = code;
             ServerCode = serverCode;
             ChatroomCode = chatroomCode;
-            SenderCode = senderCode;
+            Creator = senderCode;
             Context = context;
             Time = time;
+        }
+        public MdlMessage(MessageProtocol.MESSAGE message)
+        {
+            this.Code = message.messageCode;
+            this.ServerCode = message.serverCode;
+            this.ChatroomCode = message.channelCode;
+            this.Creator = message.creater;
+            this.Context = message.content;
+            this.Time = message.startTime;
         }
 
         public bool nullCheck()
@@ -42,9 +51,10 @@ namespace ClientModules.Models.Chat
                     break;
                 if (ChatroomCode != 0)
                     break;
-                if (SenderCode != 0)
+                if (Creator != 0)
                     break;
                 if (Context != "")
+                    break;
                 return true;
             } while (false);
 

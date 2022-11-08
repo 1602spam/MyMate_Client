@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Protocol;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -11,22 +12,33 @@ namespace ClientModules.Models.CheckList
     {
         //체크리스트 항목 코드
         public int Code { get; set; }
+        //속한 서버 코드
+        public int ServerCode { get; set; } 
         //프로젝트 코드
         public int ProjectCode { get; set; }
-        //담당자 유저 코드
-        public int ManagerCode { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
         //제목
-        public string Title { get; set; }
+        public string Content { get; set; }
         //완료 여부
-        public bool IsDone { get; set; }
+        public bool IsChecked { get; set; }
 
-        public MdlProjectItem(int code, int projectCode, int managerCode, string title, bool isDone)
+        public MdlProjectItem(int code, int projectCode, string content, bool isDone)
         {
             Code = code;
             ProjectCode = projectCode;
-            ManagerCode = managerCode;
-            Title = title;
-            IsDone = isDone;
+            Content = content;
+            IsChecked = isDone;
+        }
+
+        public MdlProjectItem(CheckListProtocol.CHECKLIST chk)
+        {
+            this.Code = chk.checkListCode;
+            this.ServerCode = chk.serverCode;
+            this.ProjectCode = chk.channelCode;
+            this.StartDate = chk.startDate;
+            this.EndDate = chk.endDate;
+            this.IsChecked = chk.isChecked;
         }
 
         public bool nullCheck()
@@ -37,9 +49,7 @@ namespace ClientModules.Models.CheckList
                     break;
                 if (ProjectCode != 0)
                     break;
-                if (ManagerCode != 0)
-                    break;
-                if (Title != "")
+                if (Content != "")
                     break;
                 return true;
             } while (false);

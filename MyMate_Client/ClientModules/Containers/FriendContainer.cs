@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 
 namespace ClientModules.Containers
 {
-    public class PermissionContainer
+    public class FriendContainer:IContainer
     {
-        public ConcurrentDictionary<int, MdlPermission> Items = new();
+        public ConcurrentDictionary<int, MdlFriend> Items = new();
 
         public event distribute? dataDistributedEvent;
         public event distribute DataDistributedEvent
@@ -30,13 +30,40 @@ namespace ClientModules.Containers
             remove => errorEvent -= value;
         }
 
-        public void AddOrUpdate(MdlPermission v)
+        private static FriendContainer? instance;
+        public static FriendContainer Instance
         {
+            get
+            {
+                if (instance == null)
+                {
+                    instance = new FriendContainer();
+                }
+                return instance;
+            }
+        }
+
+        private FriendContainer()
+        {
+        }
+
+        public void AddOrUpdate(MdlFriend v)
+	    {
             if (v.nullCheck() == false)
             {
                 this.Items.AddOrUpdate(Items.Count, v);
+#if DEBUG
+                MdlUser? u = UserContainer.Instance.Items.Values.FirstOrDefault(MdlUser => MdlUser.Code == v.FriendCode);
+                if (u == null)
+                {
+                    if (this.errorEvent != null)
+                        this.errorEvent();
+                    return;
+                }
+                Console.WriteLine("친구 추가됨: "+u.Name);
+#endif
                 if (this.dataDistributedEvent != null)
-                    this.dataDistributedEvent();
+                    this.dataDistributedEvent(v);
             }
             else
             {

@@ -54,7 +54,7 @@ namespace ClientModules.Containers
 #endif
                 Items.Add(v);
                 if (this.dataDistributedEvent != null)
-                    this.dataDistributedEvent();
+                    this.dataDistributedEvent(v);
                 return;
             }
 
@@ -68,7 +68,7 @@ namespace ClientModules.Containers
                 Items.Insert(i, v);
                 Items.RemoveAt(i + 1);
                 if (this.dataDistributedEvent != null)
-                    this.dataDistributedEvent();
+                    this.dataDistributedEvent(v);
                 return;
             }
 
@@ -77,7 +77,7 @@ namespace ClientModules.Containers
             Console.WriteLine("스케줄 추가됨: " + v.Title);
 #endif
             if (this.dataDistributedEvent != null)
-                this.dataDistributedEvent();
+                this.dataDistributedEvent(v);
             return;
         }
     }

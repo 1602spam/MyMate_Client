@@ -22,13 +22,4 @@
     <None Remove="Unused\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="ClientToServer">
-      <HintPath>..\..\..\mymate_network\DLL\ClientToServer.dll</HintPath>
-    </Reference>
-    <Reference Include="MyMate_Network_Library">
-      <HintPath>..\..\..\mymate_network\DLL\MyMate_Network_Library.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>

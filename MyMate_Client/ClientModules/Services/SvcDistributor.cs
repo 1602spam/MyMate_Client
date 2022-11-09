@@ -182,8 +182,8 @@ namespace ClientModules.Services
                 
 				case DataType.USER:
 					{
-						UserInfoProtocol.USER? user;
-						user = temp.Value as UserInfoProtocol.USER;
+						UserProtocol.USER? user;
+						user = temp.Value as UserProtocol.USER;
 
 						SvcDistributor.Instance.PutUser(new MdlUser(user));
 					}

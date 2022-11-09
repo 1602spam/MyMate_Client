@@ -11,7 +11,7 @@ using System.Net.Sockets;
 using System.Security.Cryptography;
 using ClientModules.Models;
 using System.Runtime.CompilerServices;
-using static Protocol.UserInfoProtocol;
+using static Protocol.UserProtocol;
 using System.Collections.Generic;
 using System.Reflection.Metadata;
 using ClientModules.Containers;

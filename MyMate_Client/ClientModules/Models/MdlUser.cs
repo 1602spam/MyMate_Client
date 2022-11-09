@@ -42,7 +42,7 @@ namespace ClientModules.Models
         }
 
 		public MdlUser() { }
-        public MdlUser(UserInfoProtocol.USER user)
+        public MdlUser(UserProtocol.USER user)
 		{
             this.Code = user.userCode;
             this.Name = user.name;

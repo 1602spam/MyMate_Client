@@ -54,7 +54,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(166, 473);
+            this.panel1.Size = new System.Drawing.Size(150, 473);
             this.panel1.TabIndex = 0;
             // 
             // panel3
@@ -63,7 +63,7 @@
             this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel3.Location = new System.Drawing.Point(0, 147);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(166, 326);
+            this.panel3.Size = new System.Drawing.Size(150, 326);
             this.panel3.TabIndex = 1;
             // 
             // panel2
@@ -76,7 +76,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(166, 147);
+            this.panel2.Size = new System.Drawing.Size(150, 147);
             this.panel2.TabIndex = 0;
             // 
             // panel4
@@ -85,16 +85,16 @@
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Location = new System.Drawing.Point(0, 115);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(166, 28);
+            this.panel4.Size = new System.Drawing.Size(147, 28);
             this.panel4.TabIndex = 3;
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.addChatBtn);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(121, 0);
+            this.panel6.Location = new System.Drawing.Point(115, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(45, 28);
+            this.panel6.Size = new System.Drawing.Size(32, 28);
             this.panel6.TabIndex = 1;
             // 
             // addChatBtn
@@ -107,7 +107,7 @@
             this.addChatBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addChatBtn.Location = new System.Drawing.Point(0, 0);
             this.addChatBtn.Name = "addChatBtn";
-            this.addChatBtn.Size = new System.Drawing.Size(45, 27);
+            this.addChatBtn.Size = new System.Drawing.Size(32, 27);
             this.addChatBtn.TabIndex = 4;
             this.addChatBtn.UseVisualStyleBackColor = true;
             // 
@@ -117,7 +117,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(121, 28);
+            this.panel5.Size = new System.Drawing.Size(115, 28);
             this.panel5.TabIndex = 0;
             // 
             // label1
@@ -140,7 +140,7 @@
             this.SListBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SListBtn.Location = new System.Drawing.Point(0, 69);
             this.SListBtn.Name = "SListBtn";
-            this.SListBtn.Size = new System.Drawing.Size(166, 40);
+            this.SListBtn.Size = new System.Drawing.Size(150, 40);
             this.SListBtn.TabIndex = 2;
             this.SListBtn.Text = "       List      ";
             this.SListBtn.UseVisualStyleBackColor = true;
@@ -156,7 +156,7 @@
             this.SCalendarBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.SCalendarBtn.Location = new System.Drawing.Point(0, 23);
             this.SCalendarBtn.Name = "SCalendarBtn";
-            this.SCalendarBtn.Size = new System.Drawing.Size(166, 40);
+            this.SCalendarBtn.Size = new System.Drawing.Size(150, 40);
             this.SCalendarBtn.TabIndex = 1;
             this.SCalendarBtn.Text = "Calendar      ";
             this.SCalendarBtn.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -178,7 +178,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.panel1);
             this.Name = "ServerChatList";
-            this.Size = new System.Drawing.Size(166, 473);
+            this.Size = new System.Drawing.Size(150, 473);
             this.panel1.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();

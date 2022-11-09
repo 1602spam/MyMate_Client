@@ -21,6 +21,7 @@ namespace MainForm.Controls
         public MdlChatroom? Chatroom { get; set; }
         public List<Lchat> lchats = new();
         public List<Rchat> rchats = new();
+        public List<UserChat> Uchats = new();
         public int Count { get; set; }
         public MsgPage()
         {
@@ -117,6 +118,7 @@ namespace MainForm.Controls
         private void sendBtn_Click(object sender, EventArgs e)
         {
             Send();
+            
             this.chatTxt.Focus();
         }
 
@@ -165,5 +167,44 @@ namespace MainForm.Controls
             }
             r.Initialize(message);
         }
+
+        private void addChatBtn_Click(object sender, EventArgs e)
+        {
+            FriendList friendList = new FriendList();
+            friendList.ShowDialog();
+
+        }
+
+        public void AddChatList(string userName)
+        {
+            UserChat userChat = new UserChat(userName);
+            Uchats.Add(userChat);
+            userChat.SendToBack();
+            userChat.Dock = DockStyle.Top;
+            panel1.Controls.Add(userChat);
+        }
+
+        public void ChatClear()
+        {
+            chatPanel.Controls.Clear();
+            ///채팅 목록 추가 하는 함수 넣어주면 됨
+        }
+        /*
+        private void chatTxt_KeyDown(object sender, KeyEventArgs e)
+        {            
+            if (e.KeyCode == Keys.Enter && chatTxt.Text.Trim().Length != 0)
+            {
+                Send();
+                this.chatTxt.Focus();
+                return;
+            }
+            else if (e.KeyCode == Keys.ShiftKey)
+            {
+                chatTxt.Text += "\r\n";
+                chatTxt.ScrollToCaret();
+            }
+        }
+        */
+
     }
 }

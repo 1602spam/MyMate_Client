@@ -49,7 +49,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(161, 473);
+            this.panel1.Size = new System.Drawing.Size(150, 473);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -59,7 +59,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 30);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(161, 443);
+            this.panel2.Size = new System.Drawing.Size(150, 443);
             this.panel2.TabIndex = 1;
             // 
             // panel4
@@ -69,16 +69,16 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel4.Location = new System.Drawing.Point(0, 0);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(161, 30);
+            this.panel4.Size = new System.Drawing.Size(150, 30);
             this.panel4.TabIndex = 4;
             // 
             // panel6
             // 
             this.panel6.Controls.Add(this.button3);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel6.Location = new System.Drawing.Point(116, 0);
+            this.panel6.Location = new System.Drawing.Point(115, 0);
             this.panel6.Name = "panel6";
-            this.panel6.Size = new System.Drawing.Size(45, 30);
+            this.panel6.Size = new System.Drawing.Size(35, 30);
             this.panel6.TabIndex = 1;
             // 
             // button3
@@ -91,7 +91,7 @@
             this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button3.Location = new System.Drawing.Point(0, 0);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(45, 30);
+            this.button3.Size = new System.Drawing.Size(35, 30);
             this.button3.TabIndex = 4;
             this.button3.UseVisualStyleBackColor = true;
             // 
@@ -101,7 +101,7 @@
             this.panel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(116, 30);
+            this.panel5.Size = new System.Drawing.Size(115, 30);
             this.panel5.TabIndex = 0;
             this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
             // 
@@ -123,7 +123,7 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
             this.Controls.Add(this.panel1);
             this.Name = "ServerFriends";
-            this.Size = new System.Drawing.Size(161, 473);
+            this.Size = new System.Drawing.Size(150, 473);
             this.panel1.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.panel6.ResumeLayout(false);

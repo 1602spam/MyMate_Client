@@ -38,7 +38,7 @@
             this.SChatListPanel.Dock = System.Windows.Forms.DockStyle.Left;
             this.SChatListPanel.Location = new System.Drawing.Point(0, 0);
             this.SChatListPanel.Name = "SChatListPanel";
-            this.SChatListPanel.Size = new System.Drawing.Size(160, 427);
+            this.SChatListPanel.Size = new System.Drawing.Size(150, 427);
             this.SChatListPanel.TabIndex = 0;
             // 
             // SFriendsPanel
@@ -52,9 +52,9 @@
             // SChatPanel
             // 
             this.SChatPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SChatPanel.Location = new System.Drawing.Point(160, 0);
+            this.SChatPanel.Location = new System.Drawing.Point(150, 0);
             this.SChatPanel.Name = "SChatPanel";
-            this.SChatPanel.Size = new System.Drawing.Size(360, 427);
+            this.SChatPanel.Size = new System.Drawing.Size(370, 427);
             this.SChatPanel.TabIndex = 2;
             // 
             // ServerPage

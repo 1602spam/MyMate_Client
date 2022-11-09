@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.closeBtn = new System.Windows.Forms.Button();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.userListBox = new System.Windows.Forms.CheckedListBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // closeBtn
@@ -47,18 +48,19 @@
             this.closeBtn.UseVisualStyleBackColor = true;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
-            // checkedListBox1
+            // userListBox
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
+            this.userListBox.FormattingEnabled = true;
+            this.userListBox.Items.AddRange(new object[] {
             "Gamja",
             "BulBak",
             "Cake"});
-            this.checkedListBox1.Location = new System.Drawing.Point(51, 92);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(171, 202);
-            this.checkedListBox1.TabIndex = 2;
-            this.checkedListBox1.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            this.userListBox.Location = new System.Drawing.Point(51, 92);
+            this.userListBox.Name = "userListBox";
+            this.userListBox.Size = new System.Drawing.Size(171, 202);
+            this.userListBox.TabIndex = 2;
+            this.userListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.userListBox_ItemCheck);
+            
             // 
             // label1
             // 
@@ -70,18 +72,29 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Choose a friend";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(51, 300);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "확인";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // FriendList
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(300, 350);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.userListBox);
             this.Controls.Add(this.closeBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FriendList";
             this.Text = "FriendList";
-            this.Load += new System.EventHandler(this.FriendList_Load);
+            
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -90,7 +103,8 @@
         #endregion
 
         private Button closeBtn;
-        private CheckedListBox checkedListBox1;
+        private CheckedListBox userListBox;
         private Label label1;
+        private Button button1;
     }
 }

@@ -62,6 +62,7 @@
             // 
             // panel1
             // 
+            this.panel1.AutoScroll = true;
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 28);
             this.panel1.Name = "panel1";
@@ -100,6 +101,7 @@
             this.addChatBtn.Size = new System.Drawing.Size(38, 27);
             this.addChatBtn.TabIndex = 4;
             this.addChatBtn.UseVisualStyleBackColor = true;
+            this.addChatBtn.Click += new System.EventHandler(this.addChatBtn_Click);
             // 
             // panel5
             // 

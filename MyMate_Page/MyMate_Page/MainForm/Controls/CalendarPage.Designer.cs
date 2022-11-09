@@ -28,58 +28,61 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            "fgkj",
+            "sfa",
+            "sf",
+            "s",
+            "s",
+            "s"}, -1);
             this.listView1 = new System.Windows.Forms.ListView();
-            this.code = new System.Windows.Forms.ColumnHeader("(없음)");
-            this.serverCode = new System.Windows.Forms.ColumnHeader();
+            this.ItemCode = new System.Windows.Forms.ColumnHeader("(없음)");
+            this.ItemServerCode = new System.Windows.Forms.ColumnHeader();
+            this.ItemScheduleCode = new System.Windows.Forms.ColumnHeader();
+            this.ItemTitle = new System.Windows.Forms.ColumnHeader();
+            this.ItemStartDate = new System.Windows.Forms.ColumnHeader();
+            this.ItemEndDate = new System.Windows.Forms.ColumnHeader();
+            this.ItemContext = new System.Windows.Forms.ColumnHeader();
+            this.ItemCreator = new System.Windows.Forms.ColumnHeader();
+            this.ItemIsPrivate = new System.Windows.Forms.ColumnHeader();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
-            this.scheduleCode = new System.Windows.Forms.ColumnHeader();
-            this.title = new System.Windows.Forms.ColumnHeader();
-            this.date = new System.Windows.Forms.ColumnHeader();
-            this.context = new System.Windows.Forms.ColumnHeader();
-            this.creator = new System.Windows.Forms.ColumnHeader();
-            this.isPrivate = new System.Windows.Forms.ColumnHeader();
-            this.isDone = new System.Windows.Forms.ColumnHeader();
             this.listView2 = new System.Windows.Forms.ListView();
-            this.columnHeader1 = new System.Windows.Forms.ColumnHeader("(없음)");
-            this.columnHeader2 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader3 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader5 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader6 = new System.Windows.Forms.ColumnHeader();
-            this.columnHeader7 = new System.Windows.Forms.ColumnHeader();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Code = new System.Windows.Forms.ColumnHeader("(없음)");
+            this.ServerCode = new System.Windows.Forms.ColumnHeader();
+            this.OwnerCode = new System.Windows.Forms.ColumnHeader();
+            this.Title = new System.Windows.Forms.ColumnHeader();
+            this.Users = new System.Windows.Forms.ColumnHeader();
+            this.tbCreator = new System.Windows.Forms.TextBox();
+            this.cbIsPublic = new System.Windows.Forms.ComboBox();
+            this.tbContent = new System.Windows.Forms.TextBox();
+            this.tbEndDate = new System.Windows.Forms.TextBox();
+            this.tbStartDate = new System.Windows.Forms.TextBox();
+            this.tbTitle = new System.Windows.Forms.TextBox();
+            this.tbScheduleCode = new System.Windows.Forms.TextBox();
+            this.tbServerCode = new System.Windows.Forms.TextBox();
+            this.tbCode = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
+            this.tbSTitle = new System.Windows.Forms.TextBox();
+            this.tbSCreatorCode = new System.Windows.Forms.TextBox();
+            this.tbSServerCode = new System.Windows.Forms.TextBox();
+            this.tbSCode = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // listView1
             // 
             this.listView1.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.code,
-            this.serverCode,
-            this.scheduleCode,
-            this.title,
-            this.date,
-            this.context,
-            this.creator,
-            this.isPrivate,
-            this.isDone});
+            this.ItemCode,
+            this.ItemServerCode,
+            this.ItemScheduleCode,
+            this.ItemTitle,
+            this.ItemStartDate,
+            this.ItemEndDate,
+            this.ItemContext,
+            this.ItemCreator,
+            this.ItemIsPrivate});
             this.listView1.GridLines = true;
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Name = "listView1";
@@ -88,13 +91,45 @@
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
-            // code
+            // ItemCode
             // 
-            this.code.Text = "code";
+            this.ItemCode.Text = "항목코드";
             // 
-            // serverCode
+            // ItemServerCode
             // 
-            this.serverCode.Text = "serverCode";
+            this.ItemServerCode.Text = "서버코드";
+            this.ItemServerCode.Width = 80;
+            // 
+            // ItemScheduleCode
+            // 
+            this.ItemScheduleCode.Text = "스케줄코드";
+            this.ItemScheduleCode.Width = 100;
+            // 
+            // ItemTitle
+            // 
+            this.ItemTitle.Text = "제목";
+            // 
+            // ItemStartDate
+            // 
+            this.ItemStartDate.Text = "시작날짜";
+            this.ItemStartDate.Width = 100;
+            // 
+            // ItemEndDate
+            // 
+            this.ItemEndDate.Text = "종료날짜";
+            this.ItemEndDate.Width = 100;
+            // 
+            // ItemContext
+            // 
+            this.ItemContext.Text = "내용";
+            // 
+            // ItemCreator
+            // 
+            this.ItemCreator.Text = "생성자";
+            // 
+            // ItemIsPrivate
+            // 
+            this.ItemIsPrivate.Text = "공개여부";
             // 
             // button3
             // 
@@ -114,45 +149,17 @@
             this.button4.Text = "스케줄 일정 수정";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // scheduleCode
-            // 
-            this.scheduleCode.Text = "scheduleCode";
-            // 
-            // title
-            // 
-            this.title.Text = "title";
-            // 
-            // date
-            // 
-            this.date.Text = "기간";
-            this.date.Width = 200;
-            // 
-            // context
-            // 
-            this.context.Text = "메모";
-            // 
-            // creator
-            // 
-            this.creator.Text = "creator";
-            // 
-            // isPrivate
-            // 
-            this.isPrivate.Text = "공개여부";
-            // 
-            // isDone
-            // 
-            this.isDone.Text = "isDone";
-            // 
             // listView2
             // 
             this.listView2.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.columnHeader1,
-            this.columnHeader2,
-            this.columnHeader3,
-            this.columnHeader5,
-            this.columnHeader6,
-            this.columnHeader7});
+            this.Code,
+            this.ServerCode,
+            this.OwnerCode,
+            this.Title,
+            this.Users});
             this.listView2.GridLines = true;
+            this.listView2.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem2});
             this.listView2.Location = new System.Drawing.Point(3, 231);
             this.listView2.Name = "listView2";
             this.listView2.Size = new System.Drawing.Size(705, 167);
@@ -160,104 +167,96 @@
             this.listView2.UseCompatibleStateImageBehavior = false;
             this.listView2.View = System.Windows.Forms.View.Details;
             // 
-            // columnHeader1
+            // Code
             // 
-            this.columnHeader1.Text = "code";
+            this.Code.Text = "캘린더코드";
             // 
-            // columnHeader2
+            // ServerCode
             // 
-            this.columnHeader2.Text = "serverCode";
+            this.ServerCode.Text = "서버코드";
+            this.ServerCode.Width = 80;
             // 
-            // columnHeader3
+            // OwnerCode
             // 
-            this.columnHeader3.Text = "projectCode";
+            this.OwnerCode.Text = "생성자코드";
+            this.OwnerCode.Width = 100;
             // 
-            // columnHeader5
+            // Title
             // 
-            this.columnHeader5.Text = "기간";
-            this.columnHeader5.Width = 200;
+            this.Title.Text = "제목";
+            this.Title.Width = 200;
             // 
-            // columnHeader6
+            // Users
             // 
-            this.columnHeader6.Text = "content";
+            this.Users.Text = "유저목록";
+            this.Users.Width = 130;
             // 
-            // columnHeader7
+            // tbCreator
             // 
-            this.columnHeader7.Text = "isChecked";
+            this.tbCreator.Location = new System.Drawing.Point(501, 173);
+            this.tbCreator.Name = "tbCreator";
+            this.tbCreator.Size = new System.Drawing.Size(52, 23);
+            this.tbCreator.TabIndex = 28;
             // 
-            // textBox8
+            // cbIsPublic
             // 
-            this.textBox8.Location = new System.Drawing.Point(501, 173);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(52, 23);
-            this.textBox8.TabIndex = 28;
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.cbIsPublic.FormattingEnabled = true;
+            this.cbIsPublic.Items.AddRange(new object[] {
             "true",
             "false"});
-            this.comboBox1.Location = new System.Drawing.Point(572, 173);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(51, 23);
-            this.comboBox1.TabIndex = 27;
+            this.cbIsPublic.Location = new System.Drawing.Point(572, 173);
+            this.cbIsPublic.Name = "cbIsPublic";
+            this.cbIsPublic.Size = new System.Drawing.Size(51, 23);
+            this.cbIsPublic.TabIndex = 27;
             // 
-            // textBox9
+            // tbContent
             // 
-            this.textBox9.Location = new System.Drawing.Point(642, 173);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(48, 23);
-            this.textBox9.TabIndex = 26;
+            this.tbContent.Location = new System.Drawing.Point(450, 173);
+            this.tbContent.Name = "tbContent";
+            this.tbContent.Size = new System.Drawing.Size(45, 23);
+            this.tbContent.TabIndex = 25;
             // 
-            // textBox7
+            // tbEndDate
             // 
-            this.textBox7.Location = new System.Drawing.Point(450, 173);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(45, 23);
-            this.textBox7.TabIndex = 25;
+            this.tbEndDate.Location = new System.Drawing.Point(344, 173);
+            this.tbEndDate.Name = "tbEndDate";
+            this.tbEndDate.Size = new System.Drawing.Size(100, 23);
+            this.tbEndDate.TabIndex = 24;
             // 
-            // textBox6
+            // tbStartDate
             // 
-            this.textBox6.Location = new System.Drawing.Point(344, 173);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 23);
-            this.textBox6.TabIndex = 24;
+            this.tbStartDate.Location = new System.Drawing.Point(238, 173);
+            this.tbStartDate.Name = "tbStartDate";
+            this.tbStartDate.Size = new System.Drawing.Size(100, 23);
+            this.tbStartDate.TabIndex = 23;
             // 
-            // textBox5
+            // tbTitle
             // 
-            this.textBox5.Location = new System.Drawing.Point(238, 173);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 23);
-            this.textBox5.TabIndex = 23;
+            this.tbTitle.Location = new System.Drawing.Point(190, 173);
+            this.tbTitle.Name = "tbTitle";
+            this.tbTitle.Size = new System.Drawing.Size(42, 23);
+            this.tbTitle.TabIndex = 22;
             // 
-            // textBox4
+            // tbScheduleCode
             // 
-            this.textBox4.Location = new System.Drawing.Point(190, 173);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(42, 23);
-            this.textBox4.TabIndex = 22;
+            this.tbScheduleCode.Location = new System.Drawing.Point(126, 173);
+            this.tbScheduleCode.Name = "tbScheduleCode";
+            this.tbScheduleCode.Size = new System.Drawing.Size(41, 23);
+            this.tbScheduleCode.TabIndex = 21;
             // 
-            // textBox3
+            // tbServerCode
             // 
-            this.textBox3.Location = new System.Drawing.Point(126, 173);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(41, 23);
-            this.textBox3.TabIndex = 21;
+            this.tbServerCode.Location = new System.Drawing.Point(63, 173);
+            this.tbServerCode.Name = "tbServerCode";
+            this.tbServerCode.Size = new System.Drawing.Size(39, 23);
+            this.tbServerCode.TabIndex = 20;
             // 
-            // textBox2
+            // tbCode
             // 
-            this.textBox2.Location = new System.Drawing.Point(63, 173);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(39, 23);
-            this.textBox2.TabIndex = 20;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(3, 173);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(42, 23);
-            this.textBox1.TabIndex = 19;
+            this.tbCode.Location = new System.Drawing.Point(3, 173);
+            this.tbCode.Name = "tbCode";
+            this.tbCode.Size = new System.Drawing.Size(42, 23);
+            this.tbCode.TabIndex = 19;
             // 
             // button2
             // 
@@ -279,76 +278,59 @@
             // 
             // textBox10
             // 
-            this.textBox10.Location = new System.Drawing.Point(409, 404);
+            this.textBox10.Location = new System.Drawing.Point(450, 404);
             this.textBox10.Name = "textBox10";
             this.textBox10.Size = new System.Drawing.Size(45, 23);
             this.textBox10.TabIndex = 37;
             // 
-            // textBox11
+            // tbSTitle
             // 
-            this.textBox11.Location = new System.Drawing.Point(296, 404);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 23);
-            this.textBox11.TabIndex = 36;
+            this.tbSTitle.Location = new System.Drawing.Point(238, 404);
+            this.tbSTitle.Name = "tbSTitle";
+            this.tbSTitle.Size = new System.Drawing.Size(100, 23);
+            this.tbSTitle.TabIndex = 36;
             // 
-            // textBox12
+            // tbSCreatorCode
             // 
-            this.textBox12.Location = new System.Drawing.Point(190, 404);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 23);
-            this.textBox12.TabIndex = 35;
+            this.tbSCreatorCode.Location = new System.Drawing.Point(126, 404);
+            this.tbSCreatorCode.Name = "tbSCreatorCode";
+            this.tbSCreatorCode.Size = new System.Drawing.Size(41, 23);
+            this.tbSCreatorCode.TabIndex = 33;
             // 
-            // textBox13
+            // tbSServerCode
             // 
-            this.textBox13.Location = new System.Drawing.Point(460, 404);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(42, 23);
-            this.textBox13.TabIndex = 34;
+            this.tbSServerCode.Location = new System.Drawing.Point(63, 404);
+            this.tbSServerCode.Name = "tbSServerCode";
+            this.tbSServerCode.Size = new System.Drawing.Size(39, 23);
+            this.tbSServerCode.TabIndex = 32;
             // 
-            // textBox14
+            // tbSCode
             // 
-            this.textBox14.Location = new System.Drawing.Point(126, 404);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(41, 23);
-            this.textBox14.TabIndex = 33;
-            // 
-            // textBox15
-            // 
-            this.textBox15.Location = new System.Drawing.Point(63, 404);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(39, 23);
-            this.textBox15.TabIndex = 32;
-            // 
-            // textBox16
-            // 
-            this.textBox16.Location = new System.Drawing.Point(3, 404);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(42, 23);
-            this.textBox16.TabIndex = 31;
+            this.tbSCode.Location = new System.Drawing.Point(3, 404);
+            this.tbSCode.Name = "tbSCode";
+            this.tbSCode.Size = new System.Drawing.Size(42, 23);
+            this.tbSCode.TabIndex = 31;
             // 
             // CalendarPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox16);
+            this.Controls.Add(this.tbSTitle);
+            this.Controls.Add(this.tbSCreatorCode);
+            this.Controls.Add(this.tbSServerCode);
+            this.Controls.Add(this.tbSCode);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbCreator);
+            this.Controls.Add(this.cbIsPublic);
+            this.Controls.Add(this.tbContent);
+            this.Controls.Add(this.tbEndDate);
+            this.Controls.Add(this.tbStartDate);
+            this.Controls.Add(this.tbTitle);
+            this.Controls.Add(this.tbScheduleCode);
+            this.Controls.Add(this.tbServerCode);
+            this.Controls.Add(this.tbCode);
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.button4);
             this.Controls.Add(this.button3);
@@ -363,42 +345,38 @@
         #endregion
 
         private ListView listView1;
-        private ColumnHeader code;
-        private ColumnHeader serverCode;
+        private ColumnHeader ItemCode;
+        private ColumnHeader ItemServerCode;
         private Button button3;
         private Button button4;
-        private ColumnHeader scheduleCode;
-        private ColumnHeader title;
-        private ColumnHeader date;
-        private ColumnHeader context;
-        private ColumnHeader creator;
-        private ColumnHeader isPrivate;
-        private ColumnHeader isDone;
+        private ColumnHeader ItemScheduleCode;
+        private ColumnHeader ItemTitle;
+        private ColumnHeader ItemStartDate;
+        private ColumnHeader ItemContext;
+        private ColumnHeader ItemCreator;
+        private ColumnHeader ItemIsPrivate;
         private ListView listView2;
-        private ColumnHeader columnHeader1;
-        private ColumnHeader columnHeader2;
-        private ColumnHeader columnHeader3;
-        private ColumnHeader columnHeader5;
-        private ColumnHeader columnHeader6;
-        private ColumnHeader columnHeader7;
-        private TextBox textBox8;
-        private ComboBox comboBox1;
-        private TextBox textBox9;
-        private TextBox textBox7;
-        private TextBox textBox6;
-        private TextBox textBox5;
-        private TextBox textBox4;
-        private TextBox textBox3;
-        private TextBox textBox2;
-        private TextBox textBox1;
+        private ColumnHeader Code;
+        private ColumnHeader ServerCode;
+        private ColumnHeader OwnerCode;
+        private ColumnHeader Title;
+        private ColumnHeader Users;
+        private TextBox tbCreator;
+        private ComboBox cbIsPublic;
+        private TextBox tbContent;
+        private TextBox tbEndDate;
+        private TextBox tbStartDate;
+        private TextBox tbTitle;
+        private TextBox tbScheduleCode;
+        private TextBox tbServerCode;
+        private TextBox tbCode;
         private Button button2;
         private Button button1;
         private TextBox textBox10;
-        private TextBox textBox11;
-        private TextBox textBox12;
-        private TextBox textBox13;
-        private TextBox textBox14;
-        private TextBox textBox15;
-        private TextBox textBox16;
+        private TextBox tbSTitle;
+        private TextBox tbSCreatorCode;
+        private TextBox tbSServerCode;
+        private TextBox tbSCode;
+        private ColumnHeader ItemEndDate;
     }
 }

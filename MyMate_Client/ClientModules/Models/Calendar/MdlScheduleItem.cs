@@ -28,9 +28,9 @@ namespace ClientModules.Models.Calendar
         //항목 공개 여부
         public bool IsPrivate { get; set; }
         //완료 여부, Client-side
-        public bool IsDone { get; set; }
+        //public bool IsDone { get; set; }
 
-        public MdlScheduleItem(int code, int scheduleCode, string title, DateTime startDate, DateTime endDate, string context, int creator, bool isPrivate, bool isDone)
+        public MdlScheduleItem(int code, int scheduleCode, string title, DateTime startDate, DateTime endDate, string context, int creator, bool isPrivate)
         {
             Code = code;
             ScheduleCode = scheduleCode;
@@ -40,7 +40,7 @@ namespace ClientModules.Models.Calendar
             Context = context;
             Creator = creator;
             IsPrivate = isPrivate;
-            IsDone = isDone;
+            //IsDone = isDone;
         }
         public MdlScheduleItem(CalenderProtocol.CALENDER cal)
         {

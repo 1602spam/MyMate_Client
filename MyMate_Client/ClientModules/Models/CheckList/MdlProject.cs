@@ -25,7 +25,7 @@ namespace ClientModules.Models.CheckList
         //이 때 유저코드, 직함 딕셔너리가 생성됨
         public List<int> Users { get; set; }
         //public Dictionary<int, string> Users { get; set; }
-
+        public bool IsDeleted { get; set; }
         public MdlProject(ChannelProtocol.CHNNEL channel)
         {
             this.Code = channel.channelCode;

@@ -21,6 +21,7 @@ namespace ClientModules.Models.Chat
         public string Context { get; set; }
         //메시지 보낸 시간
         public DateTime Time { get; set; }
+        public bool IsDeleted { get; set; }
         public MdlMessage() { }
         public MdlMessage(int code, int serverCode, int chatroomCode, int senderCode, string context, DateTime time)
         {
@@ -39,6 +40,7 @@ namespace ClientModules.Models.Chat
             this.Creator = message.creater;
             this.Context = message.content;
             this.Time = message.startTime;
+            //this.IsDeleted = message.isDeleted;
         }
 
         public bool nullCheck()

@@ -20,15 +20,16 @@ namespace ClientModules.Models.Calendar
         public string Title { get; set; }
         public List<int> Users { get; set; }
         public ScheduleItemContainer Items { get; set; }
+        public bool IsDeleted { get; set; }
 
-        public MdlSchedule() {}
-        public MdlSchedule(int code, int serverCode, int ownerCode, string title, ScheduleItemContainer items)
+        private MdlSchedule() {}
+        public MdlSchedule(int code, int serverCode, int ownerCode, string title)
         {
             Code = code;
             ServerCode = serverCode;
             OwnerCode = ownerCode;
             Title = title;
-            Items = new();
+            Items = new ScheduleItemContainer();
         }
 
         public MdlSchedule(ChannelProtocol.CHNNEL c)
@@ -38,7 +39,8 @@ namespace ClientModules.Models.Calendar
             //OwnerCode = c.creator;
             Title = c.title;
             //Items = c.users;
-        }
+            //IsDeleted = c.isDeleted;
+    }
 
         public bool nullCheck()
         {

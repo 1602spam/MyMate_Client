@@ -29,6 +29,7 @@ namespace ClientModules.Models.Calendar
         public bool IsPrivate { get; set; }
         //완료 여부, Client-side
         //public bool IsDone { get; set; }
+        public bool IsDeleted { get; set; }
 
         public MdlScheduleItem(int code, int scheduleCode, string title, DateTime startDate, DateTime endDate, string context, int creator, bool isPrivate)
         {
@@ -41,7 +42,8 @@ namespace ClientModules.Models.Calendar
             Creator = creator;
             IsPrivate = isPrivate;
             //IsDone = isDone;
-        }
+
+    }
         public MdlScheduleItem(CalenderProtocol.CALENDER cal)
         {
             ServerCode = cal.serverCode;
@@ -52,6 +54,7 @@ namespace ClientModules.Models.Calendar
             StartDate = cal.startTime;
             EndDate = cal.endTime;
             IsPrivate = cal.isPrivate;
+            //IsDeleted = cal.isDeleted;
         }
         public bool nullCheck()
         {

@@ -17,6 +17,9 @@ namespace ClientModules.Models.Chat
 		//채팅방 이름(개인 채팅방의 경우 필요 없음)
 		public string Title { get; set; }
 		public MessageContainer Messages { get; set; }
+
+        public bool IsDeleted { get; set; }
+
 		public MdlChatroom(int code, int serverCode, string title)
 		{
 			Code = code;
@@ -30,6 +33,7 @@ namespace ClientModules.Models.Chat
 			this.ServerCode = chatroom.serverCode;
 			this.Title = chatroom.title;
 			this.Messages = new();
+			//this.IsDeleted = chatroom.isDeleted;
 		}
 
 		public bool nullCheck()

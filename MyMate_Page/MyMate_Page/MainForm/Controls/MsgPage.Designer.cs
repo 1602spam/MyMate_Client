@@ -37,9 +37,7 @@
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.chatSendPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.sendBtn = new MainForm.Controls.RoundButton();
             this.chatTxt = new System.Windows.Forms.RichTextBox();
-            this.plusBtn = new MainForm.Controls.RoundButton();
             this.chatPanel = new System.Windows.Forms.Panel();
             this.chatListPanel.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -130,9 +128,7 @@
             this.chatSendPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.chatSendPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.chatSendPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.chatSendPanel.Controls.Add(this.sendBtn, 2, 0);
             this.chatSendPanel.Controls.Add(this.chatTxt, 1, 0);
-            this.chatSendPanel.Controls.Add(this.plusBtn, 0, 0);
             this.chatSendPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.chatSendPanel.Location = new System.Drawing.Point(150, 424);
             this.chatSendPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -141,27 +137,6 @@
             this.chatSendPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.chatSendPanel.Size = new System.Drawing.Size(505, 30);
             this.chatSendPanel.TabIndex = 5;
-            // 
-            // sendBtn
-            // 
-            this.sendBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
-            this.sendBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
-            this.sendBtn.BorderColor = System.Drawing.Color.Red;
-            this.sendBtn.BorderRadius = 5;
-            this.sendBtn.BorderSize = 0;
-            this.sendBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.sendBtn.FlatAppearance.BorderSize = 0;
-            this.sendBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.sendBtn.ForeColor = System.Drawing.Color.White;
-            this.sendBtn.Location = new System.Drawing.Point(456, 1);
-            this.sendBtn.Margin = new System.Windows.Forms.Padding(1);
-            this.sendBtn.Name = "sendBtn";
-            this.sendBtn.Size = new System.Drawing.Size(48, 28);
-            this.sendBtn.TabIndex = 1;
-            this.sendBtn.Text = "전송";
-            this.sendBtn.TextColor = System.Drawing.Color.White;
-            this.sendBtn.UseVisualStyleBackColor = false;
-            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
             // 
             // chatTxt
             // 
@@ -175,27 +150,6 @@
             this.chatTxt.Size = new System.Drawing.Size(399, 24);
             this.chatTxt.TabIndex = 2;
             this.chatTxt.Text = "";
-            // 
-            // plusBtn
-            // 
-            this.plusBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
-            this.plusBtn.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
-            this.plusBtn.BorderColor = System.Drawing.Color.Red;
-            this.plusBtn.BorderRadius = 5;
-            this.plusBtn.BorderSize = 0;
-            this.plusBtn.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.plusBtn.FlatAppearance.BorderSize = 0;
-            this.plusBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.plusBtn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.plusBtn.ForeColor = System.Drawing.Color.White;
-            this.plusBtn.Location = new System.Drawing.Point(1, 1);
-            this.plusBtn.Margin = new System.Windows.Forms.Padding(1);
-            this.plusBtn.Name = "plusBtn";
-            this.plusBtn.Size = new System.Drawing.Size(48, 28);
-            this.plusBtn.TabIndex = 0;
-            this.plusBtn.Text = "+";
-            this.plusBtn.TextColor = System.Drawing.Color.White;
-            this.plusBtn.UseVisualStyleBackColor = false;
             // 
             // chatPanel
             // 

@@ -23,6 +23,7 @@ namespace ClientModules.Models.Chat
         public List<int> Users { get; set; }
         //생성자 코드
         public int OwnerCode { get; set; }
+        public bool IsDeleted { get; set; }
 
         public MdlServer(int code, bool isCompact, string title, int ownerCode)
         {

@@ -20,7 +20,7 @@ namespace ClientModules.Models
 		public bool IsBlocked { get; set; }
 		//유저 자기소개
 		public bool IsHidden { get; set; }
-
+        public bool IsDeleted { get; set; }
         public MdlFriend(int targetusercode, string nickname, bool isblocked, bool ishidden)
         {
 			FriendCode = targetusercode;

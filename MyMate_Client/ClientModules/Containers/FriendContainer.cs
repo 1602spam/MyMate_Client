@@ -7,6 +7,7 @@ using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -70,6 +71,19 @@ namespace ClientModules.Containers
                 if (this.errorEvent != null)
                     this.errorEvent();
             }
+        }
+
+        public List<MdlFriend> GetFriends()
+        {
+            List<MdlFriend> friends = new();
+            if (this.Items != null)
+            {
+                foreach (var item in this.Items.Values) {
+                    friends.Add(item);
+                }
+            }
+            return friends;
+
         }
     }
 }

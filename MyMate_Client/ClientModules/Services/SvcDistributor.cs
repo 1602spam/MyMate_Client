@@ -84,7 +84,8 @@ namespace ClientModules.Services
 			 */
             MdlSchedule? s;
 
-            s = ScheduleContainer.Instance.Items.Values.FirstOrDefault(MdlSchedule => MdlSchedule.Code == v.Code);
+			//
+            s = ScheduleContainer.Instance.Items.Values.FirstOrDefault(MdlSchedule => MdlSchedule.Code == v.ScheduleCode);
             if (s == null)
             {
 #if DEBUG

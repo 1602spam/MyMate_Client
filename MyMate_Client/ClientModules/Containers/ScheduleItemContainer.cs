@@ -59,7 +59,7 @@ namespace ClientModules.Containers
             }
 
             int i = Items.FindIndex(MdlScheduleItem => MdlScheduleItem.Code == v.Code);
-
+            //스케줄 내에서 동일한 코드를 가진 아이템을 찾았다면 대체
             if (i != -1)
             {
 #if DEBUG
@@ -71,14 +71,17 @@ namespace ClientModules.Containers
                     this.dataDistributedEvent(v);
                 return;
             }
+            else
+            {
 
-            Items.Add(v);
+                Items.Add(v);
 #if DEBUG
-            Console.WriteLine("스케줄 추가됨: " + v.Title);
+                Console.WriteLine("스케줄 추가됨: " + v.Title);
 #endif
-            if (this.dataDistributedEvent != null)
-                this.dataDistributedEvent(v);
-            return;
+                if (this.dataDistributedEvent != null)
+                    this.dataDistributedEvent(v);
+                return;
+            }
         }
     }
 }

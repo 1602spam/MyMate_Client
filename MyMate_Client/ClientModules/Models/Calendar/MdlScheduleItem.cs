@@ -31,9 +31,10 @@ namespace ClientModules.Models.Calendar
         //public bool IsDone { get; set; }
         public bool IsDeleted { get; set; }
 
-        public MdlScheduleItem(int code, int scheduleCode, string title, DateTime startDate, DateTime endDate, string context, int creator, bool isPrivate)
+        public MdlScheduleItem(int code, int servercode, int scheduleCode, string title, DateTime startDate, DateTime endDate, string context, int creator, bool isPrivate)
         {
             Code = code;
+            ServerCode = servercode;
             ScheduleCode = scheduleCode;
             Title = title;
             StartDate = startDate;

@@ -28,17 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.ListViewItem listViewItem2 = new System.Windows.Forms.ListViewItem(new string[] {
+            System.Windows.Forms.ListViewItem listViewItem1 = new System.Windows.Forms.ListViewItem(new string[] {
             "fgkj",
             "sfa",
             "sf",
             "s",
             "s",
             "s"}, -1);
-            this.lvSchedule = new System.Windows.Forms.ListView();
-            this.ItemCode = new System.Windows.Forms.ColumnHeader("(없음)");
-            this.ItemServerCode = new System.Windows.Forms.ColumnHeader();
+            this.lvItem = new System.Windows.Forms.ListView();
             this.ItemScheduleCode = new System.Windows.Forms.ColumnHeader();
+            this.ItemServerCode = new System.Windows.Forms.ColumnHeader();
+            this.ItemCode = new System.Windows.Forms.ColumnHeader("(없음)");
             this.ItemTitle = new System.Windows.Forms.ColumnHeader();
             this.ItemStartDate = new System.Windows.Forms.ColumnHeader();
             this.ItemEndDate = new System.Windows.Forms.ColumnHeader();
@@ -46,7 +46,7 @@
             this.ItemCreator = new System.Windows.Forms.ColumnHeader();
             this.ItemIsPrivate = new System.Windows.Forms.ColumnHeader();
             this.btnAddSchedule = new System.Windows.Forms.Button();
-            this.lvItem = new System.Windows.Forms.ListView();
+            this.lvSchedule = new System.Windows.Forms.ListView();
             this.Code = new System.Windows.Forms.ColumnHeader("(없음)");
             this.ServerCode = new System.Windows.Forms.ColumnHeader();
             this.OwnerCode = new System.Windows.Forms.ColumnHeader();
@@ -67,39 +67,39 @@
             this.tbSCode = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
-            // lvSchedule
+            // lvItem
             // 
-            this.lvSchedule.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
-            this.ItemCode,
-            this.ItemServerCode,
+            this.lvItem.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.ItemScheduleCode,
+            this.ItemServerCode,
+            this.ItemCode,
             this.ItemTitle,
             this.ItemStartDate,
             this.ItemEndDate,
             this.ItemContext,
             this.ItemCreator,
             this.ItemIsPrivate});
-            this.lvSchedule.GridLines = true;
-            this.lvSchedule.Location = new System.Drawing.Point(0, 0);
-            this.lvSchedule.Name = "lvSchedule";
-            this.lvSchedule.Size = new System.Drawing.Size(708, 167);
-            this.lvSchedule.TabIndex = 1;
-            this.lvSchedule.UseCompatibleStateImageBehavior = false;
-            this.lvSchedule.View = System.Windows.Forms.View.Details;
+            this.lvItem.GridLines = true;
+            this.lvItem.Location = new System.Drawing.Point(0, 0);
+            this.lvItem.Name = "lvItem";
+            this.lvItem.Size = new System.Drawing.Size(708, 167);
+            this.lvItem.TabIndex = 1;
+            this.lvItem.UseCompatibleStateImageBehavior = false;
+            this.lvItem.View = System.Windows.Forms.View.Details;
             // 
-            // ItemCode
+            // ItemScheduleCode
             // 
-            this.ItemCode.Text = "항목코드";
+            this.ItemScheduleCode.Text = "스케줄코드";
+            this.ItemScheduleCode.Width = 100;
             // 
             // ItemServerCode
             // 
             this.ItemServerCode.Text = "서버코드";
             this.ItemServerCode.Width = 80;
             // 
-            // ItemScheduleCode
+            // ItemCode
             // 
-            this.ItemScheduleCode.Text = "스케줄코드";
-            this.ItemScheduleCode.Width = 100;
+            this.ItemCode.Text = "항목코드";
             // 
             // ItemTitle
             // 
@@ -137,22 +137,23 @@
             this.btnAddSchedule.UseVisualStyleBackColor = true;
             this.btnAddSchedule.Click += new System.EventHandler(this.btnAddSchedule_Click);
             // 
-            // lvItem
+            // lvSchedule
             // 
-            this.lvItem.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
+            this.lvSchedule.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
             this.Code,
             this.ServerCode,
             this.OwnerCode,
             this.Title});
-            this.lvItem.GridLines = true;
-            this.lvItem.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
-            listViewItem2});
-            this.lvItem.Location = new System.Drawing.Point(3, 231);
-            this.lvItem.Name = "lvItem";
-            this.lvItem.Size = new System.Drawing.Size(705, 167);
-            this.lvItem.TabIndex = 18;
-            this.lvItem.UseCompatibleStateImageBehavior = false;
-            this.lvItem.View = System.Windows.Forms.View.Details;
+            this.lvSchedule.GridLines = true;
+            this.lvSchedule.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
+            listViewItem1});
+            this.lvSchedule.Location = new System.Drawing.Point(3, 231);
+            this.lvSchedule.Name = "lvSchedule";
+            this.lvSchedule.Size = new System.Drawing.Size(705, 167);
+            this.lvSchedule.TabIndex = 18;
+            this.lvSchedule.UseCompatibleStateImageBehavior = false;
+            this.lvSchedule.View = System.Windows.Forms.View.Details;
+            this.lvSchedule.SelectedIndexChanged += new System.EventHandler(this.lvSchedule_SelectedIndexChanged);
             // 
             // Code
             // 
@@ -175,9 +176,9 @@
             // 
             // tbCreator
             // 
-            this.tbCreator.Location = new System.Drawing.Point(501, 173);
+            this.tbCreator.Location = new System.Drawing.Point(561, 173);
             this.tbCreator.Name = "tbCreator";
-            this.tbCreator.Size = new System.Drawing.Size(52, 23);
+            this.tbCreator.Size = new System.Drawing.Size(62, 23);
             this.tbCreator.TabIndex = 28;
             // 
             // cbIsPrivate
@@ -186,63 +187,63 @@
             this.cbIsPrivate.Items.AddRange(new object[] {
             "true",
             "false"});
-            this.cbIsPrivate.Location = new System.Drawing.Point(572, 173);
+            this.cbIsPrivate.Location = new System.Drawing.Point(629, 173);
             this.cbIsPrivate.Name = "cbIsPrivate";
             this.cbIsPrivate.Size = new System.Drawing.Size(51, 23);
             this.cbIsPrivate.TabIndex = 27;
             // 
             // tbContent
             // 
-            this.tbContent.Location = new System.Drawing.Point(450, 173);
+            this.tbContent.Location = new System.Drawing.Point(503, 173);
             this.tbContent.Name = "tbContent";
-            this.tbContent.Size = new System.Drawing.Size(45, 23);
+            this.tbContent.Size = new System.Drawing.Size(52, 23);
             this.tbContent.TabIndex = 25;
             // 
             // tbEndDate
             // 
-            this.tbEndDate.Location = new System.Drawing.Point(344, 173);
+            this.tbEndDate.Location = new System.Drawing.Point(404, 173);
             this.tbEndDate.Name = "tbEndDate";
-            this.tbEndDate.Size = new System.Drawing.Size(100, 23);
+            this.tbEndDate.Size = new System.Drawing.Size(93, 23);
             this.tbEndDate.TabIndex = 24;
             // 
             // tbStartDate
             // 
-            this.tbStartDate.Location = new System.Drawing.Point(238, 173);
+            this.tbStartDate.Location = new System.Drawing.Point(304, 173);
             this.tbStartDate.Name = "tbStartDate";
-            this.tbStartDate.Size = new System.Drawing.Size(100, 23);
+            this.tbStartDate.Size = new System.Drawing.Size(94, 23);
             this.tbStartDate.TabIndex = 23;
             // 
             // tbTitle
             // 
-            this.tbTitle.Location = new System.Drawing.Point(190, 173);
+            this.tbTitle.Location = new System.Drawing.Point(238, 173);
             this.tbTitle.Name = "tbTitle";
-            this.tbTitle.Size = new System.Drawing.Size(42, 23);
+            this.tbTitle.Size = new System.Drawing.Size(60, 23);
             this.tbTitle.TabIndex = 22;
             // 
             // tbScheduleCode
             // 
-            this.tbScheduleCode.Location = new System.Drawing.Point(126, 173);
+            this.tbScheduleCode.Location = new System.Drawing.Point(4, 173);
             this.tbScheduleCode.Name = "tbScheduleCode";
-            this.tbScheduleCode.Size = new System.Drawing.Size(41, 23);
+            this.tbScheduleCode.Size = new System.Drawing.Size(94, 23);
             this.tbScheduleCode.TabIndex = 21;
             // 
             // tbServerCode
             // 
-            this.tbServerCode.Location = new System.Drawing.Point(63, 173);
+            this.tbServerCode.Location = new System.Drawing.Point(104, 173);
             this.tbServerCode.Name = "tbServerCode";
-            this.tbServerCode.Size = new System.Drawing.Size(39, 23);
+            this.tbServerCode.Size = new System.Drawing.Size(80, 23);
             this.tbServerCode.TabIndex = 20;
             // 
             // tbCode
             // 
-            this.tbCode.Location = new System.Drawing.Point(3, 173);
+            this.tbCode.Location = new System.Drawing.Point(190, 173);
             this.tbCode.Name = "tbCode";
             this.tbCode.Size = new System.Drawing.Size(42, 23);
             this.tbCode.TabIndex = 19;
             // 
             // btnAddScheduleItem
             // 
-            this.btnAddScheduleItem.Location = new System.Drawing.Point(3, 202);
+            this.btnAddScheduleItem.Location = new System.Drawing.Point(4, 202);
             this.btnAddScheduleItem.Name = "btnAddScheduleItem";
             this.btnAddScheduleItem.Size = new System.Drawing.Size(186, 23);
             this.btnAddScheduleItem.TabIndex = 29;
@@ -252,30 +253,30 @@
             // 
             // tbSTitle
             // 
-            this.tbSTitle.Location = new System.Drawing.Point(238, 404);
+            this.tbSTitle.Location = new System.Drawing.Point(244, 404);
             this.tbSTitle.Name = "tbSTitle";
-            this.tbSTitle.Size = new System.Drawing.Size(100, 23);
+            this.tbSTitle.Size = new System.Drawing.Size(200, 23);
             this.tbSTitle.TabIndex = 36;
             // 
             // tbSCreatorCode
             // 
-            this.tbSCreatorCode.Location = new System.Drawing.Point(126, 404);
+            this.tbSCreatorCode.Location = new System.Drawing.Point(145, 404);
             this.tbSCreatorCode.Name = "tbSCreatorCode";
-            this.tbSCreatorCode.Size = new System.Drawing.Size(41, 23);
+            this.tbSCreatorCode.Size = new System.Drawing.Size(93, 23);
             this.tbSCreatorCode.TabIndex = 33;
             // 
             // tbSServerCode
             // 
             this.tbSServerCode.Location = new System.Drawing.Point(63, 404);
             this.tbSServerCode.Name = "tbSServerCode";
-            this.tbSServerCode.Size = new System.Drawing.Size(39, 23);
+            this.tbSServerCode.Size = new System.Drawing.Size(76, 23);
             this.tbSServerCode.TabIndex = 32;
             // 
             // tbSCode
             // 
             this.tbSCode.Location = new System.Drawing.Point(3, 404);
             this.tbSCode.Name = "tbSCode";
-            this.tbSCode.Size = new System.Drawing.Size(42, 23);
+            this.tbSCode.Size = new System.Drawing.Size(54, 23);
             this.tbSCode.TabIndex = 31;
             // 
             // CalendarPage
@@ -296,9 +297,9 @@
             this.Controls.Add(this.tbScheduleCode);
             this.Controls.Add(this.tbServerCode);
             this.Controls.Add(this.tbCode);
-            this.Controls.Add(this.lvItem);
-            this.Controls.Add(this.btnAddSchedule);
             this.Controls.Add(this.lvSchedule);
+            this.Controls.Add(this.btnAddSchedule);
+            this.Controls.Add(this.lvItem);
             this.Name = "CalendarPage";
             this.Size = new System.Drawing.Size(708, 453);
             this.Load += new System.EventHandler(this.CalendarPage_Load);
@@ -309,7 +310,7 @@
 
         #endregion
 
-        private ListView lvSchedule;
+        private ListView lvItem;
         private ColumnHeader ItemCode;
         private ColumnHeader ItemServerCode;
         private Button btnAddSchedule;
@@ -319,7 +320,7 @@
         private ColumnHeader ItemContext;
         private ColumnHeader ItemCreator;
         private ColumnHeader ItemIsPrivate;
-        private ListView lvItem;
+        private ListView lvSchedule;
         private ColumnHeader Code;
         private ColumnHeader ServerCode;
         private ColumnHeader OwnerCode;

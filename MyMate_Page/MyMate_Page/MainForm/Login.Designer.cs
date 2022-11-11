@@ -175,7 +175,8 @@
             this.PWTxt.Margin = new System.Windows.Forms.Padding(5);
             this.PWTxt.MaxLength = 20;
             this.PWTxt.Name = "PWTxt";
-            this.PWTxt.PlaceholderText = "You PassWord";
+            this.PWTxt.PasswordChar = '*';
+            this.PWTxt.PlaceholderText = "Your Password";
             this.PWTxt.Size = new System.Drawing.Size(220, 16);
             this.PWTxt.TabIndex = 1;
             // 
@@ -185,9 +186,9 @@
             this.PWLabel.Font = new System.Drawing.Font("맑은 고딕", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.PWLabel.Location = new System.Drawing.Point(39, 154);
             this.PWLabel.Name = "PWLabel";
-            this.PWLabel.Size = new System.Drawing.Size(76, 19);
+            this.PWLabel.Size = new System.Drawing.Size(73, 19);
             this.PWLabel.TabIndex = 4;
-            this.PWLabel.Text = "PassWord";
+            this.PWLabel.Text = "Password";
             // 
             // IDPanel
             // 
@@ -209,10 +210,9 @@
             this.IDTxt.Margin = new System.Windows.Forms.Padding(5);
             this.IDTxt.MaxLength = 20;
             this.IDTxt.Name = "IDTxt";
-            this.IDTxt.PlaceholderText = "You ID";
+            this.IDTxt.PlaceholderText = "Your ID";
             this.IDTxt.Size = new System.Drawing.Size(218, 16);
             this.IDTxt.TabIndex = 0;
-            
             // 
             // IDLabel
             // 

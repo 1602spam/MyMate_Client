@@ -13,11 +13,14 @@ using System.Windows.Forms;
 
 namespace MainForm.PopupControls
 {
-    //1. 열면 친구컨테이너로부터 친구 목록을 딕셔너리로 가져와서
+    //1. 열면 친구컨테이너로부터 친구 목록을 코드/MdlFriend 딕셔너리로 가져와서
     //체크박스 리스트에 해당 친구 목록에서 이름만 표시함
 
-    //2. 확인 버튼을 누르면 친구 목록과 이름을 비교해서 유저코드를 리스트로 가져옴
-    //3. 서버 버튼을 생성할 때 서버 객체를 속성으로 넣어주고 그 안에 해당 코드 리스트를 넣어줌
+    //2. 확인 버튼을 누르면 친구 목록과 이름을 비교해서 유저코드를 리스트로 가져와서 서버 객체를 만들고 전송
+    //OKBtn_Click에서 titem = chatMember.FirstOrDefault(MdlFriend => MdlFriend.code == chatmember[i].userName );
+    //list<int> tlist에 titem.Code를 넣어 MdlServer를 전송
+
+    //3. 서버 정보를 받으면 메인페이지에서 이벤트 호출받아서 서버 버튼을 만드는데 서버 객체를 파라미터로 넣어주고 그 안에 해당 코드 리스트를 넣어줌
 
     public partial class ServerAddPopup : Form
     {

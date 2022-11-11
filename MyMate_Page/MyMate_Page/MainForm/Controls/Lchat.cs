@@ -61,7 +61,7 @@ namespace MainForm.Controls
 			{
 				this.dateLabel.Text = mdlMessage.Time.ToString("yyyy-MM-dd");
 			}
-            this.nameLabel.Text = UserContainer.Instance.Items.Values.First(MdlUser => MdlUser.Code == mdlMessage.Creator).Name;
+            this.nameLabel.Text = UserContainer.Instance.Items.Values.FirstOrDefault(MdlUser => MdlUser.Code == mdlMessage.Creator).Name;
             this.Message = mdlMessage.Context;
             
             //ChatLocation();

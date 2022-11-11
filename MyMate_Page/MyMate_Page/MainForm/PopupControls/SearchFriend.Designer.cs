@@ -1,0 +1,124 @@
+﻿namespace MainForm.PopupControls
+{
+    partial class SearchFriend
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.lblID = new System.Windows.Forms.Label();
+            this.rbtnSearch = new MainForm.Controls.RoundButton();
+            this.rbtnAdd = new MainForm.Controls.RoundButton();
+            this.lblUsername = new System.Windows.Forms.Label();
+            this.SuspendLayout();
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(82, 114);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(159, 23);
+            this.textBox1.TabIndex = 0;
+            // 
+            // lblID
+            // 
+            this.lblID.AutoSize = true;
+            this.lblID.Location = new System.Drawing.Point(82, 96);
+            this.lblID.Name = "lblID";
+            this.lblID.Size = new System.Drawing.Size(19, 15);
+            this.lblID.TabIndex = 1;
+            this.lblID.Text = "ID";
+            // 
+            // rbtnSearch
+            // 
+            this.rbtnSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.rbtnSearch.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.rbtnSearch.BorderColor = System.Drawing.Color.Red;
+            this.rbtnSearch.BorderRadius = 2;
+            this.rbtnSearch.BorderSize = 0;
+            this.rbtnSearch.FlatAppearance.BorderSize = 0;
+            this.rbtnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbtnSearch.ForeColor = System.Drawing.Color.White;
+            this.rbtnSearch.Location = new System.Drawing.Point(110, 162);
+            this.rbtnSearch.Name = "rbtnSearch";
+            this.rbtnSearch.Size = new System.Drawing.Size(108, 40);
+            this.rbtnSearch.TabIndex = 2;
+            this.rbtnSearch.Text = "검색";
+            this.rbtnSearch.TextColor = System.Drawing.Color.White;
+            this.rbtnSearch.UseVisualStyleBackColor = false;
+            // 
+            // rbtnAdd
+            // 
+            this.rbtnAdd.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.rbtnAdd.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
+            this.rbtnAdd.BorderColor = System.Drawing.Color.Red;
+            this.rbtnAdd.BorderRadius = 2;
+            this.rbtnAdd.BorderSize = 0;
+            this.rbtnAdd.FlatAppearance.BorderSize = 0;
+            this.rbtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbtnAdd.ForeColor = System.Drawing.Color.White;
+            this.rbtnAdd.Location = new System.Drawing.Point(200, 299);
+            this.rbtnAdd.Name = "rbtnAdd";
+            this.rbtnAdd.Size = new System.Drawing.Size(78, 40);
+            this.rbtnAdd.TabIndex = 3;
+            this.rbtnAdd.Text = "추가";
+            this.rbtnAdd.TextColor = System.Drawing.Color.White;
+            this.rbtnAdd.UseVisualStyleBackColor = false;
+            // 
+            // lblUsername
+            // 
+            this.lblUsername.AutoSize = true;
+            this.lblUsername.Location = new System.Drawing.Point(57, 312);
+            this.lblUsername.Name = "lblUsername";
+            this.lblUsername.Size = new System.Drawing.Size(81, 15);
+            this.lblUsername.TabIndex = 4;
+            this.lblUsername.Text = "Username123";
+            // 
+            // SearchFriend
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(328, 450);
+            this.Controls.Add(this.lblUsername);
+            this.Controls.Add(this.rbtnAdd);
+            this.Controls.Add(this.rbtnSearch);
+            this.Controls.Add(this.lblID);
+            this.Controls.Add(this.textBox1);
+            this.Name = "SearchFriend";
+            this.Text = "SearchFriend";
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private TextBox textBox1;
+        private Label lblID;
+        private Controls.RoundButton rbtnSearch;
+        private Controls.RoundButton rbtnAdd;
+        private Label lblUsername;
+    }
+}

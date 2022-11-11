@@ -7,21 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MainForm.PopupControls;
 
 namespace MainForm.Controls
 {
-    public partial class FriendPage : UserControl
+    public partial class FriendPageItem : UserControl
     {
-        public FriendPage()
+        public FriendPageItem()
         {
             InitializeComponent();
-        }
-
-        private void rbtnFindFriend_Click(object sender, EventArgs e)
-        {
-            SearchFriend searchFriend = new SearchFriend();
-            searchFriend.ShowDialog();
         }
     }
 }

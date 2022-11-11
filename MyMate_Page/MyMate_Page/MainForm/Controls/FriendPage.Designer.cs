@@ -28,44 +28,76 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
-            this.panel1.SuspendLayout();
+            this.rbtnFindFriend = new MainForm.Controls.RoundButton();
+            this.panMyInfo = new System.Windows.Forms.Panel();
+            this.panFriends = new System.Windows.Forms.Panel();
+            this.friendPageItem1 = new MainForm.Controls.FriendPageItem();
+            this.panFriends.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // rbtnFindFriend
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(242)))), ((int)(((byte)(255)))));
-            this.panel1.Controls.Add(this.checkedListBox1);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(300, 400);
-            this.panel1.TabIndex = 0;
+            this.rbtnFindFriend.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rbtnFindFriend.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.rbtnFindFriend.BorderColor = System.Drawing.Color.Black;
+            this.rbtnFindFriend.BorderRadius = 3;
+            this.rbtnFindFriend.BorderSize = 0;
+            this.rbtnFindFriend.FlatAppearance.BorderSize = 0;
+            this.rbtnFindFriend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbtnFindFriend.ForeColor = System.Drawing.Color.White;
+            this.rbtnFindFriend.Location = new System.Drawing.Point(829, 15);
+            this.rbtnFindFriend.Name = "rbtnFindFriend";
+            this.rbtnFindFriend.Size = new System.Drawing.Size(105, 40);
+            this.rbtnFindFriend.TabIndex = 0;
+            this.rbtnFindFriend.Text = "친구 추가";
+            this.rbtnFindFriend.TextColor = System.Drawing.Color.White;
+            this.rbtnFindFriend.UseVisualStyleBackColor = false;
+            this.rbtnFindFriend.Click += new System.EventHandler(this.rbtnFindFriend_Click);
             // 
-            // checkedListBox1
+            // panMyInfo
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(18, 92);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(264, 292);
-            this.checkedListBox1.TabIndex = 0;
+            this.panMyInfo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panMyInfo.Location = new System.Drawing.Point(0, 0);
+            this.panMyInfo.Name = "panMyInfo";
+            this.panMyInfo.Size = new System.Drawing.Size(950, 97);
+            this.panMyInfo.TabIndex = 2;
+            // 
+            // panFriends
+            // 
+            this.panFriends.AutoScroll = true;
+            this.panFriends.Controls.Add(this.friendPageItem1);
+            this.panFriends.Controls.Add(this.rbtnFindFriend);
+            this.panFriends.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panFriends.Location = new System.Drawing.Point(0, 97);
+            this.panFriends.Name = "panFriends";
+            this.panFriends.Size = new System.Drawing.Size(950, 535);
+            this.panFriends.TabIndex = 3;
+            // 
+            // friendPageItem1
+            // 
+            this.friendPageItem1.Location = new System.Drawing.Point(13, 25);
+            this.friendPageItem1.Name = "friendPageItem1";
+            this.friendPageItem1.Size = new System.Drawing.Size(519, 60);
+            this.friendPageItem1.TabIndex = 1;
             // 
             // FriendPage
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panFriends);
+            this.Controls.Add(this.panMyInfo);
             this.Name = "FriendPage";
-            this.Size = new System.Drawing.Size(300, 400);
-            this.panel1.ResumeLayout(false);
+            this.Size = new System.Drawing.Size(950, 632);
+            this.panFriends.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private Panel panel1;
-        private CheckedListBox checkedListBox1;
+        private RoundButton rbtnFindFriend;
+        private Panel panMyInfo;
+        private Panel panFriends;
+        private FriendPageItem friendPageItem1;
     }
 }

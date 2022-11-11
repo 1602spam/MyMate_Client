@@ -12,14 +12,20 @@ namespace MainForm.Controls
 {
     public partial class ServerPage : UserControl
     {
+        public ServerChatList SCL;
+        public ServerFriends SF;
+        public ServerChat SC;
         public ServerPage(string Sname)
         {
-
             InitializeComponent();
             this.Name = Sname;
-            var SChatList = new ServerChatList(Sname);
+            var SChatList = new ServerChatList(Sname);            
             var SChat = new ServerChat();
             var SFriends = new ServerFriends();
+            SF = SFriends;
+            SCL = SChatList;
+            SC = SChat;
+
             SChatList.Dock = DockStyle.Fill;
             SChat.Dock = DockStyle.Fill;
             SFriends.Dock = DockStyle.Fill;

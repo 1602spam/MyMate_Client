@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
 
 namespace MainForm.PopupControls
 {
@@ -21,7 +22,7 @@ namespace MainForm.PopupControls
             set { serverName = value; }
         }
 
-        List<string> chatMember = new List<string>();       
+        public List<string> chatMember = new List<string>();       
 
         public ServerAddPopup()
         {
@@ -48,9 +49,12 @@ namespace MainForm.PopupControls
             {
                 for (int i = 0; i < userList.Items.Count; i++)
                 {
-
-                    chatMember.Add(userList.Items[i].ToString());
+                    if (userList.GetItemChecked(i))
+                    {
+                        chatMember.Add(userList.SelectedItem.ToString());
+                    }
                 }
+                
                 MainPage.mainPage.AddServerBtn(ServerName);
                 this.Close();
             }

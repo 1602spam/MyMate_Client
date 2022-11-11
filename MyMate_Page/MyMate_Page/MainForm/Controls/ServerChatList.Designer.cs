@@ -110,6 +110,7 @@
             this.addChatBtn.Size = new System.Drawing.Size(32, 27);
             this.addChatBtn.TabIndex = 4;
             this.addChatBtn.UseVisualStyleBackColor = true;
+            this.addChatBtn.Click += new System.EventHandler(this.addChatBtn_Click);
             // 
             // panel5
             // 

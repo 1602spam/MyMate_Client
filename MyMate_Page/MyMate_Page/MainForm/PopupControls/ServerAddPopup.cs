@@ -25,7 +25,7 @@ namespace MainForm.PopupControls
 
     public partial class ServerAddPopup : Form
     {
-
+        /*
         private string serverName = "";
         public string ServerName
         {
@@ -92,6 +92,53 @@ namespace MainForm.PopupControls
                 userList.Items.Add(item.Nickname);
             }
         }
-        
+        */      /// 테스트 위해 잠시 주석 처리
+        private string serverName;
+
+        public string ServerName
+        {
+            get { return serverName; }
+            set { serverName = value; }
+        }
+
+        public List<string> chatMember = new List<string>();
+
+        public ServerAddPopup()
+        {
+            InitializeComponent();
+        }
+
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        private void OKBtn_Click(object sender, EventArgs e)
+        {
+            ServerName = serverNameTxt.Text;
+            if (ServerName == "")
+            {
+                MessageBox.Show("서버이름을 입력하세요!", "안내");
+            }
+            else if (userList.CheckedItems.Count == 0)
+            {
+                MessageBox.Show("멤버를 선택하세요!", "안내");
+            }
+            else
+            {
+                for (int i = 0; i < userList.Items.Count; i++)
+                {
+                    if (userList.GetItemChecked(i))
+                    {
+                        chatMember.Add(userList.Items[i].ToString());
+                    }
+                }
+
+                MainPage.mainPage.AddServerBtn(ServerName, chatMember); //chatMember 추가
+                this.Close();
+            }
+
+
+        }
     }
 }

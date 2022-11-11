@@ -10,13 +10,21 @@ using System.Windows.Forms;
 
 namespace MainForm.Controls
 {
-    public partial class Friendprofile : UserControl
+    public partial class CheckListPage : UserControl
     {
-        public Friendprofile(string Pname)
+        public CheckListPage()
         {
             InitializeComponent();
-            this.Name = Pname;
-            userNameTxt.Text = Pname;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -15,13 +15,13 @@ namespace MainForm.Controls
         public ServerChatList SCL;
         public ServerFriends SF;
         public ServerChat SC;
-        public ServerPage(string Sname)
+        public ServerPage(string Sname, List<string> chatMember) //List<string> chatMember 추가
         {
             InitializeComponent();
             this.Name = Sname;
             var SChatList = new ServerChatList(Sname);            
             var SChat = new ServerChat();
-            var SFriends = new ServerFriends();
+            var SFriends = new ServerFriends(Sname, chatMember); // chatMember 추가
             SF = SFriends;
             SCL = SChatList;
             SC = SChat;

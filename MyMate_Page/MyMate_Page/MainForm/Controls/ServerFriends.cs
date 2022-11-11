@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MainForm.PopupControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,22 +13,33 @@ namespace MainForm.Controls
 {
     public partial class ServerFriends : UserControl
     {
-        public ServerFriends()
+        public string SName;
+        public List<string> ChatMember = new List<string>();        // ChatMember 추가
+        public List<Friendprofile> friendprofiles = new List<Friendprofile>();
+        public ServerFriends(string Sname, List<string> chatMember) //List<string> chatMember 추가
         {
             InitializeComponent();
+            this.SName = Sname;
+            this.ChatMember = chatMember;
+            for (int i = 0; i < ChatMember.Count; i++)
+            {
+                Friendprofile friendprofile = new Friendprofile(ChatMember[i]);
+                friendprofiles.Add(friendprofile);
+                friendprofile.SendToBack();
+                friendprofile.Dock = DockStyle.Top;
+                panel2.Controls.Add(friendprofile);
+            }
+            
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
+        // 서버에 친구 추가히기 버튼
+        private void button3_Click(object sender, EventArgs e)
         {
-
+            ServerFriendAddPopup serverFriendAdd = new ServerFriendAddPopup();
+            serverFriendAdd.ShowDialog();
         }
 
-        private void label1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void panel5_Paint(object sender, PaintEventArgs e)
+        public void AddFriend()
         {
 
         }

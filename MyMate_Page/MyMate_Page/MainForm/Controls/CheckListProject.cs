@@ -10,13 +10,15 @@ using System.Windows.Forms;
 
 namespace MainForm.Controls
 {
-    public partial class Friendprofile : UserControl
+    public partial class CheckListProject : UserControl
     {
-        public Friendprofile(string Pname)
+        public CheckListProject(string title)
         {
             InitializeComponent();
-            this.Name = Pname;
-            userNameTxt.Text = Pname;
+            label1.Text = "[" + "]";
+            label2.Text = "진척도 - ";
+            label3.Text = "기한 - ";
+            
         }
     }
 }

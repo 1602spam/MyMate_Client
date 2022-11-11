@@ -29,45 +29,45 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Friendprofile));
-            this.roundButton1 = new MainForm.Controls.RoundButton();
-            this.label1 = new System.Windows.Forms.Label();
+            this.userprofileBtn = new MainForm.Controls.RoundButton();
+            this.userNameTxt = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // roundButton1
+            // userprofileBtn
             // 
-            this.roundButton1.BackColor = System.Drawing.SystemColors.Control;
-            this.roundButton1.BackgroundColor = System.Drawing.SystemColors.Control;
-            this.roundButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roundButton1.BackgroundImage")));
-            this.roundButton1.BorderColor = System.Drawing.Color.Red;
-            this.roundButton1.BorderRadius = 15;
-            this.roundButton1.BorderSize = 0;
-            this.roundButton1.FlatAppearance.BorderSize = 0;
-            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton1.ForeColor = System.Drawing.Color.White;
-            this.roundButton1.Location = new System.Drawing.Point(5, 5);
-            this.roundButton1.Margin = new System.Windows.Forms.Padding(5);
-            this.roundButton1.Name = "roundButton1";
-            this.roundButton1.Size = new System.Drawing.Size(30, 30);
-            this.roundButton1.TabIndex = 0;
-            this.roundButton1.TextColor = System.Drawing.Color.White;
-            this.roundButton1.UseVisualStyleBackColor = false;
+            this.userprofileBtn.BackColor = System.Drawing.SystemColors.Control;
+            this.userprofileBtn.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.userprofileBtn.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("userprofileBtn.BackgroundImage")));
+            this.userprofileBtn.BorderColor = System.Drawing.Color.Red;
+            this.userprofileBtn.BorderRadius = 15;
+            this.userprofileBtn.BorderSize = 0;
+            this.userprofileBtn.FlatAppearance.BorderSize = 0;
+            this.userprofileBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.userprofileBtn.ForeColor = System.Drawing.Color.White;
+            this.userprofileBtn.Location = new System.Drawing.Point(5, 5);
+            this.userprofileBtn.Margin = new System.Windows.Forms.Padding(5);
+            this.userprofileBtn.Name = "userprofileBtn";
+            this.userprofileBtn.Size = new System.Drawing.Size(30, 30);
+            this.userprofileBtn.TabIndex = 0;
+            this.userprofileBtn.TextColor = System.Drawing.Color.White;
+            this.userprofileBtn.UseVisualStyleBackColor = false;
             // 
-            // label1
+            // userNameTxt
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(43, 12);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(43, 17);
-            this.label1.TabIndex = 1;
-            this.label1.Text = "label1";
+            this.userNameTxt.AutoSize = true;
+            this.userNameTxt.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.userNameTxt.Location = new System.Drawing.Point(43, 12);
+            this.userNameTxt.Name = "userNameTxt";
+            this.userNameTxt.Size = new System.Drawing.Size(43, 17);
+            this.userNameTxt.TabIndex = 1;
+            this.userNameTxt.Text = "label1";
             // 
             // Friendprofile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.roundButton1);
+            this.Controls.Add(this.userNameTxt);
+            this.Controls.Add(this.userprofileBtn);
             this.Name = "Friendprofile";
             this.Size = new System.Drawing.Size(144, 41);
             this.ResumeLayout(false);
@@ -77,7 +77,7 @@
 
         #endregion
 
-        private RoundButton roundButton1;
-        private Label label1;
+        private RoundButton userprofileBtn;
+        private Label userNameTxt;
     }
 }

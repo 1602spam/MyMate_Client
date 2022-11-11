@@ -18,5 +18,16 @@ namespace MainForm.Controls
             this.Name = title;
             chatTileTxt.Text = title;
         }
+
+        private void chatTileTxt_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            MainPage.mainPage.msgPage.ChatClear();
+            //여기에 챗 추가 함수
+        }
     }
 }

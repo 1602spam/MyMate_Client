@@ -98,11 +98,11 @@ namespace MainForm
             serverAddPopup.ShowDialog();
         }
 
-        public void AddServerBtn(string serverName)
+        public void AddServerBtn(string serverName, List<string> chatMember)    // List<string> chatMember cnrk
         {
             var serverBtn = new ServerBtn(serverName);
             serverBtns.Add(serverBtn);
-            var serverPage = new ServerPage(serverName);
+            var serverPage = new ServerPage(serverName ,chatMember); // chatMember 추가
             serverPages.Add(serverPage);
 
             for (int i = 0; serverBtns.Count > i; i++)

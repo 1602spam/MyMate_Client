@@ -51,7 +51,7 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(150, 473);
             this.panel1.TabIndex = 0;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
+            
             // 
             // panel2
             // 
@@ -94,6 +94,7 @@
             this.button3.Size = new System.Drawing.Size(35, 30);
             this.button3.TabIndex = 4;
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // panel5
             // 
@@ -103,7 +104,7 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(115, 30);
             this.panel5.TabIndex = 0;
-            this.panel5.Paint += new System.Windows.Forms.PaintEventHandler(this.panel5_Paint);
+            
             // 
             // label1
             // 
@@ -114,7 +115,7 @@
             this.label1.Size = new System.Drawing.Size(71, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "- Friends";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            
             // 
             // ServerFriends
             // 

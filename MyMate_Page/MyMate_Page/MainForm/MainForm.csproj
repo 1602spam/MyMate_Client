@@ -13,6 +13,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="ClientToServer">
+      <HintPath>..\..\..\..\mymate_server\MyMate_Network\DLL\ClientToServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MyMate_Network_Library">
+      <HintPath>..\..\..\..\mymate_server\MyMate_Network\DLL\MyMate_Network_Library.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>

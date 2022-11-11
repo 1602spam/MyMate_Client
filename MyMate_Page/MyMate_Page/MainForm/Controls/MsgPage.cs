@@ -2,6 +2,8 @@
 using ClientModules.Models;
 using ClientModules.Models.Chat;
 using ClientModules.Services;
+using ClientToServer;
+using Protocol;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -51,7 +53,12 @@ namespace MainForm.Controls
             if (chatTxt.Text.Trim().Length == 0)
                 return;
 
-            SvcDistributor.Instance.PutMessage(new(Count++, 1, 1, 1, chatTxt.Text, DateTime.Now));
+            MdlMyself me = MdlMyself.Instance;
+
+            MessageProtocol.MESSAGE msg = new();
+            //msg.Set(0, 1, 1, me.Code, chatTxt.Text, DateTime.Now, false);
+            Server.Instance.Send(Generater.Generate(msg));
+            //SvcDistributor.Instance.PutMessage(new(msg));
             chatTxt.Text = String.Empty;
         }
 

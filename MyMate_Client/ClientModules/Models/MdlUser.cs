@@ -26,7 +26,7 @@ namespace ClientModules.Models
 		//유저 자기소개
 		public string Introduction { get; set; }
 		//최근 패킷 받은 시간
-		//public DateTime RecentTime { get; set; }
+		public DateTime RecentTime { get; set; }
 
         public MdlUser(int code, string name, string username, string email, string phonenumber, string introduce)
         {

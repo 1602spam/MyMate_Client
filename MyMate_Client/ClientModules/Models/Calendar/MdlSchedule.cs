@@ -38,7 +38,8 @@ namespace ClientModules.Models.Calendar
             ServerCode = c.serverCode;
             //OwnerCode = c.creator;
             Title = c.title;
-            //Items = c.users;
+
+            //Users = c.users;
             //IsDeleted = c.isDeleted;
     }
 

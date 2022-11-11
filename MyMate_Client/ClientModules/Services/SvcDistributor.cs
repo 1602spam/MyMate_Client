@@ -13,6 +13,7 @@ using ClientModules.Models;
 using ClientModules.Models.Calendar;
 using ClientModules.Models.Chat;
 using ClientModules.Models.CheckList;
+using System.Xml.Linq;
 
 namespace ClientModules.Services
 {
@@ -185,8 +186,39 @@ namespace ClientModules.Services
 					{
 						UserProtocol.USER? user;
 						user = temp.Value as UserProtocol.USER;
+                        MdlMyself m = MdlMyself.Instance;
 
-						SvcDistributor.Instance.PutUser(new MdlUser(user));
+                        MdlUser u = new(user);
+						if (user.userCode == m.Code)
+						{
+							m.SetProperty(u.Code, u.Name, u.Username, u.Email, u.PhoneNumber, u.Introduction, u.RecentTime);
+                            return;
+						}
+
+						SvcDistributor.Instance.PutUser(u);
+					}
+					break;
+
+				case DataType.LOGINUSER:
+					{
+						LoginUserProtocol.LOGINUSER? me;
+						me = temp.Value as LoginUserProtocol.LOGINUSER;
+
+						MdlMyself m = MdlMyself.Instance;
+						int code = 0;
+						string name = "";
+						string username = "";
+						string email = "";
+						string phonenumber = "";
+						string introduction = "";
+						DateTime dateTime = DateTime.Now;
+
+						me.Get(out code, out name, out username, out email, out phonenumber, out introduction, out dateTime);
+						if (code == 0)
+						{
+							return;
+						}
+						m.SetProperty(code, name, username, email, phonenumber, introduction, dateTime);
 					}
 					break;
 
@@ -236,8 +268,7 @@ namespace ClientModules.Services
 						ServerProtocol.Server? server;
 						server = temp.Value as ServerProtocol.Server;
 						
-						MdlServer s = new(server);
-						SvcDistributor.instance.PutServer(s);
+						SvcDistributor.instance.PutServer(new MdlServer(server));
 					}
 					break;
 					
@@ -246,8 +277,7 @@ namespace ClientModules.Services
 						CheckListProtocol.CHECKLIST? projectitem;
 						projectitem = temp.Value as CheckListProtocol.CHECKLIST;
 						
-						MdlProjectItem s = new(projectitem);
-						SvcDistributor.instance.PutProjectItem(s);
+						SvcDistributor.instance.PutProjectItem(new MdlProjectItem(projectitem));
 					}
 					break;
 
@@ -256,8 +286,7 @@ namespace ClientModules.Services
 						FriendProtocol.FRIEND? friend;
 						friend = temp.Value as FriendProtocol.FRIEND;
 
-						MdlFriend f = new(friend);
-						SvcDistributor.instance.PutFriend(f);
+						SvcDistributor.instance.PutFriend(new MdlFriend(friend));
 					}
 					break;
 				

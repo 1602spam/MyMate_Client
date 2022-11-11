@@ -18,8 +18,6 @@ namespace ClientModules.Containers
     {
         public ConcurrentDictionary<int, MdlSchedule> Items = new();
 
-        public int Count = 0;
-
         public event distribute? dataDistributedEvent;
         public event distribute DataDistributedEvent
         {
@@ -55,7 +53,7 @@ namespace ClientModules.Containers
         {
             if (v.nullCheck() == false)
             {
-                this.Items.AddOrUpdate(this.Count, v);
+                this.Items.AddOrUpdate(v.Code, v);
                 if (this.dataDistributedEvent != null)
                     this.dataDistributedEvent(v);
             }
@@ -64,7 +62,6 @@ namespace ClientModules.Containers
                 if (this.errorEvent != null)
                     this.errorEvent();
             }
-            Count++;
         }
         public void GetSchedules()
         {

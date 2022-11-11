@@ -38,15 +38,15 @@ namespace MainForm
             this.Visible = false;
             var loginPage = new LoginForm();
             loginPage.ShowDialog();
-            
-            if(loginPage.LoginStatus == 0)
+
+            if (loginPage.LoginStatus == 0)
             {
                 this.Close();
             }
             else
             {
                 this.Visible = true;
-            }            
+            }
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
@@ -70,13 +70,13 @@ namespace MainForm
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {           
+        {
             calendarPage.Visible = false;
             msgPage.Visible = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
-        {          
+        {
             msgPage.Visible = false;
             calendarPage.Visible = true;
         }
@@ -89,9 +89,9 @@ namespace MainForm
 
         private void serverAddBtn_Click(object sender, EventArgs e)
         {
-            
+
             var serverAddPopup = new ServerAddPopup();
-            serverAddPopup.ShowDialog();          
+            serverAddPopup.ShowDialog();
         }
 
         public void AddServerBtn(string serverName)
@@ -101,7 +101,7 @@ namespace MainForm
             var serverPage = new ServerPage(serverName);
             serverPages.Add(serverPage);
 
-            for(int i = 0;serverBtns.Count > i; i++)
+            for (int i = 0; serverBtns.Count > i; i++)
             {
                 if (serverName == serverBtns[i].Name)
                 {
@@ -116,11 +116,11 @@ namespace MainForm
                 else
                 {
                     serverPages[i].Visible = false;
-                }                
-                
-                
+                }
+
+
             }
-            
+
         }
 
         public void ServerPageChange(string SBtn)
@@ -131,7 +131,7 @@ namespace MainForm
                 {
                     serverPages[i].Visible = true;
                     msgPage.Visible = false;
-                    calendarPage.Visible=false;
+                    calendarPage.Visible = false;
                 }
                 else
                 {

@@ -19,6 +19,8 @@ namespace MainForm
             SvcDistributor d = SvcDistributor.Instance;
 
             d.PutUser(new MdlUser(1, "내이름은유저1번이예요", "내이름은유저1번이예요", "asdfd", "asd", "asd"));
+
+            MdlMyself.Instance.SetProperty(2, "나는나예요", "나는나예요", "asdfd", "asd", "asd",DateTime.Now);
             Application.Run(new MainPage());
         }
     }

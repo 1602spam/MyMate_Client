@@ -72,8 +72,10 @@ namespace MainForm.Controls
             SvcDistributor.Instance.PutMessage(new MdlMessage(1, 1, 1, 1, "메시지 1", new DateTime(d.Year, d.Month, d.Day - 2, d.Hour, d.Minute, d.Second)));
             SvcDistributor.Instance.PutMessage(new MdlMessage(2, 1, 1, 1, "메시지 1", new DateTime(d.Year,d.Month,d.Day-1,d.Hour,d.Minute,d.Second)));
             SvcDistributor.Instance.PutMessage(new MdlMessage(3, 1, 1, 1, "메시지 1", d));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(4, 1, 1, MdlMyself.Instance.Code, "메시지 1", d));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(5, 1, 1, MdlMyself.Instance.Code, "메시지 1", d));
 
-            Count = 4;
+            Count = 5;
 
             int i;
             //최초 메시지 개수(최대 20개) 만큼 불러옴

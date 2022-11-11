@@ -34,11 +34,12 @@ namespace MainForm.PopupControls
         }
 
         List<MdlFriend> chatMember = new();
+        
 
         public ServerAddPopup()
         {
             InitializeComponent();
-            setUserList();
+            setUserList();  
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
@@ -65,9 +66,9 @@ namespace MainForm.PopupControls
             else
             {
                 //선택한 유저 리스트의 각 항목을 chatMember에 더함
-                foreach (MdlFriend item in userList.Items)
+                foreach (MdlFriend item in userList.Items)      
                 {
-                    chatMember.Add(item);
+                    chatMember.Add(item);            
                 }
                 //MainPage 인스턴스 속성이 null이 아니라면
                 if (MainPage.mainPage != null)
@@ -79,7 +80,8 @@ namespace MainForm.PopupControls
                 this.Close();
             }
         }
-
+       
+        
         private void setUserList()
         {
             userList.Items.Clear();
@@ -90,5 +92,6 @@ namespace MainForm.PopupControls
                 userList.Items.Add(item.Nickname);
             }
         }
+        
     }
 }

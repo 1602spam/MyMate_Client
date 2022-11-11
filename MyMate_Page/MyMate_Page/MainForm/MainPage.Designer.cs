@@ -263,6 +263,7 @@
             this.button4.Text = "FRIENDS";
             this.button4.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // panel3
             // 
@@ -317,7 +318,7 @@
             this.serverAddBtn.Location = new System.Drawing.Point(0, 0);
             this.serverAddBtn.Name = "serverAddBtn";
             this.serverAddBtn.Size = new System.Drawing.Size(40, 40);
-            this.serverAddBtn.TabIndex = 5;
+            this.serverAddBtn.TabIndex = 6;
             this.serverAddBtn.TextColor = System.Drawing.Color.Black;
             this.serverAddBtn.UseVisualStyleBackColor = false;
             this.serverAddBtn.Click += new System.EventHandler(this.serverAddBtn_Click);
@@ -363,7 +364,7 @@
             this.settingBtn.Location = new System.Drawing.Point(5, 5);
             this.settingBtn.Name = "settingBtn";
             this.settingBtn.Size = new System.Drawing.Size(40, 40);
-            this.settingBtn.TabIndex = 1;
+            this.settingBtn.TabIndex = 2;
             this.settingBtn.TextColor = System.Drawing.Color.White;
             this.settingBtn.UseVisualStyleBackColor = false;
             // 
@@ -393,7 +394,7 @@
             this.profileBtn.Location = new System.Drawing.Point(5, 5);
             this.profileBtn.Name = "profileBtn";
             this.profileBtn.Size = new System.Drawing.Size(40, 40);
-            this.profileBtn.TabIndex = 0;
+            this.profileBtn.TabIndex = 1;
             this.profileBtn.TextColor = System.Drawing.Color.White;
             this.profileBtn.UseVisualStyleBackColor = false;
             this.profileBtn.Click += new System.EventHandler(this.profileBtn_Click);
@@ -732,7 +733,6 @@
         private Panel panel3;
         private Panel panel4;
         private Panel panel5;
-        private Controls.RoundButton settingBtn;
         private Panel panel6;
         private Controls.RoundButton profileBtn;
         private Panel panel8;
@@ -750,5 +750,6 @@
         private Controls.RoundButton serverAddBtn;
         private Panel panel10;
         private Panel panel9;
+        private Controls.RoundButton settingBtn;
     }
 }

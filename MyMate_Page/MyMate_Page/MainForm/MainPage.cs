@@ -16,6 +16,7 @@ namespace MainForm
     {
         public static MainPage? mainPage;
         public MsgPage msgPage = new MsgPage();
+        public FriendPage friendPage = new FriendPage();
         public CalendarPage calendarPage = new CalendarPage();
         public List<ServerBtn> serverBtns = new List<ServerBtn>();
         public List<ServerPage> serverPages = new List<ServerPage>();
@@ -29,6 +30,7 @@ namespace MainForm
             InitializeComponent();
             panel8.Controls.Add(calendarPage);
             panel8.Controls.Add(msgPage);
+            panel8.Controls.Add(friendPage);
             //panel8.Controls.Add(serverPage);
             msgPage.Visible = true;
         }
@@ -72,12 +74,14 @@ namespace MainForm
         private void button1_Click(object sender, EventArgs e)
         {
             calendarPage.Visible = false;
+            friendPage.Visible = false;
             msgPage.Visible = true;
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             msgPage.Visible = false;
+            friendPage.Visible = false;
             calendarPage.Visible = true;
         }
 
@@ -110,8 +114,10 @@ namespace MainForm
                     serverBtns[i].Dock = DockStyle.Top;
                     panel8.Controls.Add(serverPages[i]);
                     serverPages[i].Visible = true;
+
                     msgPage.Visible = false;
                     calendarPage.Visible = false;
+                    friendPage.Visible = false;
                 }
                 else
                 {
@@ -132,6 +138,7 @@ namespace MainForm
                     serverPages[i].Visible = true;
                     msgPage.Visible = false;
                     calendarPage.Visible = false;
+                    friendPage.Visible=false;
                 }
                 else
                 {
@@ -143,6 +150,14 @@ namespace MainForm
         private void panel11_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+
+            friendPage.Visible = true;
+            msgPage.Visible = false;
+            calendarPage.Visible = false;
         }
     }
 }

@@ -157,17 +157,19 @@
             // 
             // rbtnSend
             // 
-            this.rbtnSend.BackColor = System.Drawing.Color.RoyalBlue;
-            this.rbtnSend.BackgroundColor = System.Drawing.Color.RoyalBlue;
+            this.rbtnSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
+            this.rbtnSend.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
             this.rbtnSend.BorderColor = System.Drawing.Color.Red;
             this.rbtnSend.BorderRadius = 3;
             this.rbtnSend.BorderSize = -2;
+            this.rbtnSend.Dock = System.Windows.Forms.DockStyle.Fill;
             this.rbtnSend.FlatAppearance.BorderSize = 0;
             this.rbtnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rbtnSend.ForeColor = System.Drawing.Color.White;
-            this.rbtnSend.Location = new System.Drawing.Point(458, 3);
+            this.rbtnSend.Location = new System.Drawing.Point(456, 1);
+            this.rbtnSend.Margin = new System.Windows.Forms.Padding(1);
             this.rbtnSend.Name = "rbtnSend";
-            this.rbtnSend.Size = new System.Drawing.Size(44, 24);
+            this.rbtnSend.Size = new System.Drawing.Size(48, 28);
             this.rbtnSend.TabIndex = 3;
             this.rbtnSend.Text = "전송";
             this.rbtnSend.TextColor = System.Drawing.Color.White;
@@ -176,17 +178,19 @@
             // 
             // roundButton1
             // 
-            this.roundButton1.BackColor = System.Drawing.Color.CornflowerBlue;
-            this.roundButton1.BackgroundColor = System.Drawing.Color.CornflowerBlue;
+            this.roundButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
+            this.roundButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
             this.roundButton1.BorderColor = System.Drawing.Color.Red;
             this.roundButton1.BorderRadius = 3;
             this.roundButton1.BorderSize = 0;
+            this.roundButton1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.roundButton1.FlatAppearance.BorderSize = 0;
             this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.roundButton1.ForeColor = System.Drawing.Color.White;
-            this.roundButton1.Location = new System.Drawing.Point(3, 3);
+            this.roundButton1.Location = new System.Drawing.Point(1, 1);
+            this.roundButton1.Margin = new System.Windows.Forms.Padding(1);
             this.roundButton1.Name = "roundButton1";
-            this.roundButton1.Size = new System.Drawing.Size(44, 24);
+            this.roundButton1.Size = new System.Drawing.Size(48, 28);
             this.roundButton1.TabIndex = 4;
             this.roundButton1.Text = "+";
             this.roundButton1.TextColor = System.Drawing.Color.White;
@@ -197,9 +201,7 @@
             this.chatPanel.AutoScroll = true;
             this.chatPanel.AutoSize = true;
             this.chatPanel.BackColor = System.Drawing.Color.White;
-            this.chatPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chatPanel.Location = new System.Drawing.Point(150, 0);
-            this.chatPanel.Margin = new System.Windows.Forms.Padding(0);
             this.chatPanel.Name = "chatPanel";
             this.chatPanel.Size = new System.Drawing.Size(505, 424);
             this.chatPanel.TabIndex = 4;

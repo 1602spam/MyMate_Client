@@ -19,7 +19,7 @@ namespace MainForm.Controls
         public ServerChatList(string Sname)
         {
             InitializeComponent();
-            serverNameLabel.Text = Sname;
+            serverNameLabel.Text = "- "+ Sname;
             this.SName = Sname;
         }
 

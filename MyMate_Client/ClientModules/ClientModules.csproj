@@ -1,0 +1,34 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net6.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <NoWarn>1701;1702;8604;8618;</NoWarn>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <NoWarn>1701;1702;8604;8618;</NoWarn>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Unused\**" />
+    <EmbeddedResource Remove="Unused\**" />
+    <None Remove="Unused\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="ClientToServer">
+      <HintPath>..\..\MyMate_Network\DLL\ClientToServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MyMate_Network_Library">
+      <HintPath>..\..\MyMate_Network\DLL\MyMate_Network_Library.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+</Project>

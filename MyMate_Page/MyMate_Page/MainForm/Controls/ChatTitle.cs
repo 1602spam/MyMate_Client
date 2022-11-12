@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientModules.Models.Chat;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,13 @@ namespace MainForm.Controls
 {
     public partial class ChatTitle : UserControl
     {
-        public ChatTitle(string title)
+        public MdlChatroom chatroom { get; set; }
+
+        public ChatTitle(MdlChatroom ch)
         {
             InitializeComponent();
-            this.Name = title;
-            chatTileTxt.Text = title;
+            this.chatroom = ch;
+            chatTileTxt.Text = chatroom.Title;
         }
 
         private void chatTileTxt_Click(object sender, EventArgs e)

@@ -35,6 +35,10 @@ namespace ClientModules.Models.Chat
             this.Users = users;
         }
 
+        public MdlServer()
+        {
+        }
+
         public MdlServer(ServerProtocol.Server server)
         {
             this.Code = server.serverCode;

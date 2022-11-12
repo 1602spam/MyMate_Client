@@ -187,7 +187,7 @@ namespace MainForm.Controls
         {
             UserChat userChat = new UserChat(userName);
             Uchats.Add(userChat);
-            userChat.SendToBack();
+            userChat.BringToFront();
             userChat.Dock = DockStyle.Top;
             panel1.Controls.Add(userChat);
         }

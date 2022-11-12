@@ -55,9 +55,9 @@
             this.lblUsername.AutoSize = true;
             this.lblUsername.Location = new System.Drawing.Point(86, 23);
             this.lblUsername.Name = "lblUsername";
-            this.lblUsername.Size = new System.Drawing.Size(31, 15);
+            this.lblUsername.Size = new System.Drawing.Size(81, 15);
             this.lblUsername.TabIndex = 1;
-            this.lblUsername.Text = "뭘봐";
+            this.lblUsername.Text = "Username123";
             // 
             // rbtnChat
             // 
@@ -69,9 +69,9 @@
             this.rbtnChat.FlatAppearance.BorderSize = 0;
             this.rbtnChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rbtnChat.ForeColor = System.Drawing.Color.White;
-            this.rbtnChat.Location = new System.Drawing.Point(346, 10);
+            this.rbtnChat.Location = new System.Drawing.Point(370, 17);
             this.rbtnChat.Name = "rbtnChat";
-            this.rbtnChat.Size = new System.Drawing.Size(150, 40);
+            this.rbtnChat.Size = new System.Drawing.Size(132, 27);
             this.rbtnChat.TabIndex = 2;
             this.rbtnChat.Text = "채팅 바로가기";
             this.rbtnChat.TextColor = System.Drawing.Color.White;

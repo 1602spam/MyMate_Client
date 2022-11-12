@@ -33,6 +33,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.chatNameTxt = new System.Windows.Forms.TextBox();
             this.OKBtn = new System.Windows.Forms.Button();
+            this.lblWarning = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // closeBtn
@@ -79,10 +80,11 @@
             this.chatNameTxt.Size = new System.Drawing.Size(113, 16);
             this.chatNameTxt.TabIndex = 10;
             this.chatNameTxt.TextChanged += new System.EventHandler(this.chatNameTxt_TextChanged);
+            this.chatNameTxt.Enter += new System.EventHandler(this.chatNameTxt_Enter);
             // 
             // OKBtn
             // 
-            this.OKBtn.Location = new System.Drawing.Point(22, 111);
+            this.OKBtn.Location = new System.Drawing.Point(66, 125);
             this.OKBtn.Name = "OKBtn";
             this.OKBtn.Size = new System.Drawing.Size(103, 23);
             this.OKBtn.TabIndex = 11;
@@ -90,11 +92,22 @@
             this.OKBtn.UseVisualStyleBackColor = true;
             this.OKBtn.Click += new System.EventHandler(this.OKBtn_Click);
             // 
+            // lblWarning
+            // 
+            this.lblWarning.AutoSize = true;
+            this.lblWarning.ForeColor = System.Drawing.Color.Red;
+            this.lblWarning.Location = new System.Drawing.Point(35, 107);
+            this.lblWarning.Name = "lblWarning";
+            this.lblWarning.Size = new System.Drawing.Size(174, 15);
+            this.lblWarning.TabIndex = 12;
+            this.lblWarning.Text = "채팅방 이름이 중복되었습니다!";
+            // 
             // ServerChatAddPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(247, 160);
+            this.Controls.Add(this.lblWarning);
             this.Controls.Add(this.OKBtn);
             this.Controls.Add(this.chatNameTxt);
             this.Controls.Add(this.label2);
@@ -115,5 +128,6 @@
         private Label label2;
         private TextBox chatNameTxt;
         private Button OKBtn;
+        private Label lblWarning;
     }
 }

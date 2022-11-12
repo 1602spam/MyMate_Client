@@ -119,10 +119,11 @@ namespace MainForm
 			var serverPage = new ServerPage(server);
 			serverPages.Add(serverPage);
 
+			server.Chatrooms.DataDistributedEvent += AddChatroom;
 			int i = servers.IndexOf(server);
 
             panel11.Controls.Add(serverBtns[i]);
-            serverBtns[i].SendToBack();
+            serverBtns[i].BringToFront();
             serverBtns[i].Dock = DockStyle.Top;
             panel8.Controls.Add(serverPages[i]);
             serverPages[i].Visible = true;
@@ -137,7 +138,7 @@ namespace MainForm
 				if (server.Title == serverBtns[i].Name)
 				{
 					panel11.Controls.Add(serverBtns[i]);
-					serverBtns[i].SendToBack();
+					serverBtns[i].BringToFront();
 					serverBtns[i].Dock = DockStyle.Top;
 					panel8.Controls.Add(serverPages[i]);
 					serverPages[i].Visible = true;
@@ -151,6 +152,19 @@ namespace MainForm
 					serverPages[i].Visible = false;
 				}
 			}*/
+        }
+
+		private void AddChatroom(object ch)
+		{
+			MdlChatroom? chatroom = ch as MdlChatroom;
+			if (chatroom == null || mainPage == null)
+				return;
+
+			ServerPage? sp = mainPage.serverPages.FirstOrDefault(ServerPage => ServerPage.server.Code == chatroom.ServerCode);
+			if (sp != null)
+			{
+				sp.SCL.AddChannel(chatroom);
+			}
         }
 
 		public void UpdateServerBtn(MdlServer server)

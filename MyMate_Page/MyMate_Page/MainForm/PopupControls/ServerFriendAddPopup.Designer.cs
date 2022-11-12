@@ -30,7 +30,7 @@
         {
             this.closeBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.userList = new System.Windows.Forms.CheckedListBox();
             this.OKBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -61,18 +61,18 @@
             this.label1.TabIndex = 9;
             this.label1.Text = "Invite your friends to the server!";
             // 
-            // checkedListBox1
+            // userList
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Items.AddRange(new object[] {
+            this.userList.FormattingEnabled = true;
+            this.userList.Items.AddRange(new object[] {
             "uaer11",
             "uaer12",
             "uaer13",
             "uaer14"});
-            this.checkedListBox1.Location = new System.Drawing.Point(12, 72);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(259, 112);
-            this.checkedListBox1.TabIndex = 10;
+            this.userList.Location = new System.Drawing.Point(12, 72);
+            this.userList.Name = "userList";
+            this.userList.Size = new System.Drawing.Size(259, 112);
+            this.userList.TabIndex = 10;
             // 
             // OKBtn
             // 
@@ -90,7 +90,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(283, 239);
             this.Controls.Add(this.OKBtn);
-            this.Controls.Add(this.checkedListBox1);
+            this.Controls.Add(this.userList);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.closeBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
@@ -105,7 +105,7 @@
 
         private Button closeBtn;
         private Label label1;
-        private CheckedListBox checkedListBox1;
+        private CheckedListBox userList;
         private Button OKBtn;
     }
 }

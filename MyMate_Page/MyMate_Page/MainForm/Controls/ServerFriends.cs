@@ -16,14 +16,14 @@ namespace MainForm.Controls
 {
     public partial class ServerFriends : UserControl
     {
-        public string SName;
+        public MdlServer server;
         public List<int> ChatMember = new();        // ChatMember 추가
         public List<Friendprofile> friendprofiles = new List<Friendprofile>();
 
-        public ServerFriends(MdlServer server) //List<string> chatMember 추가
+        public ServerFriends(MdlServer s)
         {
             InitializeComponent();
-            this.SName = server.Title;
+            this.server = s;
             this.ChatMember = server.Users;
             foreach(var item in ChatMember)
             {
@@ -33,16 +33,17 @@ namespace MainForm.Controls
                 }
                 Friendprofile friendprofile = new Friendprofile(user);
                 friendprofiles.Add(friendprofile);
-                friendprofile.SendToBack();
+                friendprofile.BringToFront();
                 friendprofile.Dock = DockStyle.Top;
                 panel2.Controls.Add(friendprofile);
             }
+            //ServerContainer.Instance.DataDistributedEvent += AddFriend;
         }
 
-        // 서버에 친구 추가히기 버튼
+        // 서버에 친구 초대하기 버튼
         private void button3_Click(object sender, EventArgs e)
         {
-            ServerFriendAddPopup serverFriendAdd = new ServerFriendAddPopup();
+            ServerFriendAddPopup serverFriendAdd = new ServerFriendAddPopup(server.Code);
             serverFriendAdd.ShowDialog();
         }
 

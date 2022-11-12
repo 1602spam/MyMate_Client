@@ -55,8 +55,7 @@ namespace MainForm.Controls
         {
             ChatPanelSize = chatPanelSize;
             InitializeComponent();
-            this.Initialize(m);
-            
+            this.mdlMessage = m;            
         }
 
         public void Initialize(MdlMessage? m)
@@ -84,6 +83,11 @@ namespace MainForm.Controls
             chatLabel.Location = new Point(ChatPanelSize - chatLabel.Width - 25, chatLabel.Location.Y);
             dateLabel.Location = new Point(chatBtn.Location.X - GetTextWidth(dateLabel), chatBtn.Location.Y + chatBtn.Height - GetTextHeight(dateLabel));
             nameLabel.Location = new Point(ChatPanelSize - GetTextWidth(nameLabel) - 17, nameLabel.Location.Y);
+        }
+
+        private void Rchat_Load(object sender, EventArgs e)
+        {
+            this.Initialize(mdlMessage);
         }
     }
 }

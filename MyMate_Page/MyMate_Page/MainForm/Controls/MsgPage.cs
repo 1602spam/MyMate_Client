@@ -56,9 +56,9 @@ namespace MainForm.Controls
             MdlMyself me = MdlMyself.Instance;
 
             MessageProtocol.MESSAGE msg = new();
-            //msg.Set(0, 1, 1, me.Code, chatTxt.Text, DateTime.Now, false);
+            msg.Set(this.Chatroom.Messages.Items.Count+1, 1, 1, me.Code, chatTxt.Text, DateTime.Now, false);
             Server.Instance.Send(Generater.Generate(msg));
-            //SvcDistributor.Instance.PutMessage(new(msg));
+            SvcDistributor.Instance.PutMessage(new(msg));
             chatTxt.Text = String.Empty;
         }
 
@@ -127,7 +127,6 @@ namespace MainForm.Controls
         private void sendBtn_Click(object sender, EventArgs e)
         {
             Send();
-            
             this.chatTxt.Focus();
         }
 

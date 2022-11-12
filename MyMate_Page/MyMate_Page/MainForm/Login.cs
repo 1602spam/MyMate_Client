@@ -82,13 +82,13 @@ namespace MainForm
 
         private void loginBtn_Click(object sender, EventArgs e)
         {
-            this.LoginStatus = 1;
             if (IDTxt.Text == "" || PWTxt.Text == "")
             {
                 return;
             }
-            else if (IDTxt.Text == "1" || PWTxt.Text == "1") //테스트용으로 둘 다 1을 입력하면 바로 들어가짐
+            else if (IDTxt.Text == "1" && PWTxt.Text == "1") //테스트용으로 둘 다 1을 입력하면 바로 들어가짐
             {
+                this.LoginStatus = 1;
                 this.Close();
                 return;
             }

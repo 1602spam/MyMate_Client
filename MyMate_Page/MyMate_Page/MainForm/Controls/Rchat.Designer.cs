@@ -96,6 +96,7 @@
             this.Controls.Add(this.chatBtn);
             this.Name = "Rchat";
             this.Size = new System.Drawing.Size(396, 59);
+            this.Load += new System.EventHandler(this.Rchat_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

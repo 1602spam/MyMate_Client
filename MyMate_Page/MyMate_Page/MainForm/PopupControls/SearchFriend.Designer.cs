@@ -28,19 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbID = new System.Windows.Forms.TextBox();
             this.lblID = new System.Windows.Forms.Label();
             this.rbtnSearch = new MainForm.Controls.RoundButton();
             this.rbtnAdd = new MainForm.Controls.RoundButton();
             this.lblUsername = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
-            // textBox1
+            // tbID
             // 
-            this.textBox1.Location = new System.Drawing.Point(82, 114);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(159, 23);
-            this.textBox1.TabIndex = 0;
+            this.tbID.Location = new System.Drawing.Point(82, 114);
+            this.tbID.Name = "tbID";
+            this.tbID.Size = new System.Drawing.Size(159, 23);
+            this.tbID.TabIndex = 0;
             // 
             // lblID
             // 
@@ -56,7 +56,7 @@
             this.rbtnSearch.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.rbtnSearch.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.rbtnSearch.BorderColor = System.Drawing.Color.Red;
-            this.rbtnSearch.BorderRadius = 2;
+            this.rbtnSearch.BorderRadius = 3;
             this.rbtnSearch.BorderSize = 0;
             this.rbtnSearch.FlatAppearance.BorderSize = 0;
             this.rbtnSearch.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -68,13 +68,14 @@
             this.rbtnSearch.Text = "검색";
             this.rbtnSearch.TextColor = System.Drawing.Color.White;
             this.rbtnSearch.UseVisualStyleBackColor = false;
+            this.rbtnSearch.Click += new System.EventHandler(this.rbtnSearch_Click);
             // 
             // rbtnAdd
             // 
             this.rbtnAdd.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.rbtnAdd.BackgroundColor = System.Drawing.SystemColors.ActiveCaption;
             this.rbtnAdd.BorderColor = System.Drawing.Color.Red;
-            this.rbtnAdd.BorderRadius = 2;
+            this.rbtnAdd.BorderRadius = 3;
             this.rbtnAdd.BorderSize = 0;
             this.rbtnAdd.FlatAppearance.BorderSize = 0;
             this.rbtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -86,6 +87,7 @@
             this.rbtnAdd.Text = "추가";
             this.rbtnAdd.TextColor = System.Drawing.Color.White;
             this.rbtnAdd.UseVisualStyleBackColor = false;
+            this.rbtnAdd.Click += new System.EventHandler(this.rbtnAdd_Click);
             // 
             // lblUsername
             // 
@@ -105,7 +107,7 @@
             this.Controls.Add(this.rbtnAdd);
             this.Controls.Add(this.rbtnSearch);
             this.Controls.Add(this.lblID);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbID);
             this.Name = "SearchFriend";
             this.Text = "SearchFriend";
             this.ResumeLayout(false);
@@ -115,7 +117,7 @@
 
         #endregion
 
-        private TextBox textBox1;
+        private TextBox tbID;
         private Label lblID;
         private Controls.RoundButton rbtnSearch;
         private Controls.RoundButton rbtnAdd;

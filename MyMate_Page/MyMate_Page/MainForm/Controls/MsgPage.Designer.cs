@@ -39,7 +39,7 @@
             this.chatSendPanel = new System.Windows.Forms.TableLayoutPanel();
             this.chatTxt = new System.Windows.Forms.RichTextBox();
             this.rbtnSend = new MainForm.Controls.RoundButton();
-            this.roundButton1 = new MainForm.Controls.RoundButton();
+            this.rbtnAdd = new MainForm.Controls.RoundButton();
             this.chatPanel = new System.Windows.Forms.Panel();
             this.chatListPanel.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -132,7 +132,7 @@
             this.chatSendPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.chatSendPanel.Controls.Add(this.chatTxt, 1, 0);
             this.chatSendPanel.Controls.Add(this.rbtnSend, 2, 0);
-            this.chatSendPanel.Controls.Add(this.roundButton1, 0, 0);
+            this.chatSendPanel.Controls.Add(this.rbtnAdd, 0, 0);
             this.chatSendPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.chatSendPanel.Location = new System.Drawing.Point(150, 424);
             this.chatSendPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -176,25 +176,25 @@
             this.rbtnSend.UseVisualStyleBackColor = false;
             this.rbtnSend.Click += new System.EventHandler(this.sendBtn_Click);
             // 
-            // roundButton1
+            // rbtnAdd
             // 
-            this.roundButton1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
-            this.roundButton1.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
-            this.roundButton1.BorderColor = System.Drawing.Color.Red;
-            this.roundButton1.BorderRadius = 3;
-            this.roundButton1.BorderSize = 0;
-            this.roundButton1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.roundButton1.FlatAppearance.BorderSize = 0;
-            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton1.ForeColor = System.Drawing.Color.White;
-            this.roundButton1.Location = new System.Drawing.Point(1, 1);
-            this.roundButton1.Margin = new System.Windows.Forms.Padding(1);
-            this.roundButton1.Name = "roundButton1";
-            this.roundButton1.Size = new System.Drawing.Size(48, 28);
-            this.roundButton1.TabIndex = 4;
-            this.roundButton1.Text = "+";
-            this.roundButton1.TextColor = System.Drawing.Color.White;
-            this.roundButton1.UseVisualStyleBackColor = false;
+            this.rbtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
+            this.rbtnAdd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
+            this.rbtnAdd.BorderColor = System.Drawing.Color.Red;
+            this.rbtnAdd.BorderRadius = 3;
+            this.rbtnAdd.BorderSize = 0;
+            this.rbtnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.rbtnAdd.FlatAppearance.BorderSize = 0;
+            this.rbtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbtnAdd.ForeColor = System.Drawing.Color.White;
+            this.rbtnAdd.Location = new System.Drawing.Point(1, 1);
+            this.rbtnAdd.Margin = new System.Windows.Forms.Padding(1);
+            this.rbtnAdd.Name = "rbtnAdd";
+            this.rbtnAdd.Size = new System.Drawing.Size(48, 28);
+            this.rbtnAdd.TabIndex = 4;
+            this.rbtnAdd.Text = "+";
+            this.rbtnAdd.TextColor = System.Drawing.Color.White;
+            this.rbtnAdd.UseVisualStyleBackColor = false;
             // 
             // chatPanel
             // 
@@ -241,6 +241,6 @@
         private Panel panel5;
         private Label label1;
         private RoundButton rbtnSend;
-        private RoundButton roundButton1;
+        private RoundButton rbtnAdd;
     }
 }

@@ -35,15 +35,15 @@ namespace MainForm.Controls
 		{
 			ChatPanelSize = chatPanelSize;
 			InitializeComponent();
-			this.Initialize(m);
+            this.mdlMessage = m;
 		}
 
 		// 값을 넣어주는 메소드
         public void Initialize(MdlMessage? m)
         {
-            this.mdlMessage = m;
             if (mdlMessage == null)
                 return;
+			this.mdlMessage = m;
 			DateTime d = DateTime.Now;
 
 			/*
@@ -107,6 +107,11 @@ namespace MainForm.Controls
 			dateLabel.Location = new Point(chatBtn.Location.X + chatBtn.Width, chatBtn.Location.Y + chatBtn.Height- GetTextHeight(dateLabel) + 2);
             this.Height = dateLabel.Bottom + 10;
 
+        }
+
+		private void Lchat_Load(object sender, EventArgs e)
+		{
+            this.Initialize(mdlMessage);
         }
 	}
 }

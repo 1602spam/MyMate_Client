@@ -20,6 +20,8 @@ namespace MainForm
 		public MsgPage msgPage = new MsgPage();
 		public FriendPage friendPage = new FriendPage();
 		public CalendarPage calendarPage = new CalendarPage();
+		public CheckListPage checkListPage = new CheckListPage();
+
 		public List<ServerBtn> serverBtns = new List<ServerBtn>();
 		public List<ServerPage> serverPages = new List<ServerPage>();
 		public List<MdlServer> servers = new();
@@ -37,6 +39,7 @@ namespace MainForm
 			panel8.Controls.Add(calendarPage);
 			panel8.Controls.Add(msgPage);
 			panel8.Controls.Add(friendPage);
+			panel8.Controls.Add(checkListPage);
 			//panel8.Controls.Add(serverPage);
 
 			//메시지 페이지가 보이도록 설정
@@ -131,6 +134,7 @@ namespace MainForm
             msgPage.Visible = false;
             calendarPage.Visible = false;
             friendPage.Visible = false;
+            checkListPage.Visible = false;
 
             /*
 			for (int i = 0; serverBtns.Count > i; i++)
@@ -146,6 +150,7 @@ namespace MainForm
 					msgPage.Visible = false;
 					calendarPage.Visible = false;
 					friendPage.Visible = false;
+					checkListPage.Visible = false;
 				}
 				else
 				{
@@ -154,7 +159,7 @@ namespace MainForm
 			}*/
         }
 
-		private void AddChatroom(object ch)
+        private void AddChatroom(object ch)
 		{
 			MdlChatroom? chatroom = ch as MdlChatroom;
 			if (chatroom == null || mainPage == null)
@@ -184,7 +189,8 @@ namespace MainForm
 					msgPage.Visible = false;
 					calendarPage.Visible = false;
 					friendPage.Visible = false;
-				}
+                    checkListPage.Visible = false;
+                }
 				else
 				{
 					serverPages[i].Visible = false;
@@ -202,6 +208,7 @@ namespace MainForm
             calendarPage.Visible = false;
             friendPage.Visible = false;
             msgPage.Visible = true;
+            checkListPage.Visible = false;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -209,6 +216,7 @@ namespace MainForm
             msgPage.Visible = false;
             friendPage.Visible = false;
             calendarPage.Visible = true;
+            checkListPage.Visible = false;
         }
 
         private void profileBtn_Click(object sender, EventArgs e)
@@ -229,6 +237,15 @@ namespace MainForm
 			friendPage.Visible = true;
 			msgPage.Visible = false;
 			calendarPage.Visible = false;
-		}
+            checkListPage.Visible = false;
+        }
+
+		private void button2_Click(object sender, EventArgs e)
+		{
+            friendPage.Visible = false;
+            msgPage.Visible = false;
+            calendarPage.Visible = false;
+            checkListPage.Visible = true;
+        }
 	}
 }

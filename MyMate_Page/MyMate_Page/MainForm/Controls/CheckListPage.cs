@@ -17,6 +17,7 @@ namespace MainForm.Controls
         public CheckListPage()
         {
             InitializeComponent();
+            this.Visible = false;
             //페이지 처음 들어갔을 때는 정보 안보이게 함
             //프로젝트 클릭하거나 생성했을 때 부터 보이게 함
             panel4.Visible = false;

@@ -191,7 +191,7 @@ namespace ClientModules.Services
                         MdlUser u = new(user);
 						if (user.userCode == m.Code)
 						{
-							m.SetProperty(u.Code, u.Name, u.Username, u.Email, u.PhoneNumber, u.Introduction, u.RecentTime);
+							m.SetProperty(u.Code, u.ID ,u.Name, u.Username, u.Email, u.PhoneNumber, u.Introduction, u.RecentTime);
                             return;
 						}
 
@@ -206,6 +206,7 @@ namespace ClientModules.Services
 
 						MdlMyself m = MdlMyself.Instance;
 						int code = 0;
+						string id = "";
 						string name = "";
 						string username = "";
 						string email = "";
@@ -218,7 +219,7 @@ namespace ClientModules.Services
 						{
 							return;
 						}
-						m.SetProperty(code, name, username, email, phonenumber, introduction, dateTime);
+						m.SetProperty(code, id, name, username, email, phonenumber, introduction, dateTime);
 					}
 					break;
 

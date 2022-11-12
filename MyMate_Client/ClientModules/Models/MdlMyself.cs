@@ -16,8 +16,9 @@ namespace ClientModules.Models
 		{
 		}
 
-		public void SetProperty(int code, string name, string username, string email, string phonenumber, string introduction, DateTime recentTime) {
+		public void SetProperty(int code, string id, string name, string username, string email, string phonenumber, string introduction, DateTime recentTime) {
 			this.Code = code;
+			this.ID = id;
 			this.Name = name;
 			this.Username = username;
 			this.Email = email;

@@ -17,9 +17,7 @@ namespace MainForm.Controls
     {
         //친구 데이터를 저장
         List<MdlFriend> friends = new();
-        //친구 항목 컴포넌트를 저장
-        List<FriendPageItem> friendpageitems = new();
-
+        List<FriendPageItem> frienditems = new();
         public FriendPage()
         {
             InitializeComponent();
@@ -56,14 +54,16 @@ namespace MainForm.Controls
             if (friend == null)
                 return;
 
-            //최초 추가 시 비교할 데이터가 없으므로 그냥 리스트에 추가
+            //최초 추가 시 비교할 데이터가 없으므로 그냥 리스트와 컨트롤에 추가
             if (friends.Count == 0)
             {
+                friends.Add(friend);
                 AddFriend(friend);
                 return;
             }
-            else //기존에 코드가 일치하는 데이터가 있는지 찾음
+            else 
             {
+                //기존 데이터 중 코드가 일치하는 데이터가 있는지 찾음
                 //데이터가 없다면 temp는 null이므로 AddFriend, 있다면 null이 아니므로 갱신
                 var temp = friends.FirstOrDefault(MdlFriend => MdlFriend.FriendCode == friend.FriendCode);
                 if (temp == null)
@@ -75,8 +75,14 @@ namespace MainForm.Controls
                 else
                 {
                     int i = friends.IndexOf(temp);
-                    friends.Insert(i+1, friend);
-                    friends.RemoveAt(i);
+                    friends.Insert(i, friend);
+                    friends.Remove(temp);
+                    var item = frienditems.FirstOrDefault(FriendPageItem => FriendPageItem.friend.FriendCode == friend.FriendCode);
+                    if (item != null)
+                    {
+                        frienditems.Remove(item);
+                        panFriends.Controls.Remove(item);
+                    }
                     AddFriend(friend);
                 }
             }
@@ -84,9 +90,23 @@ namespace MainForm.Controls
 
         private void AddFriend(MdlFriend f)
         {
+            int i = 0;
+            foreach (var v in friends)
+            {
+                if (v.IsDeleted == true) { i++; }
+            }
+
+            //deleted 속성을 가진 친구 수만큼 제해서 표시
+            lblFriendCap.Text = "친구 목록 - " + (friends.Count-i) + "명";
+            
+            //deleted 속성이 true라면 객체로 추가하지 않음
+            if (f.IsDeleted == true) {
+                return;
+            }
+            
             FriendPageItem item = new FriendPageItem(f);
-            friendpageitems.Add(item);
             panFriends.Controls.Add(item);
+            frienditems.Add(item);
             item.Dock = DockStyle.Top;
             item.BringToFront();
         }

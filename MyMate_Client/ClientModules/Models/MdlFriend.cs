@@ -29,6 +29,12 @@ namespace ClientModules.Models
 			IsHidden = ishidden;
         }
 
+		public MdlFriend(int targetusercode, bool isdeleted)
+		{
+			FriendCode = targetusercode;
+			IsDeleted = isdeleted;
+		}
+
         public MdlFriend(FriendProtocol.FRIEND friend)
 		{
 			FriendCode = friend.friendCode;
@@ -39,7 +45,7 @@ namespace ClientModules.Models
 
 		public bool nullCheck()
 		{
-			return FriendCode == 0 ? true : false;
+		return FriendCode == 0 ? true : false;
 		}
 	}
 }

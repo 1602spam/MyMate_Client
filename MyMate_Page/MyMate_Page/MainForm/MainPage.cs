@@ -126,7 +126,7 @@ namespace MainForm
 			int i = servers.IndexOf(server);
 
             panel11.Controls.Add(serverBtns[i]);
-            serverBtns[i].BringToFront();
+            serverBtns[i].SendToBack();
             serverBtns[i].Dock = DockStyle.Top;
             panel8.Controls.Add(serverPages[i]);
             serverPages[i].Visible = true;

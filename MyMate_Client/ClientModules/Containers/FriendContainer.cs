@@ -52,8 +52,7 @@ namespace ClientModules.Containers
 	    {
             if (v.nullCheck() == false)
             {
-                this.Items.AddOrUpdate(Items.Count, v);
-#if DEBUG
+                //해당하는 유저코드가 없을 경우 저장하지 않음
                 MdlUser? u = UserContainer.Instance.Items.Values.FirstOrDefault(MdlUser => MdlUser.Code == v.FriendCode);
                 if (u == null)
                 {
@@ -61,6 +60,8 @@ namespace ClientModules.Containers
                         this.errorEvent();
                     return;
                 }
+                this.Items.AddOrUpdate(v.FriendCode, v);
+#if DEBUG
                 Console.WriteLine("친구 추가됨: "+u.Name);
 #endif
                 if (this.dataDistributedEvent != null)

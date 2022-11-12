@@ -33,6 +33,7 @@
             this.rbtnSearch = new MainForm.Controls.RoundButton();
             this.rbtnAdd = new MainForm.Controls.RoundButton();
             this.lblUsername = new System.Windows.Forms.Label();
+            this.rbtnProfile = new MainForm.Controls.RoundButton();
             this.SuspendLayout();
             // 
             // tbID
@@ -80,7 +81,7 @@
             this.rbtnAdd.FlatAppearance.BorderSize = 0;
             this.rbtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rbtnAdd.ForeColor = System.Drawing.Color.White;
-            this.rbtnAdd.Location = new System.Drawing.Point(200, 299);
+            this.rbtnAdd.Location = new System.Drawing.Point(221, 299);
             this.rbtnAdd.Name = "rbtnAdd";
             this.rbtnAdd.Size = new System.Drawing.Size(78, 40);
             this.rbtnAdd.TabIndex = 3;
@@ -92,17 +93,35 @@
             // lblUsername
             // 
             this.lblUsername.AutoSize = true;
-            this.lblUsername.Location = new System.Drawing.Point(57, 312);
+            this.lblUsername.Location = new System.Drawing.Point(86, 312);
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(81, 15);
             this.lblUsername.TabIndex = 4;
             this.lblUsername.Text = "Username123";
+            // 
+            // rbtnProfile
+            // 
+            this.rbtnProfile.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rbtnProfile.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.rbtnProfile.BorderColor = System.Drawing.Color.Red;
+            this.rbtnProfile.BorderRadius = 25;
+            this.rbtnProfile.BorderSize = 0;
+            this.rbtnProfile.FlatAppearance.BorderSize = 0;
+            this.rbtnProfile.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbtnProfile.ForeColor = System.Drawing.Color.White;
+            this.rbtnProfile.Location = new System.Drawing.Point(30, 294);
+            this.rbtnProfile.Name = "rbtnProfile";
+            this.rbtnProfile.Size = new System.Drawing.Size(50, 50);
+            this.rbtnProfile.TabIndex = 5;
+            this.rbtnProfile.TextColor = System.Drawing.Color.White;
+            this.rbtnProfile.UseVisualStyleBackColor = false;
             // 
             // SearchFriend
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(328, 450);
+            this.Controls.Add(this.rbtnProfile);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.rbtnAdd);
             this.Controls.Add(this.rbtnSearch);
@@ -122,5 +141,6 @@
         private Controls.RoundButton rbtnSearch;
         private Controls.RoundButton rbtnAdd;
         private Label lblUsername;
+        private Controls.RoundButton rbtnProfile;
     }
 }

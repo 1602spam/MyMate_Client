@@ -31,6 +31,7 @@
             this.rbtnProfile = new MainForm.Controls.RoundButton();
             this.lblUsername = new System.Windows.Forms.Label();
             this.rbtnChat = new MainForm.Controls.RoundButton();
+            this.rbtnRemove = new MainForm.Controls.RoundButton();
             this.SuspendLayout();
             // 
             // rbtnProfile
@@ -69,7 +70,7 @@
             this.rbtnChat.FlatAppearance.BorderSize = 0;
             this.rbtnChat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.rbtnChat.ForeColor = System.Drawing.Color.White;
-            this.rbtnChat.Location = new System.Drawing.Point(370, 17);
+            this.rbtnChat.Location = new System.Drawing.Point(713, 17);
             this.rbtnChat.Name = "rbtnChat";
             this.rbtnChat.Size = new System.Drawing.Size(132, 27);
             this.rbtnChat.TabIndex = 2;
@@ -77,15 +78,35 @@
             this.rbtnChat.TextColor = System.Drawing.Color.White;
             this.rbtnChat.UseVisualStyleBackColor = false;
             // 
+            // rbtnRemove
+            // 
+            this.rbtnRemove.BackColor = System.Drawing.Color.Tomato;
+            this.rbtnRemove.BackgroundColor = System.Drawing.Color.Tomato;
+            this.rbtnRemove.BorderColor = System.Drawing.Color.Red;
+            this.rbtnRemove.BorderRadius = 2;
+            this.rbtnRemove.BorderSize = 0;
+            this.rbtnRemove.FlatAppearance.BorderSize = 0;
+            this.rbtnRemove.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbtnRemove.ForeColor = System.Drawing.Color.White;
+            this.rbtnRemove.Location = new System.Drawing.Point(869, 17);
+            this.rbtnRemove.Name = "rbtnRemove";
+            this.rbtnRemove.Size = new System.Drawing.Size(50, 27);
+            this.rbtnRemove.TabIndex = 3;
+            this.rbtnRemove.Text = "삭제";
+            this.rbtnRemove.TextColor = System.Drawing.Color.White;
+            this.rbtnRemove.UseVisualStyleBackColor = false;
+            this.rbtnRemove.Click += new System.EventHandler(this.rbtnRemove_Click);
+            // 
             // FriendPageItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.rbtnRemove);
             this.Controls.Add(this.rbtnChat);
             this.Controls.Add(this.lblUsername);
             this.Controls.Add(this.rbtnProfile);
             this.Name = "FriendPageItem";
-            this.Size = new System.Drawing.Size(519, 60);
+            this.Size = new System.Drawing.Size(950, 60);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -96,5 +117,6 @@
         private RoundButton rbtnProfile;
         private Label lblUsername;
         private RoundButton rbtnChat;
+        private RoundButton rbtnRemove;
     }
 }

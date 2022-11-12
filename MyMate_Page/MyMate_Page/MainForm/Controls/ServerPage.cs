@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientModules.Models.Chat;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,13 +16,17 @@ namespace MainForm.Controls
         public ServerChatList SCL;
         public ServerFriends SF;
         public ServerChat SC;
-        public ServerPage(string Sname, List<string> chatMember) //List<string> chatMember 추가
+        public MdlServer server { get; set; }
+
+        public ServerPage(MdlServer s) //List<string> chatMember 추가
         {
             InitializeComponent();
-            this.Name = Sname;
-            var SChatList = new ServerChatList(Sname);            
+            this.server = s;
+            this.Name = server.Title;
+            var SChatList = new ServerChatList(server.Title);            
             var SChat = new ServerChat();
-            var SFriends = new ServerFriends(Sname, chatMember); // chatMember 추가
+            var SFriends = new ServerFriends(server); // chatMember 추가
+            
             SF = SFriends;
             SCL = SChatList;
             SC = SChat;

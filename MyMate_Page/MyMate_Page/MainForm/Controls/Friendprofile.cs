@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientModules.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,11 @@ namespace MainForm.Controls
 {
     public partial class Friendprofile : UserControl
     {
-        public Friendprofile(string Pname)
+        public Friendprofile(MdlUser user)
         {
             InitializeComponent();
-            this.Name = Pname;
-            userNameTxt.Text = Pname;
+            this.Name = user.Username;
+            userNameTxt.Text = user.Username;
         }
     }
 }

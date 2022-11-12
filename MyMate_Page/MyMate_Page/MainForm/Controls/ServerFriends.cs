@@ -1,4 +1,7 @@
-﻿using MainForm.PopupControls;
+﻿using ClientModules.Containers;
+using ClientModules.Models;
+using ClientModules.Models.Chat;
+using MainForm.PopupControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -14,22 +17,26 @@ namespace MainForm.Controls
     public partial class ServerFriends : UserControl
     {
         public string SName;
-        public List<string> ChatMember = new List<string>();        // ChatMember 추가
+        public List<int> ChatMember = new();        // ChatMember 추가
         public List<Friendprofile> friendprofiles = new List<Friendprofile>();
-        public ServerFriends(string Sname, List<string> chatMember) //List<string> chatMember 추가
+
+        public ServerFriends(MdlServer server) //List<string> chatMember 추가
         {
             InitializeComponent();
-            this.SName = Sname;
-            this.ChatMember = chatMember;
-            for (int i = 0; i < ChatMember.Count; i++)
+            this.SName = server.Title;
+            this.ChatMember = server.Users;
+            foreach(var item in ChatMember)
             {
-                Friendprofile friendprofile = new Friendprofile(ChatMember[i]);
+                MdlUser? user = UserContainer.Instance.Items.Values.FirstOrDefault(MdlUser => MdlUser.Code == item);
+                if (user == null) {
+                    continue;
+                }
+                Friendprofile friendprofile = new Friendprofile(user);
                 friendprofiles.Add(friendprofile);
                 friendprofile.SendToBack();
                 friendprofile.Dock = DockStyle.Top;
                 panel2.Controls.Add(friendprofile);
             }
-            
         }
 
         // 서버에 친구 추가히기 버튼

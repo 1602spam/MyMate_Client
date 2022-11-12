@@ -12,7 +12,6 @@ namespace ClientModules.Containers
 {
     public class UserContainer : IContainer
     {
-        public int MyUserCode { get; set; }
         public ConcurrentDictionary<int, MdlUser> Items = new();
 
         public event distribute? dataDistributedEvent;

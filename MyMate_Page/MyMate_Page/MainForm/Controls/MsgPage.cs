@@ -32,7 +32,7 @@ namespace MainForm.Controls
             this.Visible = false;
 
             //테스트용 서버 1과 그 안의 채팅방 1을 생성
-            SvcDistributor.Instance.PutServer(new(1, true, "테스트용 서버", 1));
+            SvcDistributor.Instance.PutServer(new(1, true, "테스트용 서버", 1, new()));
             SvcDistributor.Instance.PutChatroom(new(1, 1, "테스트용 채팅방 1"));
 
             //이 채팅방 객체를 속성으로 가져옴, 생성자로 받을 예정
@@ -196,8 +196,9 @@ namespace MainForm.Controls
         public void ChatClear()
         {
             chatPanel.Controls.Clear();
-            ///채팅 목록 추가 하는 함수 넣어주면 됨
+            //채팅 목록 추가 하는 함수 넣어주면 됨
         }
+
         /*
         private void chatTxt_KeyDown(object sender, KeyEventArgs e)
         {            

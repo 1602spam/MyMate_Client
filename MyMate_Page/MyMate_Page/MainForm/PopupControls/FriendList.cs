@@ -52,14 +52,8 @@ namespace MainForm.Controls
                             return;
                         }
                     }
-                    
-                    
-                    {
                         MainPage.mainPage.msgPage.AddChatList(UserName);
                         this.Close();
-                    }
-                    
-                    
                 }                
             }
 

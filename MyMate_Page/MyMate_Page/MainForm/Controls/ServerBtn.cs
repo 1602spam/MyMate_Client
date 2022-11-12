@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientModules.Models.Chat;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,11 +13,15 @@ namespace MainForm.Controls
 {
 	public partial class ServerBtn : UserControl
 	{		
+		public MdlServer? server { get; set; }
+
 		//MainPage mainPage;
-		public ServerBtn(string SName)
+		public ServerBtn(MdlServer s)
         {
 			InitializeComponent();
-			this.Name = SName;
+
+			this.server = s;
+			this.Name = server.Title;
 
 			string name;
 			if (Name.Length > 2)
@@ -32,16 +37,14 @@ namespace MainForm.Controls
 			//ServerPage SPage = new ServerPage(SName);
 			//MainPage.serverPages.Add(SPage);
 
-
-			SBtn.Click += new EventHandler(SBtn_Click);
-			
+			SBtn.Click += new EventHandler(SBtn_Click);			
 			//this.mainPage = mainPage;
 		}
 
 		void SBtn_Click(object sender, EventArgs e)
 		{
-			if(MainPage.mainPage != null)
-				MainPage.mainPage.ServerPageChange(this.Name);
+			if(MainPage.mainPage != null && this.server!=null)
+				MainPage.mainPage.ServerPageChange(server.Code);
 			/*
             for (int i= 0; i < MainPage.serverPages.Count; i++)
 			{
@@ -50,7 +53,6 @@ namespace MainForm.Controls
 					MainPage.ServerPageIndex = i;
 					
 					//MainPage.ControlCollection.ReferenceEquals
-					
                 }
             }
 			*/

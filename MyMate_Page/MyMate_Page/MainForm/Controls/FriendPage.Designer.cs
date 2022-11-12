@@ -31,7 +31,6 @@
             this.rbtnFindFriend = new MainForm.Controls.RoundButton();
             this.panMyInfo = new System.Windows.Forms.Panel();
             this.panFriends = new System.Windows.Forms.Panel();
-            this.friendPageItem1 = new MainForm.Controls.FriendPageItem();
             this.panFriends.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,20 +64,12 @@
             // panFriends
             // 
             this.panFriends.AutoScroll = true;
-            this.panFriends.Controls.Add(this.friendPageItem1);
             this.panFriends.Controls.Add(this.rbtnFindFriend);
             this.panFriends.Dock = System.Windows.Forms.DockStyle.Top;
             this.panFriends.Location = new System.Drawing.Point(0, 97);
             this.panFriends.Name = "panFriends";
             this.panFriends.Size = new System.Drawing.Size(950, 535);
             this.panFriends.TabIndex = 3;
-            // 
-            // friendPageItem1
-            // 
-            this.friendPageItem1.Location = new System.Drawing.Point(13, 25);
-            this.friendPageItem1.Name = "friendPageItem1";
-            this.friendPageItem1.Size = new System.Drawing.Size(519, 60);
-            this.friendPageItem1.TabIndex = 1;
             // 
             // FriendPage
             // 
@@ -98,6 +89,5 @@
         private RoundButton rbtnFindFriend;
         private Panel panMyInfo;
         private Panel panFriends;
-        private FriendPageItem friendPageItem1;
     }
 }

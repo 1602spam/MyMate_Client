@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientModules.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,16 @@ namespace MainForm.Controls
 {
     public partial class FriendPageItem : UserControl
     {
-        public FriendPageItem()
+        public FriendPageItem(MdlFriend f)
         {
             InitializeComponent();
+            Initialize(f);
+        }
+
+        public void Initialize(MdlFriend f)
+        {
+            this.lblUsername.Text = f.Nickname;
+            return;
         }
     }
 }

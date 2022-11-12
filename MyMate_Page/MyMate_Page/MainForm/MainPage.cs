@@ -172,7 +172,6 @@ namespace MainForm
 			int index = servers.IndexOf(server);
 			servers.Insert(index + 1, server);
             servers.RemoveAt(index);
-
 		}
 
 		public void ServerPageChange(int serverCode)
@@ -227,7 +226,6 @@ namespace MainForm
 
         private void button4_Click(object sender, EventArgs e)
 		{
-
 			friendPage.Visible = true;
 			msgPage.Visible = false;
 			calendarPage.Visible = false;

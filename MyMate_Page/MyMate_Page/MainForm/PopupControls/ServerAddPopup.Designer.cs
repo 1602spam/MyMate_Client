@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.serverNameTxt = new System.Windows.Forms.TextBox();
-            this.userList = new System.Windows.Forms.CheckedListBox();
-            this.closeBtn = new System.Windows.Forms.Button();
             this.OKBtn = new System.Windows.Forms.Button();
+            this.closeBtn = new System.Windows.Forms.Button();
+            this.userList = new System.Windows.Forms.CheckedListBox();
+            this.serverNameTxt = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -52,44 +52,15 @@
             this.panel1.Size = new System.Drawing.Size(232, 375);
             this.panel1.TabIndex = 0;
             // 
-            // label1
+            // OKBtn
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 9);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(118, 21);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Create Server!";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 43);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(42, 15);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "이름 : ";
-            // 
-            // serverNameTxt
-            // 
-            this.serverNameTxt.Location = new System.Drawing.Point(60, 40);
-            this.serverNameTxt.Name = "serverNameTxt";
-            this.serverNameTxt.Size = new System.Drawing.Size(137, 23);
-            this.serverNameTxt.TabIndex = 2;
-            // 
-            // userList
-            // 
-            this.userList.FormattingEnabled = true;
-            this.userList.Items.AddRange(new object[] {
-            "user1",
-            "user2",
-            "user3",
-            "user4"});
-            this.userList.Location = new System.Drawing.Point(12, 69);
-            this.userList.Name = "userList";
-            this.userList.Size = new System.Drawing.Size(185, 256);
-            this.userList.TabIndex = 3;
+            this.OKBtn.Location = new System.Drawing.Point(12, 331);
+            this.OKBtn.Name = "OKBtn";
+            this.OKBtn.Size = new System.Drawing.Size(96, 23);
+            this.OKBtn.TabIndex = 8;
+            this.OKBtn.Text = "확인";
+            this.OKBtn.UseVisualStyleBackColor = true;
+            this.OKBtn.Click += new System.EventHandler(this.OKBtn_Click);
             // 
             // closeBtn
             // 
@@ -108,15 +79,44 @@
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
-            // OKBtn
+            // userList
             // 
-            this.OKBtn.Location = new System.Drawing.Point(12, 331);
-            this.OKBtn.Name = "OKBtn";
-            this.OKBtn.Size = new System.Drawing.Size(96, 23);
-            this.OKBtn.TabIndex = 8;
-            this.OKBtn.Text = "확인";
-            this.OKBtn.UseVisualStyleBackColor = true;
-            this.OKBtn.Click += new System.EventHandler(this.OKBtn_Click);
+            this.userList.FormattingEnabled = true;
+            this.userList.Items.AddRange(new object[] {
+            "user1",
+            "user2",
+            "user3",
+            "user4"});
+            this.userList.Location = new System.Drawing.Point(12, 69);
+            this.userList.Name = "userList";
+            this.userList.Size = new System.Drawing.Size(185, 256);
+            this.userList.TabIndex = 3;
+            // 
+            // serverNameTxt
+            // 
+            this.serverNameTxt.Location = new System.Drawing.Point(60, 40);
+            this.serverNameTxt.Name = "serverNameTxt";
+            this.serverNameTxt.Size = new System.Drawing.Size(137, 23);
+            this.serverNameTxt.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(12, 43);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(42, 15);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "이름 : ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(118, 21);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Create Server!";
             // 
             // ServerAddPopup
             // 

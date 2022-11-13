@@ -34,9 +34,8 @@
             this.createProjectBtn = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.button4 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.removeBtn = new System.Windows.Forms.Button();
+            this.editBtn = new System.Windows.Forms.Button();
             this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
             this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
             this.label9 = new System.Windows.Forms.Label();
@@ -108,9 +107,8 @@
             // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.button4);
-            this.panel4.Controls.Add(this.button3);
-            this.panel4.Controls.Add(this.button2);
+            this.panel4.Controls.Add(this.removeBtn);
+            this.panel4.Controls.Add(this.editBtn);
             this.panel4.Controls.Add(this.checkedListBox2);
             this.panel4.Controls.Add(this.checkedListBox1);
             this.panel4.Controls.Add(this.label9);
@@ -128,32 +126,24 @@
             this.panel4.Size = new System.Drawing.Size(750, 582);
             this.panel4.TabIndex = 0;
             // 
-            // button4
+            // removeBtn
             // 
-            this.button4.Location = new System.Drawing.Point(657, 204);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(75, 23);
-            this.button4.TabIndex = 12;
-            this.button4.Text = "업무 수정";
-            this.button4.UseVisualStyleBackColor = true;
+            this.removeBtn.Location = new System.Drawing.Point(693, 11);
+            this.removeBtn.Name = "removeBtn";
+            this.removeBtn.Size = new System.Drawing.Size(40, 23);
+            this.removeBtn.TabIndex = 11;
+            this.removeBtn.Text = "삭제";
+            this.removeBtn.UseVisualStyleBackColor = true;
             // 
-            // button3
+            // editBtn
             // 
-            this.button3.Location = new System.Drawing.Point(693, 11);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(40, 23);
-            this.button3.TabIndex = 11;
-            this.button3.Text = "삭제";
-            this.button3.UseVisualStyleBackColor = true;
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(647, 11);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(40, 23);
-            this.button2.TabIndex = 10;
-            this.button2.Text = "수정";
-            this.button2.UseVisualStyleBackColor = true;
+            this.editBtn.Location = new System.Drawing.Point(647, 11);
+            this.editBtn.Name = "editBtn";
+            this.editBtn.Size = new System.Drawing.Size(40, 23);
+            this.editBtn.TabIndex = 10;
+            this.editBtn.Text = "수정";
+            this.editBtn.UseVisualStyleBackColor = true;
+            this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
             // checkedListBox2
             // 
@@ -312,8 +302,7 @@
         private Label label4;
         private Label titleTxt;
         private Label label2;
-        private Button button4;
-        private Button button3;
-        private Button button2;
+        private Button removeBtn;
+        private Button editBtn;
     }
 }

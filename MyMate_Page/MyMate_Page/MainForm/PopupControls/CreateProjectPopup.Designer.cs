@@ -108,11 +108,12 @@
             // serverComboBox
             // 
             this.serverComboBox.FormattingEnabled = true;
+            this.serverComboBox.Items.AddRange(new object[] {
+            "내 서버"});
             this.serverComboBox.Location = new System.Drawing.Point(21, 147);
             this.serverComboBox.Name = "serverComboBox";
             this.serverComboBox.Size = new System.Drawing.Size(121, 23);
             this.serverComboBox.TabIndex = 13;
-            this.serverComboBox.Text = "내 서버";
             // 
             // startDayTxt
             // 

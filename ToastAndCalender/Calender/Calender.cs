@@ -95,14 +95,12 @@ namespace Calender
 			Schedule schedule = new(title, start, end);
 			this.schedules.Add(schedule);
 			SchduleReplace();
-			schedule.SetCenter(0, 0);
 		}
 
 		public void Add(Schedule schedule)
 		{
 			this.schedules.Add(schedule);
 			schedule.SetCenter(0, schedule.length - 1);
-			SchduleReplace();
 		}
 		public void Add(List<Schedule> schedule)
 		{
@@ -111,8 +109,6 @@ namespace Calender
 				this.schedules.Add(s);
 				s.SetCenter(0, s.length - 1);
 			}
-				
-			SchduleReplace();
 		}
 
 		// 길이 기준 정렬
@@ -148,6 +144,10 @@ namespace Calender
 			// 가장 긴 스케줄부터 삽입에 들어감
 			foreach (Schedule s in schedules)
 			{
+				start = 0;
+				end = 0;
+				dep = 0;
+				scheduleIndex = 0;
 				// 유효한 일정인지 확인
 				// 두 날짜 모두 시작날짜보다 작다면
 				if (s.start < this.monthStartDay && s.end < this.monthStartDay)
@@ -183,6 +183,14 @@ namespace Calender
 				{
 					days[i].Add(dep, s.bars[scheduleIndex]);
 				}
+
+				
+				if (s.start < this.monthStartDay)
+					scheduleIndex = (this.monthStartDay - s.start).Days;
+				else
+					scheduleIndex = 0;
+
+				s.SetCenter(scheduleIndex, scheduleIndex + (end - start));
 			}
 		}
 

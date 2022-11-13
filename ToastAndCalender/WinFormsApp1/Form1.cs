@@ -42,7 +42,6 @@ namespace WinFormsApp1
 			s = new("Test", new(2022, 11, 7), new(2022, 11, 7));
 			s.SetColor(Color.Beige);
 			calender1.Add(s);
-			//s.SetCenter(0,s.length-1);
 			//calender1.SchduleReplace();
 
 

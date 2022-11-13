@@ -29,7 +29,7 @@ namespace MainForm.Controls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MainPage.mainPage.msgPage.ChatClear();
+            MainPage.mainPage.msgPage.ClearChat();
             //여기에 챗 추가 함수
         }
     }

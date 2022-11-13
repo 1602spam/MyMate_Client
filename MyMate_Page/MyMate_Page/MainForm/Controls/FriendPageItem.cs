@@ -1,4 +1,6 @@
-﻿using ClientModules.Models;
+﻿using ClientModules.Containers;
+using ClientModules.Models;
+using ClientModules.Models.Chat;
 using ClientModules.Services;
 using System;
 using System.Collections.Generic;
@@ -36,6 +38,42 @@ namespace MainForm.Controls
                 SvcDistributor.Instance.PutFriend(new MdlFriend(friend.FriendCode, true));
                 MessageBox.Show("asd");
             }
+        }
+
+        private void rbtnChat_Click(object sender, EventArgs e)
+        {
+            if (friend == null)
+            {
+                MessageBox.Show("친구 정보가 유효하지 않습니다.", "안내");
+                return;
+            }
+
+            if (MainPage.mainPage.msgPage.UserChats != null)
+            {
+                MdlServer server;
+                //이미 존재하는 userchats 중 하나에 해당 유저 코드가 포함되어 있다면
+                foreach (UserChat check in MainPage.mainPage.msgPage.UserChats)
+                {
+                    server = check.Server;
+                    if (server.Users == null) { continue; }
+                    if (server.Users.Contains(friend.FriendCode) == true && server.IsCompact == true)
+                    {
+                        //해당 채팅방으로 이동 후 리턴
+                        MainPage.mainPage.ShowMsgPage();
+                        MainPage.mainPage.msgPage.SwitchChat(check.Server.Code);
+                        return;
+                    }
+                }
+            }
+            //선택한 유저에 대한 Compact Server Data 전송
+            MdlServer s = new(ServerContainer.Instance.Items.Count + 1, true, friend.Nickname, MdlMyself.Instance.Code);
+            s.AddUser(friend.FriendCode);
+            s.AddUser(MdlMyself.Instance.Code);
+            SvcDistributor.Instance.PutServer(s);
+            SvcDistributor.Instance.PutChatroom(new(s.Chatrooms.Items.Count + 1, s.Code, "chatroomname"));
+            MainPage.mainPage.ShowMsgPage();
+            MainPage.mainPage.msgPage.SwitchChat(s.Code);
+            return;
         }
     }
 }

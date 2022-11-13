@@ -204,6 +204,7 @@ namespace ClientModules.Services
 						LoginUserProtocol.LOGINUSER? me;
 						me = temp.Value as LoginUserProtocol.LOGINUSER;
 
+						//프로토콜에서 Get으로 각 속성을 받아 내 정보 속성을 설정
 						MdlMyself m = MdlMyself.Instance;
 						int code = 0;
 						string id = "";
@@ -214,7 +215,7 @@ namespace ClientModules.Services
 						string introduction = "";
 						DateTime dateTime = DateTime.Now;
 
-						me.Get(out code, out name, out username, out email, out phonenumber, out introduction, out dateTime);
+						me.Get(out code, out id, out name, out username, out email, out phonenumber, out introduction, out dateTime);
 						if (code == 0)
 						{
 							return;

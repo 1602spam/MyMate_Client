@@ -55,18 +55,17 @@
             "Gamja",
             "BulBak",
             "Cake"});
-            this.userListBox.Location = new System.Drawing.Point(51, 92);
+            this.userListBox.Location = new System.Drawing.Point(61, 76);
             this.userListBox.Name = "userListBox";
             this.userListBox.Size = new System.Drawing.Size(171, 202);
             this.userListBox.TabIndex = 2;
             this.userListBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.userListBox_ItemCheck);
-            
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(51, 46);
+            this.label1.Location = new System.Drawing.Point(80, 36);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 21);
             this.label1.TabIndex = 3;
@@ -74,7 +73,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(51, 300);
+            this.button1.Location = new System.Drawing.Point(107, 303);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 4;
@@ -94,7 +93,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "FriendList";
             this.Text = "FriendList";
-            
             this.ResumeLayout(false);
             this.PerformLayout();
 

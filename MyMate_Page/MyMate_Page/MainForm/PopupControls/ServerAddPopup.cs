@@ -21,7 +21,6 @@ namespace MainForm.PopupControls
 
     public partial class ServerAddPopup : Form
     {
-        public List<MdlFriend> chatMember = new();
 
         public ServerAddPopup()
         {
@@ -29,9 +28,8 @@ namespace MainForm.PopupControls
 
             userList.Items.Clear();
 
-            foreach (var item in FriendContainer.Instance.Items.Values)
+            foreach (var item in FriendContainer.Instance.GetAvailableFriends())
             {
-                chatMember.Add(item);
                 userList.Items.Add(item.Nickname.ToString());
             }
         }

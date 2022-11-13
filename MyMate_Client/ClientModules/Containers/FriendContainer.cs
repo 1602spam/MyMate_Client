@@ -10,6 +10,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
+using static Protocol.FriendProtocol;
 
 namespace ClientModules.Containers
 {
@@ -84,7 +85,19 @@ namespace ClientModules.Containers
                 }
             }
             return friends;
+        }
 
+        public List<MdlFriend> GetAvailableFriends()
+        {
+            List<MdlFriend> friends = new();
+            if (this.Items != null)
+            {
+                foreach (var item in this.Items.Values)
+                {
+                    if (item.IsDeleted != true) { friends.Add(item); }
+                }
+            }
+            return friends;
         }
     }
 }

@@ -55,6 +55,7 @@
             // userNameTxt
             // 
             this.userNameTxt.AutoSize = true;
+            this.userNameTxt.Enabled = false;
             this.userNameTxt.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.userNameTxt.Location = new System.Drawing.Point(43, 12);
             this.userNameTxt.Name = "userNameTxt";

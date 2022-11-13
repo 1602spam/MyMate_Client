@@ -77,6 +77,7 @@
             this.rbtnChat.Text = "채팅 바로가기";
             this.rbtnChat.TextColor = System.Drawing.Color.White;
             this.rbtnChat.UseVisualStyleBackColor = false;
+            this.rbtnChat.Click += new System.EventHandler(this.rbtnChat_Click);
             // 
             // rbtnRemove
             // 

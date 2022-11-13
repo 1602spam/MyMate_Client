@@ -1,4 +1,5 @@
 ﻿using ClientModules.Containers;
+using ClientModules.Models;
 using ClientModules.Models.Chat;
 using MainForm.Controls;
 using MainForm.PopupControls;
@@ -35,7 +36,7 @@ namespace MainForm
 			mainPage = this;
 			InitializeComponent();
 
-			//캘린더, 메시지, 친구 페이지를 생성
+			//캘린더, 메시지, 친구, 체크리스트 페이지 생성
 			panel8.Controls.Add(calendarPage);
 			panel8.Controls.Add(msgPage);
 			panel8.Controls.Add(friendPage);
@@ -45,7 +46,7 @@ namespace MainForm
 			//메시지 페이지가 보이도록 설정
 			msgPage.Visible = true;
 
-			//서버 컨테이너 정보 변경 시 서버 버튼/페이지 설정하는 메서드를 이벤트에 등록
+			//서버 컨테이너 정보 변경 발생 시 서버 버튼/페이지 설정하는 메서드를 이벤트에 등록
 			ServerContainer.Instance.DataDistributedEvent += AddOrUpdateServerBtn;
 		}
 
@@ -98,10 +99,12 @@ namespace MainForm
 			MdlServer? s = server as MdlServer;
 			if (s == null)
 				return;
-
-			//서버버튼과 서버페이지에는 서버 객체와 initialize 함수 필요
-			//동일한 코드를 가진 서버를 이전에 추가했는지 확인함
-			MdlServer? tserver = servers.FirstOrDefault(MdlServer => MdlServer.Code == s.Code);
+            //개인 채팅방일 경우 추가하지 않음, 개인 채팅방 버튼(UserChat) 관리는 mainpage 인스턴스 안의 msgpage 안에서 진행
+            if (s.IsCompact == true)
+                return;
+            //서버버튼과 서버페이지에는 서버 객체와 initialize 함수 필요
+            //동일한 코드를 가진 서버를 이전에 추가했는지 확인함
+            MdlServer? tserver = servers.FirstOrDefault(MdlServer => MdlServer.Code == s.Code);
 			//이미 저장된 서버 코드라면 해당 서버를 담은 페이지와 버튼을 갱신해 줌
 			//아니라면 추가함
 			if (tserver == null)
@@ -198,54 +201,74 @@ namespace MainForm
 			}
 		}
 
-		private void panel11_Paint(object sender, PaintEventArgs e)
+		public void ShowMsgPage()
 		{
-
-		}
-
-        private void button1_Click(object sender, EventArgs e)
-        {
             calendarPage.Visible = false;
             friendPage.Visible = false;
             msgPage.Visible = true;
             checkListPage.Visible = false;
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
+		public void ShowCalendarPage()
+		{
             msgPage.Visible = false;
             friendPage.Visible = false;
             calendarPage.Visible = true;
             checkListPage.Visible = false;
         }
-
-        private void profileBtn_Click(object sender, EventArgs e)
+        public void ShowCheckListPage()
         {
+            msgPage.Visible = false;
+            friendPage.Visible = false;
+            calendarPage.Visible = false;
+            checkListPage.Visible = true;
+        }
+        public void ShowFriendPage()
+        {
+            msgPage.Visible = false;
+            friendPage.Visible = true;
+            calendarPage.Visible = false;
+            checkListPage.Visible = false;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+			//개인 채팅 탭 클릭 시
+			ShowMsgPage();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+			//친구 탭 클릭 시
+			ShowFriendPage();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+			//체크리스트 탭 클릭 시
+			ShowCheckListPage();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+			//캘린더 탭 클릭 시
+			ShowCalendarPage();
+        }
+
+        public void profileBtn_Click(object sender, EventArgs e)
+        {
+			//프로필 버튼 클릭 시
             var profile = new Profile();
             profile.ShowDialog();
         }
 
         private void serverAddBtn_Click(object sender, EventArgs e)
         {
-
+			//서버 추가 버튼 클릭 시
             var serverAddPopup = new ServerAddPopup();
             serverAddPopup.ShowDialog();
         }
 
-        private void button4_Click(object sender, EventArgs e)
-		{
-			friendPage.Visible = true;
-			msgPage.Visible = false;
-			calendarPage.Visible = false;
-            checkListPage.Visible = false;
-        }
 
-		private void button2_Click(object sender, EventArgs e)
-		{
-            friendPage.Visible = false;
-            msgPage.Visible = false;
-            calendarPage.Visible = false;
-            checkListPage.Visible = true;
-        }
 	}
 }

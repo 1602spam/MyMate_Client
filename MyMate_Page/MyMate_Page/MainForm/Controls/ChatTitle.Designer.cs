@@ -48,18 +48,20 @@
             // chatTileTxt
             // 
             this.chatTileTxt.AutoSize = true;
+            this.chatTileTxt.Enabled = false;
             this.chatTileTxt.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.chatTileTxt.Location = new System.Drawing.Point(31, 12);
+            this.chatTileTxt.Location = new System.Drawing.Point(22, 12);
             this.chatTileTxt.Margin = new System.Windows.Forms.Padding(5);
             this.chatTileTxt.Name = "chatTileTxt";
-            this.chatTileTxt.Size = new System.Drawing.Size(46, 17);
+            this.chatTileTxt.Size = new System.Drawing.Size(105, 17);
             this.chatTileTxt.TabIndex = 3;
-            this.chatTileTxt.Text = "label2";
+            this.chatTileTxt.Text = "ChatroomName";
             this.chatTileTxt.Click += new System.EventHandler(this.chatTileTxt_Click);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(5, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(5);

@@ -64,8 +64,14 @@ namespace ClientModules.Containers
             }
         }
 
-        public void GetListItems(int projectCode)
+        /*public List<MdlProject> GetLists()
         {
+        }*/
+
+
+        public List<MdlProjectItem> GetListItems(int projectCode)
+        {
+            List<MdlProjectItem> items = new();
             MdlProject? pj;
             pj = this.Items.Values.FirstOrDefault(MdlProject => MdlProject.Code == projectCode);
 
@@ -74,12 +80,13 @@ namespace ClientModules.Containers
 #if DEBUG
                 Console.WriteLine("해당하는 프로젝트코드의 프로젝트를 찾지 못함");
 #endif
-                return;
+                return new();
             }
             foreach (var v in pj.Items.Items)
             {
-                Console.WriteLine(v.Content);
+                items.Add(v);
             }
+            return items;
         }
     }
 }

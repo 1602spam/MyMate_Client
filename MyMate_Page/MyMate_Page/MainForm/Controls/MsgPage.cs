@@ -15,15 +15,17 @@ using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using static Protocol.ServerProtocol;
 
 namespace MainForm.Controls
 {
     public partial class MsgPage : UserControl
     {
+        public MdlServer? Server { get; set; }
         public MdlChatroom? Chatroom { get; set; }
         public List<Lchat> lchats = new();
         public List<Rchat> rchats = new();
-        public List<UserChat> Uchats = new();
+        public List<UserChat> UserChats = new();
         public int Count { get; set; }
         public MsgPage()
         {
@@ -31,18 +33,23 @@ namespace MainForm.Controls
             this.Dock = DockStyle.Fill;
             this.Visible = false;
 
+            ServerContainer.Instance.DataDistributedEvent += AddOrUpdateUserChat;
             //테스트용 서버 1과 그 안의 채팅방 1을 생성
-            SvcDistributor.Instance.PutServer(new(1, true, "테스트용 서버", 1, new()));
-            SvcDistributor.Instance.PutChatroom(new(1, 1, "테스트용 채팅방 1"));
+            MdlServer s = new(ServerContainer.Instance.Items.Count + 1, true, "테스트용 서버", 1);
+            SvcDistributor.Instance.PutServer(s);
+            SvcDistributor.Instance.PutChatroom(new(s.Chatrooms.Items.Count + 1, s.Code, "테스트용 채팅방 1"));
 
-            //이 채팅방 객체를 속성으로 가져옴, 생성자로 받을 예정
-            Chatroom = ServerContainer.Instance.GetChatroom(1, 1);
-            if (Chatroom == null)
-                return;
+            this.Server = s;
 
-            //해당 채팅방 안의 메시지 컨테이너 이벤트로 메시지 갱신 메서드를 등록
-            Chatroom.Messages.DataDistributedEvent += AddOrUpdateMessage;
-            Console.WriteLine("채팅방 이벤트 등록");
+            DateTime d = DateTime.Now;
+            SvcDistributor.Instance.PutMessage(new MdlMessage(0, 1, 1, 1, "메시지 1", new DateTime(d.Year - 1, d.Month, d.Day, d.Hour, d.Minute, d.Second)));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(1, 1, 1, 1, "메시지 1", new DateTime(d.Year, d.Month, d.Day - 2, d.Hour, d.Minute, d.Second)));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(2, 1, 1, 1, "메시지 1", new DateTime(d.Year, d.Month, d.Day - 1, d.Hour, d.Minute, d.Second)));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(3, 1, 1, 1, "메시지 1", d));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(4, 1, 1, MdlMyself.Instance.Code, "메시지 1", d));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(5, 1, 1, MdlMyself.Instance.Code, "메시지 1", d));
+
+            SwitchChat(s.Code);
         }
 
         void Send()
@@ -56,40 +63,40 @@ namespace MainForm.Controls
             MdlMyself me = MdlMyself.Instance;
 
             MessageProtocol.MESSAGE msg = new();
-            msg.Set(this.Chatroom.Messages.Items.Count+1, 1, 1, me.Code, chatTxt.Text, DateTime.Now, false);
-            Server.Instance.Send(Generater.Generate(msg));
+            msg.Set(this.Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, me.Code, chatTxt.Text, DateTime.Now, false);
+            ClientToServer.Server.Instance.Send(Generater.Generate(msg));
             SvcDistributor.Instance.PutMessage(new(msg));
             chatTxt.Text = String.Empty;
         }
 
         private void MsgPage_Load(object sender, EventArgs e)
         {
-            if (Chatroom == null)
-                return;
+        }
 
-            DateTime d = DateTime.Now;
-            SvcDistributor.Instance.PutMessage(new MdlMessage(0, 1, 1, 1, "메시지 1", new DateTime(d.Year - 1, d.Month, d.Day, d.Hour, d.Minute, d.Second)));
-            SvcDistributor.Instance.PutMessage(new MdlMessage(1, 1, 1, 1, "메시지 1", new DateTime(d.Year, d.Month, d.Day - 2, d.Hour, d.Minute, d.Second)));
-            SvcDistributor.Instance.PutMessage(new MdlMessage(2, 1, 1, 1, "메시지 1", new DateTime(d.Year,d.Month,d.Day-1,d.Hour,d.Minute,d.Second)));
-            SvcDistributor.Instance.PutMessage(new MdlMessage(3, 1, 1, 1, "메시지 1", d));
-            SvcDistributor.Instance.PutMessage(new MdlMessage(4, 1, 1, MdlMyself.Instance.Code, "메시지 1", d));
-            SvcDistributor.Instance.PutMessage(new MdlMessage(5, 1, 1, MdlMyself.Instance.Code, "메시지 1", d));
+        public void ClearChat()
+        {
+            if (Chatroom != null)
+                Chatroom.Messages.DataDistributedEvent -= AddOrUpdateMessage;
+            chatPanel.Controls.Clear();
+            lchats.Clear();
+            rchats.Clear();
+            Count = 0;
+        }
 
-            Count = 5;
-
+        private void LoadMessageUpToN(int n)
+        {
             int i;
-            //최초 메시지 개수(최대 20개) 만큼 불러옴
+            //최대 n개만큼 불러옴
             List<MdlMessage>? Messages_ = new();
-            i = Chatroom.Messages.Items.Count;
-            if (i >= 20)
-            {
-                i = 20;
-            }
+            i = Chatroom.Messages.Items.Count - (lchats.Count + rchats.Count);
+            i = i >= n ? n : i;
 
-            Messages_ = ServerContainer.Instance.GetMessages(1, 1, i);
+            Messages_ = ServerContainer.Instance.GetMessages(Server.Code, Chatroom.Code, i);
+
             //해당 채팅방 안의 메시지 컨테이너로부터 정보를 리스트로 반환하고 각 항목에 대해 추가 혹은 갱신 처리
             if (Messages_ != null)
             {
+                Messages_.Reverse();
                 foreach (MdlMessage mdl in Messages_)
                 {
                     AddOrUpdateMessage(mdl);
@@ -183,37 +190,74 @@ namespace MainForm.Controls
 
         }
 
-        public void AddChatList(string userName)
+        public void AddOrUpdateUserChat(object s)
         {
-            UserChat userChat = new UserChat(userName);
-            Uchats.Add(userChat);
+            if (s == null)
+                return;
+            MdlServer? server = s as MdlServer;
+            if (server == null)
+                return;
+            //compact server가 아니라면 리턴
+            if (server.IsCompact == false)
+                return;
+            //UserChat의 count가 0이 아니라면
+            if (UserChats.Count != 0)
+            {
+                //이미 있는 userChat 중 서버 속성의 코드가 동일한 것을 찾았다면 업데이트 후 리턴, 아니면 추가
+                UserChat? uc = UserChats.FirstOrDefault(UserChat => UserChat.Server.Code == server.Code);
+                if (uc != null)
+                {
+                    uc.Server = server;
+                    return;
+                }
+            }
+            AddUserChat(server);
+        }
+
+        private void AddUserChat(MdlServer s)
+        {
+            if (s.IsDeleted == true)
+            {
+                return;
+            }
+            UserChat userChat = new UserChat(s);
+            UserChats.Add(userChat);
             userChat.BringToFront();
             userChat.Dock = DockStyle.Top;
             panel1.Controls.Add(userChat);
         }
 
-        public void ChatClear()
+        public void SwitchChat(int serverCode)
         {
-            chatPanel.Controls.Clear();
-            //채팅 목록 추가 하는 함수 넣어주면 됨
+            ClearChat();
+
+            this.Server = ServerContainer.Instance.GetServer(serverCode);
+            this.Chatroom = ServerContainer.Instance.GetChatroom(serverCode, 1);
+
+            if (Chatroom == null)
+                return;
+
+            LoadMessageUpToN(10);
+            //해당 채팅방 안의 메시지 컨테이너 이벤트로 메시지 갱신 메서드를 등록
+            Chatroom.Messages.DataDistributedEvent += AddOrUpdateMessage;
         }
 
         /*
-        private void chatTxt_KeyDown(object sender, KeyEventArgs e)
-        {            
-            if (e.KeyCode == Keys.Enter && chatTxt.Text.Trim().Length != 0)
-            {
-                Send();
-                this.chatTxt.Focus();
-                return;
-            }
-            else if (e.KeyCode == Keys.ShiftKey)
-            {
-                chatTxt.Text += "\r\n";
-                chatTxt.ScrollToCaret();
-            }
-        }
-        */
+		private void chatTxt_KeyDown(object sender, KeyEventArgs e)
+		{            
+			if (e.KeyCode == Keys.Enter && chatTxt.Text.Trim().Length != 0)
+			{
+				Send();
+				this.chatTxt.Focus();
+				return;
+			}
+			else if (e.KeyCode == Keys.ShiftKey)
+			{
+				chatTxt.Text += "\r\n";
+				chatTxt.ScrollToCaret();
+			}
+		}
+		*/
 
     }
 }

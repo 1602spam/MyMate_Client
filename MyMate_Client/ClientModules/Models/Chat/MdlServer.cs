@@ -25,6 +25,16 @@ namespace ClientModules.Models.Chat
         public int OwnerCode { get; set; }
         public bool IsDeleted { get; set; }
 
+        public MdlServer(int code, bool isCompact, string title, int ownerCode)
+        {
+            this.Code = code;
+            this.IsCompact = isCompact;
+            this.Title = title;
+            this.OwnerCode = ownerCode;
+            this.Chatrooms = new();
+            this.Users = new();
+        }
+
         public MdlServer(int code, bool isCompact, string title, int ownerCode, List<int> users)
         {
             this.Code = code;
@@ -42,12 +52,20 @@ namespace ClientModules.Models.Chat
         public MdlServer(ServerProtocol.Server server)
         {
             this.Code = server.serverCode;
-            //this.IsCompact = server.isCompact;
+            this.IsCompact = server.isSingle;
             this.Title = server.title;
             this.OwnerCode = server.adminCode;
             this.Chatrooms = new();
             this.Users = new();
-            //this.Users = server.users;
+        }
+
+        public void AddUser(int userCode)
+        {
+            if (this.Users.Contains(userCode) == true) {
+                return;
+            }
+            this.Users.Add(userCode);
+            return;
         }
 
         public bool nullCheck()

@@ -23,6 +23,7 @@ namespace ClientModules.Models.CheckList
         //완료 여부
         public bool IsChecked { get; set; }
         public bool IsDeleted { get; set; }
+
         public MdlProjectItem(int code, int projectCode, string content, bool isDone)
         {
             Code = code;

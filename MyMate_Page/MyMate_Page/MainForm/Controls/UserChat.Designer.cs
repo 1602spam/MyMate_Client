@@ -49,11 +49,12 @@
             // userNameTxt
             // 
             this.userNameTxt.AutoSize = true;
+            this.userNameTxt.Enabled = false;
             this.userNameTxt.Location = new System.Drawing.Point(43, 13);
             this.userNameTxt.Name = "userNameTxt";
-            this.userNameTxt.Size = new System.Drawing.Size(39, 15);
+            this.userNameTxt.Size = new System.Drawing.Size(67, 15);
             this.userNameTxt.TabIndex = 6;
-            this.userNameTxt.Text = "label1";
+            this.userNameTxt.Text = "Username1";
             // 
             // roundButton1
             // 

@@ -300,7 +300,6 @@
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(40, 582);
             this.panel11.TabIndex = 6;
-            this.panel11.Paint += new System.Windows.Forms.PaintEventHandler(this.panel11_Paint);
             // 
             // serverAddBtn
             // 

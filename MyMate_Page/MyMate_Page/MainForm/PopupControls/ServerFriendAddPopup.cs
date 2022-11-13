@@ -26,7 +26,7 @@ namespace MainForm.PopupControls
             //여기에서 서버 친구들을 제외한 친구들을 리스트박스에 넣어준다.
             userList.Items.Clear();
 
-            foreach (var item in FriendContainer.Instance.Items.Values)
+            foreach (var item in FriendContainer.Instance.GetAvailableFriends())
             {
                 bool i = ServerContainer.Instance.GetServer(serverCode).Users.Contains(item.FriendCode);
                 if (i == true)

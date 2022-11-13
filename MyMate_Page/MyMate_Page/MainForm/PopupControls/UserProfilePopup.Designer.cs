@@ -1,6 +1,6 @@
 ﻿namespace MainForm.Controls
 {
-    partial class Profile
+    partial class UserProfilePopup
     {
         /// <summary>
         /// Required designer variable.

@@ -18,7 +18,7 @@ namespace MainForm.Controls
         //서버에 대한 정보
         public MdlServer server = new();
         public List<MdlChatroom> chatrooms = new();
-        public List<ChatTitle> chatTitles = new List<ChatTitle>();
+        public List<ServerChatListItem> chatTitles = new List<ServerChatListItem>();
 
         public ServerChatList(MdlServer s)
         {
@@ -40,7 +40,7 @@ namespace MainForm.Controls
 
         public void AddChannel(MdlChatroom chatroom)
         {
-            ChatTitle chatTitle = new ChatTitle(chatroom);
+            ServerChatListItem chatTitle = new ServerChatListItem(chatroom);
             chatTitles.Add(chatTitle);
             chatTitle.BringToFront();
             chatTitle.Dock = DockStyle.Top;

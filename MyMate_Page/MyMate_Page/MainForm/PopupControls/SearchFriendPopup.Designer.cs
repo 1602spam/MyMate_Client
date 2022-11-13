@@ -1,6 +1,6 @@
 ﻿namespace MainForm.PopupControls
 {
-    partial class SearchFriend
+    partial class SearchFriendPopup
     {
         /// <summary>
         /// Required designer variable.

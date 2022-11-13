@@ -12,10 +12,10 @@ using System.Windows.Forms;
 
 namespace MainForm.PopupControls
 {
-    public partial class SearchFriend : Form
+    public partial class SearchFriendPopup : Form
     {
         public MdlUser user { get; set; }
-        public SearchFriend()
+        public SearchFriendPopup()
         {
             InitializeComponent();
             rbtnProfile.Visible = false;

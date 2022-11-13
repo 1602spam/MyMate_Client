@@ -39,7 +39,7 @@ namespace MainForm.Controls
         private void rbtnFindFriend_Click(object sender, EventArgs e)
         {
             //친구 추가 버튼을 누르면 폼을 띄우고, 그 안에서 성공적으로 친구 업데이트하면 자동으로 처리됨
-            SearchFriend searchFriend = new SearchFriend();
+            SearchFriendPopup searchFriend = new SearchFriendPopup();
             searchFriend.ShowDialog();
         }
 

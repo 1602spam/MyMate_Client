@@ -1,6 +1,6 @@
 ﻿namespace MainForm.Controls
 {
-    partial class UserChat
+    partial class UserChatListItem
     {
         /// <summary> 
         /// 필수 디자이너 변수입니다.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserChat));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserChatListItem));
             this.button1 = new System.Windows.Forms.Button();
             this.userNameTxt = new System.Windows.Forms.Label();
             this.roundButton1 = new MainForm.Controls.RoundButton();
@@ -49,7 +49,6 @@
             // userNameTxt
             // 
             this.userNameTxt.AutoSize = true;
-            this.userNameTxt.Enabled = false;
             this.userNameTxt.Location = new System.Drawing.Point(43, 13);
             this.userNameTxt.Name = "userNameTxt";
             this.userNameTxt.Size = new System.Drawing.Size(67, 15);

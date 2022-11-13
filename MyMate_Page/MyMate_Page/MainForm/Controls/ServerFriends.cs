@@ -18,7 +18,7 @@ namespace MainForm.Controls
     {
         public MdlServer server;
         public List<int> ChatMember = new();        // ChatMember 추가
-        public List<Friendprofile> friendprofiles = new List<Friendprofile>();
+        public List<UserProfile> friendprofiles = new List<UserProfile>();
 
         public ServerFriends(MdlServer s)
         {
@@ -31,7 +31,7 @@ namespace MainForm.Controls
                 if (user == null) {
                     continue;
                 }
-                Friendprofile friendprofile = new Friendprofile(user);
+                UserProfile friendprofile = new UserProfile(user);
                 friendprofiles.Add(friendprofile);
                 friendprofile.BringToFront();
                 friendprofile.Dock = DockStyle.Top;

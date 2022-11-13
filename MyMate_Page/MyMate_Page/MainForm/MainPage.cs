@@ -258,7 +258,7 @@ namespace MainForm
         public void profileBtn_Click(object sender, EventArgs e)
         {
 			//프로필 버튼 클릭 시
-            var profile = new Profile();
+            var profile = new UserProfilePopup();
             profile.ShowDialog();
         }
 

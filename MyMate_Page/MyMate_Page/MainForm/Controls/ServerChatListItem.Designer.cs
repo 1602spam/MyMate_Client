@@ -1,6 +1,6 @@
 ﻿namespace MainForm.Controls
 {
-    partial class ChatTitle
+    partial class ServerChatListItem
     {
         /// <summary> 
         /// 필수 디자이너 변수입니다.
@@ -48,7 +48,6 @@
             // chatTileTxt
             // 
             this.chatTileTxt.AutoSize = true;
-            this.chatTileTxt.Enabled = false;
             this.chatTileTxt.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.chatTileTxt.Location = new System.Drawing.Point(22, 12);
             this.chatTileTxt.Margin = new System.Windows.Forms.Padding(5);
@@ -61,7 +60,6 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Enabled = false;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.Location = new System.Drawing.Point(5, 11);
             this.label1.Margin = new System.Windows.Forms.Padding(5);

@@ -1,6 +1,6 @@
 ﻿namespace MainForm.Controls
 {
-    partial class Friendprofile
+    partial class UserProfile
     {
         /// <summary> 
         /// 필수 디자이너 변수입니다.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Friendprofile));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserProfile));
             this.userprofileBtn = new MainForm.Controls.RoundButton();
             this.userNameTxt = new System.Windows.Forms.Label();
             this.SuspendLayout();

@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace MainForm.Controls
 {
-    public partial class Profile : Form
+    public partial class UserProfilePopup : Form
     {
-        public Profile()
+        public UserProfilePopup()
         {
             InitializeComponent();
         }

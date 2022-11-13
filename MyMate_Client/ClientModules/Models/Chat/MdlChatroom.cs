@@ -19,7 +19,7 @@ namespace ClientModules.Models.Chat
 		public MessageContainer Messages { get; set; }
 
         public bool IsDeleted { get; set; }
-
+		public MdlChatroom() { }
 		public MdlChatroom(int code, int serverCode, string title)
 		{
 			Code = code;

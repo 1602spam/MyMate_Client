@@ -1,6 +1,6 @@
 ﻿namespace MainForm.Controls
 {
-    partial class FriendList
+    partial class UserChatAddPopup
     {
         /// <summary>
         /// Required designer variable.

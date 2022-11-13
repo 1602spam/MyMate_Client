@@ -11,9 +11,9 @@ using System.Windows.Forms;
 
 namespace MainForm.Controls
 {
-    public partial class Friendprofile : UserControl
+    public partial class UserProfile : UserControl
     {
-        public Friendprofile(MdlUser user)
+        public UserProfile(MdlUser user)
         {
             InitializeComponent();
             this.Name = user.Username;

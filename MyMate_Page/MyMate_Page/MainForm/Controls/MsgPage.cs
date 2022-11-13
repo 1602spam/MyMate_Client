@@ -25,7 +25,7 @@ namespace MainForm.Controls
         public MdlChatroom? Chatroom { get; set; }
         public List<Lchat> lchats = new();
         public List<Rchat> rchats = new();
-        public List<UserChat> UserChats = new();
+        public List<UserChatListItem> UserChatListItems = new();
         public int Count { get; set; }
         public MsgPage()
         {
@@ -185,7 +185,7 @@ namespace MainForm.Controls
 
         private void addChatBtn_Click(object sender, EventArgs e)
         {
-            FriendList friendList = new FriendList();
+            UserChatAddPopup friendList = new UserChatAddPopup();
             friendList.ShowDialog();
 
         }
@@ -201,10 +201,10 @@ namespace MainForm.Controls
             if (server.IsCompact == false)
                 return;
             //UserChat의 count가 0이 아니라면
-            if (UserChats.Count != 0)
+            if (UserChatListItems.Count != 0)
             {
                 //이미 있는 userChat 중 서버 속성의 코드가 동일한 것을 찾았다면 업데이트 후 리턴, 아니면 추가
-                UserChat? uc = UserChats.FirstOrDefault(UserChat => UserChat.Server.Code == server.Code);
+                UserChatListItem? uc = UserChatListItems.FirstOrDefault(UserChat => UserChat.Server.Code == server.Code);
                 if (uc != null)
                 {
                     uc.Server = server;
@@ -220,8 +220,8 @@ namespace MainForm.Controls
             {
                 return;
             }
-            UserChat userChat = new UserChat(s);
-            UserChats.Add(userChat);
+            UserChatListItem userChat = new UserChatListItem(s);
+            UserChatListItems.Add(userChat);
             userChat.BringToFront();
             userChat.Dock = DockStyle.Top;
             panel1.Controls.Add(userChat);
@@ -234,8 +234,13 @@ namespace MainForm.Controls
             this.Server = ServerContainer.Instance.GetServer(serverCode);
             this.Chatroom = ServerContainer.Instance.GetChatroom(serverCode, 1);
 
-            if (Chatroom == null)
+            if (Server == null || Chatroom == null)
                 return;
+
+            foreach (UserChatListItem v in UserChatListItems)
+            {
+                v.Initialize();
+            }
 
             LoadMessageUpToN(10);
             //해당 채팅방 안의 메시지 컨테이너 이벤트로 메시지 갱신 메서드를 등록

@@ -48,11 +48,11 @@ namespace MainForm.Controls
                 return;
             }
 
-            if (MainPage.mainPage.msgPage.UserChats != null)
+            if (MainPage.mainPage.msgPage.UserChatListItems != null)
             {
                 MdlServer server;
                 //이미 존재하는 userchats 중 하나에 해당 유저 코드가 포함되어 있다면
-                foreach (UserChat check in MainPage.mainPage.msgPage.UserChats)
+                foreach (UserChatListItem check in MainPage.mainPage.msgPage.UserChatListItems)
                 {
                     server = check.Server;
                     if (server.Users == null) { continue; }

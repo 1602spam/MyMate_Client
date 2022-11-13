@@ -38,8 +38,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.chatSendPanel = new System.Windows.Forms.TableLayoutPanel();
             this.chatTxt = new System.Windows.Forms.RichTextBox();
-            this.rbtnSend = new MainForm.Controls.RoundButton();
-            this.rbtnAdd = new MainForm.Controls.RoundButton();
             this.chatPanel = new System.Windows.Forms.Panel();
             this.chatListPanel.SuspendLayout();
             this.panel4.SuspendLayout();
@@ -131,8 +129,6 @@
             this.chatSendPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.chatSendPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.chatSendPanel.Controls.Add(this.chatTxt, 1, 0);
-            this.chatSendPanel.Controls.Add(this.rbtnSend, 2, 0);
-            this.chatSendPanel.Controls.Add(this.rbtnAdd, 0, 0);
             this.chatSendPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.chatSendPanel.Location = new System.Drawing.Point(150, 424);
             this.chatSendPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -154,47 +150,6 @@
             this.chatTxt.Size = new System.Drawing.Size(399, 24);
             this.chatTxt.TabIndex = 2;
             this.chatTxt.Text = "";
-            // 
-            // rbtnSend
-            // 
-            this.rbtnSend.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
-            this.rbtnSend.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
-            this.rbtnSend.BorderColor = System.Drawing.Color.Red;
-            this.rbtnSend.BorderRadius = 3;
-            this.rbtnSend.BorderSize = -2;
-            this.rbtnSend.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rbtnSend.FlatAppearance.BorderSize = 0;
-            this.rbtnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbtnSend.ForeColor = System.Drawing.Color.White;
-            this.rbtnSend.Location = new System.Drawing.Point(456, 1);
-            this.rbtnSend.Margin = new System.Windows.Forms.Padding(1);
-            this.rbtnSend.Name = "rbtnSend";
-            this.rbtnSend.Size = new System.Drawing.Size(48, 28);
-            this.rbtnSend.TabIndex = 3;
-            this.rbtnSend.Text = "전송";
-            this.rbtnSend.TextColor = System.Drawing.Color.White;
-            this.rbtnSend.UseVisualStyleBackColor = false;
-            this.rbtnSend.Click += new System.EventHandler(this.sendBtn_Click);
-            // 
-            // rbtnAdd
-            // 
-            this.rbtnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
-            this.rbtnAdd.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(23)))), ((int)(((byte)(45)))), ((int)(((byte)(90)))));
-            this.rbtnAdd.BorderColor = System.Drawing.Color.Red;
-            this.rbtnAdd.BorderRadius = 3;
-            this.rbtnAdd.BorderSize = 0;
-            this.rbtnAdd.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.rbtnAdd.FlatAppearance.BorderSize = 0;
-            this.rbtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.rbtnAdd.ForeColor = System.Drawing.Color.White;
-            this.rbtnAdd.Location = new System.Drawing.Point(1, 1);
-            this.rbtnAdd.Margin = new System.Windows.Forms.Padding(1);
-            this.rbtnAdd.Name = "rbtnAdd";
-            this.rbtnAdd.Size = new System.Drawing.Size(48, 28);
-            this.rbtnAdd.TabIndex = 4;
-            this.rbtnAdd.Text = "+";
-            this.rbtnAdd.TextColor = System.Drawing.Color.White;
-            this.rbtnAdd.UseVisualStyleBackColor = false;
             // 
             // chatPanel
             // 

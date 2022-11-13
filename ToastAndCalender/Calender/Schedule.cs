@@ -69,6 +69,8 @@ namespace Calender
 			// 총 길이
 			this.length = day.Days + 1;
 			center = length / 2;
+			
+
 
 			Refresh();
 		}
@@ -83,11 +85,12 @@ namespace Calender
 		{
 			int tempIdx = endIdx - startIdx;
 			// 기존의 Body의 Text를 없앰
-			bars[center].Visible = false;
+			//bars[center].Visible = false;
+			bars[center].Title = "";
 
 			center = startIdx +  tempIdx / 2;
-			bars[center].Title = this.Title;
-			bars[center].Visible = true;
+			bars[center].Title = this.title;
+			//bars[center].Visible = true;
 		}
 		public void Refresh()
 		{
@@ -105,6 +108,8 @@ namespace Calender
 				bar.AutoSize = false;
 				bars.Add(bar);
 			}
+
+			SetCenter(0, this.length - 1);
 
 			// 한칸인경우
 			if (1 == length)

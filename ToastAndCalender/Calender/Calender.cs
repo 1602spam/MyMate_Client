@@ -94,19 +94,25 @@ namespace Calender
 		{
 			Schedule schedule = new(title, start, end);
 			this.schedules.Add(schedule);
-			SchdulePlace();
+			SchduleReplace();
+			schedule.SetCenter(0, 0);
 		}
 
 		public void Add(Schedule schedule)
 		{
 			this.schedules.Add(schedule);
-			SchdulePlace();
+			schedule.SetCenter(0, schedule.length - 1);
+			SchduleReplace();
 		}
 		public void Add(List<Schedule> schedule)
 		{
 			foreach (Schedule s in schedules)
+			{
 				this.schedules.Add(s);
-			SchdulePlace();
+				s.SetCenter(0, s.length - 1);
+			}
+				
+			SchduleReplace();
 		}
 
 		// 길이 기준 정렬
@@ -114,11 +120,15 @@ namespace Calender
 		{
 			// 그리기를 하기 전 호출
 			// 스케줄을 길이 기준으로 역순 정렬
+			// 내림차순
 			this.schedules.Sort((scheduleA, scheduleB)
 				=> scheduleB.length.CompareTo(scheduleA.length));
+			// 오름차순
+			//this.schedules.Sort((scheduleA, scheduleB)
+			//	=> scheduleA.length.CompareTo(scheduleB.length));
 		}
 
-		public void SchdulePlace()
+		public void SchduleReplace()
 		{
 			// 삽입이 가능한 시작, 끝 날짜
 			int start;
@@ -132,6 +142,9 @@ namespace Calender
 			// 모든 스케줄 바를 지운다.
 			foreach (var d in days)
 				d.Clear();
+
+			Sort();
+
 			// 가장 긴 스케줄부터 삽입에 들어감
 			foreach (Schedule s in schedules)
 			{

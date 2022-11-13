@@ -51,7 +51,7 @@
 			this.Panel.Name = "Panel";
 			this.Panel.RowCount = 2;
 			this.Panel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-			this.Panel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 76F));
+			this.Panel.RowStyles.Add(new System.Windows.Forms.RowStyle());
 			this.Panel.Size = new System.Drawing.Size(712, 129);
 			this.Panel.TabIndex = 0;
 			// 

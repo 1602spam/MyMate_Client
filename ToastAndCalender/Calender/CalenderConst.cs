@@ -29,7 +29,7 @@ namespace Calender
 
 		// 스케줄끼리의 간격
 		public const int scheduleHeightGap = 2;
-		public const int scheduleWidhtGap = 10;
+		public const int scheduleWidhtGap = 15;
 
 		// 크기 + 간격
 		public const int scheduleItemHeight = scheduleHeight + scheduleHeightGap;

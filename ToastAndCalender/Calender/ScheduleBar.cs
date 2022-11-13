@@ -49,17 +49,17 @@ namespace Calender
 			this.Size = new Size(CalendarSetting.scheduleWidth, CalendarSetting.scheduleHeight);
 			//this.state = ScheduleState.BodyOnly;
 			this.state = ScheduleState.Body;
-			SetLocation(X, Y);
 		}
 		public void SetColor(Color color)
 		{
-			this.BackColor = color;
+			this.lblSchedule.BackColor = color;
 		}
 
 		public void SetState(int state)
 		{
 			this.state = state;
-			SetLocation(this.X, this.Y);
+			SetLblSize();
+			SetLocation();
 		}
 
 		public void SetLblSize()
@@ -68,7 +68,7 @@ namespace Calender
 			{
 				case ScheduleState.BodyOnly:
 					lblSchedule.Size = new Size(
-							CalendarSetting.scheduleWidth - 2 * CalendarSetting.scheduleWidhtGap,
+							CalendarSetting.scheduleWidth - (2 * CalendarSetting.scheduleWidhtGap),
 							CalendarSetting.scheduleHeight);
 					break;
 				case ScheduleState.Body:
@@ -86,29 +86,21 @@ namespace Calender
 					break;
 			}
 		}
-		public void SetLocation(int x, int y)
+		public void SetLocation()
 		{
-			X = x;
-			Y = y;
-
 			switch(state)
 			{
 				case ScheduleState.Body:
 				case ScheduleState.Tail:
-					lblSchedule.Location = new Point(0, 0);
+					this.lblSchedule.Location = new Point(0, 0);
 					break;
 				case ScheduleState.BodyOnly:
 				case ScheduleState.Head:
-					//lblSchedule.Location = new Point(CalendarSetting.scheduleWidhtGap, 0);
-					lblSchedule.Location = new Point(10, 0);
+					this.lblSchedule.Location = new Point(CalendarSetting.scheduleWidhtGap, 0);
 					break;
 				default:
 					break;
 			}
-
-			SetLblSize();
 		}
-
-		
 	}
 }

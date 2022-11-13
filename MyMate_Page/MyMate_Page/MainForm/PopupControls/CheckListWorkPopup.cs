@@ -12,9 +12,12 @@ namespace MainForm.PopupControls
 {
     public partial class CheckListWorkPopup : Form
     {
-        public CheckListWorkPopup()
+        int ServerCode;
+        public CheckListWorkPopup(int serverCode)
         {
             InitializeComponent();
+            ServerCode = serverCode;
+            // 내써버라는 레이블 추가?
         }
 
         private void closeBtn_Click(object sender, EventArgs e)
@@ -24,8 +27,9 @@ namespace MainForm.PopupControls
 
         private void editProjectBtn_Click(object sender, EventArgs e)
         {
-
-            MainPage.mainPage.checkListPage.EditProject(projectNameTxt.Text, startDayTxt.Text, endDayTxt.Text);
+            //text 빈칸인지 아닌지 조건 넣어줘야 함
+            MainPage.mainPage.checkListPage.EditProject(projectNameTxt.Text, startDayTxt.Text, endDayTxt.Text, ServerCode);
+            this.Close();
         }
     }
 }

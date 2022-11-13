@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -20,9 +21,7 @@ namespace MainForm.Controls
         public CheckListProject(string title, int serverCode, string startDay, string endDay, int projectCode)
         {
             InitializeComponent();
-            label1.Text = "[ 서버 " + serverCode + "의 프로젝트]";
-            label2.Text = "진척도 - 0 %";
-            label3.Text = "기한 - " + startDay + " ~ " + endDay;
+            AddInfo(serverCode, startDay,endDay);
             //폼 이름을 projectCode로 줌
             this.Name = Convert.ToString(projectCode);
 
@@ -42,6 +41,18 @@ namespace MainForm.Controls
         {
             // 프로젝트 정보 바꾸는 함수 호출
             MainPage.mainPage.checkListPage.CreateProjectPanel(Title, ServerCode, StartDay, EndDay, ProjectCode);
+        }
+        public void AddInfo(int serverCode, string startDay, string endDay)
+        {
+            label1.Text = "[ 서버 " + serverCode + "의 프로젝트]";
+            label2.Text = "진척도 - 0 %";
+            label3.Text = "기한 - " + startDay + " ~ " + endDay;
+        }
+        public void EditInfo(int serverCode, string startDay, string endDay)
+        {
+            label1.Text = "[ 서버 " + serverCode + "의 프로젝트]";
+            //label2.Text = "진척도 - 0 %";
+            label3.Text = "기한 - " + startDay + " ~ " + endDay;
         }
     }
 }

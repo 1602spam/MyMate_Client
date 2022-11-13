@@ -13,6 +13,8 @@ namespace MainForm.Controls
 {
     public partial class CheckListPage : UserControl
     {
+        
+        int serverCodeStatus;
         int projectCode = 1;
         int projectCodeStatus = 0;
         public List<CheckListProject> projects = new List<CheckListProject>();
@@ -46,6 +48,7 @@ namespace MainForm.Controls
             panel6.Controls.Add(checkListProject);
             //CreateProjectPanel()함수 호출
             projectCode++;
+            serverCodeStatus = serverCode;
         }
 
         //프로젝트 정보 Panel에 보여주기
@@ -68,16 +71,19 @@ namespace MainForm.Controls
 
         private void editBtn_Click(object sender, EventArgs e)
         {
-            CheckListWorkPopup checkListWorkPopup = new CheckListWorkPopup(); //정보넘겨줌
+            CheckListWorkPopup checkListWorkPopup = new CheckListWorkPopup(serverCodeStatus); //정보넘겨줌
             checkListWorkPopup.ShowDialog();
         }
 
-        public void EditProject(string title, string startDay, string endDay)
+        public void EditProject(string title, string startDay, string endDay, int serverCode)
         {
             int i = 0;
             if (projects[i].Name == projectCodeStatus.ToString())
             {
-                ///////////////
+                
+                projects[i].EditInfo(serverCode ,startDay, endDay);
+
+                CreateProjectPanel(title, serverCode, startDay, endDay, projectCodeStatus);
             }
         }
     }

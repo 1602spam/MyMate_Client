@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using ClientModules.Classes;
 using ClientModules.Models;
+using ClientModules.Services;
 
 namespace ClientModules.Controllers
 {

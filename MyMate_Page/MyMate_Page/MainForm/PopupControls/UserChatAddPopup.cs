@@ -68,7 +68,7 @@ namespace MainForm.Controls
                     if (server.Users == null) { continue; }
                     if (server.Users.Contains(f.FriendCode) == true)
                     {
-                        MainPage.mainPage.msgPage.SwitchChat(check.Server.Code);
+                        MainPage.mainPage.msgPage.SwitchChat(check.Server.Code,1);
                         //해당 채팅방으로 이동 후 리턴
                         this.Close();
                         return;
@@ -81,6 +81,7 @@ namespace MainForm.Controls
             s.AddUser(MdlMyself.Instance.Code);
             SvcDistributor.Instance.PutServer(s);
             SvcDistributor.Instance.PutChatroom(new(s.Chatrooms.Items.Count + 1, s.Code, "chatroomname"));
+            MainPage.mainPage.msgPage.SwitchChat(s.Code,1);
             this.Close();
             return;
         }

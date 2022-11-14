@@ -61,6 +61,10 @@ namespace MainForm.Controls
             SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "메시지 1", d));
             SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "메시지 1", d));
 
+            for (int i = 0; i < 100; i++) {
+                SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "메시지"+i.ToString(), d));
+            }
+
             SwitchChat(this.Server.Code, this.Chatroom.Code);
         }
 
@@ -79,12 +83,10 @@ namespace MainForm.Controls
                 v.Initialize();
             }
 
-            LoadMessageUpToN(2);
+            LoadMessageUpToN(10);
             //해당 채팅방 안의 메시지 컨테이너 이벤트로 메시지 갱신 메서드를 등록
             Chatroom.Messages.DataDistributedEvent += AddOrUpdateMessage;
         }
-
-        
 
         void Send()
         {
@@ -161,12 +163,12 @@ namespace MainForm.Controls
             {
                 if (parses[1] == "cal")
                     {
+                    int i = int.Parse(parses[2]);
                     }
                 else if (parses[1] == "chk")
                     {
                     }
             }
-
             //자기 자신이 보낸 메시지라면 Rchat에 대해 처리
             else if (m.Creator == MdlMyself.Instance.Code)
             {

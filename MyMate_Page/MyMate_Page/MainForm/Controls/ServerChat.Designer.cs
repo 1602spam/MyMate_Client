@@ -35,7 +35,9 @@
             this.sendBtn = new MainForm.Controls.RoundButton();
             this.chatTxt = new System.Windows.Forms.RichTextBox();
             this.plusBtn = new MainForm.Controls.RoundButton();
+            this.rbtnLoadMessage = new MainForm.Controls.RoundButton();
             this.panel2.SuspendLayout();
+            this.chatPanel.SuspendLayout();
             this.panel3.SuspendLayout();
             this.chatSendPanel.SuspendLayout();
             this.SuspendLayout();
@@ -53,6 +55,7 @@
             // chatPanel
             // 
             this.chatPanel.BackColor = System.Drawing.Color.White;
+            this.chatPanel.Controls.Add(this.rbtnLoadMessage);
             this.chatPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chatPanel.Location = new System.Drawing.Point(0, 0);
             this.chatPanel.Name = "chatPanel";
@@ -107,6 +110,7 @@
             this.sendBtn.Text = "전송";
             this.sendBtn.TextColor = System.Drawing.Color.White;
             this.sendBtn.UseVisualStyleBackColor = false;
+            this.sendBtn.Click += new System.EventHandler(this.sendBtn_Click);
             // 
             // chatTxt
             // 
@@ -142,6 +146,25 @@
             this.plusBtn.TextColor = System.Drawing.Color.White;
             this.plusBtn.UseVisualStyleBackColor = false;
             // 
+            // rbtnLoadMessage
+            // 
+            this.rbtnLoadMessage.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rbtnLoadMessage.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.rbtnLoadMessage.BorderColor = System.Drawing.Color.Red;
+            this.rbtnLoadMessage.BorderRadius = 5;
+            this.rbtnLoadMessage.BorderSize = 0;
+            this.rbtnLoadMessage.FlatAppearance.BorderSize = 0;
+            this.rbtnLoadMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbtnLoadMessage.ForeColor = System.Drawing.Color.White;
+            this.rbtnLoadMessage.Location = new System.Drawing.Point(1, 4);
+            this.rbtnLoadMessage.Name = "rbtnLoadMessage";
+            this.rbtnLoadMessage.Size = new System.Drawing.Size(60, 30);
+            this.rbtnLoadMessage.TabIndex = 0;
+            this.rbtnLoadMessage.Text = "↑";
+            this.rbtnLoadMessage.TextColor = System.Drawing.Color.White;
+            this.rbtnLoadMessage.UseVisualStyleBackColor = false;
+            this.rbtnLoadMessage.Click += new System.EventHandler(this.rbtnLoadMessage_Click);
+            // 
             // ServerChat
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -150,6 +173,7 @@
             this.Name = "ServerChat";
             this.Size = new System.Drawing.Size(678, 481);
             this.panel2.ResumeLayout(false);
+            this.chatPanel.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.chatSendPanel.ResumeLayout(false);
             this.ResumeLayout(false);
@@ -165,5 +189,6 @@
         private RoundButton sendBtn;
         private RichTextBox chatTxt;
         private RoundButton plusBtn;
+        private RoundButton rbtnLoadMessage;
     }
 }

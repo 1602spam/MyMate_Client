@@ -18,6 +18,7 @@ namespace MainForm.Controls
 
         public MdlProject Project { get; set; }
         public List<CheckListWork> works = new List<CheckListWork>();
+        public int progress { get; set; }
 
         public CheckListProject(MdlProject v)
         {
@@ -40,10 +41,13 @@ namespace MainForm.Controls
         //프로젝트 업데이트
         public void Invalidate()
         {
-            string str = ServerContainer.Instance.Items.Values.FirstOrDefault(MdlServer => MdlServer.Code == this.Project.ServerCode).Title;
-            label1.Text = "[ 서버 " + str + "의 프로젝트]";
-            label2.Text = "진척도 - 0 %";
-            label3.Text = "기한 - "; // + startDay + " ~ " + endDay;
+            string? str = ServerContainer.Instance.Items.Values.FirstOrDefault(MdlServer => MdlServer.Code == this.Project.ServerCode).Title;
+            if (str != null)
+            {
+                lblProgress.Text = "진척도 - 0 %";
+                lblTitle.Text = "제목 : "+Project.Title; // + startDay + " ~ " + endDay;
+                lblServer.Text = "[ 서버 " + str + "의 프로젝트]";
+            }
         }
     }
 }

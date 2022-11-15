@@ -65,8 +65,8 @@ namespace ClientModules.Containers
 #if DEBUG
                 Console.WriteLine("프로젝트 아이템 갱신: " + Items[i].Content + "->" + v.Content);
 #endif
+                Items.RemoveAt(i);
                 Items.Insert(i, v);
-                Items.RemoveAt(i + 1);
                 if (this.dataDistributedEvent != null)
                     this.dataDistributedEvent(v);
                 return;

@@ -29,24 +29,42 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblProgress = new System.Windows.Forms.Label();
+            this.lblServer = new System.Windows.Forms.Label();
             this.projectBtn = new System.Windows.Forms.Button();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label1);
+            this.panel1.Controls.Add(this.lblTitle);
+            this.panel1.Controls.Add(this.lblProgress);
+            this.panel1.Controls.Add(this.lblServer);
             this.panel1.Controls.Add(this.projectBtn);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(180, 150);
             this.panel1.TabIndex = 0;
+            // 
+            // lblProgress
+            // 
+            this.lblProgress.AutoSize = true;
+            this.lblProgress.Location = new System.Drawing.Point(15, 117);
+            this.lblProgress.Name = "lblProgress";
+            this.lblProgress.Size = new System.Drawing.Size(85, 15);
+            this.lblProgress.TabIndex = 5;
+            this.lblProgress.Text = "진척도 : 000%";
+            // 
+            // lblServer
+            // 
+            this.lblServer.AutoSize = true;
+            this.lblServer.Location = new System.Drawing.Point(15, 17);
+            this.lblServer.Name = "lblServer";
+            this.lblServer.Size = new System.Drawing.Size(114, 15);
+            this.lblServer.TabIndex = 4;
+            this.lblServer.Text = "[서버 n의 프로젝트]";
             // 
             // projectBtn
             // 
@@ -60,32 +78,14 @@
             this.projectBtn.UseVisualStyleBackColor = true;
             this.projectBtn.Click += new System.EventHandler(this.projectBtn_Click);
             // 
-            // label2
+            // lblTitle
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(15, 68);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(39, 15);
-            this.label2.TabIndex = 5;
-            this.label2.Text = "label2";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 111);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(39, 15);
-            this.label3.TabIndex = 6;
-            this.label3.Text = "label3";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(15, 26);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(39, 15);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "label1";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Location = new System.Drawing.Point(15, 68);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(34, 15);
+            this.lblTitle.TabIndex = 6;
+            this.lblTitle.Text = "제목:";
             // 
             // CheckListProject
             // 
@@ -103,9 +103,9 @@
         #endregion
 
         private Panel panel1;
-        private Label label2;
-        private Label label3;
-        private Label label1;
+        private Label lblProgress;
+        private Label lblServer;
         private Button projectBtn;
+        private Label lblTitle;
     }
 }

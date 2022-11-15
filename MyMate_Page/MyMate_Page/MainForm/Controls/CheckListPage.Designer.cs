@@ -42,8 +42,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lblMemberList = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.lblDate = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.lblTitle = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
@@ -107,6 +105,7 @@
             // 
             // panel4
             // 
+            this.panel4.BackColor = System.Drawing.Color.PaleTurquoise;
             this.panel4.Controls.Add(this.removeBtn);
             this.panel4.Controls.Add(this.editBtn);
             this.panel4.Controls.Add(this.CLDoneBox);
@@ -115,8 +114,6 @@
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.lblMemberList);
             this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.lblDate);
-            this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.lblTitle);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
@@ -151,7 +148,7 @@
             this.CLDoneBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CLDoneBox.CheckOnClick = true;
             this.CLDoneBox.FormattingEnabled = true;
-            this.CLDoneBox.Location = new System.Drawing.Point(23, 422);
+            this.CLDoneBox.Location = new System.Drawing.Point(23, 352);
             this.CLDoneBox.Name = "CLDoneBox";
             this.CLDoneBox.Size = new System.Drawing.Size(709, 144);
             this.CLDoneBox.TabIndex = 9;
@@ -161,7 +158,7 @@
             this.CLBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.CLBox.CheckOnClick = true;
             this.CLBox.FormattingEnabled = true;
-            this.CLBox.Location = new System.Drawing.Point(23, 233);
+            this.CLBox.Location = new System.Drawing.Point(23, 163);
             this.CLBox.Name = "CLBox";
             this.CLBox.Size = new System.Drawing.Size(709, 144);
             this.CLBox.TabIndex = 8;
@@ -170,7 +167,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(23, 394);
+            this.label9.Location = new System.Drawing.Point(23, 324);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(83, 15);
             this.label9.TabIndex = 7;
@@ -179,7 +176,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(23, 204);
+            this.label8.Location = new System.Drawing.Point(23, 134);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 15);
             this.label8.TabIndex = 6;
@@ -188,7 +185,7 @@
             // lblMemberList
             // 
             this.lblMemberList.AutoSize = true;
-            this.lblMemberList.Location = new System.Drawing.Point(38, 169);
+            this.lblMemberList.Location = new System.Drawing.Point(38, 99);
             this.lblMemberList.Name = "lblMemberList";
             this.lblMemberList.Size = new System.Drawing.Size(43, 15);
             this.lblMemberList.TabIndex = 5;
@@ -197,29 +194,11 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(23, 140);
+            this.label6.Location = new System.Drawing.Point(23, 70);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(67, 15);
             this.label6.TabIndex = 4;
             this.label6.Text = "< 참여자 >";
-            // 
-            // lblDate
-            // 
-            this.lblDate.AutoSize = true;
-            this.lblDate.Location = new System.Drawing.Point(38, 103);
-            this.lblDate.Name = "lblDate";
-            this.lblDate.Size = new System.Drawing.Size(31, 15);
-            this.lblDate.TabIndex = 3;
-            this.lblDate.Text = "기간";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(23, 75);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(55, 15);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "< 기간 >";
             // 
             // lblTitle
             // 
@@ -302,8 +281,6 @@
         private Label label8;
         private Label lblMemberList;
         private Label label6;
-        private Label lblDate;
-        private Label label4;
         private Label lblTitle;
         private Label label2;
         private Button removeBtn;

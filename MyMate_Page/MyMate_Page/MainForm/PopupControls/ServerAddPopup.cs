@@ -66,7 +66,7 @@ namespace MainForm.PopupControls
                 }
                 //ServerProtocol.Server server = new()
                 //Server.Instance.Send(Generater.Generate(server));
-                SvcDistributor.Instance.PutServer(new(ServerContainer.Instance.Items.Count+1, false, serverNameTxt.Text.Trim(), 1, codes));
+                SvcDistributor.Instance.PutServer(new(ServerContainer.Instance.Items.Count+1, false, serverNameTxt.Text.Trim(), MdlMyself.Instance.Code, codes));
                 this.Close();
             }
         }

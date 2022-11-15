@@ -1,4 +1,5 @@
-﻿using ClientModules.Models.Chat;
+﻿using ClientModules.Containers;
+using ClientModules.Models.Chat;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -22,27 +23,31 @@ namespace MainForm.Controls
         public ServerChat SC;
         public MdlServer server { get; set; }
 
+        //public ServerPage() { }
         public ServerPage(MdlServer s)
         {
             InitializeComponent();
 
-            server = new();
+            server = s;
             Initialize(s);
             
             SF = new ServerFriends(server);
+            SF.Parent = SFriendsPanel;
             SF.Dock = DockStyle.Fill;
 
             SCL = new ServerChatList(server);
+            SCL.Parent = SChatListPanel;
             SCL.Dock = DockStyle.Fill;
 
             SC = new ServerChat();
+            SC.Parent = SChatPanel;
             SC.Dock = DockStyle.Fill;
 
             SChatListPanel.Controls.Add(SCL);
             SChatPanel.Controls.Add(SC);
             SFriendsPanel.Controls.Add(SF);
 
-            this.Visible = false;
+            this.Visible = true;
             this.Dock = DockStyle.Fill;
         }
 

@@ -28,7 +28,6 @@ namespace MainForm.Controls
         public List<ShareChat> shareChats = new();
         public List<UserChatListItem> UserChatListItems = new();
 
-        public int Count { get; set; }
         public MsgPage()
         {
             InitializeComponent();

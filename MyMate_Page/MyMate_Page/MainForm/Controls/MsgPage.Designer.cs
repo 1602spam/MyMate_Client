@@ -36,14 +36,18 @@
             this.addChatBtn = new System.Windows.Forms.Button();
             this.panel5 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.rbtnLoadMessage = new MainForm.Controls.RoundButton();
             this.chatSendPanel = new System.Windows.Forms.TableLayoutPanel();
             this.chatTxt = new System.Windows.Forms.RichTextBox();
+            this.rbtnAdd = new MainForm.Controls.RoundButton();
+            this.rbtnSend = new MainForm.Controls.RoundButton();
             this.chatPanel = new System.Windows.Forms.Panel();
             this.chatListPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel6.SuspendLayout();
             this.panel5.SuspendLayout();
             this.chatSendPanel.SuspendLayout();
+            this.chatPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // chatListPanel
@@ -121,6 +125,25 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "- Chattings";
             // 
+            // rbtnLoadMessage
+            // 
+            this.rbtnLoadMessage.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rbtnLoadMessage.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.rbtnLoadMessage.BorderColor = System.Drawing.Color.Red;
+            this.rbtnLoadMessage.BorderRadius = 5;
+            this.rbtnLoadMessage.BorderSize = 0;
+            this.rbtnLoadMessage.FlatAppearance.BorderSize = 0;
+            this.rbtnLoadMessage.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbtnLoadMessage.ForeColor = System.Drawing.Color.White;
+            this.rbtnLoadMessage.Location = new System.Drawing.Point(3, 3);
+            this.rbtnLoadMessage.Name = "rbtnLoadMessage";
+            this.rbtnLoadMessage.Size = new System.Drawing.Size(60, 30);
+            this.rbtnLoadMessage.TabIndex = 0;
+            this.rbtnLoadMessage.Text = "↑";
+            this.rbtnLoadMessage.TextColor = System.Drawing.Color.White;
+            this.rbtnLoadMessage.UseVisualStyleBackColor = false;
+            this.rbtnLoadMessage.Click += new System.EventHandler(this.rbtnLoadMessage_Click);
+            // 
             // chatSendPanel
             // 
             this.chatSendPanel.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -129,6 +152,8 @@
             this.chatSendPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.chatSendPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.chatSendPanel.Controls.Add(this.chatTxt, 1, 0);
+            this.chatSendPanel.Controls.Add(this.rbtnAdd, 0, 0);
+            this.chatSendPanel.Controls.Add(this.rbtnSend, 2, 0);
             this.chatSendPanel.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.chatSendPanel.Location = new System.Drawing.Point(150, 424);
             this.chatSendPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -151,11 +176,49 @@
             this.chatTxt.TabIndex = 2;
             this.chatTxt.Text = "";
             // 
+            // rbtnAdd
+            // 
+            this.rbtnAdd.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rbtnAdd.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.rbtnAdd.BorderColor = System.Drawing.Color.Red;
+            this.rbtnAdd.BorderRadius = 2;
+            this.rbtnAdd.BorderSize = 0;
+            this.rbtnAdd.FlatAppearance.BorderSize = 0;
+            this.rbtnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbtnAdd.ForeColor = System.Drawing.Color.White;
+            this.rbtnAdd.Location = new System.Drawing.Point(3, 3);
+            this.rbtnAdd.Name = "rbtnAdd";
+            this.rbtnAdd.Size = new System.Drawing.Size(44, 24);
+            this.rbtnAdd.TabIndex = 3;
+            this.rbtnAdd.Text = "+";
+            this.rbtnAdd.TextColor = System.Drawing.Color.White;
+            this.rbtnAdd.UseVisualStyleBackColor = false;
+            // 
+            // rbtnSend
+            // 
+            this.rbtnSend.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.rbtnSend.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.rbtnSend.BorderColor = System.Drawing.Color.Red;
+            this.rbtnSend.BorderRadius = 2;
+            this.rbtnSend.BorderSize = 0;
+            this.rbtnSend.FlatAppearance.BorderSize = 0;
+            this.rbtnSend.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.rbtnSend.ForeColor = System.Drawing.Color.White;
+            this.rbtnSend.Location = new System.Drawing.Point(458, 3);
+            this.rbtnSend.Name = "rbtnSend";
+            this.rbtnSend.Size = new System.Drawing.Size(44, 24);
+            this.rbtnSend.TabIndex = 4;
+            this.rbtnSend.Text = "Send";
+            this.rbtnSend.TextColor = System.Drawing.Color.White;
+            this.rbtnSend.UseVisualStyleBackColor = false;
+            this.rbtnSend.Click += new System.EventHandler(this.sendBtn_Click);
+            // 
             // chatPanel
             // 
             this.chatPanel.AutoScroll = true;
-            this.chatPanel.AutoSize = true;
             this.chatPanel.BackColor = System.Drawing.Color.White;
+            this.chatPanel.Controls.Add(this.rbtnLoadMessage);
+            this.chatPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chatPanel.Location = new System.Drawing.Point(150, 0);
             this.chatPanel.Name = "chatPanel";
             this.chatPanel.Size = new System.Drawing.Size(505, 424);
@@ -177,8 +240,8 @@
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             this.chatSendPanel.ResumeLayout(false);
+            this.chatPanel.ResumeLayout(false);
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -197,5 +260,6 @@
         private Label label1;
         private RoundButton rbtnSend;
         private RoundButton rbtnAdd;
+        private RoundButton rbtnLoadMessage;
     }
 }

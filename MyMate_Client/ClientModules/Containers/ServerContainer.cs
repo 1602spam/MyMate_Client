@@ -65,7 +65,7 @@ namespace ClientModules.Containers
             }
         }
 
-        public List<MdlMessage>? GetMessages(int serverCode, int chatroomCode, int count)
+        public List<MdlMessage>? GetMessages(int serverCode, int chatroomCode, int count, int countLoaded)
         {
             MdlServer? server = GetServer(serverCode);
             if (server == null)
@@ -76,7 +76,7 @@ namespace ClientModules.Containers
                 return null;
             }
 
-            return server.Chatrooms.GetMessages(chatroomCode, count);
+            return server.Chatrooms.GetMessages(chatroomCode, count, countLoaded);
         }
 
         public MdlChatroom? GetChatroom(int serverCode, int chatroomCode)

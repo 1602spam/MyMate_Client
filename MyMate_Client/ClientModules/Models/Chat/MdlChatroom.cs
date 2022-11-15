@@ -27,7 +27,7 @@ namespace ClientModules.Models.Chat
 			Title = title;
 			Messages = new();
 		}
-		public MdlChatroom(ChannelProtocol.CHNNEL chatroom)
+		public MdlChatroom(ChannelProtocol.CHANNEL chatroom)
 		{
 			this.Code = chatroom.channelCode;
 			this.ServerCode = chatroom.serverCode;

@@ -26,7 +26,7 @@ namespace ClientModules.Models.CheckList
         public List<int> Users { get; set; }
         //public Dictionary<int, string> Users { get; set; }
         public bool IsDeleted { get; set; }
-        public MdlProject(ChannelProtocol.CHNNEL channel)
+        public MdlProject(ChannelProtocol.CHANNEL channel)
         {
             this.Code = channel.channelCode;
             this.ServerCode = channel.serverCode;

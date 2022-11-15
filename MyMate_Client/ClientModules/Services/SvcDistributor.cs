@@ -226,12 +226,12 @@ namespace ClientModules.Services
 
 				case DataType.CHNNEL:
 					{
-						ChannelProtocol.CHNNEL? channel;
-						channel = temp.Value as ChannelProtocol.CHNNEL;
+						ChannelProtocol.CHANNEL? channel;
+						channel = temp.Value as ChannelProtocol.CHANNEL;
 
 						if (channel == null)
 							break;
-                        switch(channel.state)
+                        switch(channel.type)
 						{
 							case ChannelType.Calender:
 

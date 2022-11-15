@@ -33,23 +33,59 @@ namespace MainForm.Controls
             this.Dock = DockStyle.Fill;
             this.Visible = false;
 
+            //서버 컨테이너에 서버가 추가/갱신 될 때마다 채팅을 새로고침하는 메서드를 등록
             ServerContainer.Instance.DataDistributedEvent += AddOrUpdateUserChat;
-            //테스트용 서버 1과 그 안의 채팅방 1을 생성
+
+            //테스트용 서버 1과 그 안의 채팅방 1을 생성하고 Distributor에서 처리 => 각 컨테이너에 넣음
             MdlServer s = new(ServerContainer.Instance.Items.Count + 1, true, "테스트용 서버", 1);
             SvcDistributor.Instance.PutServer(s);
-            SvcDistributor.Instance.PutChatroom(new(s.Chatrooms.Items.Count + 1, s.Code, "테스트용 채팅방 1"));
+            MdlChatroom c = new(s.Chatrooms.Items.Count + 1, s.Code, "테스트용 채팅방 1");
+            SvcDistributor.Instance.PutChatroom(c);
 
+            //이 페이지에서 다룰 서버와 채팅방을 가져옴
             this.Server = s;
+            this.Chatroom = c;
 
+            rbtnLoadMessage.Parent = this;
+            rbtnLoadMessage.Left += 502;
+        }
+
+        private void MsgPage_Load(object sender, EventArgs e)
+        {
             DateTime d = DateTime.Now;
-            SvcDistributor.Instance.PutMessage(new MdlMessage(0, 1, 1, 1, "메시지 1", new DateTime(d.Year - 1, d.Month, d.Day, d.Hour, d.Minute, d.Second)));
-            SvcDistributor.Instance.PutMessage(new MdlMessage(1, 1, 1, 1, "메시지 1", new DateTime(d.Year, d.Month, d.Day - 2, d.Hour, d.Minute, d.Second)));
-            SvcDistributor.Instance.PutMessage(new MdlMessage(2, 1, 1, 1, "메시지 1", new DateTime(d.Year, d.Month, d.Day - 1, d.Hour, d.Minute, d.Second)));
-            SvcDistributor.Instance.PutMessage(new MdlMessage(3, 1, 1, 1, "메시지 1", d));
-            SvcDistributor.Instance.PutMessage(new MdlMessage(4, 1, 1, MdlMyself.Instance.Code, "메시지 1", d));
-            SvcDistributor.Instance.PutMessage(new MdlMessage(5, 1, 1, MdlMyself.Instance.Code, "메시지 1", d));
 
-            SwitchChat(s.Code);
+            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, 1, "메시지 1", new DateTime(d.Year - 1, d.Month, d.Day, d.Hour, d.Minute, d.Second)));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, 1, "메시지 1", new DateTime(d.Year, d.Month, d.Day - 2, d.Hour, d.Minute, d.Second)));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, 1, "메시지 1", new DateTime(d.Year, d.Month, d.Day - 1, d.Hour, d.Minute, d.Second)));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, 1, "메시지 1", d));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "메시지 1", d));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "메시지 1", d));
+
+            for (int i = 0; i < 100; i++) {
+                SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "메시지"+i.ToString(), d));
+            }
+
+            SwitchChat(this.Server.Code, this.Chatroom.Code);
+        }
+
+        public void SwitchChat(int serverCode, int channelcode)
+        {
+            ClearChat();
+
+            this.Server = ServerContainer.Instance.GetServer(serverCode);
+            this.Chatroom = ServerContainer.Instance.GetChatroom(serverCode, channelcode);
+
+            if (Server == null || Chatroom == null)
+                return;
+
+            foreach (UserChatListItem v in UserChatListItems)
+            {
+                v.Initialize();
+            }
+
+            LoadMessageUpToN(10);
+            //해당 채팅방 안의 메시지 컨테이너 이벤트로 메시지 갱신 메서드를 등록
+            Chatroom.Messages.DataDistributedEvent += AddOrUpdateMessage;
         }
 
         void Send()
@@ -60,17 +96,19 @@ namespace MainForm.Controls
             if (chatTxt.Text.Trim().Length == 0)
                 return;
 
+            //MdlMyself: 로그인 했을 때 받아오는 나의 정보, MdlMyself.Instance
             MdlMyself me = MdlMyself.Instance;
 
+            //프로토콜대로 객체 만들기
             MessageProtocol.MESSAGE msg = new();
             msg.Set(this.Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, me.Code, chatTxt.Text, DateTime.Now, false);
+
+            //전송
             ClientToServer.Server.Instance.Send(Generater.Generate(msg));
+
+            //받
             SvcDistributor.Instance.PutMessage(new(msg));
             chatTxt.Text = String.Empty;
-        }
-
-        private void MsgPage_Load(object sender, EventArgs e)
-        {
         }
 
         public void ClearChat()
@@ -80,31 +118,75 @@ namespace MainForm.Controls
             chatPanel.Controls.Clear();
             lchats.Clear();
             rchats.Clear();
-            Count = 0;
+            rbtnLoadMessage.BringToFront();
         }
 
         private void LoadMessageUpToN(int n)
         {
             int i;
-            //최대 n개만큼 불러옴
             List<MdlMessage>? Messages_ = new();
+            //채팅방 안에 남은 메시지 - 지금 표시된 메시지 개수
             i = Chatroom.Messages.Items.Count - (lchats.Count + rchats.Count);
-            i = i >= n ? n : i;
+            //지금 표시된 메시지 개수보다 많이 남아있다면 n개, 적게 있다면 i개만 불러옴
+            i = (i >= n) ? n : i;
 
-            Messages_ = ServerContainer.Instance.GetMessages(Server.Code, Chatroom.Code, i);
+            Messages_ = ServerContainer.Instance.GetMessages(Server.Code, Chatroom.Code, i, (lchats.Count+rchats.Count));
 
             //해당 채팅방 안의 메시지 컨테이너로부터 정보를 리스트로 반환하고 각 항목에 대해 추가 혹은 갱신 처리
             if (Messages_ != null)
             {
-                Messages_.Reverse();
                 foreach (MdlMessage mdl in Messages_)
                 {
-                    AddOrUpdateMessage(mdl);
+                    AddOrUpdateMessage(mdl, true);
                 }
             }
+            //지금 표시된 메시지 개수
+            i = Chatroom.Messages.Items.Count - (lchats.Count + rchats.Count);
+            //
+            rbtnLoadMessage.Visible = i > 0 ? true : false;
         }
 
         private void AddOrUpdateMessage(object v)
+        {
+            //채팅방 정보가 없을 경우 리턴
+            if (Chatroom == null)
+                return;
+
+            //메시지 정보가 없을 경우 리턴
+            MdlMessage? m = v as MdlMessage;
+            if (m == null)
+                return;
+
+            //명령어라면 ShareChat으로 처리
+            string[] parses = m.Context.Split(' ');
+            if (parses[0] == "/share")
+            {
+                if (parses[1] == "cal")
+                    {
+                    int i = int.Parse(parses[2]);
+                    }
+                else if (parses[1] == "chk")
+                    {
+                    }
+            }
+            //자기 자신이 보낸 메시지라면 Rchat에 대해 처리
+            else if (m.Creator == MdlMyself.Instance.Code)
+            {
+                //이미 있는 메시지인지 확인해서 없다면 추가, 있다면 갱신
+                MdlMessage? message = Chatroom.Messages.Items.LastOrDefault(MdlMessage => MdlMessage.Code == m.Code);
+                AddOrUpdateRChat(m, false);
+                return;
+            }
+            else
+            //아니라면 Lchat에 대해 처리
+            {
+                MdlMessage? message = Chatroom.Messages.Items.LastOrDefault(MdlMessage => MdlMessage.Code == m.Code);
+                AddOrUpdateLChat(m, false);
+                return;
+            }
+        }
+
+        private void AddOrUpdateMessage(object v, bool onTop)
         {
             //채팅방 정보가 없을 경우 리턴
             if (Chatroom == null)
@@ -119,14 +201,14 @@ namespace MainForm.Controls
             {
                 //이미 있는 메시지인지 확인해서 없다면 추가, 있다면 갱신
                 MdlMessage? message = Chatroom.Messages.Items.LastOrDefault(MdlMessage => MdlMessage.Code == m.Code);
-                AddOrUpdateRChat(m);
+                AddOrUpdateRChat(m, onTop);
                 return;
             }
             else
             //아니라면 Lchat에 대해 처리
             {
                 MdlMessage? message = Chatroom.Messages.Items.LastOrDefault(MdlMessage => MdlMessage.Code == m.Code);
-                AddOrUpdateLChat(m);
+                AddOrUpdateLChat(m, onTop);
                 return;
             }
         }
@@ -137,25 +219,25 @@ namespace MainForm.Controls
             this.chatTxt.Focus();
         }
 
-        void AddRChat(MdlMessage message)
+        void AddRChat(MdlMessage message, bool onTop)
         {
             var rchat = new Rchat(chatPanel.Width, message);
             chatPanel.Controls.Add(rchat);
-            rchat.BringToFront();
+            if (onTop) { rchat.SendToBack(); } else { rchat.BringToFront(); }
             rchat.Dock = DockStyle.Top;
             rchats.Add(rchat);
         }
 
-        void AddLChat(MdlMessage message)
+        void AddLChat(MdlMessage message, bool onTop)
         {
             var lchat = new Lchat(chatPanel.Width, message);
             chatPanel.Controls.Add(lchat);
-            lchat.BringToFront();
+            if (onTop) { lchat.SendToBack(); } else { lchat.BringToFront(); }
             lchat.Dock = DockStyle.Top;
             lchats.Add(lchat);
         }
 
-        void AddOrUpdateLChat(MdlMessage message)
+        void AddOrUpdateLChat(MdlMessage message, bool onTop)
         {
             Lchat? l;
 #pragma warning disable CS8602 // null 가능 참조에 대한 역참조입니다.
@@ -163,13 +245,13 @@ namespace MainForm.Controls
 #pragma warning restore CS8602 // null 가능 참조에 대한 역참조입니다.
             if (l == null)
             {
-                AddLChat(message);
+                AddLChat(message, onTop);
                 return;
             }
             l.Initialize(message);
         }
 
-        void AddOrUpdateRChat(MdlMessage message)
+        void AddOrUpdateRChat(MdlMessage message, bool onTop)
         {
             Rchat? r;
 #pragma warning disable CS8602 // null 가능 참조에 대한 역참조입니다.
@@ -177,7 +259,7 @@ namespace MainForm.Controls
 #pragma warning restore CS8602 // null 가능 참조에 대한 역참조입니다.
             if (r == null)
             {
-                AddRChat(message);
+                AddRChat(message, onTop);
                 return;
             }
             r.Initialize(message);
@@ -227,25 +309,11 @@ namespace MainForm.Controls
             panel1.Controls.Add(userChat);
         }
 
-        public void SwitchChat(int serverCode)
+        private void rbtnLoadMessage_Click(object sender, EventArgs e)
         {
-            ClearChat();
-
-            this.Server = ServerContainer.Instance.GetServer(serverCode);
-            this.Chatroom = ServerContainer.Instance.GetChatroom(serverCode, 1);
-
-            if (Server == null || Chatroom == null)
-                return;
-
-            foreach (UserChatListItem v in UserChatListItems)
-            {
-                v.Initialize();
-            }
-
             LoadMessageUpToN(10);
-            //해당 채팅방 안의 메시지 컨테이너 이벤트로 메시지 갱신 메서드를 등록
-            Chatroom.Messages.DataDistributedEvent += AddOrUpdateMessage;
         }
+
 
         /*
 		private void chatTxt_KeyDown(object sender, KeyEventArgs e)

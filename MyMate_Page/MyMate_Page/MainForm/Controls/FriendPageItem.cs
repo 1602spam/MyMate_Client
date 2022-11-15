@@ -36,7 +36,6 @@ namespace MainForm.Controls
             if (MessageBox.Show("정말로 삭제하시겠습니까?", "친구 삭제", MessageBoxButtons.OKCancel) == DialogResult.OK)
             {
                 SvcDistributor.Instance.PutFriend(new MdlFriend(friend.FriendCode, true));
-                MessageBox.Show("asd");
             }
         }
 
@@ -60,7 +59,7 @@ namespace MainForm.Controls
                     {
                         //해당 채팅방으로 이동 후 리턴
                         MainPage.mainPage.ShowMsgPage();
-                        MainPage.mainPage.msgPage.SwitchChat(check.Server.Code);
+                        MainPage.mainPage.msgPage.SwitchChat(check.Server.Code,1);
                         return;
                     }
                 }
@@ -72,7 +71,7 @@ namespace MainForm.Controls
             SvcDistributor.Instance.PutServer(s);
             SvcDistributor.Instance.PutChatroom(new(s.Chatrooms.Items.Count + 1, s.Code, "chatroomname"));
             MainPage.mainPage.ShowMsgPage();
-            MainPage.mainPage.msgPage.SwitchChat(s.Code);
+            MainPage.mainPage.msgPage.SwitchChat(s.Code,1);
             return;
         }
     }

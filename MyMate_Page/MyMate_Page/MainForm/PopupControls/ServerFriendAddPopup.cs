@@ -60,6 +60,7 @@ namespace MainForm.PopupControls
                 List<int> codes = new();
                 foreach (string item in userList.CheckedItems)
                 {
+                    codes.Add(int.Parse(item));
                 }
             }
         }

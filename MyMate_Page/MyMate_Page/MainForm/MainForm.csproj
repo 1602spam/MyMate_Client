@@ -13,11 +13,17 @@
   </ItemGroup>
 
   <ItemGroup>
+<<<<<<< HEAD
+=======
+    <Reference Include="Calender">
+      <HintPath>..\..\..\DLL\Calender.dll</HintPath>
+    </Reference>
+>>>>>>> a2af5317594006ec438a230b01be7ea47dc922e0
     <Reference Include="ClientToServer">
-      <HintPath>..\..\..\MyMate_Network\DLL\ClientToServer.dll</HintPath>
+      <HintPath>..\..\..\DLL\ClientToServer.dll</HintPath>
     </Reference>
     <Reference Include="MyMate_Network_Library">
-      <HintPath>..\..\..\MyMate_Network\DLL\MyMate_Network_Library.dll</HintPath>
+      <HintPath>..\..\..\DLL\MyMate_Network_Library.dll</HintPath>
     </Reference>
   </ItemGroup>
 

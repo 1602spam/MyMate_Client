@@ -38,7 +38,11 @@ namespace MainForm.Controls
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MainPage.mainPage.msgPage.SwitchChat(Server.Code);
+            if (this.Server.Code == MainPage.mainPage.msgPage.Server.Code)
+            {
+                return;
+            }
+            MainPage.mainPage.msgPage.SwitchChat(Server.Code,1);
         }
 
         public void Initialize()

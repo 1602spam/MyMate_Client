@@ -77,7 +77,7 @@ namespace ClientModules.Containers
             return;
         }
 
-        public List<MdlMessage>? GetMessages(int chatroomCode, int count)
+        public List<MdlMessage>? GetMessages(int chatroomCode, int count, int countLoaded)
         {
             int j = 0;
             MdlChatroom? c;
@@ -101,6 +101,11 @@ namespace ClientModules.Containers
 #endif
                     foreach (var item in c.Messages.Items.Reverse())
                     {
+                        if (countLoaded != 0)
+                        {
+                            countLoaded--;
+                            continue;
+                        }
                         count--;
                         Console.WriteLine(item.Context);
                         mdlMessages.Add(item);

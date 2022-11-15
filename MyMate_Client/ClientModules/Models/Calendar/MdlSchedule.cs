@@ -32,7 +32,7 @@ namespace ClientModules.Models.Calendar
             Items = new ScheduleItemContainer();
         }
 
-        public MdlSchedule(ChannelProtocol.CHNNEL c)
+        public MdlSchedule(ChannelProtocol.CHANNEL c)
         {
             Code = c.channelCode;
             ServerCode = c.serverCode;

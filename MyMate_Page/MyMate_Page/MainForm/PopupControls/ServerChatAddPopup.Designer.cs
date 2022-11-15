@@ -44,7 +44,7 @@
             this.closeBtn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.closeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(9)))), ((int)(((byte)(100)))));
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.closeBtn.Location = new System.Drawing.Point(223, -1);
+            this.closeBtn.Location = new System.Drawing.Point(218, 0);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(25, 25);
@@ -84,19 +84,22 @@
             // 
             // OKBtn
             // 
+            this.OKBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.OKBtn.FlatAppearance.BorderSize = 0;
+            this.OKBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OKBtn.Location = new System.Drawing.Point(66, 125);
             this.OKBtn.Name = "OKBtn";
             this.OKBtn.Size = new System.Drawing.Size(103, 23);
             this.OKBtn.TabIndex = 11;
             this.OKBtn.Text = "확인";
-            this.OKBtn.UseVisualStyleBackColor = true;
+            this.OKBtn.UseVisualStyleBackColor = false;
             this.OKBtn.Click += new System.EventHandler(this.OKBtn_Click);
             // 
             // lblWarning
             // 
             this.lblWarning.AutoSize = true;
             this.lblWarning.ForeColor = System.Drawing.Color.Red;
-            this.lblWarning.Location = new System.Drawing.Point(35, 107);
+            this.lblWarning.Location = new System.Drawing.Point(35, 100);
             this.lblWarning.Name = "lblWarning";
             this.lblWarning.Size = new System.Drawing.Size(174, 15);
             this.lblWarning.TabIndex = 12;
@@ -106,7 +109,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(247, 160);
+            this.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.ClientSize = new System.Drawing.Size(240, 160);
             this.Controls.Add(this.lblWarning);
             this.Controls.Add(this.OKBtn);
             this.Controls.Add(this.chatNameTxt);

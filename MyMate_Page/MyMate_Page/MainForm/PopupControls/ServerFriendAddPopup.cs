@@ -18,8 +18,9 @@ namespace MainForm.PopupControls
     {
         public int serverCode;
         public List<MdlFriend> chatMember = new();
-
-        public ServerFriendAddPopup(int serverCode)
+        private Point mousePoint;
+        
+    public ServerFriendAddPopup(int serverCode)
         {
             InitializeComponent();
             this.serverCode = serverCode;
@@ -67,12 +68,20 @@ namespace MainForm.PopupControls
 
         private void ServerFriendAddPopup_MouseDown(object sender, MouseEventArgs e)
         {
-
+            
+        mousePoint = new Point(e.X, e.Y); //지금 윈도우의 좌표저장
+        
         }
 
         private void ServerFriendAddPopup_MouseMove(object sender, MouseEventArgs e)
         {
-
+            
+            if (e.Button == MouseButtons.Left)
+            {
+                int x = mousePoint.X - e.X;
+                int y = mousePoint.Y - e.Y;
+                Location = new Point(this.Left - x, this.Top - y);
+            }
         }
     }
 }

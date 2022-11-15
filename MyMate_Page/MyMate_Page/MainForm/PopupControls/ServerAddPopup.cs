@@ -33,7 +33,7 @@ namespace MainForm.PopupControls
                 userList.Items.Add(item.Nickname.ToString());
             }
         }
-
+        private Point mousePoint;
         private void closeBtn_Click(object sender, EventArgs e)
         {
             this.Close();
@@ -73,12 +73,17 @@ namespace MainForm.PopupControls
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
-
+            mousePoint = new Point(e.X, e.Y); //지금 윈도우의 좌표저장
         }
 
         private void panel1_MouseMove(object sender, MouseEventArgs e)
         {
-
+            if (e.Button == MouseButtons.Left)
+            {
+                int x = mousePoint.X - e.X;
+                int y = mousePoint.Y - e.Y;
+                Location = new Point(this.Left - x, this.Top - y);
+            }
         }
     }
 }

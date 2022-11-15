@@ -137,18 +137,22 @@
             // 
             // OKBtn
             // 
+            this.OKBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.OKBtn.FlatAppearance.BorderSize = 0;
+            this.OKBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OKBtn.Location = new System.Drawing.Point(21, 270);
             this.OKBtn.Name = "OKBtn";
-            this.OKBtn.Size = new System.Drawing.Size(75, 23);
+            this.OKBtn.Size = new System.Drawing.Size(83, 23);
             this.OKBtn.TabIndex = 17;
             this.OKBtn.Text = "확인";
-            this.OKBtn.UseVisualStyleBackColor = true;
+            this.OKBtn.UseVisualStyleBackColor = false;
             this.OKBtn.Click += new System.EventHandler(this.OKBtn_Click);
             // 
             // CreateProjectPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ClientSize = new System.Drawing.Size(312, 305);
             this.Controls.Add(this.OKBtn);
             this.Controls.Add(this.label5);

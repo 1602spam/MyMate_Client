@@ -38,7 +38,7 @@
             // 
             // tbID
             // 
-            this.tbID.Location = new System.Drawing.Point(82, 114);
+            this.tbID.Location = new System.Drawing.Point(86, 111);
             this.tbID.Name = "tbID";
             this.tbID.Size = new System.Drawing.Size(159, 23);
             this.tbID.TabIndex = 0;
@@ -46,7 +46,7 @@
             // lblID
             // 
             this.lblID.AutoSize = true;
-            this.lblID.Location = new System.Drawing.Point(82, 96);
+            this.lblID.Location = new System.Drawing.Point(57, 114);
             this.lblID.Name = "lblID";
             this.lblID.Size = new System.Drawing.Size(19, 15);
             this.lblID.TabIndex = 1;
@@ -120,6 +120,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ClientSize = new System.Drawing.Size(328, 450);
             this.Controls.Add(this.rbtnProfile);
             this.Controls.Add(this.lblUsername);

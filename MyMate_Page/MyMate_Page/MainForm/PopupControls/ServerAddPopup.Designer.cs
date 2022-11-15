@@ -49,19 +49,22 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(232, 375);
+            this.panel1.Size = new System.Drawing.Size(270, 375);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // OKBtn
             // 
-            this.OKBtn.Location = new System.Drawing.Point(69, 341);
+            this.OKBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.OKBtn.FlatAppearance.BorderSize = 0;
+            this.OKBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.OKBtn.Location = new System.Drawing.Point(91, 341);
             this.OKBtn.Name = "OKBtn";
             this.OKBtn.Size = new System.Drawing.Size(96, 23);
             this.OKBtn.TabIndex = 8;
             this.OKBtn.Text = "확인";
-            this.OKBtn.UseVisualStyleBackColor = true;
+            this.OKBtn.UseVisualStyleBackColor = false;
             this.OKBtn.Click += new System.EventHandler(this.OKBtn_Click);
             // 
             // closeBtn
@@ -72,7 +75,7 @@
             this.closeBtn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.closeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(9)))), ((int)(((byte)(100)))));
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.closeBtn.Location = new System.Drawing.Point(207, 0);
+            this.closeBtn.Location = new System.Drawing.Point(245, 0);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(25, 25);
@@ -89,16 +92,16 @@
             "user2",
             "user3",
             "user4"});
-            this.userList.Location = new System.Drawing.Point(24, 78);
+            this.userList.Location = new System.Drawing.Point(37, 79);
             this.userList.Name = "userList";
-            this.userList.Size = new System.Drawing.Size(185, 256);
+            this.userList.Size = new System.Drawing.Size(207, 256);
             this.userList.TabIndex = 3;
             // 
             // serverNameTxt
             // 
-            this.serverNameTxt.Location = new System.Drawing.Point(72, 49);
+            this.serverNameTxt.Location = new System.Drawing.Point(69, 49);
             this.serverNameTxt.Name = "serverNameTxt";
-            this.serverNameTxt.Size = new System.Drawing.Size(137, 23);
+            this.serverNameTxt.Size = new System.Drawing.Size(175, 23);
             this.serverNameTxt.TabIndex = 2;
             // 
             // label2
@@ -114,7 +117,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(61, 9);
+            this.label1.Location = new System.Drawing.Point(69, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 21);
             this.label1.TabIndex = 0;
@@ -124,7 +127,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(232, 375);
+            this.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.ClientSize = new System.Drawing.Size(270, 375);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ServerAddPopup";

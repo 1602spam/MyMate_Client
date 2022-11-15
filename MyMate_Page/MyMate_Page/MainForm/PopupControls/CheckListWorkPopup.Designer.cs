@@ -52,6 +52,7 @@
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.panel1.Controls.Add(this.label7);
             this.panel1.Controls.Add(this.label4);
             this.panel1.Controls.Add(this.label5);
@@ -67,6 +68,8 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(288, 370);
             this.panel1.TabIndex = 0;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
+            this.panel1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseMove);
             // 
             // label7
             // 
@@ -104,13 +107,15 @@
             // 
             // editProjectBtn
             // 
+            this.editProjectBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.editProjectBtn.FlatAppearance.BorderSize = 0;
-            this.editProjectBtn.Location = new System.Drawing.Point(102, 297);
+            this.editProjectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.editProjectBtn.Location = new System.Drawing.Point(89, 302);
             this.editProjectBtn.Name = "editProjectBtn";
             this.editProjectBtn.Size = new System.Drawing.Size(75, 23);
             this.editProjectBtn.TabIndex = 1;
             this.editProjectBtn.Text = "수정";
-            this.editProjectBtn.UseVisualStyleBackColor = true;
+            this.editProjectBtn.UseVisualStyleBackColor = false;
             this.editProjectBtn.Click += new System.EventHandler(this.editProjectBtn_Click);
             // 
             // startDayTxt
@@ -156,6 +161,7 @@
             // 
             // panel2
             // 
+            this.panel2.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.panel2.Controls.Add(this.workListBox);
             this.panel2.Controls.Add(this.workTxt);
             this.panel2.Controls.Add(this.removeWorkBtn);
@@ -167,6 +173,8 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(355, 370);
             this.panel2.TabIndex = 1;
+            this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
+            this.panel2.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseMove);
             // 
             // workListBox
             // 
@@ -186,24 +194,28 @@
             // 
             // removeWorkBtn
             // 
+            this.removeWorkBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.removeWorkBtn.FlatAppearance.BorderSize = 0;
+            this.removeWorkBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.removeWorkBtn.Location = new System.Drawing.Point(41, 335);
             this.removeWorkBtn.Name = "removeWorkBtn";
             this.removeWorkBtn.Size = new System.Drawing.Size(75, 23);
             this.removeWorkBtn.TabIndex = 4;
             this.removeWorkBtn.Text = "삭제";
-            this.removeWorkBtn.UseVisualStyleBackColor = true;
+            this.removeWorkBtn.UseVisualStyleBackColor = false;
             this.removeWorkBtn.Click += new System.EventHandler(this.removeWorkBtn_Click);
             // 
             // addWorkBtn
             // 
+            this.addWorkBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.addWorkBtn.FlatAppearance.BorderSize = 0;
+            this.addWorkBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.addWorkBtn.Location = new System.Drawing.Point(250, 57);
             this.addWorkBtn.Name = "addWorkBtn";
             this.addWorkBtn.Size = new System.Drawing.Size(75, 23);
             this.addWorkBtn.TabIndex = 3;
             this.addWorkBtn.Text = "추가";
-            this.addWorkBtn.UseVisualStyleBackColor = true;
+            this.addWorkBtn.UseVisualStyleBackColor = false;
             this.addWorkBtn.Click += new System.EventHandler(this.addWorkBtn_Click);
             // 
             // label2

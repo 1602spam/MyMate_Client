@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UserProfilePopup));
             this.closeBtn = new System.Windows.Forms.Button();
             this.lblUserName = new System.Windows.Forms.Label();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -35,7 +36,7 @@
             this.lblName = new System.Windows.Forms.Label();
             this.roundButton1 = new MainForm.Controls.RoundButton();
             this.rtbIntroduction = new System.Windows.Forms.RichTextBox();
-            this.btnChat = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // closeBtn
@@ -92,13 +93,17 @@
             // 
             // roundButton1
             // 
-            this.roundButton1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.roundButton1.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.roundButton1.BorderColor = System.Drawing.Color.Red;
+            this.roundButton1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.roundButton1.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.roundButton1.BackgroundColor = System.Drawing.SystemColors.InactiveBorder;
+            this.roundButton1.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("roundButton1.BackgroundImage")));
+            this.roundButton1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.roundButton1.BorderColor = System.Drawing.Color.RebeccaPurple;
             this.roundButton1.BorderRadius = 40;
             this.roundButton1.BorderSize = 0;
             this.roundButton1.FlatAppearance.BorderSize = 0;
             this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundButton1.Font = new System.Drawing.Font("맑은 고딕", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.roundButton1.ForeColor = System.Drawing.Color.White;
             this.roundButton1.Location = new System.Drawing.Point(94, 27);
             this.roundButton1.Name = "roundButton1";
@@ -117,23 +122,27 @@
             this.rtbIntroduction.TabIndex = 7;
             this.rtbIntroduction.Text = "";
             // 
-            // btnChat
+            // button1
             // 
-            this.btnChat.Location = new System.Drawing.Point(85, 312);
-            this.btnChat.Name = "btnChat";
-            this.btnChat.Size = new System.Drawing.Size(98, 25);
-            this.btnChat.TabIndex = 8;
-            this.btnChat.Text = "채팅 바로가기";
-            this.btnChat.UseVisualStyleBackColor = true;
-            this.btnChat.Click += new System.EventHandler(this.button1_Click);
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.Color.Black;
+            this.button1.Location = new System.Drawing.Point(85, 305);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(98, 25);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "채팅 바로가기";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // UserProfilePopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.Gainsboro;
+            this.BackColor = System.Drawing.SystemColors.InactiveBorder;
             this.ClientSize = new System.Drawing.Size(270, 350);
-            this.Controls.Add(this.btnChat);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.rtbIntroduction);
             this.Controls.Add(this.roundButton1);
             this.Controls.Add(this.lblName);
@@ -162,6 +171,6 @@
         private Label lblName;
         private RoundButton roundButton1;
         private RichTextBox rtbIntroduction;
-        private Button btnChat;
+        private Button button1;
     }
 }

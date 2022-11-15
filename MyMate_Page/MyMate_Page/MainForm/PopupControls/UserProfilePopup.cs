@@ -30,7 +30,7 @@ namespace MainForm.Controls
             rtbIntroduction.Text = u.Introduction;
             if (User.Code == MdlMyself.Instance.Code)
             {
-                btnChat.Visible = false;
+                button1.Visible = false;
             }
         }
 
@@ -43,6 +43,7 @@ namespace MainForm.Controls
 
         private void Profile_MouseMove(object sender, MouseEventArgs e)
         {
+            
             if (e.Button == MouseButtons.Left)
             {
                 int x = mousePoint.X - e.X;

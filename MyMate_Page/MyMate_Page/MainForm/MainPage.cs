@@ -258,7 +258,7 @@ namespace MainForm
         public void profileBtn_Click(object sender, EventArgs e)
         {
 			//프로필 버튼 클릭 시
-            var profile = new UserProfilePopup();
+            var profile = new UserProfilePopup(MdlMyself.Instance);
             profile.ShowDialog();
         }
 
@@ -268,7 +268,5 @@ namespace MainForm
             var serverAddPopup = new ServerAddPopup();
             serverAddPopup.ShowDialog();
         }
-
-
 	}
 }

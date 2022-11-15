@@ -44,9 +44,10 @@
             // 
             // btnReceive
             // 
-            this.btnReceive.Location = new System.Drawing.Point(460, 4);
+            this.btnReceive.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnReceive.Location = new System.Drawing.Point(475, 0);
             this.btnReceive.Name = "btnReceive";
-            this.btnReceive.Size = new System.Drawing.Size(55, 23);
+            this.btnReceive.Size = new System.Drawing.Size(55, 31);
             this.btnReceive.TabIndex = 1;
             this.btnReceive.Text = "받기";
             this.btnReceive.UseVisualStyleBackColor = true;

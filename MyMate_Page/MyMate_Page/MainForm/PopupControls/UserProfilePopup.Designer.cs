@@ -31,8 +31,8 @@
             this.closeBtn = new System.Windows.Forms.Button();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblName = new System.Windows.Forms.Label();
-            this.emailLabel = new System.Windows.Forms.Label();
-            this.statusLabel = new System.Windows.Forms.Label();
+            this.lblEmail = new System.Windows.Forms.Label();
+            this.lblIntroduction = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -68,38 +68,40 @@
             this.lblName.Text = "TextUsername";
             this.lblName.Click += new System.EventHandler(this.nameLabel_Click);
             // 
-            // emailLabel
+            // lblEmail
             // 
-            this.emailLabel.AutoSize = true;
-            this.emailLabel.Location = new System.Drawing.Point(12, 212);
-            this.emailLabel.Name = "emailLabel";
-            this.emailLabel.Size = new System.Drawing.Size(52, 15);
-            this.emailLabel.TabIndex = 3;
-            this.emailLabel.Text = "E-mail : ";
+            this.lblEmail.AutoSize = true;
+            this.lblEmail.Location = new System.Drawing.Point(12, 212);
+            this.lblEmail.Name = "lblEmail";
+            this.lblEmail.Size = new System.Drawing.Size(52, 15);
+            this.lblEmail.TabIndex = 3;
+            this.lblEmail.Text = "E-mail : ";
             // 
-            // statusLabel
+            // lblIntroduction
             // 
-            this.statusLabel.AutoSize = true;
-            this.statusLabel.Location = new System.Drawing.Point(12, 250);
-            this.statusLabel.Name = "statusLabel";
-            this.statusLabel.Size = new System.Drawing.Size(84, 15);
-            this.statusLabel.TabIndex = 4;
-            this.statusLabel.Text = "Introduction : ";
+            this.lblIntroduction.AutoSize = true;
+            this.lblIntroduction.Location = new System.Drawing.Point(12, 250);
+            this.lblIntroduction.Name = "lblIntroduction";
+            this.lblIntroduction.Size = new System.Drawing.Size(84, 15);
+            this.lblIntroduction.TabIndex = 4;
+            this.lblIntroduction.Text = "Introduction : ";
+            this.lblIntroduction.Click += new System.EventHandler(this.statusLabel_Click);
             // 
-            // Profile
+            // UserProfilePopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.Gainsboro;
             this.ClientSize = new System.Drawing.Size(270, 350);
-            this.Controls.Add(this.statusLabel);
-            this.Controls.Add(this.emailLabel);
+            this.Controls.Add(this.lblIntroduction);
+            this.Controls.Add(this.lblEmail);
             this.Controls.Add(this.lblName);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.closeBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Profile";
+            this.Name = "UserProfilePopup";
             this.Text = "Profile";
+            this.Load += new System.EventHandler(this.UserProfilePopup_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Profile_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.Profile_MouseMove);
             this.Move += new System.EventHandler(this.Profile_Move);
@@ -114,7 +116,7 @@
         private Button closeBtn;
         private PictureBox pictureBox1;
         private Label lblName;
-        private Label emailLabel;
-        private Label statusLabel;
+        private Label lblEmail;
+        private Label lblIntroduction;
     }
 }

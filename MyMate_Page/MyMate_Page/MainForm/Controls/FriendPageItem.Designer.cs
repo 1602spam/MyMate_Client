@@ -50,6 +50,7 @@
             this.rbtnProfile.TabIndex = 0;
             this.rbtnProfile.TextColor = System.Drawing.Color.White;
             this.rbtnProfile.UseVisualStyleBackColor = false;
+            this.rbtnProfile.Click += new System.EventHandler(this.rbtnProfile_Click);
             // 
             // lblUsername
             // 

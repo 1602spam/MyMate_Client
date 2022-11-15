@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientModules.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,14 +13,18 @@ namespace MainForm.Controls
 {
     public partial class UserProfilePopup : Form
     {
-        public UserProfilePopup()
+        public MdlUser User { get; set; }
+
+        public UserProfilePopup(MdlUser u)
         {
             InitializeComponent();
+            User = u;
+            lblName.Text = "Username: "+ u.Username;
+            lblEmail.Text = "E-mail: "+u.Email;
+            lblIntroduction.Text = "Introduction: "+u.Introduction;
         }
 
         private Point mousePoint;
-
-        
 
         private void Profile_Move(object sender, EventArgs e)
         {
@@ -51,9 +56,14 @@ namespace MainForm.Controls
             mousePoint = new Point(e.X, e.Y); //지금 윈도우의 좌표저장
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void statusLabel_Click(object sender, EventArgs e)
         {
-            this.Close();
+
+        }
+
+        private void UserProfilePopup_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

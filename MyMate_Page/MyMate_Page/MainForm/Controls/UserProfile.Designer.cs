@@ -63,14 +63,15 @@
             this.userNameTxt.TabIndex = 1;
             this.userNameTxt.Text = "label1";
             // 
-            // Friendprofile
+            // UserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.userNameTxt);
             this.Controls.Add(this.userprofileBtn);
-            this.Name = "Friendprofile";
+            this.Name = "UserProfile";
             this.Size = new System.Drawing.Size(144, 41);
+            this.Click += new System.EventHandler(this.UserProfile_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

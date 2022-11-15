@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.endDayTxt = new System.Windows.Forms.TextBox();
             this.editProjectBtn = new System.Windows.Forms.Button();
@@ -38,14 +40,12 @@
             this.projectNameTxt = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.workListBox = new System.Windows.Forms.ListBox();
+            this.workTxt = new System.Windows.Forms.TextBox();
             this.removeWorkBtn = new System.Windows.Forms.Button();
             this.addWorkBtn = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.closeBtn = new System.Windows.Forms.Button();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.SuspendLayout();
@@ -67,6 +67,24 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(288, 370);
             this.panel1.TabIndex = 0;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(12, 178);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(39, 15);
+            this.label7.TabIndex = 26;
+            this.label7.Text = "label7";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 151);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(59, 15);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "대상 서버";
             // 
             // label5
             // 
@@ -138,8 +156,8 @@
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.textBox1);
-            this.panel2.Controls.Add(this.checkedListBox1);
+            this.panel2.Controls.Add(this.workListBox);
+            this.panel2.Controls.Add(this.workTxt);
             this.panel2.Controls.Add(this.removeWorkBtn);
             this.panel2.Controls.Add(this.addWorkBtn);
             this.panel2.Controls.Add(this.label2);
@@ -150,30 +168,32 @@
             this.panel2.Size = new System.Drawing.Size(355, 370);
             this.panel2.TabIndex = 1;
             // 
-            // textBox1
+            // workListBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(41, 58);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(203, 23);
-            this.textBox1.TabIndex = 10;
+            this.workListBox.FormattingEnabled = true;
+            this.workListBox.ItemHeight = 15;
+            this.workListBox.Location = new System.Drawing.Point(41, 96);
+            this.workListBox.Name = "workListBox";
+            this.workListBox.Size = new System.Drawing.Size(284, 229);
+            this.workListBox.TabIndex = 11;
             // 
-            // checkedListBox1
+            // workTxt
             // 
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(41, 99);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(284, 202);
-            this.checkedListBox1.TabIndex = 9;
+            this.workTxt.Location = new System.Drawing.Point(41, 58);
+            this.workTxt.Name = "workTxt";
+            this.workTxt.Size = new System.Drawing.Size(203, 23);
+            this.workTxt.TabIndex = 10;
             // 
             // removeWorkBtn
             // 
             this.removeWorkBtn.FlatAppearance.BorderSize = 0;
-            this.removeWorkBtn.Location = new System.Drawing.Point(41, 319);
+            this.removeWorkBtn.Location = new System.Drawing.Point(41, 335);
             this.removeWorkBtn.Name = "removeWorkBtn";
             this.removeWorkBtn.Size = new System.Drawing.Size(75, 23);
             this.removeWorkBtn.TabIndex = 4;
             this.removeWorkBtn.Text = "삭제";
             this.removeWorkBtn.UseVisualStyleBackColor = true;
+            this.removeWorkBtn.Click += new System.EventHandler(this.removeWorkBtn_Click);
             // 
             // addWorkBtn
             // 
@@ -184,6 +204,7 @@
             this.addWorkBtn.TabIndex = 3;
             this.addWorkBtn.Text = "추가";
             this.addWorkBtn.UseVisualStyleBackColor = true;
+            this.addWorkBtn.Click += new System.EventHandler(this.addWorkBtn_Click);
             // 
             // label2
             // 
@@ -211,24 +232,6 @@
             this.closeBtn.UseVisualStyleBackColor = false;
             this.closeBtn.Click += new System.EventHandler(this.closeBtn_Click);
             // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 151);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(59, 15);
-            this.label4.TabIndex = 25;
-            this.label4.Text = "대상 서버";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(12, 178);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(39, 15);
-            this.label7.TabIndex = 26;
-            this.label7.Text = "label7";
-            // 
             // CheckListWorkPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -254,7 +257,6 @@
         private Button closeBtn;
         private Button editProjectBtn;
         private Label label1;
-        private CheckedListBox checkedListBox1;
         private Button removeWorkBtn;
         private Button addWorkBtn;
         private Label label2;
@@ -264,8 +266,9 @@
         private Label label6;
         private TextBox projectNameTxt;
         private Label label3;
-        private TextBox textBox1;
+        private TextBox workTxt;
         private Label label7;
         private Label label4;
+        private ListBox workListBox;
     }
 }

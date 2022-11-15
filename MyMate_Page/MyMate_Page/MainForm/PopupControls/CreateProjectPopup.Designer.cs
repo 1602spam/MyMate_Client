@@ -66,7 +66,7 @@
             this.label1.Size = new System.Drawing.Size(83, 15);
             this.label1.TabIndex = 8;
             this.label1.Text = "프로젝트 이름";
-            this.label1.Click += new System.EventHandler(this.label1_Click);
+            
             // 
             // label2
             // 
@@ -86,7 +86,7 @@
             this.label3.Size = new System.Drawing.Size(121, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "기간 ( yyyy-mm-dd )";
-            this.label3.Click += new System.EventHandler(this.label3_Click);
+            
             // 
             // label4
             // 
@@ -96,7 +96,7 @@
             this.label4.Size = new System.Drawing.Size(59, 15);
             this.label4.TabIndex = 11;
             this.label4.Text = "대상 서버";
-            this.label4.Click += new System.EventHandler(this.label4_Click);
+            
             // 
             // projectNameTxt
             // 

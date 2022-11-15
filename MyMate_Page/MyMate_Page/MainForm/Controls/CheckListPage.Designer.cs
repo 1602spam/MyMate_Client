@@ -36,8 +36,8 @@
             this.panel4 = new System.Windows.Forms.Panel();
             this.removeBtn = new System.Windows.Forms.Button();
             this.editBtn = new System.Windows.Forms.Button();
-            this.checkedListBox2 = new System.Windows.Forms.CheckedListBox();
-            this.checkedListBox1 = new System.Windows.Forms.CheckedListBox();
+            this.CLDoneBox = new System.Windows.Forms.CheckedListBox();
+            this.CLBox = new System.Windows.Forms.CheckedListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.membersTxt = new System.Windows.Forms.Label();
@@ -109,8 +109,8 @@
             // 
             this.panel4.Controls.Add(this.removeBtn);
             this.panel4.Controls.Add(this.editBtn);
-            this.panel4.Controls.Add(this.checkedListBox2);
-            this.panel4.Controls.Add(this.checkedListBox1);
+            this.panel4.Controls.Add(this.CLDoneBox);
+            this.panel4.Controls.Add(this.CLBox);
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.label8);
             this.panel4.Controls.Add(this.membersTxt);
@@ -134,6 +134,7 @@
             this.removeBtn.TabIndex = 11;
             this.removeBtn.Text = "삭제";
             this.removeBtn.UseVisualStyleBackColor = true;
+            this.removeBtn.Click += new System.EventHandler(this.removeBtn_Click);
             // 
             // editBtn
             // 
@@ -145,23 +146,26 @@
             this.editBtn.UseVisualStyleBackColor = true;
             this.editBtn.Click += new System.EventHandler(this.editBtn_Click);
             // 
-            // checkedListBox2
+            // CLDoneBox
             // 
-            this.checkedListBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.checkedListBox2.FormattingEnabled = true;
-            this.checkedListBox2.Location = new System.Drawing.Point(23, 422);
-            this.checkedListBox2.Name = "checkedListBox2";
-            this.checkedListBox2.Size = new System.Drawing.Size(709, 144);
-            this.checkedListBox2.TabIndex = 9;
+            this.CLDoneBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CLDoneBox.CheckOnClick = true;
+            this.CLDoneBox.FormattingEnabled = true;
+            this.CLDoneBox.Location = new System.Drawing.Point(23, 422);
+            this.CLDoneBox.Name = "CLDoneBox";
+            this.CLDoneBox.Size = new System.Drawing.Size(709, 144);
+            this.CLDoneBox.TabIndex = 9;
             // 
-            // checkedListBox1
+            // CLBox
             // 
-            this.checkedListBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.checkedListBox1.FormattingEnabled = true;
-            this.checkedListBox1.Location = new System.Drawing.Point(23, 233);
-            this.checkedListBox1.Name = "checkedListBox1";
-            this.checkedListBox1.Size = new System.Drawing.Size(709, 144);
-            this.checkedListBox1.TabIndex = 8;
+            this.CLBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.CLBox.CheckOnClick = true;
+            this.CLBox.FormattingEnabled = true;
+            this.CLBox.Location = new System.Drawing.Point(23, 233);
+            this.CLBox.Name = "CLBox";
+            this.CLBox.Size = new System.Drawing.Size(709, 144);
+            this.CLBox.TabIndex = 8;
+            this.CLBox.ItemCheck += new System.Windows.Forms.ItemCheckEventHandler(this.CLBox_ItemCheck);
             // 
             // label9
             // 
@@ -292,8 +296,8 @@
         private Panel panel3;
         private Label label1;
         private ProgressBar progressBar1;
-        private CheckedListBox checkedListBox2;
-        private CheckedListBox checkedListBox1;
+        private CheckedListBox CLDoneBox;
+        private CheckedListBox CLBox;
         private Label label9;
         private Label label8;
         private Label membersTxt;

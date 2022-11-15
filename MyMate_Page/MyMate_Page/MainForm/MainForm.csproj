@@ -13,9 +13,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Reference Include="Calender">
-      <HintPath>..\..\..\..\..\..\mymate_client\MyMate_Page\MyMate_Page\MainForm\bin\Debug\net6.0-windows\Calender.dll</HintPath>
-    </Reference>
     <Reference Include="ClientToServer">
       <HintPath>..\..\..\MyMate_Network\DLL\ClientToServer.dll</HintPath>
     </Reference>

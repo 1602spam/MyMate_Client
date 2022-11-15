@@ -24,12 +24,12 @@ namespace ClientModules.Models.CheckList
         public bool IsChecked { get; set; }
         public bool IsDeleted { get; set; }
 
-        public MdlProjectItem(int code, int projectCode, string content, bool isDone)
+        public MdlProjectItem(int code, int projectCode, string content, bool isChecked)
         {
             Code = code;
             ProjectCode = projectCode;
             Content = content;
-            IsChecked = isDone;
+            IsChecked = isChecked;
         }
 
         public MdlProjectItem(CheckListProtocol.CHECKLIST chk)

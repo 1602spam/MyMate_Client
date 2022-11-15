@@ -193,7 +193,6 @@
             this.lblMemberList.Size = new System.Drawing.Size(43, 15);
             this.lblMemberList.TabIndex = 5;
             this.lblMemberList.Text = "참여자";
-            this.lblMemberList.Click += new System.EventHandler(this.membersTxt_Click);
             // 
             // label6
             // 

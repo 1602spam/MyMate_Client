@@ -52,24 +52,33 @@ namespace MainForm.Controls
             ProjectContainer.Instance.DataDistributedEvent += AddOrUpdateProject;
         }
 
-        public void ClearProject()
+        public void ClearProjectItem()
         {
             if (Project != null)
                 Project.Items.DataDistributedEvent -= AddOrUpdateProjectItems;
             //프로젝트 정보 나오는 패널 클리어
-            //panel6.Controls.Clear();
+            panel4.Visible = false;
+            CLBox.Items.Clear();      // 아이템 초기화
+            CLDoneBox.Items.Clear();
         }
 
-        private void removeBtn_Click(object sender, EventArgs e) { }
-        public void SwitchProject()
+        private void removeBtn_Click(object sender, EventArgs e) {
+            //코드만 넣고 현재 프로젝트 빈 걸로 전송
+            ClearProjectItem();
+        }
+        
+        public void SwitchProject(MdlProject p)
         {
-            ClearProject();
-            CLBox.DataSource = null;  // 데이터바인딩 해제
-            CLBox.Items.Clear();      // 아이템 초기화
-            foreach(var item in CLBox.Items)
-            CLBox.DataSource = projects.works;   // 데이터 연결
-            CLBox.DisplayMember = "Work";
-            CLBox.ValueMember = "CodetoString";
+            ClearProjectItem();
+            panel4.Visible = true;
+            this.Project = p;
+            foreach (var item in Project.Items.Items)
+            {
+                if(item.IsChecked)
+                    CLDoneBox.Items.Add(item);
+                else
+                    CLBox.Items.Add(item);
+            }
         }
 
         private void AddOrUpdateProject(object v)
@@ -133,9 +142,7 @@ namespace MainForm.Controls
         private void AddProject(MdlProject v)
         {
             if (v.IsDeleted == true)
-            {
                 return;
-            }
 
             CheckListProject item = new(v);
             panel6.Controls.Add(item);
@@ -152,12 +159,6 @@ namespace MainForm.Controls
             createProjectPopup.ShowDialog();
         }
 
-        //프로젝트 정보 Panel에 보여주기
-        //주제, 기간, 참여자(서버에 속해있는 사람 리스트), 업무목록(List) ,완료된 업무목록(List)를 인수로 받아 옴
-        public void ShowProjectInfo(string title, int serverCode, string startDay, string endDay, int projectCode)
-        {
-        }
-
         private void editBtn_Click(object sender, EventArgs e)
         {
             CheckListWorkPopup checkListWorkPopup = new CheckListWorkPopup(Project); //정보넘겨줌
@@ -169,11 +170,6 @@ namespace MainForm.Controls
             //code 검색
             //삭제
             //리셋
-        }
-
-        private void membersTxt_Click(object sender, EventArgs e)
-        {
-
         }
     }
 }

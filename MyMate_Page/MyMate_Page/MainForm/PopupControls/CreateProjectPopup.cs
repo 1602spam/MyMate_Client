@@ -2,6 +2,7 @@
 using ClientModules.Models;
 using ClientModules.Models.Chat;
 using ClientModules.Models.CheckList;
+using ClientModules.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -21,26 +22,21 @@ namespace MainForm.PopupControls
         public CreateProjectPopup()
         {
             InitializeComponent();
-            //serverComboBox.Items.Clear();
+            serverComboBox.Items.Clear();
+
+            SvcDistributor.Instance.PutServer(new(3, false, "asd", MdlMyself.Instance.Code));
+
             // 콤보 박스에 서버 이름 목록 넣어주기
             foreach (MdlServer server in ServerContainer.Instance.Items.Values)
             {
-                if (server.OwnerCode == MdlMyself.Instance.Code)    // 방장코드, 로그인 코드
+                if (server.OwnerCode == MdlMyself.Instance.Code && server.IsDeleted==false && server.IsCompact == false)    // 방장코드, 로그인 코드
                 {
                     string str = server.Title + "(" + server.Code + ")";
-
                     serverComboBox.Items.Add(server.Title);
-                }
-                    
+                }       
             }
-            
         }
-
-        private void closeBtn_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-
+        
         private void OKBtn_Click(object sender, EventArgs e)
         {
             if(projectNameTxt.Text == "")
@@ -59,18 +55,32 @@ namespace MainForm.PopupControls
                     ServerCode = 1; // 임시 데이터 : 콤보박스에서 내서버 선택 됐을때 할때 1 넘겨줌
                 }
 
-                // 서버코드 가져오기
-                foreach (MdlServer server in ServerContainer.Instance.Items.Values)
+                // 서버이름이 동일한 서버의 코드 가져오기
+                foreach (MdlServer item in ServerContainer.Instance.Items.Values)
                 {
-                    if (server.Title == serverComboBox.SelectedItem.ToString())    // 서버 이름
+                    if (item.Title == serverComboBox.SelectedItem.ToString())    // 서버 이름
                     {
-                        ServerCode = server.Code;
+                        ServerCode = item.Code;
                     }
-
                 }
-                
-                //프로젝트 객체 생성하는 함수 호출 : 프로젝트 이름, 대상 서버,프로젝트 코드, 시작날짜, 종료날짜 넘겨줌
-                MainPage.mainPage.checkListPage.CreateProject(projectNameTxt.Text, ServerCode, startDayTxt.Text, endDayTxt.Text);
+                MdlServer? server = ServerContainer.Instance.Items.Values.FirstOrDefault(MdlServer => MdlServer.Title == serverComboBox.Text.ToString());
+                if (server == null)
+                {
+                    MessageBox.Show("유효하지 않은 서버 정보입니다.");
+                }
+                else
+                {
+                    MdlProject project = new(ProjectContainer.Instance.Items.Count + 1,
+                        ServerCode,
+                        MdlMyself.Instance.Code,
+                        projectNameTxt.Text,
+                        false);
+
+                    SvcDistributor.Instance.PutProject(project);
+
+                    SvcDistributor.Instance.PutProjectItem(new(project.Items.Items.Count + 1, project.Code, "테스트asfasg", true));
+                    SvcDistributor.Instance.PutProjectItem(new(project.Items.Items.Count + 1, project.Code, "테스트ads", false));
+                }
                 this.Close();
             }
         }
@@ -88,6 +98,10 @@ namespace MainForm.PopupControls
                 int y = mousePoint.Y - e.Y;
                 Location = new Point(this.Left - x, this.Top - y);
             }
+        }
+        private void closeBtn_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

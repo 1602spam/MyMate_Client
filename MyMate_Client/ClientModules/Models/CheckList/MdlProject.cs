@@ -27,9 +27,9 @@ namespace ClientModules.Models.CheckList
         //public Dictionary<int, string> Users { get; set; }
         public bool IsDeleted { get; set; }
 
-        public MdlProject(int serverCode, int ownerCode, string title )
+        public MdlProject(int code, int serverCode, int ownerCode, string title, bool isdeleted)
         {
-            //this.Code = code;
+            this.Code = code;
             this.ServerCode = serverCode;
             //테스트
             this.OwnerCode = ownerCode;
@@ -37,6 +37,7 @@ namespace ClientModules.Models.CheckList
             this.Title = title;
             this.Items = new ProjectItemContainer();
             this.Users = new();
+            this.IsDeleted = isdeleted;
             //this.Users = channel.users;
         }
 

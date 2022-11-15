@@ -13,12 +13,9 @@
   </ItemGroup>
 
   <ItemGroup>
-<<<<<<< HEAD
-=======
     <Reference Include="Calender">
       <HintPath>..\..\..\DLL\Calender.dll</HintPath>
     </Reference>
->>>>>>> a2af5317594006ec438a230b01be7ea47dc922e0
     <Reference Include="ClientToServer">
       <HintPath>..\..\..\DLL\ClientToServer.dll</HintPath>
     </Reference>

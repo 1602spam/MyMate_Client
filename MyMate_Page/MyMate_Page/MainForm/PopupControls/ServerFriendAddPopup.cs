@@ -64,5 +64,15 @@ namespace MainForm.PopupControls
                 }
             }
         }
+
+        private void ServerFriendAddPopup_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void ServerFriendAddPopup_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

@@ -66,7 +66,6 @@
             this.label1.Size = new System.Drawing.Size(83, 15);
             this.label1.TabIndex = 8;
             this.label1.Text = "프로젝트 이름";
-            
             // 
             // label2
             // 
@@ -86,7 +85,6 @@
             this.label3.Size = new System.Drawing.Size(121, 15);
             this.label3.TabIndex = 10;
             this.label3.Text = "기간 ( yyyy-mm-dd )";
-            
             // 
             // label4
             // 
@@ -96,7 +94,6 @@
             this.label4.Size = new System.Drawing.Size(59, 15);
             this.label4.TabIndex = 11;
             this.label4.Text = "대상 서버";
-            
             // 
             // projectNameTxt
             // 
@@ -167,6 +164,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "CreateProjectPopup";
             this.Text = "CreateProjectPopup";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.CreateProjectPopup_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.CreateProjectPopup_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 

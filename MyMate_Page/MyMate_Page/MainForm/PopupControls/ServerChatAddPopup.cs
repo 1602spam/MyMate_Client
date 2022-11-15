@@ -75,5 +75,15 @@ namespace MainForm.PopupControls
         private void removeWarning() {
             lblWarning.Visible = false;
         }
+
+        private void ServerChatAddPopup_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void ServerChatAddPopup_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

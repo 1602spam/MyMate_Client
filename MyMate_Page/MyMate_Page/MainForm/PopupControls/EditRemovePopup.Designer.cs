@@ -39,7 +39,7 @@
             this.closeBtn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.closeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(9)))), ((int)(((byte)(100)))));
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.closeBtn.Location = new System.Drawing.Point(338, 53);
+            this.closeBtn.Location = new System.Drawing.Point(401, 0);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(25, 25);
@@ -57,6 +57,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "EditRemovePopup";
             this.Text = "EditRemovePopup";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.EditRemovePopup_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.EditRemovePopup_MouseMove);
             this.ResumeLayout(false);
 
         }

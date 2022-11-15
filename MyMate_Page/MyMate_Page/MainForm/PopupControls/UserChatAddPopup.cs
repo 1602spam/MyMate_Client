@@ -96,5 +96,15 @@ namespace MainForm.Controls
                 }
             }
         }
+
+        private void UserChatAddPopup_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void UserChatAddPopup_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

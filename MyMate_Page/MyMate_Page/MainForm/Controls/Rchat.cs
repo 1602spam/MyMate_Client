@@ -79,10 +79,10 @@ namespace MainForm.Controls
             chatBtn.Width = chatLabel.Width + 17;
 
             this.Height = chatBtn.Bottom + 10;
-            chatBtn.Location = new Point(ChatPanelSize - chatBtn.Width - 17, chatBtn.Location.Y);
-            chatLabel.Location = new Point(ChatPanelSize - chatLabel.Width - 25, chatLabel.Location.Y);
-            dateLabel.Location = new Point(chatBtn.Location.X - GetTextWidth(dateLabel), chatBtn.Location.Y + chatBtn.Height - GetTextHeight(dateLabel));
-            nameLabel.Location = new Point(ChatPanelSize - GetTextWidth(nameLabel) - 17, nameLabel.Location.Y);
+            chatBtn.Location = new Point(ChatPanelSize - chatBtn.Width - 27, chatBtn.Location.Y);
+            chatLabel.Location = new Point(ChatPanelSize - chatLabel.Width - 35, chatLabel.Location.Y);
+            dateLabel.Location = new Point(chatBtn.Location.X - GetTextWidth(dateLabel) - 5, chatBtn.Location.Y + chatBtn.Height - GetTextHeight(dateLabel));
+            nameLabel.Location = new Point(ChatPanelSize - GetTextWidth(nameLabel) - 37, nameLabel.Location.Y);
         }
 
         private void Rchat_Load(object sender, EventArgs e)

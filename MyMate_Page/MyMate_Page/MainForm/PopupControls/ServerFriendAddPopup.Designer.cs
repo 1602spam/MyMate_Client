@@ -96,6 +96,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ServerFriendAddPopup";
             this.Text = "ServerFriendAdd";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ServerFriendAddPopup_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ServerFriendAddPopup_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 

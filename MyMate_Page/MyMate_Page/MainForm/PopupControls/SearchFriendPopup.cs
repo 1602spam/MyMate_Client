@@ -82,5 +82,15 @@ namespace MainForm.PopupControls
         {
             //유저정보를 토대로 친구 객체를 전송함
         }
+
+        private void SearchFriendPopup_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void SearchFriendPopup_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

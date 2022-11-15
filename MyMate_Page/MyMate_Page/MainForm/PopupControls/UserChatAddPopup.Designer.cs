@@ -81,7 +81,7 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // FriendList
+            // UserChatAddPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -91,8 +91,10 @@
             this.Controls.Add(this.userListBox);
             this.Controls.Add(this.closeBtn);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "FriendList";
+            this.Name = "UserChatAddPopup";
             this.Text = "FriendList";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.UserChatAddPopup_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UserChatAddPopup_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 

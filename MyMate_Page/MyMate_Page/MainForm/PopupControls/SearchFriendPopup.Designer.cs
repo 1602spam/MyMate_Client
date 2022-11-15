@@ -116,7 +116,7 @@
             this.rbtnProfile.TextColor = System.Drawing.Color.White;
             this.rbtnProfile.UseVisualStyleBackColor = false;
             // 
-            // SearchFriend
+            // SearchFriendPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -127,8 +127,10 @@
             this.Controls.Add(this.rbtnSearch);
             this.Controls.Add(this.lblID);
             this.Controls.Add(this.tbID);
-            this.Name = "SearchFriend";
+            this.Name = "SearchFriendPopup";
             this.Text = "SearchFriend";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.SearchFriendPopup_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.SearchFriendPopup_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -21,5 +21,15 @@ namespace MainForm.PopupControls
         {
             this.Close();
         }
+
+        private void EditRemovePopup_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void EditRemovePopup_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

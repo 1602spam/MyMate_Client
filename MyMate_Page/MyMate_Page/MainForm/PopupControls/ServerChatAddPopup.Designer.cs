@@ -116,6 +116,8 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "ServerChatAddPopup";
             this.Text = "ServerChatAddPopup";
+            this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.ServerChatAddPopup_MouseDown);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.ServerChatAddPopup_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -70,5 +70,15 @@ namespace MainForm.PopupControls
                 this.Close();
             }
         }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+
+        }
+
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+
+        }
     }
 }

@@ -42,7 +42,7 @@
             this.closeBtn.Font = new System.Drawing.Font("맑은 고딕", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.closeBtn.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(11)))), ((int)(((byte)(9)))), ((int)(((byte)(100)))));
             this.closeBtn.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.closeBtn.Location = new System.Drawing.Point(259, 0);
+            this.closeBtn.Location = new System.Drawing.Point(258, -2);
             this.closeBtn.Margin = new System.Windows.Forms.Padding(0);
             this.closeBtn.Name = "closeBtn";
             this.closeBtn.Size = new System.Drawing.Size(25, 25);
@@ -63,6 +63,7 @@
             // 
             // userList
             // 
+            this.userList.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.userList.FormattingEnabled = true;
             this.userList.Items.AddRange(new object[] {
             "uaer11",
@@ -71,24 +72,28 @@
             "uaer14"});
             this.userList.Location = new System.Drawing.Point(37, 72);
             this.userList.Name = "userList";
-            this.userList.Size = new System.Drawing.Size(211, 202);
+            this.userList.Size = new System.Drawing.Size(211, 198);
             this.userList.TabIndex = 10;
             // 
             // OKBtn
             // 
+            this.OKBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.OKBtn.FlatAppearance.BorderSize = 0;
+            this.OKBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.OKBtn.Location = new System.Drawing.Point(105, 285);
             this.OKBtn.Name = "OKBtn";
             this.OKBtn.Size = new System.Drawing.Size(75, 23);
             this.OKBtn.TabIndex = 11;
             this.OKBtn.Text = "확인";
-            this.OKBtn.UseVisualStyleBackColor = true;
+            this.OKBtn.UseVisualStyleBackColor = false;
             this.OKBtn.Click += new System.EventHandler(this.OKBtn_Click);
             // 
             // ServerFriendAddPopup
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(283, 320);
+            this.BackColor = System.Drawing.SystemColors.InactiveBorder;
+            this.ClientSize = new System.Drawing.Size(280, 320);
             this.Controls.Add(this.OKBtn);
             this.Controls.Add(this.userList);
             this.Controls.Add(this.label1);

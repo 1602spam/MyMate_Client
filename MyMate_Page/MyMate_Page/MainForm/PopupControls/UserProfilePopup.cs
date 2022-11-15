@@ -43,6 +43,7 @@ namespace MainForm.Controls
 
         private void Profile_MouseMove(object sender, MouseEventArgs e)
         {
+            
             if (e.Button == MouseButtons.Left)
             {
                 int x = mousePoint.X - e.X;

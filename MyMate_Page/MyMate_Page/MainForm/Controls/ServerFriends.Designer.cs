@@ -51,11 +51,10 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(150, 473);
             this.panel1.TabIndex = 0;
-            
             // 
             // panel2
             // 
-            this.panel2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.panel2.BackColor = System.Drawing.Color.WhiteSmoke;
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 30);
             this.panel2.Name = "panel2";
@@ -104,7 +103,6 @@
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(115, 30);
             this.panel5.TabIndex = 0;
-            
             // 
             // label1
             // 
@@ -115,13 +113,12 @@
             this.label1.Size = new System.Drawing.Size(71, 20);
             this.label1.TabIndex = 3;
             this.label1.Text = "- Friends";
-            
             // 
             // ServerFriends
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(235)))), ((int)(((byte)(235)))), ((int)(((byte)(235)))));
+            this.BackColor = System.Drawing.Color.WhiteSmoke;
             this.Controls.Add(this.panel1);
             this.Name = "ServerFriends";
             this.Size = new System.Drawing.Size(150, 473);

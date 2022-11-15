@@ -15,6 +15,7 @@ namespace MainForm.PopupControls
     public partial class SearchFriendPopup : Form
     {
         public MdlUser user { get; set; }
+        private Point mousePoint;
         public SearchFriendPopup()
         {
             InitializeComponent();
@@ -85,12 +86,17 @@ namespace MainForm.PopupControls
 
         private void SearchFriendPopup_MouseDown(object sender, MouseEventArgs e)
         {
-
+            mousePoint = new Point(e.X, e.Y); //지금 윈도우의 좌표저장
         }
 
         private void SearchFriendPopup_MouseMove(object sender, MouseEventArgs e)
         {
-
+            if (e.Button == MouseButtons.Left)
+            {
+                int x = mousePoint.X - e.X;
+                int y = mousePoint.Y - e.Y;
+                Location = new Point(this.Left - x, this.Top - y);
+            }
         }
     }
 }

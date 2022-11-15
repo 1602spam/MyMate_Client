@@ -16,6 +16,7 @@ namespace MainForm.PopupControls
     public partial class ServerChatAddPopup : Form
     {
         public int serverCode;
+        private Point mousePoint;
         public ServerChatAddPopup(int serverCode)
         {
             InitializeComponent();
@@ -78,12 +79,17 @@ namespace MainForm.PopupControls
 
         private void ServerChatAddPopup_MouseDown(object sender, MouseEventArgs e)
         {
-
+            mousePoint = new Point(e.X, e.Y); //지금 윈도우의 좌표저장
         }
 
         private void ServerChatAddPopup_MouseMove(object sender, MouseEventArgs e)
         {
-
+            if (e.Button == MouseButtons.Left)
+            {
+                int x = mousePoint.X - e.X;
+                int y = mousePoint.Y - e.Y;
+                Location = new Point(this.Left - x, this.Top - y);
+            }
         }
     }
 }

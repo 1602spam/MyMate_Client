@@ -16,6 +16,7 @@ namespace MainForm.PopupControls
         List<CheckListWork> CLW = new List<CheckListWork>(); 
         // 서버 코드
         int ServerCode;
+        private Point mousePoint;
         public CheckListWorkPopup(int serverCode)
         {
             InitializeComponent();
@@ -81,8 +82,38 @@ namespace MainForm.PopupControls
             
         }
 
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePoint = new Point(e.X, e.Y); //지금 윈도우의 좌표저장
+        }
 
-         
+        private void panel1_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                int x = mousePoint.X - e.X;
+                int y = mousePoint.Y - e.Y;
+                Location = new Point(this.Left - x, this.Top - y);
+            }
+        }
+
+        private void panel2_MouseDown(object sender, MouseEventArgs e)
+        {
+            mousePoint = new Point(e.X, e.Y); //지금 윈도우의 좌표저장
+        }
+
+        private void panel2_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                int x = mousePoint.X - e.X;
+                int y = mousePoint.Y - e.Y;
+                Location = new Point(this.Left - x, this.Top - y);
+            }
+        }
+
+
+
         /* 선택됐는지 조건
          * 선택됐으면 코드 넘겨주기 project 로
          * 돌아오면 새로고침 함수 호출

@@ -16,6 +16,7 @@ namespace MainForm.PopupControls
         {
             InitializeComponent();
         }
+        private Point mousePoint;
 
         private void closeBtn_Click(object sender, EventArgs e)
         {
@@ -24,12 +25,17 @@ namespace MainForm.PopupControls
 
         private void EditRemovePopup_MouseDown(object sender, MouseEventArgs e)
         {
-
+            mousePoint = new Point(e.X, e.Y); //지금 윈도우의 좌표저장
         }
 
         private void EditRemovePopup_MouseMove(object sender, MouseEventArgs e)
         {
-
+            if (e.Button == MouseButtons.Left)
+            {
+                int x = mousePoint.X - e.X;
+                int y = mousePoint.Y - e.Y;
+                Location = new Point(this.Left - x, this.Top - y);
+            }
         }
     }
 }

@@ -21,7 +21,7 @@ namespace MainForm
 		public static MainPage? mainPage;
 		public MsgPage msgPage = new MsgPage();
 		public FriendPage friendPage = new FriendPage();
-		public CalendarPage1 calendarPage = new CalendarPage1();
+		public CalendarPage calendarPage = new CalendarPage();
 		public CheckListPage checkListPage = new CheckListPage();
 
 		public List<ServerBtn> serverBtns = new List<ServerBtn>();
@@ -46,7 +46,6 @@ namespace MainForm
 
 			//메시지 페이지가 보이도록 설정
 			msgPage.Visible = true;
-
 			//서버 컨테이너 정보 변경 발생 시 서버 버튼/페이지 설정하는 메서드를 이벤트에 등록
 			ServerContainer.Instance.DataDistributedEvent += AddOrUpdateServerBtn;
 		}

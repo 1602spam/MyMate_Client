@@ -23,17 +23,15 @@ namespace MainForm.Controls
         public List<Rchat> rchats = new();
         public List<ShareChat> shareChats = new();
 
-        public ServerChat()
+        public ServerChat(MdlServer s)
         {
             InitializeComponent();
             this.Dock = DockStyle.Fill;
-            this.Visible = false;
+            this.Visible = true;
 
             //서버 컨테이너에 서버가 추가/갱신 될 때마다 서버를 새로고침하는 메서드를 등록
 
             //테스트용 서버 1과 그 안의 채팅방 1을 생성하고 Distributor에서 처리 => 각 컨테이너에 넣음
-            MdlServer s = new(ServerContainer.Instance.Items.Count + 1, true, "테스트용 서버", 1);
-            SvcDistributor.Instance.PutServer(s);
             MdlChatroom c = new(s.Chatrooms.Items.Count + 1, s.Code, "테스트용 채팅방 1");
             SvcDistributor.Instance.PutChatroom(c);
 

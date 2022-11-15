@@ -25,6 +25,8 @@ namespace MainForm.Controls
             InitializeComponent();
             this.server = s;
             this.ChatMember = server.Users;
+            if (server.Users == null)
+                return;
             foreach(var item in ChatMember)
             {
                 MdlUser? user = UserContainer.Instance.Items.Values.FirstOrDefault(MdlUser => MdlUser.Code == item);

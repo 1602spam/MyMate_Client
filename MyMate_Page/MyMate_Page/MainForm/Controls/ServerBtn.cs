@@ -20,6 +20,9 @@ namespace MainForm.Controls
         {
 			InitializeComponent();
 
+			if (s == null)
+				return;
+			
 			this.server = s;
 			this.Name = server.Title;
 
@@ -43,8 +46,10 @@ namespace MainForm.Controls
 
 		void SBtn_Click(object sender, EventArgs e)
 		{
-			if(MainPage.mainPage != null && this.server != null)
+			if (MainPage.mainPage != null && this.server != null)
+			{
 				MainPage.mainPage.ServerPageChange(server);
+			}
 			/*
             for (int i= 0; i < MainPage.serverPages.Count; i++)
 			{

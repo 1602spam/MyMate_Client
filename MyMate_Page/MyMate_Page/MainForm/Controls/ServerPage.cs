@@ -39,7 +39,7 @@ namespace MainForm.Controls
             SCL.Parent = SChatListPanel;
             SCL.Dock = DockStyle.Fill;
 
-            SC = new ServerChat();
+            SC = new ServerChat(server);
             SC.Parent = SChatPanel;
             SC.Dock = DockStyle.Fill;
 

@@ -43,7 +43,7 @@ namespace MainForm.Controls
 
 		void SBtn_Click(object sender, EventArgs e)
 		{
-			if(MainPage.mainPage != null && this.server!=null)
+			if(MainPage.mainPage != null && this.server != null)
 				MainPage.mainPage.ServerPageChange(server.Code);
 			/*
             for (int i= 0; i < MainPage.serverPages.Count; i++)

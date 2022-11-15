@@ -54,7 +54,7 @@
             // 
             // OKBtn
             // 
-            this.OKBtn.Location = new System.Drawing.Point(12, 331);
+            this.OKBtn.Location = new System.Drawing.Point(69, 341);
             this.OKBtn.Name = "OKBtn";
             this.OKBtn.Size = new System.Drawing.Size(96, 23);
             this.OKBtn.TabIndex = 8;
@@ -87,14 +87,14 @@
             "user2",
             "user3",
             "user4"});
-            this.userList.Location = new System.Drawing.Point(12, 69);
+            this.userList.Location = new System.Drawing.Point(24, 78);
             this.userList.Name = "userList";
             this.userList.Size = new System.Drawing.Size(185, 256);
             this.userList.TabIndex = 3;
             // 
             // serverNameTxt
             // 
-            this.serverNameTxt.Location = new System.Drawing.Point(60, 40);
+            this.serverNameTxt.Location = new System.Drawing.Point(72, 49);
             this.serverNameTxt.Name = "serverNameTxt";
             this.serverNameTxt.Size = new System.Drawing.Size(137, 23);
             this.serverNameTxt.TabIndex = 2;
@@ -102,7 +102,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 43);
+            this.label2.Location = new System.Drawing.Point(24, 52);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 15);
             this.label2.TabIndex = 1;
@@ -112,7 +112,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("맑은 고딕", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(12, 9);
+            this.label1.Location = new System.Drawing.Point(61, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 21);
             this.label1.TabIndex = 0;

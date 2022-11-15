@@ -1,6 +1,7 @@
 ﻿using ClientModules.Containers;
 using ClientModules.Models;
 using ClientModules.Models.Chat;
+using ClientModules.Services;
 using MainForm.Controls;
 using MainForm.PopupControls;
 using System;

@@ -51,6 +51,7 @@
             this.userprofileBtn.TabIndex = 0;
             this.userprofileBtn.TextColor = System.Drawing.Color.White;
             this.userprofileBtn.UseVisualStyleBackColor = false;
+            this.userprofileBtn.Click += new System.EventHandler(this.userprofileBtn_Click);
             // 
             // userNameTxt
             // 
@@ -71,7 +72,6 @@
             this.Controls.Add(this.userprofileBtn);
             this.Name = "UserProfile";
             this.Size = new System.Drawing.Size(144, 41);
-            this.Click += new System.EventHandler(this.UserProfile_Click);
             this.ResumeLayout(false);
             this.PerformLayout();
 

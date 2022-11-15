@@ -69,14 +69,14 @@
             "uaer12",
             "uaer13",
             "uaer14"});
-            this.userList.Location = new System.Drawing.Point(12, 72);
+            this.userList.Location = new System.Drawing.Point(37, 72);
             this.userList.Name = "userList";
-            this.userList.Size = new System.Drawing.Size(259, 112);
+            this.userList.Size = new System.Drawing.Size(211, 202);
             this.userList.TabIndex = 10;
             // 
             // OKBtn
             // 
-            this.OKBtn.Location = new System.Drawing.Point(12, 190);
+            this.OKBtn.Location = new System.Drawing.Point(105, 285);
             this.OKBtn.Name = "OKBtn";
             this.OKBtn.Size = new System.Drawing.Size(75, 23);
             this.OKBtn.TabIndex = 11;
@@ -88,7 +88,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(283, 239);
+            this.ClientSize = new System.Drawing.Size(283, 320);
             this.Controls.Add(this.OKBtn);
             this.Controls.Add(this.userList);
             this.Controls.Add(this.label1);

@@ -30,7 +30,7 @@
       <HintPath>..\..\DLL\MyMate_Network_Library.dll</HintPath>
     </Reference>
     <Reference Include="ToastMessage">
-      <HintPath>..\..\..\..\mymate_client\DLL\ToastMessage.dll</HintPath>
+      <HintPath>..\..\DLL\ToastMessage.dll</HintPath>
     </Reference>
   </ItemGroup>
 

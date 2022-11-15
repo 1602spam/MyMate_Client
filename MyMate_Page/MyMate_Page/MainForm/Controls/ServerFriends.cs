@@ -33,7 +33,7 @@ namespace MainForm.Controls
                 }
                 UserProfile friendprofile = new UserProfile(user);
                 friendprofiles.Add(friendprofile);
-                friendprofile.BringToFront();
+                friendprofile.SendToBack();
                 friendprofile.Dock = DockStyle.Top;
                 panel2.Controls.Add(friendprofile);
             }

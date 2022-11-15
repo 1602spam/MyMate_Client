@@ -24,7 +24,7 @@ namespace MainForm.Controls
             userNameTxt.Text = user.Username;
         }
 
-        private void UserProfile_Click(object sender, EventArgs e)
+        private void userprofileBtn_Click(object sender, EventArgs e)
         {
             UserProfilePopup profile = new UserProfilePopup(user);
             profile.ShowDialog();

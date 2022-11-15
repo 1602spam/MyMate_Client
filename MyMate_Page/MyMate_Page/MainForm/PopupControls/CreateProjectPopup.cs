@@ -23,46 +23,31 @@ namespace MainForm.PopupControls
         {
             InitializeComponent();
             serverComboBox.Items.Clear();
-
-            SvcDistributor.Instance.PutServer(new(3, false, "asd", MdlMyself.Instance.Code));
+            serverComboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
             // 콤보 박스에 서버 이름 목록 넣어주기
             foreach (MdlServer server in ServerContainer.Instance.Items.Values)
             {
-                if (server.OwnerCode == MdlMyself.Instance.Code && server.IsDeleted==false && server.IsCompact == false)    // 방장코드, 로그인 코드
+                if (server.OwnerCode == MdlMyself.Instance.Code && server.IsDeleted == false && server.IsCompact == false)    // 방장코드, 로그인 코드
                 {
-                    string str = server.Title + "(" + server.Code + ")";
-                    serverComboBox.Items.Add(server.Title);
-                }       
+                    MdlProject? project = ProjectContainer.Instance.Items.Values.FirstOrDefault(MdlProject => MdlProject.ServerCode == server.Code);
+                    if (project == null)
+                    {
+                        string str = server.Title + "(" + server.Code + ")";
+                        serverComboBox.Items.Add(server.Title);
+                    }
+                }
             }
         }
-        
+
         private void OKBtn_Click(object sender, EventArgs e)
         {
-            if(projectNameTxt.Text == "")
+            if (projectNameTxt.Text == "")
             {
                 MessageBox.Show("프로젝트 이름을 입력하세요!", "안내");
             }
-            else if(startDayTxt.Text == "" || endDayTxt.Text == "")
-            {
-                MessageBox.Show("날짜를 입력하세요!", "안내");
-            }
             else
             {
-                
-                if (serverComboBox.SelectedItem.ToString() == "내 서버")
-                {
-                    ServerCode = 1; // 임시 데이터 : 콤보박스에서 내서버 선택 됐을때 할때 1 넘겨줌
-                }
-
-                // 서버이름이 동일한 서버의 코드 가져오기
-                foreach (MdlServer item in ServerContainer.Instance.Items.Values)
-                {
-                    if (item.Title == serverComboBox.SelectedItem.ToString())    // 서버 이름
-                    {
-                        ServerCode = item.Code;
-                    }
-                }
                 MdlServer? server = ServerContainer.Instance.Items.Values.FirstOrDefault(MdlServer => MdlServer.Title == serverComboBox.Text.ToString());
                 if (server == null)
                 {
@@ -71,17 +56,20 @@ namespace MainForm.PopupControls
                 else
                 {
                     MdlProject project = new(ProjectContainer.Instance.Items.Count + 1,
-                        ServerCode,
+                        server.Code,
                         MdlMyself.Instance.Code,
                         projectNameTxt.Text,
                         false);
 
                     SvcDistributor.Instance.PutProject(project);
 
-                    SvcDistributor.Instance.PutProjectItem(new(project.Items.Items.Count + 1, project.Code, "테스트asfasg", true));
-                    SvcDistributor.Instance.PutProjectItem(new(project.Items.Items.Count + 1, project.Code, "테스트ads", false));
+                    SvcDistributor.Instance.PutProjectItem(new(project.Items.Items.Count + 1, project.Code, "테스트1", true));
+                    SvcDistributor.Instance.PutProjectItem(new(project.Items.Items.Count + 1, project.Code, "테스트1", false));
+                    SvcDistributor.Instance.PutProjectItem(new(project.Items.Items.Count + 1, project.Code, "테스트2", false));
+                    SvcDistributor.Instance.PutProjectItem(new(project.Items.Items.Count + 1, project.Code, "테스트2", true));
                 }
                 this.Close();
+                return;
             }
         }
 

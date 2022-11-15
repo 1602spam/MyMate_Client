@@ -61,8 +61,8 @@ namespace ClientModules.Containers
 #if DEBUG
                 Console.WriteLine("채팅방 갱신: " + Items[i].Title + "->" + v.Title);
 #endif
+                Items.RemoveAt(i);
                 Items.Insert(i, v);
-                Items.RemoveAt(i + 1);
                 if (this.dataDistributedEvent != null)
                     this.dataDistributedEvent(v);
                 return;

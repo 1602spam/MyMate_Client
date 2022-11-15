@@ -31,13 +31,9 @@
             this.closeBtn = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.projectNameTxt = new System.Windows.Forms.TextBox();
             this.serverComboBox = new System.Windows.Forms.ComboBox();
-            this.startDayTxt = new System.Windows.Forms.TextBox();
-            this.endDayTxt = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
             this.OKBtn = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
@@ -77,15 +73,6 @@
             this.label2.TabIndex = 9;
             this.label2.Text = "Create Project";
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(21, 201);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(121, 15);
-            this.label3.TabIndex = 10;
-            this.label3.Text = "기간 ( yyyy-mm-dd )";
-            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -104,43 +91,21 @@
             // 
             // serverComboBox
             // 
+            this.serverComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.serverComboBox.FormattingEnabled = true;
             this.serverComboBox.Items.AddRange(new object[] {
             "내 서버"});
             this.serverComboBox.Location = new System.Drawing.Point(21, 147);
             this.serverComboBox.Name = "serverComboBox";
-            this.serverComboBox.Size = new System.Drawing.Size(121, 23);
+            this.serverComboBox.Size = new System.Drawing.Size(261, 23);
             this.serverComboBox.TabIndex = 13;
-            // 
-            // startDayTxt
-            // 
-            this.startDayTxt.Location = new System.Drawing.Point(21, 219);
-            this.startDayTxt.Name = "startDayTxt";
-            this.startDayTxt.Size = new System.Drawing.Size(100, 23);
-            this.startDayTxt.TabIndex = 14;
-            // 
-            // endDayTxt
-            // 
-            this.endDayTxt.Location = new System.Drawing.Point(148, 219);
-            this.endDayTxt.Name = "endDayTxt";
-            this.endDayTxt.Size = new System.Drawing.Size(100, 23);
-            this.endDayTxt.TabIndex = 15;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(127, 222);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(15, 15);
-            this.label5.TabIndex = 16;
-            this.label5.Text = "~";
             // 
             // OKBtn
             // 
             this.OKBtn.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.OKBtn.FlatAppearance.BorderSize = 0;
             this.OKBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.OKBtn.Location = new System.Drawing.Point(21, 270);
+            this.OKBtn.Location = new System.Drawing.Point(112, 208);
             this.OKBtn.Name = "OKBtn";
             this.OKBtn.Size = new System.Drawing.Size(83, 23);
             this.OKBtn.TabIndex = 17;
@@ -153,15 +118,11 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.InactiveBorder;
-            this.ClientSize = new System.Drawing.Size(312, 305);
+            this.ClientSize = new System.Drawing.Size(312, 269);
             this.Controls.Add(this.OKBtn);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.endDayTxt);
-            this.Controls.Add(this.startDayTxt);
             this.Controls.Add(this.serverComboBox);
             this.Controls.Add(this.projectNameTxt);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.closeBtn);
@@ -180,13 +141,9 @@
         private Button closeBtn;
         private Label label1;
         private Label label2;
-        private Label label3;
         private Label label4;
         private TextBox projectNameTxt;
         private ComboBox serverComboBox;
-        private TextBox startDayTxt;
-        private TextBox endDayTxt;
-        private Label label5;
         private Button OKBtn;
     }
 }

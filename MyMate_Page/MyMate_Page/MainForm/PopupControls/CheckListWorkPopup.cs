@@ -1,4 +1,7 @@
-﻿using ClientModules.Models.CheckList;
+﻿using ClientModules.Containers;
+using ClientModules.Models.Chat;
+using ClientModules.Models.CheckList;
+using ClientModules.Services;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -23,22 +26,48 @@ namespace MainForm.PopupControls
             //서버코드 CheckListPage로 부터 받아 옴
             Project = project;
 
-            //리스트 정보 업데이트
-            foreach(var item in Project.Items.Items)
-                workListBox.Items.Add(item);
+            MdlServer server = ServerContainer.Instance.Items.Values.FirstOrDefault(MdlServer => MdlServer.Code == Project.ServerCode);
+            if (server == null)
+                this.lblServername.Text = "유효하지 않은 서버";
+            else
+                this.lblServername.Text = server.Title;
 
+            tbProjectName.Text = project.Title;
+
+            //리스트 정보 업데이트
+            foreach (var item in Project.Items.Items)
+            {
+                if (item != null)
+                {
+                    lbTask.Items.Add(item.Content.ToString());
+                }
+            }
         }
         private void editProjectBtn_Click(object sender, EventArgs e)
         {
+            foreach (string item in lbTask.Items)
+            {
+                SvcDistributor.Instance.PutProjectItem(new(Project.Items.Items.Count + 1, Project.Code, item, false));
+            }
+            this.Close();
         }
 
         private void addWorkBtn_Click(object sender, EventArgs e)
         {
+            if (tbTask.Text != "")
+            {
+                lbTask.Items.Add(tbTask.Text);
+            }
+            tbTask.Text = "";
         }
 
         //삭제버튼 눌렷을때
         private void removeWorkBtn_Click(object sender, EventArgs e)
         {
+            if (lbTask.SelectedIndex != -1)
+            {
+                lbTask.Items.Remove(lbTask.SelectedItem);
+            }
         }
 
         private void closeBtn_Click(object sender, EventArgs e)

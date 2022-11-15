@@ -27,6 +27,12 @@ namespace ClientModules.Models.CheckList
         //public Dictionary<int, string> Users { get; set; }
         public bool IsDeleted { get; set; }
 
+        public MdlProject(int code, bool isdeleted)
+        {
+            this.Code = code;
+            this.IsDeleted = isdeleted;
+        }
+
         public MdlProject(int code, int serverCode, int ownerCode, string title, bool isdeleted)
         {
             this.Code = code;

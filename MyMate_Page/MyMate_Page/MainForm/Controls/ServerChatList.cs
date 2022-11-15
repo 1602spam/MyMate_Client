@@ -1,4 +1,6 @@
-﻿using ClientModules.Models.Chat;
+﻿using ABI.Windows.ApplicationModel.Activation;
+using ClientModules.Containers;
+using ClientModules.Models.Chat;
 using MainForm.PopupControls;
 using System;
 using System.Collections.Generic;
@@ -25,6 +27,7 @@ namespace MainForm.Controls
             InitializeComponent();
             this.server = s;
             serverNameLabel.Text = "- "+ s.Title;
+            this.server.Chatrooms.DataDistributedEvent += AddChannel;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -38,13 +41,18 @@ namespace MainForm.Controls
             serverChatAddPopup.ShowDialog();
         }
 
-        public void AddChannel(MdlChatroom chatroom)
+        public void AddChannel(object v)
         {
+            if (v == null)
+                return;
+            MdlChatroom? chatroom = v as MdlChatroom;
+            if (chatroom != null) {
             ServerChatListItem chatTitle = new ServerChatListItem(chatroom);
             chatTitles.Add(chatTitle);
             chatTitle.BringToFront();
             chatTitle.Dock = DockStyle.Top;
             panel3.Controls.Add(chatTitle);
+            }
         }
     }
 }

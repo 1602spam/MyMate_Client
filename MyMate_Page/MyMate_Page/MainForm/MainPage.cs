@@ -25,7 +25,7 @@ namespace MainForm
 		public CheckListPage checkListPage = new CheckListPage();
 
 		public List<ServerBtn> serverBtns = new List<ServerBtn>();
-		public List<ServerPage> serverPages = new List<ServerPage>();
+		public ServerPage serverPageInst;
 		public List<MdlServer> servers = new();
 		//string serverName = "";
 
@@ -124,7 +124,6 @@ namespace MainForm
 			var serverBtn = new ServerBtn(server);
 			serverBtns.Add(serverBtn);
 			var serverPage = new ServerPage(server);
-			serverPages.Add(serverPage);
 
 			server.Chatrooms.DataDistributedEvent += AddChatroom;
 			int i = servers.IndexOf(server);
@@ -132,13 +131,10 @@ namespace MainForm
             panel11.Controls.Add(serverBtns[i]);
             serverBtns[i].SendToBack();
             serverBtns[i].Dock = DockStyle.Top;
-            panel8.Controls.Add(serverPages[i]);
-            serverPages[i].Visible = true;
+			serverPageInst = new(server);
+            panel8.Controls.Add(serverPage);
 
-            msgPage.Visible = false;
-            calendarPage.Visible = false;
-            friendPage.Visible = false;
-            checkListPage.Visible = false;
+			ShowServerChat();
 
             /*
 			for (int i = 0; serverBtns.Count > i; i++)
@@ -163,44 +159,37 @@ namespace MainForm
 			}*/
         }
 
+
         private void AddChatroom(object ch)
 		{
 			MdlChatroom? chatroom = ch as MdlChatroom;
 			if (chatroom == null || mainPage == null)
 				return;
-
-			ServerPage? sp = mainPage.serverPages.FirstOrDefault(ServerPage => ServerPage.server.Code == chatroom.ServerCode);
-			if (sp != null)
-			{
-				sp.SCL.AddChannel(chatroom);
-			}
+			serverPageInst.SCL.AddChannel(chatroom);
         }
 
 		public void UpdateServerBtn(MdlServer server)
 		{
 			int index = servers.IndexOf(server);
-			servers.Insert(index + 1, server);
             servers.RemoveAt(index);
+			servers.Insert(index, server);
 		}
 
-		public void ServerPageChange(int serverCode)
+		public void ServerPageChange(MdlServer server)
 		{
-			for (int i = 0; i < serverPages.Count; i++)
-			{
-				if (serverCode == serverPages[i].server.Code)
-				{
-					serverPages[i].Visible = true;
-					msgPage.Visible = false;
-					calendarPage.Visible = false;
-					friendPage.Visible = false;
-                    checkListPage.Visible = false;
-                }
-				else
-				{
-					serverPages[i].Visible = false;
-				}
-			}
-		}
+			serverPageInst = new(server);
+			MainPage.mainPage.ShowServerChat();
+            serverPageInst.Visible = true;
+        }
+
+		public void ShowServerChat()
+		{
+            calendarPage.Visible = false;
+            friendPage.Visible = false;
+            msgPage.Visible = false;
+            checkListPage.Visible = false;
+			serverPageInst.Visible = true;
+        }
 
 		public void ShowMsgPage()
 		{

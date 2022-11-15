@@ -28,6 +28,10 @@
     </Reference>
     <Reference Include="MyMate_Network_Library">
       <HintPath>..\..\DLL\MyMate_Network_Library.dll</HintPath>
+
+    </Reference>
+    <Reference Include="ToastMessage">
+      <HintPath>..\..\DLL\ToastMessage.dll</HintPath>
     </Reference>
   </ItemGroup>
 

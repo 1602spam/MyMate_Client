@@ -18,7 +18,6 @@ using System.Windows.Forms;
 
 namespace MainForm.Controls
 {
-    //스케줄 추가가 안 된다
     public partial class CalendarPage : UserControl
     {
         //스케줄 리스트

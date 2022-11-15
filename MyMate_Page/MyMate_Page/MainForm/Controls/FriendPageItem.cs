@@ -74,5 +74,19 @@ namespace MainForm.Controls
             MainPage.mainPage.msgPage.SwitchChat(s.Code,1);
             return;
         }
+
+        private void rbtnProfile_Click(object sender, EventArgs e)
+        {
+            MdlUser user = UserContainer.Instance.Items.Values.FirstOrDefault(MdlUser => MdlUser.Code == friend.FriendCode);
+            if (user != null)
+            {
+                UserProfilePopup profile = new UserProfilePopup(user);
+                profile.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("유효하지 않은 유저 정보입니다.","알림");
+            }
+        }
     }
 }

@@ -41,7 +41,7 @@ namespace MainForm.PopupControls
 
         private void OKBtn_Click(object sender, EventArgs e)
         {
-            if (serverNameTxt.Text == "")
+            if (serverNameTxt.Text.Trim() == "")
             {
                 MessageBox.Show("서버이름을 입력하세요!", "안내");
             }
@@ -66,7 +66,7 @@ namespace MainForm.PopupControls
                 }
                 //ServerProtocol.Server server = new()
                 //Server.Instance.Send(Generater.Generate(server));
-                SvcDistributor.Instance.PutServer(new(ServerContainer.Instance.Items.Count+1, false, serverNameTxt.Text, 1, codes));
+                SvcDistributor.Instance.PutServer(new(ServerContainer.Instance.Items.Count+1, false, serverNameTxt.Text.Trim(), 1, codes));
                 this.Close();
             }
         }

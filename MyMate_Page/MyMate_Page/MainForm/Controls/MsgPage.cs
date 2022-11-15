@@ -25,6 +25,7 @@ namespace MainForm.Controls
         public MdlChatroom? Chatroom { get; set; }
         public List<Lchat> lchats = new();
         public List<Rchat> rchats = new();
+        public List<ShareChat> shareChats = new();
         public List<UserChatListItem> UserChatListItems = new();
         public int Count { get; set; }
         public MsgPage()
@@ -61,8 +62,9 @@ namespace MainForm.Controls
             SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "메시지 1", d));
             SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "메시지 1", d));
 
-            for (int i = 0; i < 100; i++) {
-                SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "메시지"+i.ToString(), d));
+            for (int i = 0; i < 100; i++)
+            {
+                SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "메시지" + i.ToString(), d));
             }
 
             SwitchChat(this.Server.Code, this.Chatroom.Code);
@@ -96,6 +98,32 @@ namespace MainForm.Controls
             if (chatTxt.Text.Trim().Length == 0)
                 return;
 
+            chatTxt.Text=chatTxt.Text.Trim();
+
+            if (chatTxt.Text[0] == '/')
+            {
+                string[] parses = chatTxt.Text.Split(' ');
+                if (parses.Length == 3)
+                {
+                    int type;
+                    int code;
+                    if (int.TryParse(parses[1], out type) == true && int.TryParse(parses[2], out code) == true)
+                    {
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("유효하지 않은 명령어 형식입니다:" , "알림");
+                        return;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("유효하지 않은 명령어 형식입니다:", "알림");
+                    return;
+                }
+            }
+
             //MdlMyself: 로그인 했을 때 받아오는 나의 정보, MdlMyself.Instance
             MdlMyself me = MdlMyself.Instance;
 
@@ -118,6 +146,7 @@ namespace MainForm.Controls
             chatPanel.Controls.Clear();
             lchats.Clear();
             rchats.Clear();
+            shareChats.Clear();
             rbtnLoadMessage.BringToFront();
         }
 
@@ -126,11 +155,11 @@ namespace MainForm.Controls
             int i;
             List<MdlMessage>? Messages_ = new();
             //채팅방 안에 남은 메시지 - 지금 표시된 메시지 개수
-            i = Chatroom.Messages.Items.Count - (lchats.Count + rchats.Count);
+            i = Chatroom.Messages.Items.Count - (lchats.Count + rchats.Count + shareChats.Count);
             //지금 표시된 메시지 개수보다 많이 남아있다면 n개, 적게 있다면 i개만 불러옴
             i = (i >= n) ? n : i;
 
-            Messages_ = ServerContainer.Instance.GetMessages(Server.Code, Chatroom.Code, i, (lchats.Count+rchats.Count));
+            Messages_ = ServerContainer.Instance.GetMessages(Server.Code, Chatroom.Code, i, (lchats.Count + rchats.Count + shareChats.Count));
 
             //해당 채팅방 안의 메시지 컨테이너로부터 정보를 리스트로 반환하고 각 항목에 대해 추가 혹은 갱신 처리
             if (Messages_ != null)
@@ -141,9 +170,9 @@ namespace MainForm.Controls
                 }
             }
             //지금 표시된 메시지 개수
-            i = Chatroom.Messages.Items.Count - (lchats.Count + rchats.Count);
+            i = Chatroom.Messages.Items.Count - (lchats.Count + rchats.Count + shareChats.Count);
             //
-            rbtnLoadMessage.Visible = i > 0 ? true : false;
+            rbtnLoadMessage.Visible = i > 0;
         }
 
         private void AddOrUpdateMessage(object v)
@@ -158,32 +187,57 @@ namespace MainForm.Controls
                 return;
 
             //명령어라면 ShareChat으로 처리
-            string[] parses = m.Context.Split(' ');
-            if (parses[0] == "/share")
+            if (m.Context[0] == '/')
             {
-                if (parses[1] == "cal")
+                String[] parses = m.Context.Split(' ');
+                if (parses.Length == 3)
+                {
+                    int type;
+                    int code;
+                    if (int.TryParse(parses[1], out type) == true && int.TryParse(parses[2], out code) == true)
                     {
-                    int i = int.Parse(parses[2]);
+                        AddOrUpdateShareChat(m, type, code, false);
+                        return;
                     }
-                else if (parses[1] == "chk")
-                    {
-                    }
+                }
             }
+
             //자기 자신이 보낸 메시지라면 Rchat에 대해 처리
-            else if (m.Creator == MdlMyself.Instance.Code)
+            if (m.Creator == MdlMyself.Instance.Code)
             {
                 //이미 있는 메시지인지 확인해서 없다면 추가, 있다면 갱신
-                MdlMessage? message = Chatroom.Messages.Items.LastOrDefault(MdlMessage => MdlMessage.Code == m.Code);
+                //MdlMessage? message = Chatroom.Messages.Items.LastOrDefault(MdlMessage => MdlMessage.Code == m.Code);
                 AddOrUpdateRChat(m, false);
                 return;
             }
             else
             //아니라면 Lchat에 대해 처리
             {
-                MdlMessage? message = Chatroom.Messages.Items.LastOrDefault(MdlMessage => MdlMessage.Code == m.Code);
+                //MdlMessage? message = Chatroom.Messages.Items.LastOrDefault(MdlMessage => MdlMessage.Code == m.Code);
                 AddOrUpdateLChat(m, false);
                 return;
             }
+        }
+
+        private void AddOrUpdateShareChat(MdlMessage message, int type, int code, bool onTop)
+        {
+            ShareChat? shareChat;
+            shareChat = shareChats.FirstOrDefault(shareChat => shareChat.Message.Code == message.Code);
+            if (shareChat == null)
+            {
+                AddShareChat(message, type, code, onTop);
+                return;
+            }
+            //shareChat.initialize(message);
+        }
+
+        private void AddShareChat(MdlMessage message, int type, int code, bool onTop)
+        {
+            var shareChat = new ShareChat(message, type, code);
+            chatPanel.Controls.Add(shareChat);
+            if (onTop) { shareChat.SendToBack(); } else { shareChat.BringToFront(); }
+            shareChat.Dock = DockStyle.Top;
+            shareChats.Add(shareChat);
         }
 
         private void AddOrUpdateMessage(object v, bool onTop)
@@ -196,18 +250,34 @@ namespace MainForm.Controls
             MdlMessage? m = v as MdlMessage;
             if (m == null)
                 return;
+
+            if (m.Context[0] == '/')
+            {
+                String[] parses = m.Context.Split(' ');
+                if (parses.Length == 3)
+                {
+                    int type;
+                    int code;
+                    if (int.TryParse(parses[1], out type) == true && int.TryParse(parses[2], out code) == true)
+                    {
+                        AddOrUpdateShareChat(m, type, code, onTop);
+                        return;
+                    }
+                }
+            }
+
             //자기 자신이 보낸 메시지라면 Rchat에 대해 처리
             if (m.Creator == MdlMyself.Instance.Code)
             {
                 //이미 있는 메시지인지 확인해서 없다면 추가, 있다면 갱신
-                MdlMessage? message = Chatroom.Messages.Items.LastOrDefault(MdlMessage => MdlMessage.Code == m.Code);
+                //MdlMessage? message = Chatroom.Messages.Items.LastOrDefault(MdlMessage => MdlMessage.Code == m.Code);
                 AddOrUpdateRChat(m, onTop);
                 return;
             }
             else
             //아니라면 Lchat에 대해 처리
             {
-                MdlMessage? message = Chatroom.Messages.Items.LastOrDefault(MdlMessage => MdlMessage.Code == m.Code);
+                //MdlMessage? message = Chatroom.Messages.Items.LastOrDefault(MdlMessage => MdlMessage.Code == m.Code);
                 AddOrUpdateLChat(m, onTop);
                 return;
             }

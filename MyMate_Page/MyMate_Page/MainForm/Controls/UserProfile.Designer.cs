@@ -51,6 +51,7 @@
             this.userprofileBtn.TabIndex = 0;
             this.userprofileBtn.TextColor = System.Drawing.Color.White;
             this.userprofileBtn.UseVisualStyleBackColor = false;
+            this.userprofileBtn.Click += new System.EventHandler(this.userprofileBtn_Click);
             // 
             // userNameTxt
             // 
@@ -63,13 +64,13 @@
             this.userNameTxt.TabIndex = 1;
             this.userNameTxt.Text = "label1";
             // 
-            // Friendprofile
+            // UserProfile
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.userNameTxt);
             this.Controls.Add(this.userprofileBtn);
-            this.Name = "Friendprofile";
+            this.Name = "UserProfile";
             this.Size = new System.Drawing.Size(144, 41);
             this.ResumeLayout(false);
             this.PerformLayout();

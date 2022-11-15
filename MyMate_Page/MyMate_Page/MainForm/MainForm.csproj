@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows10.0.17763.0</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
@@ -21,6 +21,9 @@
     </Reference>
     <Reference Include="MyMate_Network_Library">
       <HintPath>..\..\..\DLL\MyMate_Network_Library.dll</HintPath>
+    </Reference>
+    <Reference Include="ToastMessage">
+      <HintPath>..\..\..\DLL\ToastMessage.dll</HintPath>
     </Reference>
   </ItemGroup>
 

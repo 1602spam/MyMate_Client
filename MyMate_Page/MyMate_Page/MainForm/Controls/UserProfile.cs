@@ -1,4 +1,5 @@
 ﻿using ClientModules.Models;
+using MainForm.PopupControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,11 +14,20 @@ namespace MainForm.Controls
 {
     public partial class UserProfile : UserControl
     {
+        public MdlUser user { get; set; }
+        
         public UserProfile(MdlUser user)
         {
             InitializeComponent();
+            this.user = user;
             this.Name = user.Username;
             userNameTxt.Text = user.Username;
+        }
+
+        private void userprofileBtn_Click(object sender, EventArgs e)
+        {
+            UserProfilePopup profile = new UserProfilePopup(user);
+            profile.ShowDialog();
         }
     }
 }

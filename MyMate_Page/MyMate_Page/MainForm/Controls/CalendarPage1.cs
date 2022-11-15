@@ -24,7 +24,8 @@ namespace MainForm.Controls
             this.c.Set(dateTime.Year, dateTime.Month);
             y = dateTime.Year;
             m = dateTime.Month;
-
+            roundButton1.Parent = null;
+            roundButton2.Parent = null;
         }
 
         private void RBtn_Click(object sender, EventArgs e)

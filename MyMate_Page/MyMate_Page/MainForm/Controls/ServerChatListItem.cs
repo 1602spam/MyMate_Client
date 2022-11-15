@@ -1,4 +1,5 @@
-﻿using ClientModules.Models.Chat;
+﻿using ClientModules.Containers;
+using ClientModules.Models.Chat;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -49,7 +50,12 @@ namespace MainForm.Controls
 
         private void chatTileTxt_Click(object sender, EventArgs e)
         {
-
+            MdlServer? server = ServerContainer.Instance.GetServer(chatroom.ServerCode);
+            if (server != null)
+            {
+                MainPage.mainPage.serverPageInst.Initialize(server);
+                MainPage.mainPage.serverPageInst.SC.SwitchChat(server.Code, chatroom.Code);
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

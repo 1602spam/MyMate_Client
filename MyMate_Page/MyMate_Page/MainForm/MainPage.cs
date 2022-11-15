@@ -10,6 +10,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -21,7 +22,7 @@ namespace MainForm
 		public static MainPage? mainPage;
 		public MsgPage msgPage = new MsgPage();
 		public FriendPage friendPage = new FriendPage();
-		public CalendarPage calendarPage = new CalendarPage();
+		public CalendarPage1 calendarPage = new CalendarPage1();
 		public CheckListPage checkListPage = new CheckListPage();
 
 		public List<ServerBtn> serverBtns = new List<ServerBtn>();
@@ -46,8 +47,17 @@ namespace MainForm
 
 			//메시지 페이지가 보이도록 설정
 			msgPage.Visible = true;
-			//서버 컨테이너 정보 변경 발생 시 서버 버튼/페이지 설정하는 메서드를 이벤트에 등록
-			ServerContainer.Instance.DataDistributedEvent += AddOrUpdateServerBtn;
+
+            MdlServer s = new(ServerContainer.Instance.Items.Count + 1, false, "테스트용 서버", 1);
+            SvcDistributor.Instance.PutServer(s);
+            MdlChatroom c = new(s.Chatrooms.Items.Count + 1, s.Code, "테스트용 채팅방 1");
+            SvcDistributor.Instance.PutChatroom(c);
+
+
+            //서버 컨테이너 정보 변경 발생 시 서버 버튼/페이지 설정하는 메서드를 이벤트에 등록
+            ServerContainer.Instance.DataDistributedEvent += AddOrUpdateServerBtn;
+			
+			serverPageInst = new(s);
 		}
 
 		private void MainPage_Load(object sender, EventArgs e)
@@ -119,19 +129,23 @@ namespace MainForm
 
 		public void AddServerBtn(MdlServer server)
 		{
+			if (serverPageInst == null)
+			{
+				serverPageInst = new(server);
+			}
+			//panel8.Controls.Remove(serverPageInst);
 			servers.Add(server);
 			var serverBtn = new ServerBtn(server);
 			serverBtns.Add(serverBtn);
-			var serverPage = new ServerPage(server);
 
-			server.Chatrooms.DataDistributedEvent += AddChatroom;
 			int i = servers.IndexOf(server);
 
-            panel11.Controls.Add(serverBtns[i]);
-            serverBtns[i].SendToBack();
-            serverBtns[i].Dock = DockStyle.Top;
-			serverPageInst = new(server);
-            panel8.Controls.Add(serverPage);
+            panel11.Controls.Add(serverBtn);
+            serverBtn.SendToBack();
+            serverBtn.Dock = DockStyle.Top;
+			serverPageInst.Initialize(server);
+			//serverPageInst.BringToFront();
+			panel8.Controls.Add(serverPageInst);
 
 			ShowServerChat();
 
@@ -176,7 +190,8 @@ namespace MainForm
 
 		public void ServerPageChange(MdlServer server)
 		{
-			serverPageInst = new(server);
+			//serverPageInst.server.Chatrooms.DataDistributedEvent -= AddChatroom;
+			serverPageInst.Initialize(server);
 			MainPage.mainPage.ShowServerChat();
             serverPageInst.Visible = true;
         }

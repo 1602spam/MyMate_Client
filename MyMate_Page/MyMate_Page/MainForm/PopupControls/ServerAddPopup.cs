@@ -11,6 +11,7 @@ using System.Data;
 using System.Drawing;
 using System.Drawing.Text;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -66,7 +67,8 @@ namespace MainForm.PopupControls
                 }
                 //ServerProtocol.Server server = new()
                 //Server.Instance.Send(Generater.Generate(server));
-                SvcDistributor.Instance.PutServer(new(ServerContainer.Instance.Items.Count+1, false, serverNameTxt.Text.Trim(), MdlMyself.Instance.Code, codes));
+                MdlServer server = new(ServerContainer.Instance.Items.Count + 1, false, serverNameTxt.Text.Trim(), MdlMyself.Instance.Code, codes);
+                SvcDistributor.Instance.PutServer(server);
                 this.Close();
             }
         }

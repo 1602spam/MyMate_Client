@@ -69,6 +69,7 @@
             this.roundButton2.TabIndex = 1;
             this.roundButton2.TextColor = System.Drawing.Color.White;
             this.roundButton2.UseVisualStyleBackColor = false;
+            this.roundButton2.Click += new System.EventHandler(this.roundButton2_Click);
             // 
             // dateLabel
             // 

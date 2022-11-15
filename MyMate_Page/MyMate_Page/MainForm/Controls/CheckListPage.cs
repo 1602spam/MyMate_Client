@@ -95,10 +95,16 @@ namespace MainForm.Controls
                 }
                 else
                 {
-                    lblMemberList.Text += user.Username + " ";
+                    lblMemberList.Text += user.Username + ", ";
                 }
             }
-
+            
+            foreach (var item in Project.Items.Items) {
+                if (item.IsChecked)
+                    CLDoneBox.Items.Add(item.Content);
+                else
+                    CLBox.Items.Add(item.Content);
+            }
         }
 
         private void AddOrUpdateProject(object v)

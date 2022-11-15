@@ -64,7 +64,7 @@ namespace MainForm.PopupControls
                 return;
             }
 
-            lblUsername.Text = user.Username;
+            lblUsername.Text = "User123";
             if (user != null)
             {
                 rbtnProfile.Visible = true;

@@ -58,11 +58,7 @@ namespace MainForm.PopupControls
             }
             else
             {
-                List<int> codes = new();
-                foreach (string item in userList.CheckedItems)
-                {
-                    codes.Add(int.Parse(item));
-                }
+                //구현 실패!
             }
         }
 

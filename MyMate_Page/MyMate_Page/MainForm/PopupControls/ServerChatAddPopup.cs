@@ -55,7 +55,7 @@ namespace MainForm.PopupControls
             }
 
             //채널을 만들어 전송
-            SvcDistributor.Instance.PutChatroom(new(server.Chatrooms.Items.Count + 1, serverCode, chatNameTxt.Text.Trim()));
+            SvcDistributor.Instance.PutChatroom(new(server.Chatrooms.Items.Count + 2, serverCode, chatNameTxt.Text.Trim()));
             //전송 코드를 넣으시오
 
             //메인 페이지에서 서버가 추가될 때 해당 서버의 채팅방 변경 이벤트 채널 추가 메서드를 연결시킴

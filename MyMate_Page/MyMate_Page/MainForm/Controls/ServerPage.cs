@@ -30,7 +30,18 @@ namespace MainForm.Controls
 
             server = s;
             Initialize(s);
-            
+        }
+
+        public void Initialize(MdlServer s)
+        {
+            //서버 정보가 변할 때마다 호출됨
+            this.server = s;
+            this.Name = server.Title;
+
+            SChatListPanel.Controls.Remove(SCL);
+            SChatPanel.Controls.Remove(SC);
+            SFriendsPanel.Controls.Remove(SF);
+
             SF = new ServerFriends(server);
             SF.Parent = SFriendsPanel;
             SF.Dock = DockStyle.Fill;
@@ -49,13 +60,6 @@ namespace MainForm.Controls
 
             this.Visible = true;
             this.Dock = DockStyle.Fill;
-        }
-
-        private void Initialize(MdlServer s)
-        {
-            //서버 정보가 변할 때마다 호출됨
-            this.server = s;
-            this.Name = server.Title;
         }
     }
 }

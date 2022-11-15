@@ -29,15 +29,16 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.lblProgress = new System.Windows.Forms.Label();
             this.lblServer = new System.Windows.Forms.Label();
             this.projectBtn = new System.Windows.Forms.Button();
-            this.lblTitle = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
             // 
+            this.panel1.BackColor = System.Drawing.Color.LightSteelBlue;
             this.panel1.Controls.Add(this.lblTitle);
             this.panel1.Controls.Add(this.lblProgress);
             this.panel1.Controls.Add(this.lblServer);
@@ -48,9 +49,20 @@
             this.panel1.Size = new System.Drawing.Size(180, 150);
             this.panel1.TabIndex = 0;
             // 
+            // lblTitle
+            // 
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.BackColor = System.Drawing.Color.LightSteelBlue;
+            this.lblTitle.Location = new System.Drawing.Point(15, 68);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(34, 15);
+            this.lblTitle.TabIndex = 6;
+            this.lblTitle.Text = "제목:";
+            // 
             // lblProgress
             // 
             this.lblProgress.AutoSize = true;
+            this.lblProgress.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblProgress.Location = new System.Drawing.Point(15, 117);
             this.lblProgress.Name = "lblProgress";
             this.lblProgress.Size = new System.Drawing.Size(85, 15);
@@ -60,6 +72,7 @@
             // lblServer
             // 
             this.lblServer.AutoSize = true;
+            this.lblServer.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lblServer.Location = new System.Drawing.Point(15, 17);
             this.lblServer.Name = "lblServer";
             this.lblServer.Size = new System.Drawing.Size(114, 15);
@@ -68,6 +81,7 @@
             // 
             // projectBtn
             // 
+            this.projectBtn.BackColor = System.Drawing.Color.LightSteelBlue;
             this.projectBtn.Dock = System.Windows.Forms.DockStyle.Fill;
             this.projectBtn.FlatAppearance.BorderSize = 0;
             this.projectBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -75,22 +89,14 @@
             this.projectBtn.Name = "projectBtn";
             this.projectBtn.Size = new System.Drawing.Size(180, 150);
             this.projectBtn.TabIndex = 3;
-            this.projectBtn.UseVisualStyleBackColor = true;
+            this.projectBtn.UseVisualStyleBackColor = false;
             this.projectBtn.Click += new System.EventHandler(this.projectBtn_Click);
-            // 
-            // lblTitle
-            // 
-            this.lblTitle.AutoSize = true;
-            this.lblTitle.Location = new System.Drawing.Point(15, 68);
-            this.lblTitle.Name = "lblTitle";
-            this.lblTitle.Size = new System.Drawing.Size(34, 15);
-            this.lblTitle.TabIndex = 6;
-            this.lblTitle.Text = "제목:";
             // 
             // CheckListProject
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.Controls.Add(this.panel1);
             this.Name = "CheckListProject";
             this.Size = new System.Drawing.Size(180, 150);

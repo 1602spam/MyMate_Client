@@ -1,5 +1,7 @@
 ﻿using ClientModules.Containers;
+using ClientModules.Models;
 using ClientModules.Models.Chat;
+using Microsoft.VisualBasic.ApplicationServices;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -112,6 +114,16 @@ namespace MainForm.Controls
 		private void Lchat_Load(object sender, EventArgs e)
 		{
             this.Initialize(mdlMessage);
+        }
+
+		private void roundButton2_Click(object sender, EventArgs e)
+		{
+			MdlUser? user = UserContainer.Instance.Items.Values.FirstOrDefault(MdlUser => MdlUser.Code == mdlMessage.Creator);
+			if (user != null)
+			{
+				UserProfilePopup profile = new UserProfilePopup(user);
+				profile.ShowDialog();
+			}
         }
 	}
 }

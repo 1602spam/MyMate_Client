@@ -76,6 +76,7 @@
             // 
             // panel5
             // 
+            this.panel5.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel5.Controls.Add(this.createProjectBtn);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel5.Location = new System.Drawing.Point(0, 0);
@@ -105,7 +106,7 @@
             // 
             // panel4
             // 
-            this.panel4.BackColor = System.Drawing.Color.PaleTurquoise;
+            this.panel4.BackColor = System.Drawing.SystemColors.Control;
             this.panel4.Controls.Add(this.removeBtn);
             this.panel4.Controls.Add(this.editBtn);
             this.panel4.Controls.Add(this.CLDoneBox);
@@ -220,6 +221,7 @@
             // 
             // panel3
             // 
+            this.panel3.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.panel3.Controls.Add(this.label1);
             this.panel3.Controls.Add(this.progressBar1);
             this.panel3.Location = new System.Drawing.Point(0, 0);

@@ -30,7 +30,7 @@ namespace MainForm.PopupControls
             {
                 if (server.OwnerCode == MdlMyself.Instance.Code && server.IsDeleted == false && server.IsCompact == false)    // 방장코드, 로그인 코드
                 {
-                    MdlProject? project = ProjectContainer.Instance.Items.Values.FirstOrDefault(MdlProject => MdlProject.ServerCode == server.Code);
+                    MdlProject? project = ProjectContainer.Instance.Items.Values.FirstOrDefault(MdlProject => MdlProject.ServerCode == server.Code && MdlProject.IsDeleted == false);
                     if (project == null)
                     {
                         string str = server.Title + "(" + server.Code + ")";

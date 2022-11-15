@@ -114,6 +114,7 @@
             // 
             // rtbIntroduction
             // 
+            this.rtbIntroduction.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.rtbIntroduction.Location = new System.Drawing.Point(12, 218);
             this.rtbIntroduction.Name = "rtbIntroduction";
             this.rtbIntroduction.ReadOnly = true;
@@ -128,7 +129,7 @@
             this.button1.FlatAppearance.BorderSize = 0;
             this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button1.ForeColor = System.Drawing.Color.Black;
-            this.button1.Location = new System.Drawing.Point(85, 305);
+            this.button1.Location = new System.Drawing.Point(85, 313);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(98, 25);
             this.button1.TabIndex = 9;

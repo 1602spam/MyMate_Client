@@ -42,7 +42,6 @@ namespace MainForm.Controls
             SC = new ServerChat();
             SC.Parent = SChatPanel;
             SC.Dock = DockStyle.Fill;
-            SC.Initialize
 
             SChatListPanel.Controls.Add(SCL);
             SChatPanel.Controls.Add(SC);

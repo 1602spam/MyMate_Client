@@ -62,11 +62,6 @@ namespace MainForm.Controls
             SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "메시지 1", d));
             SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "메시지 1", d));
 
-            for (int i = 0; i < 100; i++)
-            {
-                SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "메시지" + i.ToString(), d));
-            }
-
             SwitchChat(this.Server.Code, this.Chatroom.Code);
         }
 

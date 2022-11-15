@@ -27,7 +27,7 @@ namespace MainForm
             d.PutFriend(new MdlFriend(4, "4번", false, false));
             d.PutFriend(new MdlFriend(5, "5번", false, false));
 
-            MdlMyself.Instance.SetProperty(2, "uniqueid", "나는나예요", "나는나예요", "asdfd", "asd", "asd", DateTime.Now);
+            //MdlMyself.Instance.SetProperty(2, "uniqueid", "나는나예요", "나는나예요", "asdfd", "asd", "asd", DateTime.Now);
             SvcDistributor.Instance.PutServer(new(3, false, "asd", MdlMyself.Instance.Code));
             Application.Run(new MainPage());
         }

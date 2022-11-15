@@ -39,10 +39,10 @@ namespace WinFormsApp1
             calender1.Add("Test", new(2021, 12, 28), new(2022, 1, 3));
 
             s = new("아주큰거", new(2022, 11, 1), new(2022, 11, 30));
-			s.SetColor(Color.Beige);
+			s.SetColor(Color.Orange);
 			calender1.Add(s);
 			s = new("Test", new(2022, 11, 7), new(2022, 11, 7));
-			s.SetColor(Color.Beige);
+			s.SetColor(Color.Red);
 			calender1.Add(s);
 			//calender1.SchduleReplace();
 		}

@@ -41,6 +41,8 @@ namespace Calender
 		{
 			this.year = year;
 			this.month = month;
+			//this.Clear();
+
 			this.lblMonth.Text = this.year + " 년 " + this.month + " 월";
 
 			// 마지막날짜 저장
@@ -85,10 +87,12 @@ namespace Calender
 
 		public void Clear()
 		{
-			this.schedules.Clear();
-			// 모든 리스트 초기화
-			foreach(CalenderDay d in days)
-				d.Clear();
+			if(schedules != null)
+				this.schedules.Clear();
+            // 모든 리스트 초기화
+            if (days != null)
+                foreach (CalenderDay d in days)
+					d.Clear();
 		}
 		public void Add(string title, DateTime? start = null, DateTime? end = null)
 		{

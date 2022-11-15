@@ -21,7 +21,8 @@ namespace MainForm
 		public static MainPage? mainPage;
 		public MsgPage msgPage = new MsgPage();
 		public FriendPage friendPage = new FriendPage();
-		public CalendarPage calendarPage = new CalendarPage();
+		public CalendarPage1 calendarPage = new CalendarPage1(); /// 잠시 바꿈
+		
 		public CheckListPage checkListPage = new CheckListPage();
 
 		public List<ServerBtn> serverBtns = new List<ServerBtn>();

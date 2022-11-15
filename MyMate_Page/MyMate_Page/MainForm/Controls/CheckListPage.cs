@@ -44,7 +44,7 @@ namespace MainForm.Controls
             //프로젝트 클릭하거나 생성했을 때 부터 보이게 함
             panel4.Visible = false;
             //ProjectContainer.Instance.GetListItems()
-            projects.Add()
+            //projects.Add()
 
             //프로젝트 컨테이너에 프로젝트 추가/갱신 될 때마다 프로젝트 세로고침
             //ProjectContainer.Instance.DataDistributedEvent += AddUpdateProjectList();

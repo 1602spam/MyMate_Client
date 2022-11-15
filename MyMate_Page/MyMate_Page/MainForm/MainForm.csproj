@@ -13,11 +13,14 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Calender">
+      <HintPath>..\..\..\DLL\Calender.dll</HintPath>
+    </Reference>
     <Reference Include="ClientToServer">
-      <HintPath>..\..\..\MyMate_Network\DLL\ClientToServer.dll</HintPath>
+      <HintPath>..\..\..\DLL\ClientToServer.dll</HintPath>
     </Reference>
     <Reference Include="MyMate_Network_Library">
-      <HintPath>..\..\..\MyMate_Network\DLL\MyMate_Network_Library.dll</HintPath>
+      <HintPath>..\..\..\DLL\MyMate_Network_Library.dll</HintPath>
     </Reference>
   </ItemGroup>
 

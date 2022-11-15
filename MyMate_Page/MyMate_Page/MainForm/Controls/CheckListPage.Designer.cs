@@ -40,11 +40,11 @@
             this.CLBox = new System.Windows.Forms.CheckedListBox();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.membersTxt = new System.Windows.Forms.Label();
+            this.lblMemberList = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.dateTxt = new System.Windows.Forms.Label();
+            this.lblDate = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.titleTxt = new System.Windows.Forms.Label();
+            this.lblTitle = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.panel3 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
@@ -113,11 +113,11 @@
             this.panel4.Controls.Add(this.CLBox);
             this.panel4.Controls.Add(this.label9);
             this.panel4.Controls.Add(this.label8);
-            this.panel4.Controls.Add(this.membersTxt);
+            this.panel4.Controls.Add(this.lblMemberList);
             this.panel4.Controls.Add(this.label6);
-            this.panel4.Controls.Add(this.dateTxt);
+            this.panel4.Controls.Add(this.lblDate);
             this.panel4.Controls.Add(this.label4);
-            this.panel4.Controls.Add(this.titleTxt);
+            this.panel4.Controls.Add(this.lblTitle);
             this.panel4.Controls.Add(this.label2);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel4.Location = new System.Drawing.Point(0, 50);
@@ -185,14 +185,15 @@
             this.label8.TabIndex = 6;
             this.label8.Text = "< 업무 >";
             // 
-            // membersTxt
+            // lblMemberList
             // 
-            this.membersTxt.AutoSize = true;
-            this.membersTxt.Location = new System.Drawing.Point(38, 169);
-            this.membersTxt.Name = "membersTxt";
-            this.membersTxt.Size = new System.Drawing.Size(39, 15);
-            this.membersTxt.TabIndex = 5;
-            this.membersTxt.Text = "label7";
+            this.lblMemberList.AutoSize = true;
+            this.lblMemberList.Location = new System.Drawing.Point(38, 169);
+            this.lblMemberList.Name = "lblMemberList";
+            this.lblMemberList.Size = new System.Drawing.Size(43, 15);
+            this.lblMemberList.TabIndex = 5;
+            this.lblMemberList.Text = "참여자";
+            this.lblMemberList.Click += new System.EventHandler(this.membersTxt_Click);
             // 
             // label6
             // 
@@ -203,14 +204,14 @@
             this.label6.TabIndex = 4;
             this.label6.Text = "< 참여자 >";
             // 
-            // dateTxt
+            // lblDate
             // 
-            this.dateTxt.AutoSize = true;
-            this.dateTxt.Location = new System.Drawing.Point(38, 103);
-            this.dateTxt.Name = "dateTxt";
-            this.dateTxt.Size = new System.Drawing.Size(39, 15);
-            this.dateTxt.TabIndex = 3;
-            this.dateTxt.Text = "label5";
+            this.lblDate.AutoSize = true;
+            this.lblDate.Location = new System.Drawing.Point(38, 103);
+            this.lblDate.Name = "lblDate";
+            this.lblDate.Size = new System.Drawing.Size(31, 15);
+            this.lblDate.TabIndex = 3;
+            this.lblDate.Text = "기간";
             // 
             // label4
             // 
@@ -221,14 +222,14 @@
             this.label4.TabIndex = 2;
             this.label4.Text = "< 기간 >";
             // 
-            // titleTxt
+            // lblTitle
             // 
-            this.titleTxt.AutoSize = true;
-            this.titleTxt.Location = new System.Drawing.Point(38, 41);
-            this.titleTxt.Name = "titleTxt";
-            this.titleTxt.Size = new System.Drawing.Size(39, 15);
-            this.titleTxt.TabIndex = 1;
-            this.titleTxt.Text = "label3";
+            this.lblTitle.AutoSize = true;
+            this.lblTitle.Location = new System.Drawing.Point(38, 41);
+            this.lblTitle.Name = "lblTitle";
+            this.lblTitle.Size = new System.Drawing.Size(31, 15);
+            this.lblTitle.TabIndex = 1;
+            this.lblTitle.Text = "제목";
             // 
             // label2
             // 
@@ -300,11 +301,11 @@
         private CheckedListBox CLBox;
         private Label label9;
         private Label label8;
-        private Label membersTxt;
+        private Label lblMemberList;
         private Label label6;
-        private Label dateTxt;
+        private Label lblDate;
         private Label label4;
-        private Label titleTxt;
+        private Label lblTitle;
         private Label label2;
         private Button removeBtn;
         private Button editBtn;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ClientModules.Models.CheckList;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -16,11 +17,11 @@ namespace MainForm.PopupControls
         List<CheckListWork> CLW = new List<CheckListWork>(); 
         // 서버 코드
         int ServerCode;
-        public CheckListWorkPopup(int serverCode)
+        public CheckListWorkPopup(MdlProject project)
         {
             InitializeComponent();
             //서버코드 CheckListPage로 부터 받아 옴
-            ServerCode = serverCode;
+            ServerCode = project.ServerCode;
             // 내 서버라는 레이블 추가????????
             //CheckListProject 에 있는 Works 리스트 가지고 옴
             // for 문!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

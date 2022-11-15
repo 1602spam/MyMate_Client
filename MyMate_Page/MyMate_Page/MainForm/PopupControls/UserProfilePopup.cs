@@ -30,7 +30,7 @@ namespace MainForm.Controls
             rtbIntroduction.Text = u.Introduction;
             if (User.Code == MdlMyself.Instance.Code)
             {
-                btnChat.Visible = false;
+                button1.Visible = false;
             }
         }
 

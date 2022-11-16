@@ -34,6 +34,8 @@
             this.removeSDBtn = new System.Windows.Forms.Button();
             this.addSDBtn = new System.Windows.Forms.Button();
             this.panel8 = new System.Windows.Forms.Panel();
+            this.roundButton1 = new MainForm.Controls.RoundButton();
+            this.roundButton2 = new MainForm.Controls.RoundButton();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,14 +46,12 @@
             this.Panel7 = new System.Windows.Forms.Panel();
             this.c = new Calender.Calender();
             this.panel6 = new System.Windows.Forms.Panel();
-            this.roundButton2 = new MainForm.Controls.RoundButton();
             this.panel4 = new System.Windows.Forms.Panel();
-            this.roundButton1 = new MainForm.Controls.RoundButton();
             this.panel5 = new System.Windows.Forms.Panel();
             this.panel2.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.panel3.SuspendLayout();
             this.Panel7.SuspendLayout();
-            this.panel6.SuspendLayout();
             this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -113,10 +113,53 @@
             // panel8
             // 
             this.panel8.AutoScroll = true;
+            this.panel8.Controls.Add(this.roundButton1);
+            this.panel8.Controls.Add(this.roundButton2);
             this.panel8.Location = new System.Drawing.Point(0, 91);
             this.panel8.Name = "panel8";
             this.panel8.Size = new System.Drawing.Size(180, 538);
             this.panel8.TabIndex = 6;
+            // 
+            // roundButton1
+            // 
+            this.roundButton1.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundButton1.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundButton1.BorderColor = System.Drawing.Color.Red;
+            this.roundButton1.BorderRadius = 15;
+            this.roundButton1.BorderSize = 0;
+            this.roundButton1.FlatAppearance.BorderSize = 0;
+            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundButton1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.roundButton1.ForeColor = System.Drawing.Color.White;
+            this.roundButton1.Location = new System.Drawing.Point(9, 18);
+            this.roundButton1.Name = "roundButton1";
+            this.roundButton1.Size = new System.Drawing.Size(30, 30);
+            this.roundButton1.TabIndex = 1;
+            this.roundButton1.Text = "◀";
+            this.roundButton1.TextColor = System.Drawing.Color.White;
+            this.roundButton1.UseVisualStyleBackColor = false;
+            this.roundButton1.Click += new System.EventHandler(this.LBtn_Click);
+            // 
+            // roundButton2
+            // 
+            this.roundButton2.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundButton2.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.roundButton2.BorderColor = System.Drawing.Color.Red;
+            this.roundButton2.BorderRadius = 15;
+            this.roundButton2.BorderSize = 0;
+            this.roundButton2.FlatAppearance.BorderSize = 0;
+            this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.roundButton2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            this.roundButton2.ForeColor = System.Drawing.Color.White;
+            this.roundButton2.Location = new System.Drawing.Point(45, 18);
+            this.roundButton2.Name = "roundButton2";
+            this.roundButton2.Size = new System.Drawing.Size(30, 30);
+            this.roundButton2.TabIndex = 3;
+            this.roundButton2.Text = "▶";
+            this.roundButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.roundButton2.TextColor = System.Drawing.Color.White;
+            this.roundButton2.UseVisualStyleBackColor = false;
+            this.roundButton2.Click += new System.EventHandler(this.RBtn_Click);
             // 
             // label3
             // 
@@ -182,9 +225,10 @@
             // 
             this.Panel7.AutoScroll = true;
             this.Panel7.Controls.Add(this.c);
-            this.Panel7.Location = new System.Drawing.Point(33, 3);
+            this.Panel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Panel7.Location = new System.Drawing.Point(30, 0);
             this.Panel7.Name = "Panel7";
-            this.Panel7.Size = new System.Drawing.Size(704, 476);
+            this.Panel7.Size = new System.Drawing.Size(710, 482);
             this.Panel7.TabIndex = 3;
             // 
             // c
@@ -193,12 +237,11 @@
             this.c.Dock = System.Windows.Forms.DockStyle.Top;
             this.c.Location = new System.Drawing.Point(0, 0);
             this.c.Name = "c";
-            this.c.Size = new System.Drawing.Size(704, 53);
+            this.c.Size = new System.Drawing.Size(710, 53);
             this.c.TabIndex = 0;
             // 
             // panel6
             // 
-            this.panel6.Controls.Add(this.roundButton2);
             this.panel6.Dock = System.Windows.Forms.DockStyle.Right;
             this.panel6.Location = new System.Drawing.Point(740, 0);
             this.panel6.Margin = new System.Windows.Forms.Padding(0);
@@ -206,30 +249,8 @@
             this.panel6.Size = new System.Drawing.Size(30, 482);
             this.panel6.TabIndex = 3;
             // 
-            // roundButton2
-            // 
-            this.roundButton2.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.roundButton2.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.roundButton2.BorderColor = System.Drawing.Color.Red;
-            this.roundButton2.BorderRadius = 15;
-            this.roundButton2.BorderSize = 0;
-            this.roundButton2.FlatAppearance.BorderSize = 0;
-            this.roundButton2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton2.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.roundButton2.ForeColor = System.Drawing.Color.White;
-            this.roundButton2.Location = new System.Drawing.Point(-3, 15);
-            this.roundButton2.Name = "roundButton2";
-            this.roundButton2.Size = new System.Drawing.Size(30, 30);
-            this.roundButton2.TabIndex = 3;
-            this.roundButton2.Text = "▶";
-            this.roundButton2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.roundButton2.TextColor = System.Drawing.Color.White;
-            this.roundButton2.UseVisualStyleBackColor = false;
-            this.roundButton2.Click += new System.EventHandler(this.RBtn_Click);
-            // 
             // panel4
             // 
-            this.panel4.Controls.Add(this.roundButton1);
             this.panel4.Controls.Add(this.panel5);
             this.panel4.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel4.Location = new System.Drawing.Point(0, 0);
@@ -237,26 +258,6 @@
             this.panel4.Name = "panel4";
             this.panel4.Size = new System.Drawing.Size(30, 482);
             this.panel4.TabIndex = 1;
-            // 
-            // roundButton1
-            // 
-            this.roundButton1.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.roundButton1.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.roundButton1.BorderColor = System.Drawing.Color.Red;
-            this.roundButton1.BorderRadius = 15;
-            this.roundButton1.BorderSize = 0;
-            this.roundButton1.FlatAppearance.BorderSize = 0;
-            this.roundButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.roundButton1.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.roundButton1.ForeColor = System.Drawing.Color.White;
-            this.roundButton1.Location = new System.Drawing.Point(4, 15);
-            this.roundButton1.Name = "roundButton1";
-            this.roundButton1.Size = new System.Drawing.Size(30, 30);
-            this.roundButton1.TabIndex = 1;
-            this.roundButton1.Text = "◀";
-            this.roundButton1.TextColor = System.Drawing.Color.White;
-            this.roundButton1.UseVisualStyleBackColor = false;
-            this.roundButton1.Click += new System.EventHandler(this.LBtn_Click);
             // 
             // panel5
             // 
@@ -278,10 +279,10 @@
             this.Size = new System.Drawing.Size(950, 632);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.panel8.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
             this.Panel7.ResumeLayout(false);
             this.Panel7.PerformLayout();
-            this.panel6.ResumeLayout(false);
             this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 

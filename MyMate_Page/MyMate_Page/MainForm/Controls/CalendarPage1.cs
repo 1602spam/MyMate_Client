@@ -1,4 +1,6 @@
 ﻿using ClientModules.Containers;
+using ClientModules.Models;
+using ClientModules.Models.CheckList;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -6,6 +8,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -15,6 +18,7 @@ namespace MainForm.Controls
     {
         int y, m;
         DateTime dateTime;
+        public MdlProject Project { get; set; }
 
         public CalendarPage1()
         {
@@ -24,8 +28,18 @@ namespace MainForm.Controls
             this.c.Set(dateTime.Year, dateTime.Month);
             y = dateTime.Year;
             m = dateTime.Month;
-            roundButton1.Parent = null;
-            roundButton2.Parent = null;
+            roundButton1.Parent = this;
+            roundButton2.Parent = this;
+
+            c.Add("Test", new(2022, 10, 30), new(2022, 11, 3));
+            c.Add("Test", new(2022, 11, 2), new(2022, 11, 2));
+            c.Add("Test", new(2022, 11, 2), new(2022, 11, 3));
+            c.Add("Test", new(2022, 11, 16), new(2022, 11, 16));
+            c.Add("Test", new(2022, 11, 16), new(2022, 11, 16));
+            c.Add("Test", new(2022, 11, 5), new(2022, 11, 10));
+            c.Add("Test", new(2022, 11, 20), new(2022, 11, 26));
+            c.Add("Test", new(2022, 11, 21), new(2022, 11, 24));
+            c.Add("Test", new(2022, 11, 20), new(2022, 11, 25));
         }
 
         private void RBtn_Click(object sender, EventArgs e)
@@ -64,15 +78,18 @@ namespace MainForm.Controls
 
                 // 날짜에 해당하는 일정들을 가지고 와서 페널에 넣어 줌(for 문) /////////////해당 유저가 가지고있는 스케줄
                 /*
-                foreach(var s in ScheduleContainer.Instance.GetScheduleItems(channel))
+                foreach(var s in ScheduleContainer.Instance.GetScheduleItems(Project.Code))
                 {
                     c.Add(s.Title, s.StartDate, s.EndDate);
                     DaySchedule DS = new DaySchedule(s.Title, s.StartDate, s.EndDate);
                 }
-                */
-                //DaySchedule DS = new DaySchedule(); //누구의 스케줄인지, 제목, 시작날짜, 종료날짜 넘겨줌
-                //UpdateDaySchedule();
 
+                string? str = ServerContainer.Instance.Items.Values.FirstOrDefault(MdlServer => MdlServer.Code == Project.ServerCode).Title;
+                if (str != null) { }
+                {
+                    DaySchedule DS = new DaySchedule(str,); //누구의 스케줄인지, 제목, 시작날짜, 종료날짜 넘겨줌
+                    UpdateDaySchedule();
+                }*/
             }
         }
 

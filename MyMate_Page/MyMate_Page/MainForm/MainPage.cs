@@ -48,7 +48,10 @@ namespace MainForm
 			//메시지 페이지가 보이도록 설정
 			msgPage.Visible = true;
 
-            MdlServer s = new(ServerContainer.Instance.Items.Count + 1, false, "테스트용 서버", 1);
+            MdlServer s = new(0, false, "테스트용 서버", 1);
+            SvcDistributor.Instance.PutServer(s);
+
+            s = new(ServerContainer.Instance.Items.Count + 1, false, "테스트용 서버", 1);
             SvcDistributor.Instance.PutServer(s);
             MdlChatroom c = new(s.Chatrooms.Items.Count + 1, s.Code, "테스트용 채팅방 1");
             SvcDistributor.Instance.PutChatroom(c);

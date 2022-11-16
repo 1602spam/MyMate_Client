@@ -37,7 +37,7 @@ namespace MainForm
 
             MdlServer server = new(1, false, "Test Server", MdlMyself.Instance.Code);
             SvcDistributor.Instance.PutServer(server);
-            //MdlMyself.Instance.SetProperty(2, "uniqueid", "나의 이름", "나의 이름", "poro912@naver.com", "010-1111-2222", "반갑습니다.", DateTime.Now);
+            MdlMyself.Instance.SetProperty(2, "uniqueid", "나의 이름", "나의 이름", "poro912@naver.com", "010-1111-2222", "반갑습니다.", DateTime.Now);
             //SvcDistributor.Instance.PutServer(new(3, false, "asd", MdlMyself.Instance.Code));
             Application.Run(new MainPage());
         }

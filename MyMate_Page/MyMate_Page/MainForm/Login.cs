@@ -95,7 +95,7 @@ namespace MainForm
 
             MdlLogIn login = new(IDTxt.Text, PWTxt.Text);
             //서버에 ID PW 보내고 ID PW 맞는지 서버로부터 응답 받음, 유저코드가 0이면 실패, 아니면 성공
-            LogInController.SendLogInRequestAndWait(login);
+            //LogInController.SendLogInRequestAndWait(login);
 
             if (MdlMyself.Instance.Code == 0)
             {

@@ -23,6 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Reference Include="Calender">
+      <HintPath>..\..\DLL\Calender.dll</HintPath>
+    </Reference>
     <Reference Include="ClientToServer">
       <HintPath>..\..\DLL\ClientToServer.dll</HintPath>
     </Reference>

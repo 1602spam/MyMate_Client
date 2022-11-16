@@ -38,7 +38,7 @@ namespace MainForm.Controls
             ServerContainer.Instance.DataDistributedEvent += AddOrUpdateUserChat;
 
             //테스트용 서버 1과 그 안의 채팅방 1을 생성하고 Distributor에서 처리 => 각 컨테이너에 넣음
-            MdlServer s = new(ServerContainer.Instance.Items.Count + 1, true, "테스트용 서버", 1);
+            MdlServer s = new(ServerContainer.Instance.Items.Count + 1, true, "MyMate", 1);
             SvcDistributor.Instance.PutServer(s);
             MdlChatroom c = new(s.Chatrooms.Items.Count + 1, s.Code, "테스트용 채팅방 1");
             SvcDistributor.Instance.PutChatroom(c);
@@ -55,15 +55,15 @@ namespace MainForm.Controls
         {
             DateTime d = DateTime.Now;
 
-            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, 1, "메시지 1", new DateTime(d.Year - 1, d.Month, d.Day, d.Hour, d.Minute, d.Second)));
-            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, 1, "메시지 1", new DateTime(d.Year, d.Month, d.Day - 2, d.Hour, d.Minute, d.Second)));
-            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, 1, "메시지 1", new DateTime(d.Year, d.Month, d.Day - 1, d.Hour, d.Minute, d.Second)));
-            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, 1, "메시지 1", d));
-            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "메시지 1", d));
-            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "메시지 1", d));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, 1, "첫 메시지!", new DateTime(d.Year - 1, d.Month, d.Day, d.Hour, d.Minute, d.Second)));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, 1, "반갑습니다.", new DateTime(d.Year, d.Month, d.Day - 2, d.Hour, d.Minute, d.Second)));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, 1, "업무 효율이 늘어나는 메신저", new DateTime(d.Year, d.Month, d.Day - 1, d.Hour, d.Minute, d.Second)));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, 1, "MyMate입니다.", d));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "안녕하세요!", d));
+            SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "반갑습니다.", d));
 
-            for (int i = 0; i < 20; i++) {
-                SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "테스트 메시지", d));
+            for (int i = 0; i < 15; i++) {
+                SvcDistributor.Instance.PutMessage(new MdlMessage(Chatroom.Messages.Items.Count + 1, this.Server.Code, this.Chatroom.Code, MdlMyself.Instance.Code, "메시지", d));
             }
             SwitchChat(this.Server.Code, this.Chatroom.Code);
         }
